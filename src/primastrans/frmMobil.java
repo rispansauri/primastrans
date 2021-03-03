@@ -29,7 +29,6 @@ public class frmMobil extends javax.swing.JFrame {
         kosong();
         textboxOff();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -302,8 +301,29 @@ public class frmMobil extends javax.swing.JFrame {
     private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
         // TODO add your handling code here:
         textboxOn();
+        kosong();
+        kdMobil();
     }//GEN-LAST:event_btnBaruActionPerformed
 
+    private void kdMobil() {
+        try {
+            String sql = "select * from tb_mobil order by kd_mobil desc";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet rs=stm.executeQuery(sql);
+            if (rs.next()) {
+                String kd = rs.getString("kd_mobil").substring(1);
+                String AN = "" + (Integer.parseInt(kd) + 1);
+                txtKdMobil.setText("P" + AN);
+            } else {
+               txtKdMobil.setText("P1");
+            }
+
+           }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+    }
+    
     private void textboxOn() {
     txtNopol.setEnabled(true);
     txtMerk.setEnabled(true);
@@ -318,7 +338,7 @@ public class frmMobil extends javax.swing.JFrame {
     }
     
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:    
         try {
             String sql = "INSERT INTO tb_mobil VALUES ('"+txtKdMobil.getText()+"','"+txtNopol.getText()+"','"+txtMerk.getText()+"','"+txtJenis.getText()+"')";
             java.sql.Connection conn=(Connection)Config.configDB();
@@ -340,7 +360,7 @@ public class frmMobil extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int baris = jTable1.rowAtPoint(evt.getPoint());
+        int baris = jTable1.rowAtPoint(evt.getPoint());
         String kdmobil =jTable1.getValueAt(baris, 0).toString();
         txtKdMobil.setText(kdmobil);
         String nopol = jTable1.getValueAt(baris,1).toString();
@@ -349,6 +369,7 @@ public class frmMobil extends javax.swing.JFrame {
         txtMerk.setText(merk);
         String jenis = jTable1.getValueAt(baris, 3).toString();
         txtJenis.setText(jenis);
+        textboxOn();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed

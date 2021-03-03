@@ -340,7 +340,7 @@ public class frmMobil extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int baris = jTable1.rowAtPoint(evt.getPoint());
+        int baris = jTable1.rowAtPoint(evt.getPoint());
         String kdmobil =jTable1.getValueAt(baris, 0).toString();
         txtKdMobil.setText(kdmobil);
         String nopol = jTable1.getValueAt(baris,1).toString();

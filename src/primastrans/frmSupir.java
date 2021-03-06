@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
+import net.sf.jasperreports.view.*;
+import net.sf.jasperreports.engine.*;
 
 /**
  *
@@ -321,7 +323,7 @@ public class frmSupir extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
          try {
-            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSupir.jasper"), null, Koneksi.getConnection());
+            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSupir.jasper"), null, Config.configDB());
             JasperViewer.viewReport(jp, false);
         } catch(Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);

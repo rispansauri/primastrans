@@ -5,31 +5,31 @@
  */
 package primastrans;
 
-/**
- *
- * @author R
- */
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
-
-public class frmMobil extends javax.swing.JFrame {
+/**
+ *
+ * @author R
+ */
+public class frmSupir extends javax.swing.JFrame {
     public Connection conn;
     public ResultSet rs;
     public PreparedStatement pst;
     /**
-     * Creates new form frmMobil
+     * Creates new form frmSupir
      */
-    public frmMobil() {
+    public frmSupir() {
         initComponents();
         this.setLocationRelativeTo(null);
         load_table();
         kosong();
         textboxOff();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,13 +43,9 @@ public class frmMobil extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtKdMobil = new javax.swing.JTextField();
-        txtNopol = new javax.swing.JTextField();
+        txtNIK = new javax.swing.JTextField();
+        txtNama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtMerk = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtJenis = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         btnSimpan = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnBaru = new javax.swing.JButton();
@@ -60,25 +56,16 @@ public class frmMobil extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setText("DATA MOBIL");
+        jLabel1.setText("DATA SUPIR");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Form"));
 
-        jLabel2.setText("Kode Mobil");
+        jLabel2.setText("NIK");
 
-        jLabel3.setText("NOPOL");
-
-        jLabel4.setText("Merk");
-
-        jLabel5.setText("Jenis");
+        jLabel3.setText("Nama");
 
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -93,28 +80,14 @@ public class frmMobil extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSimpan)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMerk, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(18, 18, 18))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(35, 35, 35)))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNopol, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtKdMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNIK, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -123,22 +96,14 @@ public class frmMobil extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtKdMobil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNIK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNopol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtMerk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtJenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSimpan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Action"));
@@ -188,7 +153,7 @@ public class frmMobil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Mobil"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Supir"));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,46 +237,19 @@ public class frmMobil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        // TODO add your handling code here:
-        int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
-        if (opsi == JOptionPane.YES_OPTION){
-            try {
-            String sql ="delete from tb_mobil where kd_mobil='"+txtKdMobil.getText()+"'";
-            java.sql.Connection conn=(Connection)Config.configDB();
-            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(this, "Data berhasil di hapus.");
-            } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-        load_table();
-        kosong();
-        }else{
-            JOptionPane.showMessageDialog(null, "Data batal dihapus.");
-        }
-    }//GEN-LAST:event_btnHapusActionPerformed
-
-    private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
-        // TODO add your handling code here:
-        textboxOn();
-        kosong();
-        kdMobil();
-    }//GEN-LAST:event_btnBaruActionPerformed
-    
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-          try{
-            String query = "select * from tb_mobil where kd_mobil = '"+txtKdMobil.getText()+"'";
+        try{
+            String query = "select * from tb_supir where nik = '"+txtNIK.getText()+"'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
             if(res.next()){
-                String sql ="UPDATE tb_mobil SET kd_mobil = '"+txtKdMobil.getText()+"', nopol = '"+txtNopol.getText()+"', merk = '"+txtMerk.getText()+"',jenis= '"+txtJenis.getText()+"' WHERE kd_mobil = '"+txtKdMobil.getText()+"'";
+                String sql ="UPDATE tb_supir SET nik = '"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE nik = '"+txtNIK.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil di edit");
             }else{
-                String sql = "INSERT INTO tb_mobil VALUES ('"+txtKdMobil.getText()+"','"+txtNopol.getText()+"','"+txtMerk.getText()+"','"+txtJenis.getText()+"')";
+                String sql = "INSERT INTO tb_supir VALUES ('"+txtNIK.getText()+"','"+txtNama.getText()+"')";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
@@ -324,90 +262,82 @@ public class frmMobil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        int baris = jTable1.rowAtPoint(evt.getPoint());
-        String kdmobil =jTable1.getValueAt(baris, 0).toString();
-        txtKdMobil.setText(kdmobil);
-        String nopol = jTable1.getValueAt(baris,1).toString();
-        txtNopol.setText(nopol);
-        String merk=jTable1.getValueAt(baris, 2).toString();
-        txtMerk.setText(merk);
-        String jenis = jTable1.getValueAt(baris, 3).toString();
-        txtJenis.setText(jenis);
         textboxOn();
-    }//GEN-LAST:event_jTable1MouseClicked
+        kosong();
+    }//GEN-LAST:event_btnBaruActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
+        if (opsi == JOptionPane.YES_OPTION){
+            try {
+                String sql ="delete from tb_supir where nik='"+txtNIK.getText()+"'";
+                java.sql.Connection conn=(Connection)Config.configDB();
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(this, "Data berhasil di hapus.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+            load_table();
+            kosong();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data batal dihapus.");
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         kosong();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void kdMobil() {
-        try {
-            String sql = "select * from tb_mobil order by kd_mobil desc";
-            java.sql.Connection conn=(Connection)Config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet rs=stm.executeQuery(sql);
-            if (rs.next()) {
-                String kd = rs.getString("kd_mobil").substring(1);
-                String AN = "" + (Integer.parseInt(kd) + 1);
-                txtKdMobil.setText("P" + AN);
-            } else {
-               txtKdMobil.setText("P1");
-            }
-
-           }catch(Exception e){
-           JOptionPane.showMessageDialog(null, e);
-           }
-    }
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int baris = jTable1.rowAtPoint(evt.getPoint());
+        String nik =jTable1.getValueAt(baris, 0).toString();
+        txtNIK.setText(nik);
+        String nama = jTable1.getValueAt(baris,1).toString();
+        txtNama.setText(nama);
+        textboxOn();
+    }//GEN-LAST:event_jTable1MouseClicked
     
     private void textboxOn() {
-        txtNopol.setEnabled(true);
-        txtMerk.setEnabled(true);
-        txtJenis.setEnabled(true);
+        txtNIK.setEnabled(true);
+        txtNama.setEnabled(true);
     }
     
     private void textboxOff() {
-        txtKdMobil.setEnabled(false);
-        txtNopol.setEnabled(false);
-        txtMerk.setEnabled(false);
-        txtJenis.setEnabled(false);
+        txtNIK.setEnabled(false);
+        txtNama.setEnabled(false);
     }
     
     private void kosong(){
-        txtKdMobil.setText(null);
-        txtNopol.setText(null);
-        txtMerk.setText(null);
-        txtJenis.setText(null);
+        txtNIK.setText(null);
+        txtNama.setText(null);
     }
     private void load_table(){
         // membuat tampilan model tabel
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Kode Mobil");
-        model.addColumn("NOPOL");
-        model.addColumn("Merk");
-        model.addColumn("Jenis");
+        model.addColumn("NIK");
+        model.addColumn("Nama");
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_mobil";
+            String sql = "select * from tb_supir";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4)});
+                model.addRow(new Object[]{res.getString(1),res.getString(2)});
             }
             jTable1.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -425,20 +355,20 @@ public class frmMobil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmMobil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSupir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmMobil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSupir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmMobil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSupir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmMobil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSupir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmMobil().setVisible(true);
+                new frmSupir().setVisible(true);
             }
         });
     }
@@ -451,17 +381,13 @@ public class frmMobil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtJenis;
-    private javax.swing.JTextField txtKdMobil;
-    private javax.swing.JTextField txtMerk;
-    private javax.swing.JTextField txtNopol;
+    private javax.swing.JTextField txtNIK;
+    private javax.swing.JTextField txtNama;
     // End of variables declaration//GEN-END:variables
 }

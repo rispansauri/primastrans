@@ -25,6 +25,7 @@ public class frmMobil extends javax.swing.JFrame {
      */
     public frmMobil() {
         initComponents();
+        this.setLocationRelativeTo(null);
         load_table();
         kosong();
         textboxOff();
@@ -273,17 +274,22 @@ public class frmMobil extends javax.swing.JFrame {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-        try {
+        int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
+        if (opsi == JOptionPane.YES_OPTION){
+             try {
             String sql ="delete from tb_mobil where kd_mobil='"+txtKdMobil.getText()+"'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(this, "berhasil di hapus");
+            JOptionPane.showMessageDialog(this, "Data berhasil di hapus.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
         load_table();
         kosong();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data batal dihapus.");
+        }
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed

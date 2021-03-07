@@ -235,6 +235,11 @@ public class frmSupir extends javax.swing.JFrame {
         txtNIK.setForeground(new java.awt.Color(204, 204, 204));
         txtNIK.setText("NIK");
         txtNIK.setBorder(null);
+        txtNIK.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNIKFocusGained(evt);
+            }
+        });
         jPanel2.add(txtNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 210, 30));
 
         txtNama.setBackground(new java.awt.Color(186, 79, 84));
@@ -242,6 +247,11 @@ public class frmSupir extends javax.swing.JFrame {
         txtNama.setForeground(new java.awt.Color(204, 204, 204));
         txtNama.setText("Nama");
         txtNama.setBorder(null);
+        txtNama.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNamaFocusGained(evt);
+            }
+        });
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 210, 30));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -313,7 +323,6 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 102, 38));
 
-        txtID.setEditable(false);
         txtID.setBackground(new java.awt.Color(186, 79, 84));
         txtID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtID.setForeground(new java.awt.Color(204, 204, 204));
@@ -432,7 +441,18 @@ public class frmSupir extends javax.swing.JFrame {
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
         // TODO add your handling code here:
         textboxOff();
+        kosong();
     }//GEN-LAST:event_btnBatalMouseClicked
+
+    private void txtNIKFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNIKFocusGained
+        // TODO add your handling code here:
+        txtNIK.setText("");
+    }//GEN-LAST:event_txtNIKFocusGained
+
+    private void txtNamaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaFocusGained
+        // TODO add your handling code here:
+        txtNama.setText("");
+    }//GEN-LAST:event_txtNamaFocusGained
     
     private void idSupir() {
         try {
@@ -454,26 +474,26 @@ public class frmSupir extends javax.swing.JFrame {
     }
     
     private void textboxOn() {
-        txtID.setVisible(true);
-        txtNIK.setVisible(true);
-        txtNama.setVisible(true);
+        txtID.setEditable(false);
+        txtNIK.setEditable(true);
+        txtNama.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
         btnBatal.setVisible(true);
     }
     
     private void textboxOff() {
-        txtID.setVisible(false);
-        txtNIK.setVisible(false);
-        txtNama.setVisible(false);
+        txtID.setEditable(false);
+        txtNIK.setEditable(false);
+        txtNama.setEditable(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);
         btnBatal.setVisible(false);
     }
     
     private void kosong(){
-        txtNIK.setText(null);
-        txtNama.setText(null);
+        txtNIK.setText("NIK");
+        txtNama.setText("Nama");
     }
     private void load_table(){
         // membuat tampilan model tabel

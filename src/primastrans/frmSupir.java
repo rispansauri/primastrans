@@ -70,7 +70,7 @@ public class frmSupir extends javax.swing.JFrame {
         setBackground(new java.awt.Color(186, 79, 84));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(74, 31, 61));
+        jPanel1.setBackground(new java.awt.Color(61, 115, 80));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -95,7 +95,7 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel5.setBackground(new java.awt.Color(74, 31, 61));
+        jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel5.setToolTipText("");
 
@@ -125,7 +125,7 @@ public class frmSupir extends javax.swing.JFrame {
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(74, 31, 61));
+        jPanel6.setBackground(new java.awt.Color(61, 115, 80));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel6.setToolTipText("");
 
@@ -155,7 +155,7 @@ public class frmSupir extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(74, 31, 61));
+        jPanel7.setBackground(new java.awt.Color(61, 115, 80));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel7.setToolTipText("");
 
@@ -221,18 +221,18 @@ public class frmSupir extends javax.swing.JFrame {
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(186, 79, 84));
+        jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("NIK");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
-        txtNIK.setBackground(new java.awt.Color(186, 79, 84));
+        txtNIK.setBackground(new java.awt.Color(242, 233, 242));
         txtNIK.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNIK.setForeground(new java.awt.Color(204, 204, 204));
+        txtNIK.setForeground(new java.awt.Color(102, 102, 102));
         txtNIK.setText("NIK");
         txtNIK.setBorder(null);
         txtNIK.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -242,9 +242,9 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(txtNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 210, 30));
 
-        txtNama.setBackground(new java.awt.Color(186, 79, 84));
+        txtNama.setBackground(new java.awt.Color(242, 233, 242));
         txtNama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNama.setForeground(new java.awt.Color(204, 204, 204));
+        txtNama.setForeground(new java.awt.Color(102, 102, 102));
         txtNama.setText("Nama");
         txtNama.setBorder(null);
         txtNama.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -254,27 +254,27 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 210, 30));
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setBackground(new java.awt.Color(242, 233, 242));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nama");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
-        jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator1.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 10));
 
-        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator2.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator2.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator2.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, 10));
 
-        jPanel4.setBackground(new java.awt.Color(186, 79, 84));
+        jPanel4.setBackground(new java.awt.Color(242, 233, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel4.setToolTipText("");
 
-        btnSimpan.setBackground(new java.awt.Color(204, 204, 204));
+        btnSimpan.setBackground(new java.awt.Color(102, 102, 102));
         btnSimpan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSimpan.setForeground(new java.awt.Color(204, 204, 204));
+        btnSimpan.setForeground(new java.awt.Color(102, 102, 102));
         btnSimpan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSimpan.setText("Simpan");
         btnSimpan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,7 +302,7 @@ public class frmSupir extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("×");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -311,9 +311,9 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, 20));
 
-        btnBatal.setBackground(new java.awt.Color(204, 204, 204));
+        btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnBatal.setForeground(new java.awt.Color(204, 204, 204));
+        btnBatal.setForeground(new java.awt.Color(102, 102, 102));
         btnBatal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBatal.setText("Batal");
         btnBatal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -323,20 +323,20 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 102, 38));
 
-        txtID.setBackground(new java.awt.Color(186, 79, 84));
+        txtID.setBackground(new java.awt.Color(242, 233, 242));
         txtID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtID.setForeground(new java.awt.Color(204, 204, 204));
+        txtID.setForeground(new java.awt.Color(102, 102, 102));
         txtID.setText("ID");
         txtID.setBorder(null);
         jPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 210, 30));
 
-        jSeparator3.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator3.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 10));
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("ID");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 

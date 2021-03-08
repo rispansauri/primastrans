@@ -152,10 +152,10 @@ public class frmOli extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtNote = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        cmbDate = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
         btnSimpan1 = new javax.swing.JLabel();
         btnBatal = new javax.swing.JLabel();
+        cmbDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -399,10 +399,6 @@ public class frmOli extends javax.swing.JFrame {
         jLabel6.setText("Note");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
-        cmbDate.setDateFormatString("yyyy-MM-dd");
-        cmbDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, -1));
-
         jPanel4.setBackground(new java.awt.Color(242, 233, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel4.setToolTipText("");
@@ -446,6 +442,9 @@ public class frmOli extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 102, 38));
+
+        cmbDate.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

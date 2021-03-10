@@ -757,7 +757,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
                 cmbID.addItem(res.getString("id"));
-                txtNama.setText(res.getString("nm_supir"));
             }
         }catch (Exception e) {
             

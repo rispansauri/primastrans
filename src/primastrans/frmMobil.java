@@ -207,56 +207,87 @@ public class frmMobil extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Kode Mobil");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         txtKdMobil.setBackground(new java.awt.Color(242, 233, 242));
+        txtKdMobil.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKdMobil.setForeground(new java.awt.Color(102, 102, 102));
+        txtKdMobil.setText("Kode Mobil");
         txtKdMobil.setBorder(null);
-        jPanel2.add(txtKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 140, 30));
+        jPanel2.add(txtKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 30));
 
         txtNopol.setBackground(new java.awt.Color(242, 233, 242));
+        txtNopol.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNopol.setForeground(new java.awt.Color(102, 102, 102));
+        txtNopol.setText("NOPOL");
         txtNopol.setBorder(null);
-        jPanel2.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 140, 30));
+        txtNopol.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNopolFocusGained(evt);
+            }
+        });
+        jPanel2.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 170, 30));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("NOPOL");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         txtMerk.setBackground(new java.awt.Color(242, 233, 242));
+        txtMerk.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtMerk.setForeground(new java.awt.Color(102, 102, 102));
+        txtMerk.setText("Merk");
         txtMerk.setBorder(null);
-        jPanel2.add(txtMerk, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 140, 30));
+        txtMerk.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtMerkFocusGained(evt);
+            }
+        });
+        jPanel2.add(txtMerk, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 170, 30));
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Merk");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         txtJenis.setBackground(new java.awt.Color(242, 233, 242));
+        txtJenis.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtJenis.setForeground(new java.awt.Color(102, 102, 102));
+        txtJenis.setText("Jenis");
         txtJenis.setBorder(null);
-        jPanel2.add(txtJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 140, 30));
+        txtJenis.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtJenisFocusGained(evt);
+            }
+        });
+        jPanel2.add(txtJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Jenis");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 140, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 170, 10));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 140, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 170, 10));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 140, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, 10));
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 140, 10));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 170, 10));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -268,7 +299,7 @@ public class frmMobil extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 102, 38));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 102, 38));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -311,7 +342,7 @@ public class frmMobil extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,6 +385,7 @@ public class frmMobil extends javax.swing.JFrame {
         // TODO add your handling code here:
         textboxOn();
         kosong();
+        kdMobil();
     }//GEN-LAST:event_btnBaru1MouseClicked
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
@@ -423,6 +455,21 @@ public class frmMobil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
+    private void txtNopolFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNopolFocusGained
+        // TODO add your handling code here:
+        txtNopol.setText("");
+    }//GEN-LAST:event_txtNopolFocusGained
+
+    private void txtMerkFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMerkFocusGained
+        // TODO add your handling code here:
+        txtMerk.setText("");
+    }//GEN-LAST:event_txtMerkFocusGained
+
+    private void txtJenisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJenisFocusGained
+        // TODO add your handling code here:
+        txtJenis.setText("");
+    }//GEN-LAST:event_txtJenisFocusGained
+
     private void kdMobil() {
         try {
             String sql = "select * from tb_mobil order by kd_mobil desc";
@@ -462,10 +509,10 @@ public class frmMobil extends javax.swing.JFrame {
     }
     
     private void kosong(){
-        txtKdMobil.setText(null);
-        txtNopol.setText(null);
-        txtMerk.setText(null);
-        txtJenis.setText(null);
+        txtKdMobil.setText("Kode Mobil");
+        txtNopol.setText("NOPOL");
+        txtMerk.setText("Merk");
+        txtJenis.setText("Jenis");
     }
     private void load_table(){
         // membuat tampilan model tabel

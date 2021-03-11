@@ -32,6 +32,69 @@ public class frmSupir extends javax.swing.JFrame {
         textboxOff();
     }
 
+    private void idSupir() {
+        try {
+            String sql = "select * from tb_supir order by id desc";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet rs=stm.executeQuery(sql);
+            if (rs.next()) {
+                String kd = rs.getString("id").substring(1);
+                String AN = "" + (Integer.parseInt(kd) + 1);
+                txtID.setText("S" + AN);
+            } else {
+               txtID.setText("S");
+            }
+
+           }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+    }
+    
+    private void textboxOn() {
+        txtID.setEditable(false);
+        txtNIK.setEditable(true);
+        txtNama.setEditable(true);
+        jPanel4.setVisible(true);
+        btnSimpan.setVisible(true);
+        btnBatal.setVisible(true);
+    }
+    
+    private void textboxOff() {
+        txtID.setEditable(false);
+        txtNIK.setEditable(false);
+        txtNama.setEditable(false);
+        jPanel4.setVisible(false);
+        btnSimpan.setVisible(false);
+        btnBatal.setVisible(false);
+    }
+    
+    private void kosong(){
+        txtNIK.setText("NIK");
+        txtNama.setText("Nama");
+    }
+    private void load_table(){
+        // membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("NIK");
+        model.addColumn("Nama");
+        
+        //menampilkan data database kedalam tabel
+        try {
+            String sql = "select * from tb_supir";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3)});
+            }
+            jTable1.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -454,68 +517,7 @@ public class frmSupir extends javax.swing.JFrame {
         txtNama.setText("");
     }//GEN-LAST:event_txtNamaFocusGained
     
-    private void idSupir() {
-        try {
-            String sql = "select * from tb_supir order by id desc";
-            java.sql.Connection conn=(Connection)Config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet rs=stm.executeQuery(sql);
-            if (rs.next()) {
-                String kd = rs.getString("id").substring(1);
-                String AN = "" + (Integer.parseInt(kd) + 1);
-                txtID.setText("S" + AN);
-            } else {
-               txtID.setText("S");
-            }
-
-           }catch(Exception e){
-           JOptionPane.showMessageDialog(null, e);
-           }
-    }
     
-    private void textboxOn() {
-        txtID.setEditable(false);
-        txtNIK.setEditable(true);
-        txtNama.setEditable(true);
-        jPanel4.setVisible(true);
-        btnSimpan.setVisible(true);
-        btnBatal.setVisible(true);
-    }
-    
-    private void textboxOff() {
-        txtID.setEditable(false);
-        txtNIK.setEditable(false);
-        txtNama.setEditable(false);
-        jPanel4.setVisible(false);
-        btnSimpan.setVisible(false);
-        btnBatal.setVisible(false);
-    }
-    
-    private void kosong(){
-        txtNIK.setText("NIK");
-        txtNama.setText("Nama");
-    }
-    private void load_table(){
-        // membuat tampilan model tabel
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID");
-        model.addColumn("NIK");
-        model.addColumn("Nama");
-        
-        //menampilkan data database kedalam tabel
-        try {
-            String sql = "select * from tb_supir";
-            java.sql.Connection conn=(Connection)Config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(sql);
-            while(res.next()){
-                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3)});
-            }
-            jTable1.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }
     
     /**
      * @param args the command line arguments

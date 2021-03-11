@@ -256,11 +256,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtNama.setForeground(new java.awt.Color(102, 102, 102));
         txtNama.setText("Nama");
         txtNama.setBorder(null);
-        txtNama.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNamaFocusGained(evt);
-            }
-        });
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 170, 30));
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
@@ -357,11 +352,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtNopol.setForeground(new java.awt.Color(102, 102, 102));
         txtNopol.setText("NOPOL");
         txtNopol.setBorder(null);
-        txtNopol.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNopolFocusGained(evt);
-            }
-        });
         jPanel2.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
@@ -382,6 +372,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtBayaran.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtBayaranFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBayaranFocusLost(evt);
+            }
+        });
+        txtBayaran.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBayaranKeyReleased(evt);
             }
         });
         jPanel2.add(txtBayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 170, 30));
@@ -405,6 +403,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtKoordinasiFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtKoordinasiFocusLost(evt);
+            }
+        });
+        txtKoordinasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKoordinasiKeyReleased(evt);
+            }
         });
         jPanel2.add(txtKoordinasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 170, 30));
 
@@ -426,6 +432,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtSubsidi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSubsidiFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSubsidiFocusLost(evt);
+            }
+        });
+        txtSubsidi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSubsidiKeyReleased(evt);
             }
         });
         jPanel2.add(txtSubsidi, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 170, 30));
@@ -449,6 +463,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtBonFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBonFocusLost(evt);
+            }
+        });
+        txtBon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBonKeyReleased(evt);
+            }
         });
         jPanel2.add(txtBon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 170, 30));
 
@@ -467,11 +489,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtTotal.setForeground(new java.awt.Color(102, 102, 102));
         txtTotal.setText("Total");
         txtTotal.setBorder(null);
-        txtTotal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtTotalFocusGained(evt);
-            }
-        });
         jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 170, 30));
 
         jSeparator14.setBackground(new java.awt.Color(102, 102, 102));
@@ -493,6 +510,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPotonganFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPotonganFocusLost(evt);
+            }
+        });
+        txtPotongan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPotonganKeyReleased(evt);
+            }
         });
         jPanel2.add(txtPotongan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 170, 30));
 
@@ -511,11 +536,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtUpah.setForeground(new java.awt.Color(102, 102, 102));
         txtUpah.setText("Upah");
         txtUpah.setBorder(null);
-        txtUpah.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUpahFocusGained(evt);
-            }
-        });
         jPanel2.add(txtUpah, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 170, 30));
 
         jSeparator16.setBackground(new java.awt.Color(102, 102, 102));
@@ -537,6 +557,9 @@ public class frmUpahSupir extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNoteFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoteFocusLost(evt);
+            }
         });
         jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 170, 30));
 
@@ -548,6 +571,11 @@ public class frmUpahSupir extends javax.swing.JFrame {
         cmbID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         cmbID.setForeground(new java.awt.Color(102, 102, 102));
         cmbID.setBorder(null);
+        cmbID.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbIDItemStateChanged(evt);
+            }
+        });
         jPanel2.add(cmbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 120, 30));
 
         cmbMobil.setBackground(new java.awt.Color(242, 233, 242));
@@ -643,11 +671,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnHapus1MouseClicked
 
-    private void txtNamaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaFocusGained
-        // TODO add your handling code here:
-        txtNama.setText("");
-    }//GEN-LAST:event_txtNamaFocusGained
-
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
         // TODO add your handling code here:
         textboxOff();
@@ -685,50 +708,120 @@ public class frmUpahSupir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
-    private void txtNopolFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNopolFocusGained
-        // TODO add your handling code here:
-        txtNopol.setText("");
-    }//GEN-LAST:event_txtNopolFocusGained
-
     private void txtBayaranFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBayaranFocusGained
         // TODO add your handling code here:
+        if (txtBayaran.getText().equals("0")){
         txtBayaran.setText("");
+        }
     }//GEN-LAST:event_txtBayaranFocusGained
 
     private void txtKoordinasiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKoordinasiFocusGained
         // TODO add your handling code here:
+        if (txtKoordinasi.getText().equals("0")){
         txtKoordinasi.setText("");
+        }
     }//GEN-LAST:event_txtKoordinasiFocusGained
 
     private void txtSubsidiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSubsidiFocusGained
         // TODO add your handling code here:
+        if (txtSubsidi.getText().equals("0")){
         txtSubsidi.setText("");
+        }
     }//GEN-LAST:event_txtSubsidiFocusGained
 
     private void txtBonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBonFocusGained
         // TODO add your handling code here:
+        if (txtBon.getText().equals("0")){
         txtBon.setText("");
+        }
     }//GEN-LAST:event_txtBonFocusGained
-
-    private void txtTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTotalFocusGained
-        // TODO add your handling code here:
-        txtTotal.setText("");
-    }//GEN-LAST:event_txtTotalFocusGained
 
     private void txtPotonganFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPotonganFocusGained
         // TODO add your handling code here:
+        if (txtPotongan.getText().equals("0")){
         txtPotongan.setText("");
+        }
     }//GEN-LAST:event_txtPotonganFocusGained
-
-    private void txtUpahFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUpahFocusGained
-        // TODO add your handling code here:
-        txtUpah.setText("");
-    }//GEN-LAST:event_txtUpahFocusGained
 
     private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
         // TODO add your handling code here:
+        if (txtNote.getText().equals("Note")){
         txtNote.setText("");
+        }
     }//GEN-LAST:event_txtNoteFocusGained
+
+    private void cmbIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbIDItemStateChanged
+        // TODO add your handling code here:
+//        getSupir();
+    }//GEN-LAST:event_cmbIDItemStateChanged
+
+    private void txtBayaranKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBayaranKeyReleased
+        // TODO add your handling code here:
+        total();
+    }//GEN-LAST:event_txtBayaranKeyReleased
+
+    private void txtKoordinasiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKoordinasiKeyReleased
+        // TODO add your handling code here:
+        total();
+    }//GEN-LAST:event_txtKoordinasiKeyReleased
+
+    private void txtSubsidiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSubsidiKeyReleased
+        // TODO add your handling code here:
+        total();
+    }//GEN-LAST:event_txtSubsidiKeyReleased
+
+    private void txtBonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBonKeyReleased
+        // TODO add your handling code here:
+        total();
+    }//GEN-LAST:event_txtBonKeyReleased
+
+    private void txtBayaranFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBayaranFocusLost
+        // TODO add your handling code here:
+        if (txtBayaran.getText().equals("")){
+            txtBayaran.setText("0");    
+        }
+        
+    }//GEN-LAST:event_txtBayaranFocusLost
+
+    private void txtKoordinasiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKoordinasiFocusLost
+        // TODO add your handling code here:
+        if (txtKoordinasi.getText().equals("")){
+        txtKoordinasi.setText("0");
+        }
+    }//GEN-LAST:event_txtKoordinasiFocusLost
+
+    private void txtPotonganKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPotonganKeyReleased
+        // TODO add your handling code here:
+        upah();
+    }//GEN-LAST:event_txtPotonganKeyReleased
+
+    private void txtSubsidiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSubsidiFocusLost
+        // TODO add your handling code here:
+        if (txtSubsidi.getText().equals("")){
+        txtSubsidi.setText("0");
+        }
+    }//GEN-LAST:event_txtSubsidiFocusLost
+
+    private void txtBonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBonFocusLost
+        // TODO add your handling code here:
+        if (txtBon.getText().equals("")){
+        txtBon.setText("0");
+        }
+    }//GEN-LAST:event_txtBonFocusLost
+
+    private void txtPotonganFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPotonganFocusLost
+        // TODO add your handling code here:
+        if (txtPotongan.getText().equals("")){
+        txtPotongan.setText("0");
+        }
+    }//GEN-LAST:event_txtPotonganFocusLost
+
+    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
+        // TODO add your handling code here:
+        if (txtNote.getText().equals("")){
+        txtNote.setText("Note");
+        }
+    }//GEN-LAST:event_txtNoteFocusLost
 
     private void kdUpah() {
         try {
@@ -751,7 +844,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     
     private void cmbID() {
         try { 
-            String sql = "select * from tb_supir";
+            String sql = "select id from tb_supir";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -771,7 +864,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                cmbMobil.addItem(res.getString("kd_mobil"));
+                cmbMobil.addItem(res.getString("kd_mobil"));   
             }
         }catch (Exception e) {
             
@@ -779,19 +872,55 @@ public class frmUpahSupir extends javax.swing.JFrame {
         
     }
     
+//    public void getSupir(){
+//         String idsupir = (String) cmbID.getSelectedItem();
+//        try {
+//            
+//             String sql = "SELECT * FROM tb_supir where id = '"+idsupir+"'";
+//             java.sql.Connection conn=Config.configDB();
+//             java.sql.Statement stm=conn.createStatement();
+//             PreparedStatement prst = conn.prepareStatement(sql);
+//             java.sql.ResultSet res=stm.executeQuery(sql);
+//             String namasupir = "";
+//        while(res.next()) {
+//             namasupir = res.getString('namasupir');
+//   }txtNama.setText(namasupir);
+// }catch ( SQLException err ) {
+//        System.out.println(err.getMessage());
+// }   
+//}
+    
+    private void total() {
+        int bayaran = Integer.parseInt(txtBayaran.getText());
+        int koordinasi = Integer.parseInt(txtKoordinasi.getText());
+        int subsidi = Integer.parseInt(txtSubsidi.getText());
+        int bon = Integer.parseInt(txtBon.getText());
+        int total = bayaran + koordinasi + subsidi + bon;
+
+        txtTotal.setText(String.valueOf(total));
+}
+    
+    private void upah() {
+        int total = Integer.parseInt(txtTotal.getText());
+        int potongan = Integer.parseInt(txtPotongan.getText());
+        int upah = total - potongan;
+
+        txtUpah.setText(String.valueOf(upah));
+    }
+    
     private void textboxOn() {
         txtKdUpah.setEditable(true);
         cmbID.setEnabled(true);
-        txtNama.setEditable(true);
+        txtNama.setEditable(false);
         cmbMobil.setEnabled(true);
-        txtNopol.setEditable(true);
+        txtNopol.setEditable(false);
         txtBayaran.setEditable(true);
         txtKoordinasi.setEditable(true);
         txtSubsidi.setEditable(true);
         txtBon.setEditable(true);
-        txtTotal.setEditable(true);
+        txtTotal.setEditable(false);
         txtPotongan.setEditable(true);
-        txtUpah.setEditable(true);
+        txtUpah.setEditable(false);
         txtNote.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
@@ -823,13 +952,13 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtNama.setText("Nama");
         cmbMobil.setSelectedItem(null);
         txtNopol.setText("NOPOL");
-        txtBayaran.setText("Bayaran");
-        txtKoordinasi.setText("Koordinasi");
-        txtSubsidi.setText("Subsidi");
-        txtBon.setText("Bon");
-        txtTotal.setText("Total");
-        txtPotongan.setText("Potongan");
-        txtUpah.setText("Upah");
+        txtBayaran.setText("0");
+        txtKoordinasi.setText("0");
+        txtSubsidi.setText("0");
+        txtBon.setText("0");
+        txtTotal.setText("0");
+        txtPotongan.setText("0");
+        txtUpah.setText("0");
         txtNote.setText("Note");
     }
     private void load_table(){

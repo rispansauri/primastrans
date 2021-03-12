@@ -10,6 +10,8 @@ package primastrans;
  * @author R
  */
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +36,22 @@ public class frmUpahSupir extends javax.swing.JFrame {
         cmbMobil();
         kosong();
         textboxOff();
+        
+        cmbID.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                getSupir();
+            }
+        });
+        
+        cmbMobil.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                getMobil();
+            }
+        });
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -571,9 +588,9 @@ public class frmUpahSupir extends javax.swing.JFrame {
         cmbID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         cmbID.setForeground(new java.awt.Color(102, 102, 102));
         cmbID.setBorder(null);
-        cmbID.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbIDItemStateChanged(evt);
+        cmbID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIDActionPerformed(evt);
             }
         });
         jPanel2.add(cmbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 120, 30));
@@ -750,11 +767,6 @@ public class frmUpahSupir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNoteFocusGained
 
-    private void cmbIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbIDItemStateChanged
-        // TODO add your handling code here:
-//        getSupir();
-    }//GEN-LAST:event_cmbIDItemStateChanged
-
     private void txtBayaranKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBayaranKeyReleased
         // TODO add your handling code here:
         total();
@@ -823,6 +835,10 @@ public class frmUpahSupir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNoteFocusLost
 
+    private void cmbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDActionPerformed
+        getSupir();
+    }//GEN-LAST:event_cmbIDActionPerformed
+
     private void kdUpah() {
         try {
             String sql = "select * from tb_upah_supir order by kd_upah desc";
@@ -872,23 +888,33 @@ public class frmUpahSupir extends javax.swing.JFrame {
         
     }
     
-//    public void getSupir(){
-//         String idsupir = (String) cmbID.getSelectedItem();
-//        try {
-//            
-//             String sql = "SELECT * FROM tb_supir where id = '"+idsupir+"'";
-//             java.sql.Connection conn=Config.configDB();
-//             java.sql.Statement stm=conn.createStatement();
-//             PreparedStatement prst = conn.prepareStatement(sql);
-//             java.sql.ResultSet res=stm.executeQuery(sql);
-//             String namasupir = "";
-//        while(res.next()) {
-//             namasupir = res.getString('namasupir');
-//   }txtNama.setText(namasupir);
-// }catch ( SQLException err ) {
-//        System.out.println(err.getMessage());
-// }   
-//}
+    public void getSupir(){
+        try {
+            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            if(res.next() == true) {
+                txtNama.setText(res.getString("nm_supir"));
+            }
+        }catch ( SQLException err ) {
+            System.out.println(err.getMessage());
+        }   
+    }
+    
+    public void getMobil(){
+        try {
+            String sql = "SELECT * FROM tb_mobil WHERE kd_mobil = '"+cmbMobil.getSelectedItem()+"'";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            if(res.next() == true) {
+                txtNopol.setText(res.getString("nopol"));
+            }
+        }catch ( SQLException err ) {
+            System.out.println(err.getMessage());
+        }   
+    }
     
     private void total() {
         int bayaran = Integer.parseInt(txtBayaran.getText());

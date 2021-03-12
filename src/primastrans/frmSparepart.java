@@ -26,12 +26,12 @@ public class frmSparepart extends javax.swing.JFrame {
      */
     public frmSparepart() {
         initComponents();
+        this.setLocationRelativeTo(null);
         load_table();
         kosong();
         textboxOff();
         cmbMobil();
         cmbJenispembayaran();
-        lblHidden.setVisible(true);
     }
 
     private void kdBelanja() {
@@ -167,25 +167,26 @@ public class frmSparepart extends javax.swing.JFrame {
     }
     
     private void kosong(){
-        txtKd.setText(null);
-        txtHarga.setText(null);
-        txtPart.setText(null);
-        txtJumlah.setText(null);
-        txtTotal.setText(null);
-        txtToko.setText(null); 
-        txtQty.setText(null);       
-        txtNote.setText(null);  
+        txtKd.setText("");
+        txtHarga.setText("0");
+        txtPart.setText("Nama Sparepart");
+        txtJumlah.setText("0");
+        txtTotal.setText("0");
+        txtToko.setText("Nama Toko"); 
+        txtQty.setText("0");       
+        txtNote.setText("Note");  
         cmbDate.setDate(null);
         cmbKdmobil.setSelectedItem(null);
         cmbJenis.setSelectedItem(null);
+        lblHidden.setVisible(false);
     }
     
     private void kosong2(){
-        txtPart.setText(null);
-        txtHarga.setText(null);
-        txtQty.setText(null);
-        txtJumlah.setText(null);
-        txtTotal.setText(null);
+        txtPart.setText("");
+        txtHarga.setText("0");
+        txtQty.setText("0");
+        txtJumlah.setText("0");
+        txtTotal.setText("0");
         txtToko.setEditable(false);        
         txtNote.setEditable(false);
         cmbDate.setEnabled(false);
@@ -290,7 +291,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DATA BELANJA SPAREPART");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 69, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(61, 115, 80));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -322,7 +323,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnBaru, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 396, -1, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(61, 115, 80));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -354,7 +355,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 396, -1, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -386,7 +387,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 396, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -406,7 +407,7 @@ public class frmSparepart extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 510, 236));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 111, 620, 236));
 
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
@@ -416,20 +417,20 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Kode Belanja");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         txtKd.setBackground(new java.awt.Color(242, 233, 242));
         txtKd.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtKd.setForeground(new java.awt.Color(102, 102, 102));
         txtKd.setText("Kode");
         txtKd.setBorder(null);
-        jPanel2.add(txtKd, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 210, 30));
+        jPanel2.add(txtKd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 210, 30));
 
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Nama Part");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         txtPart.setBackground(new java.awt.Color(242, 233, 242));
         txtPart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -440,18 +441,21 @@ public class frmSparepart extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPartFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPartFocusLost(evt);
+            }
         });
-        jPanel2.add(txtPart, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 210, 30));
+        jPanel2.add(txtPart, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 210, 30));
 
         jSeparator2.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator2.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, 10));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 210, 10));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Harga");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         txtHarga.setBackground(new java.awt.Color(242, 233, 242));
         txtHarga.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -462,23 +466,26 @@ public class frmSparepart extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtHargaFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHargaFocusLost(evt);
+            }
         });
         txtHarga.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtHargaKeyReleased(evt);
             }
         });
-        jPanel2.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 210, 30));
+        jPanel2.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 210, 30));
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 210, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 10));
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Qty");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         txtQty.setBackground(new java.awt.Color(242, 233, 242));
         txtQty.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -489,24 +496,27 @@ public class frmSparepart extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtQtyFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtQtyFocusLost(evt);
+            }
         });
         txtQty.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtQtyKeyReleased(evt);
             }
         });
-        jPanel2.add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 210, 30));
+        jPanel2.add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, 30));
 
         jSeparator4.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator4.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 210, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 210, 10));
 
         lblHidden.setBackground(new java.awt.Color(102, 102, 102));
         lblHidden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblHidden.setForeground(new java.awt.Color(102, 102, 102));
         lblHidden.setText("hidden");
         lblHidden.setEnabled(false);
-        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
+        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
 
         txtTotal.setBackground(new java.awt.Color(242, 233, 242));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -518,56 +528,56 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtTotalActionPerformed(evt);
             }
         });
-        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 210, 30));
+        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 210, 30));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 210, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 210, 10));
 
         jLabel14.setBackground(new java.awt.Color(102, 102, 102));
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Jenis Pembayaran");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 60, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Tanggal");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         cmbDate.setBackground(new java.awt.Color(242, 233, 242));
         cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 210, -1));
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 210, -1));
 
         jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator3.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 210, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 210, 10));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Kode Mobil");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
-        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
+        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, 30));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 210, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 40, 10));
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Toko");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
         txtToko.setBackground(new java.awt.Color(242, 233, 242));
         txtToko.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -578,22 +588,25 @@ public class frmSparepart extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtTokoFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTokoFocusLost(evt);
+            }
         });
-        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 210, 30));
+        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 210, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 210, 10));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 210, 10));
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Note");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 210, 10));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 210, 10));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -636,7 +649,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, -1, 40));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -648,7 +661,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 102, 38));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 102, 38));
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -657,11 +670,21 @@ public class frmSparepart extends javax.swing.JFrame {
         txtNote.setBackground(new java.awt.Color(242, 233, 242));
         txtNote.setColumns(20);
         txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNote.setForeground(new java.awt.Color(102, 102, 102));
         txtNote.setRows(5);
+        txtNote.setText("Note");
         txtNote.setBorder(null);
+        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNoteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoteFocusLost(evt);
+            }
+        });
         jScrollPane3.setViewportView(txtNote);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 210, 29));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 210, 29));
 
         txtJumlah.setBackground(new java.awt.Color(242, 233, 242));
         txtJumlah.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -678,30 +701,30 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtJumlahActionPerformed(evt);
             }
         });
-        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 210, 30));
+        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 210, 30));
 
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Jumlah");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
         jSeparator10.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator10.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 210, 10));
+        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 210, 10));
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Total Harga");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -776,12 +799,16 @@ public class frmSparepart extends javax.swing.JFrame {
 
     private void txtPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPartFocusGained
         // TODO add your handling code here:
+         if (txtPart.getText().equals("Nama Sparepart")){
         txtPart.setText("");
+         }
     }//GEN-LAST:event_txtPartFocusGained
 
     private void txtHargaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHargaFocusGained
         // TODO add your handling code here:
+        if (txtHarga.getText().equals("0")){
         txtHarga.setText("");
+         }
     }//GEN-LAST:event_txtHargaFocusGained
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
@@ -835,10 +862,16 @@ public class frmSparepart extends javax.swing.JFrame {
 
     private void txtQtyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQtyFocusGained
         // TODO add your handling code here:
+        if (txtQty.getText().equals("0")){
+        txtQty.setText("");
+         }
     }//GEN-LAST:event_txtQtyFocusGained
 
     private void txtTokoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTokoFocusGained
         // TODO add your handling code here:
+        if (txtToko.getText().equals("Nama Toko")){
+        txtToko.setText("");
+         }
     }//GEN-LAST:event_txtTokoFocusGained
 
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
@@ -860,6 +893,48 @@ public class frmSparepart extends javax.swing.JFrame {
     private void txtJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtJumlahActionPerformed
+
+    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
+        // TODO add your handling code here:
+        if (txtNote.getText().equals("Note")){
+        txtNote.setText("");
+         }
+    }//GEN-LAST:event_txtNoteFocusGained
+
+    private void txtPartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPartFocusLost
+        // TODO add your handling code here:
+        if (txtPart.getText().equals("")){
+        txtPart.setText("Nama Sparepart");
+         }
+    }//GEN-LAST:event_txtPartFocusLost
+
+    private void txtHargaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHargaFocusLost
+        // TODO add your handling code here:
+        if (txtHarga.getText().equals("")){
+        txtHarga.setText("0");
+         }
+    }//GEN-LAST:event_txtHargaFocusLost
+
+    private void txtQtyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQtyFocusLost
+        // TODO add your handling code here:
+        if (txtQty.getText().equals("")){
+        txtQty.setText("0");
+         }
+    }//GEN-LAST:event_txtQtyFocusLost
+
+    private void txtTokoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTokoFocusLost
+        // TODO add your handling code here:
+        if (txtToko.getText().equals("")){
+        txtToko.setText("Nama Toko");
+         }
+    }//GEN-LAST:event_txtTokoFocusLost
+
+    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
+        // TODO add your handling code here:
+        if (txtNote.getText().equals("")){
+        txtNote.setText("Note");
+         }
+    }//GEN-LAST:event_txtNoteFocusLost
 
     /**
      * @param args the command line arguments

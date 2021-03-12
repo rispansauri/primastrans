@@ -20,7 +20,7 @@ import net.sf.jasperreports.engine.*;
 
 public class frmUpahSupir extends javax.swing.JFrame {
     public Connection conn;
-    public ResultSet rs;
+    public ResultSet res;
     public PreparedStatement pst;
 
     /**
@@ -752,7 +752,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
 
     private void cmbIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbIDItemStateChanged
         // TODO add your handling code here:
-//        getSupir();
+        getSupir();
     }//GEN-LAST:event_cmbIDItemStateChanged
 
     private void txtBayaranKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBayaranKeyReleased
@@ -872,23 +872,23 @@ public class frmUpahSupir extends javax.swing.JFrame {
         
     }
     
-//    public void getSupir(){
-//         String idsupir = (String) cmbID.getSelectedItem();
-//        try {
-//            
-//             String sql = "SELECT * FROM tb_supir where id = '"+idsupir+"'";
-//             java.sql.Connection conn=Config.configDB();
-//             java.sql.Statement stm=conn.createStatement();
-//             PreparedStatement prst = conn.prepareStatement(sql);
-//             java.sql.ResultSet res=stm.executeQuery(sql);
-//             String namasupir = "";
-//        while(res.next()) {
-//             namasupir = res.getString('namasupir');
-//   }txtNama.setText(namasupir);
-// }catch ( SQLException err ) {
-//        System.out.println(err.getMessage());
-// }   
-//}
+    private void getSupir(){        
+        try {
+             String sql = "SELECT * FROM tb_supir";
+             java.sql.Connection conn=Config.configDB();
+             java.sql.Statement stm=conn.createStatement();
+             java.sql.ResultSet res=stm.executeQuery(sql);
+             while(res.next()){
+             String idsupir = res.getString("id");
+             String namasupir = res.getString("nm_supir");
+             
+             cmbID.setSelectedItem(idsupir);
+             txtNama.setText(namasupir);
+             }
+        }catch ( SQLException err ) {
+               System.out.println(err.getMessage());
+        }   
+    }
     
     private void total() {
         int bayaran = Integer.parseInt(txtBayaran.getText());

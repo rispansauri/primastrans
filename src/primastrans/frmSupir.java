@@ -317,7 +317,7 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 210, 30));
 
-        jLabel3.setBackground(new java.awt.Color(242, 233, 242));
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nama");

@@ -888,7 +888,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         
     }
     
-    public void getSupir(){
+    private void getSupir(){
         try {
             String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
             java.sql.Connection conn=Config.configDB();
@@ -902,7 +902,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         }   
     }
     
-    public void getMobil(){
+    private void getMobil(){
         try {
             String sql = "SELECT * FROM tb_mobil WHERE kd_mobil = '"+cmbMobil.getSelectedItem()+"'";
             java.sql.Connection conn=Config.configDB();

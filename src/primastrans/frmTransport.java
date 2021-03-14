@@ -9,6 +9,17 @@ package primastrans;
  *
  * @author R
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class frmTransport extends javax.swing.JFrame {
 
     /**
@@ -16,6 +27,26 @@ public class frmTransport extends javax.swing.JFrame {
      */
     public frmTransport() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        load_table();
+        kosong();
+        textboxOff();
+        cmbID();
+        cmbMobil();
+        
+        cmbID.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                getSupir();
+            }
+        });
+        
+        cmbKdMobil.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                getMobil();
+            }
+        });
     }
 
     /**
@@ -28,18 +59,842 @@ public class frmTransport extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        btnBaru1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        btnCetak = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnHapus1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtKdTransport = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        btnBatal = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnSimpan = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        txtDO = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        txtTonasePabrik = new javax.swing.JTextField();
+        jSeparator11 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        txtKas = new javax.swing.JTextField();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        txtCashinSupplier = new javax.swing.JTextField();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        txtKasPrimas = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        txtSusut = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
+        txtCash = new javax.swing.JTextField();
+        jSeparator16 = new javax.swing.JSeparator();
+        jLabel15 = new javax.swing.JLabel();
+        txtKord = new javax.swing.JTextField();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        txtTab = new javax.swing.JTextField();
+        jSeparator18 = new javax.swing.JSeparator();
+        cmbID = new javax.swing.JComboBox<>();
+        txtNama = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        jLabel19 = new javax.swing.JLabel();
+        jSeparator21 = new javax.swing.JSeparator();
+        jLabel20 = new javax.swing.JLabel();
+        txtRP = new javax.swing.JTextField();
+        jSeparator22 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        txtJumlahTotal = new javax.swing.JTextField();
+        jSeparator23 = new javax.swing.JSeparator();
+        jLabel24 = new javax.swing.JLabel();
+        txtCashinPrimas = new javax.swing.JTextField();
+        jSeparator26 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        txtNoSJ = new javax.swing.JTextField();
+        jSeparator27 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        txtSusutTonase = new javax.swing.JTextField();
+        jSeparator28 = new javax.swing.JSeparator();
+        jLabel27 = new javax.swing.JLabel();
+        txtNote = new javax.swing.JTextField();
+        jSeparator29 = new javax.swing.JSeparator();
+        cmbKdMobil = new javax.swing.JComboBox<>();
+        txtTempatBongkar = new javax.swing.JTextField();
+        txtStockpile = new javax.swing.JTextField();
+        txtTonaseMuat = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        txtNopol = new javax.swing.JTextField();
+        jSeparator24 = new javax.swing.JSeparator();
+        cmbDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jPanel2.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("TRANSPORT");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 1630, 280));
+
+        jPanel7.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel7.setToolTipText("");
+
+        btnBaru1.setBackground(new java.awt.Color(204, 204, 204));
+        btnBaru1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBaru1.setForeground(new java.awt.Color(204, 204, 204));
+        btnBaru1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBaru1.setText("Baru");
+        btnBaru1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBaru1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBaru1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBaru1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
+
+        jPanel6.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel6.setToolTipText("");
+
+        btnCetak.setBackground(new java.awt.Color(204, 204, 204));
+        btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak.setForeground(new java.awt.Color(204, 204, 204));
+        btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCetak.setText("Cetak");
+        btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCetakMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 420, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel5.setToolTipText("");
+
+        btnHapus1.setBackground(new java.awt.Color(204, 204, 204));
+        btnHapus1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHapus1.setForeground(new java.awt.Color(204, 204, 204));
+        btnHapus1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnHapus1.setText("Hapus");
+        btnHapus1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHapus1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnHapus1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnHapus1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setText("×");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 10, -1, 20));
+
+        jPanel3.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel3.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Kode Transport");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+
+        txtKdTransport.setBackground(new java.awt.Color(242, 233, 242));
+        txtKdTransport.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKdTransport.setForeground(new java.awt.Color(102, 102, 102));
+        txtKdTransport.setText("Kode Transport");
+        txtKdTransport.setBorder(null);
+        jPanel3.add(txtKdTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, 30));
+
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Tanggal Muat");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Kode Mobil");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("ID Supir");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
+
+        jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 60, 10));
+
+        jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 170, 10));
+
+        jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 170, 10));
+
+        jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 60, 10));
+
+        btnBatal.setBackground(new java.awt.Color(102, 102, 102));
+        btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBatal.setForeground(new java.awt.Color(102, 102, 102));
+        btnBatal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBatal.setText("Batal");
+        btnBatal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBatalMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 400, 102, 38));
+
+        jPanel4.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel4.setToolTipText("");
+
+        btnSimpan.setBackground(new java.awt.Color(102, 102, 102));
+        btnSimpan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSimpan.setForeground(new java.awt.Color(102, 102, 102));
+        btnSimpan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSimpan.setText("Simpan");
+        btnSimpan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSimpanMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 400, -1, 40));
+
+        jLabel7.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Nama Supir");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+
+        jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 170, 10));
+
+        jLabel8.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("DO");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
+
+        txtDO.setBackground(new java.awt.Color(242, 233, 242));
+        txtDO.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtDO.setForeground(new java.awt.Color(102, 102, 102));
+        txtDO.setText("DO");
+        txtDO.setBorder(null);
+        txtDO.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDOFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDOFocusLost(evt);
+            }
+        });
+        txtDO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDOKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 170, 30));
+
+        jSeparator10.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator10.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 170, 10));
+
+        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Stock Pile");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
+
+        txtTonasePabrik.setBackground(new java.awt.Color(242, 233, 242));
+        txtTonasePabrik.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTonasePabrik.setForeground(new java.awt.Color(102, 102, 102));
+        txtTonasePabrik.setText("0");
+        txtTonasePabrik.setBorder(null);
+        txtTonasePabrik.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTonasePabrikFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTonasePabrikFocusLost(evt);
+            }
+        });
+        txtTonasePabrik.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTonasePabrikKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtTonasePabrik, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 170, 30));
+
+        jSeparator11.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator11.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 170, 10));
+
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Kas");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, -1, -1));
+
+        txtKas.setBackground(new java.awt.Color(242, 233, 242));
+        txtKas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKas.setForeground(new java.awt.Color(102, 102, 102));
+        txtKas.setText("0");
+        txtKas.setBorder(null);
+        txtKas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtKasFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtKasFocusLost(evt);
+            }
+        });
+        txtKas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKasKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtKas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 120, 170, 30));
+
+        jSeparator12.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator12.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 150, 170, 10));
+
+        jLabel11.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText("Cash In dr Supp");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 180, -1, -1));
+
+        txtCashinSupplier.setBackground(new java.awt.Color(242, 233, 242));
+        txtCashinSupplier.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCashinSupplier.setForeground(new java.awt.Color(102, 102, 102));
+        txtCashinSupplier.setText("0");
+        txtCashinSupplier.setBorder(null);
+        txtCashinSupplier.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCashinSupplierFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCashinSupplierFocusLost(evt);
+            }
+        });
+        txtCashinSupplier.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCashinSupplierKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtCashinSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 170, 170, 30));
+
+        jSeparator13.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator13.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 200, 170, 10));
+
+        jLabel12.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("Kas Primas");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 230, -1, -1));
+
+        txtKasPrimas.setBackground(new java.awt.Color(242, 233, 242));
+        txtKasPrimas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKasPrimas.setForeground(new java.awt.Color(102, 102, 102));
+        txtKasPrimas.setText("0");
+        txtKasPrimas.setBorder(null);
+        jPanel3.add(txtKasPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 220, 170, 30));
+
+        jSeparator14.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator14.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 250, 170, 10));
+
+        jLabel13.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("Susut");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 280, -1, -1));
+
+        txtSusut.setBackground(new java.awt.Color(242, 233, 242));
+        txtSusut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtSusut.setForeground(new java.awt.Color(102, 102, 102));
+        txtSusut.setText("0");
+        txtSusut.setBorder(null);
+        txtSusut.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSusutFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSusutFocusLost(evt);
+            }
+        });
+        txtSusut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSusutKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtSusut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 270, 170, 30));
+
+        jSeparator15.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator15.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 300, 170, 10));
+
+        jLabel14.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Cash");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 330, -1, -1));
+
+        txtCash.setBackground(new java.awt.Color(242, 233, 242));
+        txtCash.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCash.setForeground(new java.awt.Color(102, 102, 102));
+        txtCash.setText("0");
+        txtCash.setBorder(null);
+        jPanel3.add(txtCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 170, 30));
+
+        jSeparator16.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator16.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 350, 170, 10));
+
+        jLabel15.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setText("Kord");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 80, -1, -1));
+
+        txtKord.setBackground(new java.awt.Color(242, 233, 242));
+        txtKord.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKord.setForeground(new java.awt.Color(102, 102, 102));
+        txtKord.setText("0");
+        txtKord.setBorder(null);
+        txtKord.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtKordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtKordFocusLost(evt);
+            }
+        });
+        jPanel3.add(txtKord, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 70, 170, 30));
+
+        jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator17.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 100, 170, 10));
+
+        jLabel16.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Tab");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 130, -1, -1));
+
+        txtTab.setBackground(new java.awt.Color(242, 233, 242));
+        txtTab.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTab.setForeground(new java.awt.Color(102, 102, 102));
+        txtTab.setText("0");
+        txtTab.setBorder(null);
+        txtTab.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTabFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTabFocusLost(evt);
+            }
+        });
+        jPanel3.add(txtTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 120, 170, 30));
+
+        jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 150, 170, 10));
+
+        cmbID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIDActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, 30));
+
+        txtNama.setBackground(new java.awt.Color(242, 233, 242));
+        txtNama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNama.setForeground(new java.awt.Color(102, 102, 102));
+        txtNama.setText("Nama Supir");
+        txtNama.setBorder(null);
+        jPanel3.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 170, 30));
+
+        jLabel17.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("Tempat Bongkar");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+
+        jSeparator19.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator19.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 170, 10));
+
+        jLabel18.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setText("Tonase Muat");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, -1, -1));
+
+        jSeparator20.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator20.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 170, 10));
+
+        jLabel19.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setText("Tonase Pabrik");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, -1));
+
+        jSeparator21.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator21.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 170, 10));
+
+        jLabel20.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setText("RP");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
+
+        txtRP.setBackground(new java.awt.Color(242, 233, 242));
+        txtRP.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtRP.setForeground(new java.awt.Color(102, 102, 102));
+        txtRP.setText("0");
+        txtRP.setBorder(null);
+        jPanel3.add(txtRP, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 170, 30));
+
+        jSeparator22.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator22.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator22, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 170, 10));
+
+        jLabel21.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setText("Jumlah Total");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 80, -1, -1));
+
+        txtJumlahTotal.setBackground(new java.awt.Color(242, 233, 242));
+        txtJumlahTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtJumlahTotal.setForeground(new java.awt.Color(102, 102, 102));
+        txtJumlahTotal.setText("0");
+        txtJumlahTotal.setBorder(null);
+        jPanel3.add(txtJumlahTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 70, 170, 30));
+
+        jSeparator23.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator23.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, 170, 10));
+
+        jLabel24.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel24.setText("Cash In Primas");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 180, -1, -1));
+
+        txtCashinPrimas.setBackground(new java.awt.Color(242, 233, 242));
+        txtCashinPrimas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCashinPrimas.setForeground(new java.awt.Color(102, 102, 102));
+        txtCashinPrimas.setText("0");
+        txtCashinPrimas.setBorder(null);
+        txtCashinPrimas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCashinPrimasFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCashinPrimasFocusLost(evt);
+            }
+        });
+        txtCashinPrimas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCashinPrimasKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtCashinPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 170, 170, 30));
+
+        jSeparator26.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator26.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 200, 170, 10));
+
+        jLabel25.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel25.setText("No SJ");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 230, -1, -1));
+
+        txtNoSJ.setBackground(new java.awt.Color(242, 233, 242));
+        txtNoSJ.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNoSJ.setForeground(new java.awt.Color(102, 102, 102));
+        txtNoSJ.setText("0");
+        txtNoSJ.setBorder(null);
+        txtNoSJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNoSJFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoSJFocusLost(evt);
+            }
+        });
+        txtNoSJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNoSJKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtNoSJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 220, 170, 30));
+
+        jSeparator27.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator27.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 250, 170, 10));
+
+        jLabel26.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel26.setText("Susut Tonase");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 280, -1, -1));
+
+        txtSusutTonase.setBackground(new java.awt.Color(242, 233, 242));
+        txtSusutTonase.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtSusutTonase.setForeground(new java.awt.Color(102, 102, 102));
+        txtSusutTonase.setText("0");
+        txtSusutTonase.setBorder(null);
+        jPanel3.add(txtSusutTonase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 270, 170, 30));
+
+        jSeparator28.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator28.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 300, 170, 10));
+
+        jLabel27.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel27.setText("Note");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 330, -1, -1));
+
+        txtNote.setBackground(new java.awt.Color(242, 233, 242));
+        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNote.setForeground(new java.awt.Color(102, 102, 102));
+        txtNote.setText("Note");
+        txtNote.setBorder(null);
+        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNoteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoteFocusLost(evt);
+            }
+        });
+        txtNote.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNoteKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 320, 170, 30));
+
+        jSeparator29.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator29.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 350, 170, 10));
+        jPanel3.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 60, 30));
+
+        txtTempatBongkar.setBackground(new java.awt.Color(242, 233, 242));
+        txtTempatBongkar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTempatBongkar.setForeground(new java.awt.Color(102, 102, 102));
+        txtTempatBongkar.setText("Tempat Bongkar");
+        txtTempatBongkar.setBorder(null);
+        jPanel3.add(txtTempatBongkar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 170, 30));
+
+        txtStockpile.setBackground(new java.awt.Color(242, 233, 242));
+        txtStockpile.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtStockpile.setForeground(new java.awt.Color(102, 102, 102));
+        txtStockpile.setText("Stock Pile");
+        txtStockpile.setBorder(null);
+        txtStockpile.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStockpileFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStockpileFocusLost(evt);
+            }
+        });
+        txtStockpile.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtStockpileKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtStockpile, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 170, 30));
+
+        txtTonaseMuat.setBackground(new java.awt.Color(242, 233, 242));
+        txtTonaseMuat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTonaseMuat.setForeground(new java.awt.Color(102, 102, 102));
+        txtTonaseMuat.setText("0");
+        txtTonaseMuat.setBorder(null);
+        txtTonaseMuat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTonaseMuatFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTonaseMuatFocusLost(evt);
+            }
+        });
+        txtTonaseMuat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTonaseMuatKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txtTonaseMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 170, 30));
+
+        jLabel22.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel22.setText("NOPOL");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+
+        txtNopol.setBackground(new java.awt.Color(242, 233, 242));
+        txtNopol.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNopol.setForeground(new java.awt.Color(102, 102, 102));
+        txtNopol.setText("NOPOL");
+        txtNopol.setBorder(null);
+        jPanel3.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 170, 30));
+
+        jSeparator24.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator24.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel3.add(jSeparator24, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 170, 10));
+
+        cmbDate.setDateFormatString("yyyy-MM-dd");
+        jPanel3.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -47,20 +902,540 @@ public class frmTransport extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void kdTransport() {
+        try {
+            String sql = "select * from tb_transport order by kd_transport desc";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet rs=stm.executeQuery(sql);
+            if (rs.next()) {
+                String kd = rs.getString("kd_transport").substring(3);
+                String AN = "" + (Integer.parseInt(kd) + 1);
+                txtKdTransport.setText("TRN" + AN);
+            } else {
+                txtKdTransport.setText("TRN1");
+            }
+
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+           }
+    }
+    
+    private void cmbID() {
+        try { 
+            String sql = "select id from tb_supir";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbID.addItem(res.getString("id"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+    
+    private void cmbMobil() {
+        try { 
+            String sql = "select * from tb_mobil";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbKdMobil.addItem(res.getString("kd_mobil"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+    
+    private void getSupir(){
+        try {
+            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            if(res.next() == true) {
+                txtNama.setText(res.getString("nm_supir"));
+            }
+        }catch ( SQLException err ) {
+            System.out.println(err.getMessage());
+        }   
+    }
+    
+    private void getMobil(){
+        try {
+            String sql = "SELECT * FROM tb_mobil WHERE kd_mobil = '"+cmbKdMobil.getSelectedItem()+"'";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            if(res.next() == true) {
+                txtNopol.setText(res.getString("nopol"));
+            }
+        }catch ( SQLException err ) {
+            System.out.println(err.getMessage());
+        }   
+    }
+    
+    private void textboxOn() {
+        cmbDate.setEnabled(true);
+        cmbKdMobil.setEnabled(true);
+        cmbID.setEnabled(true);
+        txtDO.setEditable(true);
+        txtStockpile.setEditable(true);
+        txtTempatBongkar.setEditable(true);
+        txtTonaseMuat.setEditable(true);
+        txtTonasePabrik.setEditable(true);
+        txtRP.setEditable(true);
+        txtJumlahTotal.setEditable(true);
+        txtKas.setEditable(true);
+        txtCashinSupplier.setEditable(true);
+        txtKasPrimas.setEditable(true);
+        txtSusut.setEditable(true);
+        txtCash.setEditable(true);
+        txtKord.setEditable(true);
+        txtTab.setEditable(true);
+        txtCashinPrimas.setEditable(true);
+        txtNoSJ.setEditable(true);
+        txtSusutTonase.setEditable(true);
+        txtNote.setEditable(true);
+        jPanel4.setVisible(true);
+        btnSimpan.setVisible(true);
+        btnBatal.setVisible(true);
+    }
+    
+    private void textboxOff() {
+        txtKdTransport.setEditable(false);
+        cmbDate.setEnabled(false);
+        cmbKdMobil.setEnabled(false);
+        txtNopol.setEditable(false);
+        cmbID.setEnabled(false);
+        txtNama.setEditable(false);
+        txtDO.setEditable(false);
+        txtStockpile.setEditable(false);
+        txtTempatBongkar.setEditable(false);
+        txtTonaseMuat.setEditable(false);
+        txtTonasePabrik.setEditable(false);
+        txtRP.setEditable(false);
+        txtJumlahTotal.setEditable(false);
+        txtKas.setEditable(false);
+        txtCashinSupplier.setEditable(false);
+        txtKasPrimas.setEditable(false);
+        txtSusut.setEditable(false);
+        txtCash.setEditable(false);
+        txtKord.setEditable(false);
+        txtTab.setEditable(false);
+        txtCashinPrimas.setEditable(false);
+        txtNoSJ.setEditable(false);
+        txtSusutTonase.setEditable(false);
+        txtNote.setEditable(false);
+        jPanel4.setVisible(false);
+        btnSimpan.setVisible(false);
+        btnBatal.setVisible(false);
+    }
+    
+    private void kosong(){
+        txtKdTransport.setText("Kode Transport");
+        cmbDate.setDate(null);
+        cmbKdMobil.setSelectedItem(null);
+        txtNopol.setText("Nopol");
+        cmbID.setSelectedItem(null);
+        txtNama.setText("Nama Supir");
+        txtDO.setText("DO");
+        txtStockpile.setText("Stock Pile");
+        txtTempatBongkar.setText("Tempat Bongkar");
+        txtTonaseMuat.setText("0");
+        txtTonasePabrik.setText("0");
+        txtRP.setText("0");
+        txtJumlahTotal.setText("0");
+        txtKas.setText("0");
+        txtCashinSupplier.setText("0");
+        txtKasPrimas.setText("0");
+        txtSusut.setText("0");
+        txtCash.setText("0");
+        txtKord.setText("0");
+        txtTab.setText("0");
+        txtCashinPrimas.setText("0");
+        txtNoSJ.setText("0");
+        txtSusutTonase.setText("0");
+        txtNote.setText("Note");
+    }
+    
+    private void load_table(){
+        // membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Kode Trans");
+        model.addColumn("Tanggal");
+        model.addColumn("Kode Mobil");
+        model.addColumn("NOPOL");
+        model.addColumn("ID Supir");
+        model.addColumn("Nama");
+        model.addColumn("DO");
+        model.addColumn("Stock Pile");
+        model.addColumn("Tempat Bongkar");
+        model.addColumn("Tonase Muat");
+        model.addColumn("Tonase Pabrik");
+        model.addColumn("RP");
+        model.addColumn("Jumlah Total");
+        model.addColumn("Kas");
+        model.addColumn("Cashin Supp");
+        model.addColumn("Kas Primas");
+        model.addColumn("Susut");
+        model.addColumn("Cash");
+        model.addColumn("Kord");
+        model.addColumn("Tab");
+        model.addColumn("Cashin Primas");
+        model.addColumn("No SJ");
+        model.addColumn("Susut Tonase");
+        model.addColumn("Note");
+        
+        //menampilkan data database kedalam tabel
+        try {
+            String sql = "select * from tb_transport";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13),res.getString(14),res.getString(15),res.getString(16),res.getString(17),res.getString(18),res.getString(19),res.getString(20),res.getString(21),res.getString(22),res.getString(23),res.getString(24)});
+            }
+            jTable1.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+                int baris = jTable1.rowAtPoint(evt.getPoint());
+                String kdtransport =jTable1.getValueAt(baris, 0).toString();
+                txtKdTransport.setText(kdtransport);
+                String tgl = jTable1.getValueAt(baris,1).toString();
+                 try{
+                        java.util.Date date;
+                        date = new SimpleDateFormat("yyyy-MM-dd").parse(tgl);
+                        cmbDate.setDate(date);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(frmOli.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                String kdmobil=jTable1.getValueAt(baris, 2).toString();
+                cmbKdMobil.setSelectedItem(kdmobil);
+                String nopol = jTable1.getValueAt(baris, 3).toString();
+                txtNopol.setText(nopol);
+                String id =jTable1.getValueAt(baris, 4).toString();
+                cmbID.setSelectedItem(id);
+                String nama = jTable1.getValueAt(baris,5).toString();
+                txtNama.setText(nama);
+                String deo=jTable1.getValueAt(baris, 6).toString();
+                txtDO.setText(deo);
+                String stokpile = jTable1.getValueAt(baris, 7).toString();
+                txtStockpile.setText(stokpile);
+                String bongkar =jTable1.getValueAt(baris, 8).toString();
+                txtTempatBongkar.setText(bongkar);
+                String tonmuat = jTable1.getValueAt(baris,9).toString();
+                txtTonaseMuat.setText(tonmuat);
+                String tonpabrik=jTable1.getValueAt(baris, 10).toString();
+                txtTonasePabrik.setText(tonpabrik);
+                String rp = jTable1.getValueAt(baris, 11).toString();
+                txtRP.setText(rp);
+                String jumlahtotal = jTable1.getValueAt(baris, 12).toString();
+                txtJumlahTotal.setText(jumlahtotal);
+                String kas =jTable1.getValueAt(baris, 13).toString();
+                txtKas.setText(kas);
+                String cashinsupp = jTable1.getValueAt(baris,14).toString();
+                txtCashinSupplier.setText(cashinsupp);
+                String kasprimas=jTable1.getValueAt(baris, 15).toString();
+                txtKasPrimas.setText(kasprimas);
+                String susut = jTable1.getValueAt(baris, 16).toString();
+                txtSusut.setText(susut);
+                String cash =jTable1.getValueAt(baris, 17).toString();
+                txtCash.setText(cash);
+                String kord = jTable1.getValueAt(baris,18).toString();
+                txtKord.setText(kord);
+                String tab=jTable1.getValueAt(baris, 19).toString();
+                txtTab.setText(tab);
+                String cashinprimas = jTable1.getValueAt(baris, 20).toString();
+                txtCashinPrimas.setText(cashinprimas);
+                String nosj =jTable1.getValueAt(baris, 21).toString();
+                txtNoSJ.setText(nosj);
+                String susuttonase = jTable1.getValueAt(baris,22).toString();
+                txtSusutTonase.setText(susuttonase);
+                String note = jTable1.getValueAt(baris, 23).toString();
+                txtNote.setText(note);
+                textboxOn();
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void btnBaru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaru1MouseClicked
+        // TODO add your handling code here:
+                textboxOn();
+                kosong();
+                kdTransport();
+    }//GEN-LAST:event_btnBaru1MouseClicked
+
+    private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
+        // TODO add your handling code here:
+        //        try {
+            //            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptMobil.jasper"), null, Config.configDB());
+            //            JasperViewer.viewReport(jp, false);
+            //        } catch(Exception e) {
+            //            JOptionPane.showMessageDialog(rootPane, e);
+            //        }
+    }//GEN-LAST:event_btnCetakMouseClicked
+
+    private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
+        // TODO add your handling code here:
+        int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
+        if (opsi == JOptionPane.YES_OPTION){
+            try {
+                String sql ="delete from tb_transport where kd_transport='"+txtKdTransport.getText()+"'";
+                java.sql.Connection conn=(Connection)Config.configDB();
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+            load_table();
+                        kosong();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data batal dihapus.");
+        }
+    }//GEN-LAST:event_btnHapus1MouseClicked
+
+    private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
+        // TODO add your handling code here:
+                textboxOff();
+                kosong();
+    }//GEN-LAST:event_btnBatalMouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
+        // TODO add your handling code here:
+                try{
+                        String query = "select * from tb_transport where kd_transport = '"+txtKdTransport.getText()+"'";
+                        java.sql.Connection conn=(Connection)Config.configDB();
+                        java.sql.Statement stm=conn.createStatement();
+                        java.sql.ResultSet res=stm.executeQuery(query);
+                        SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
+                        if(res.next()){
+                                String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', susut = '"+txtSusut.getText()+"',cash= '"+txtCash.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
+                                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                                pst.execute();
+                                JOptionPane.showMessageDialog(null, "data berhasil diedit");
+                            }else{
+                                String sql = "INSERT INTO tb_transport VALUES ('"+txtKdTransport.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"', '"+txtNopol.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+txtDO.getText()+"','"+txtStockpile.getText()+"','"+txtTempatBongkar.getText()+"','"+txtTonaseMuat.getText()+"','"+txtTonasePabrik.getText()+"','"+txtRP.getText()+"','"+txtJumlahTotal.getText()+"','"+txtKas.getText()+"','"+txtCashinSupplier.getText()+"','"+txtKasPrimas.getText()+"','"+txtSusut.getText()+"','"+txtCash.getText()+"','"+txtKord.getText()+"','"+txtTab.getText()+"','"+txtCashinPrimas.getText()+"','"+txtNoSJ.getText()+"','"+txtSusutTonase.getText()+"','"+txtNote.getText()+"')";
+                                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                                pst.execute();
+                                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+                            }
+                        load_table();
+                        textboxOff();
+                        kosong();
+                    }catch (Exception e){
+                        JOptionPane.showMessageDialog(this, e.getMessage());
+                    }
+    }//GEN-LAST:event_btnSimpanMouseClicked
+
+    private void txtDOFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDOFocusGained
+        // TODO add your handling code here:
+        if (txtDO.getText().equals("0")){
+            txtDO.setText("");
+        }
+    }//GEN-LAST:event_txtDOFocusGained
+
+    private void txtDOFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDOFocusLost
+        // TODO add your handling code here:
+        if (txtDO.getText().equals("")){
+            txtDO.setText("0");
+        }
+    }//GEN-LAST:event_txtDOFocusLost
+
+    private void txtDOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDOKeyReleased
+        // TODO add your handling code here:
+        //        total();
+    }//GEN-LAST:event_txtDOKeyReleased
+
+    private void txtTonasePabrikFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonasePabrikFocusGained
+        // TODO add your handling code here:
+        if (txtTonasePabrik.getText().equals("0")){
+            txtTonasePabrik.setText("");
+        }
+    }//GEN-LAST:event_txtTonasePabrikFocusGained
+
+    private void txtTonasePabrikFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonasePabrikFocusLost
+        // TODO add your handling code here:
+        if (txtTonasePabrik.getText().equals("")){
+            txtTonasePabrik.setText("0");
+        }
+    }//GEN-LAST:event_txtTonasePabrikFocusLost
+
+    private void txtTonasePabrikKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonasePabrikKeyReleased
+        // TODO add your handling code here:
+        //        total();
+    }//GEN-LAST:event_txtTonasePabrikKeyReleased
+
+    private void txtKasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasFocusGained
+        // TODO add your handling code here:
+        if (txtKas.getText().equals("0")){
+            txtKas.setText("");
+        }
+    }//GEN-LAST:event_txtKasFocusGained
+
+    private void txtKasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasFocusLost
+        // TODO add your handling code here:
+        if (txtKas.getText().equals("")){
+            txtKas.setText("0");
+        }
+    }//GEN-LAST:event_txtKasFocusLost
+
+    private void txtKasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasKeyReleased
+        // TODO add your handling code here:
+        //        total();
+    }//GEN-LAST:event_txtKasKeyReleased
+
+    private void txtCashinSupplierFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinSupplierFocusGained
+        // TODO add your handling code here:
+        if (txtCashinSupplier.getText().equals("0")){
+            txtCashinSupplier.setText("");
+        }
+    }//GEN-LAST:event_txtCashinSupplierFocusGained
+
+    private void txtCashinSupplierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinSupplierFocusLost
+        // TODO add your handling code here:
+        if (txtCashinSupplier.getText().equals("")){
+            txtCashinSupplier.setText("0");
+        }
+    }//GEN-LAST:event_txtCashinSupplierFocusLost
+
+    private void txtCashinSupplierKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCashinSupplierKeyReleased
+        // TODO add your handling code here:
+        //        total();
+    }//GEN-LAST:event_txtCashinSupplierKeyReleased
+
+    private void txtSusutFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSusutFocusGained
+        // TODO add your handling code here:
+        if (txtSusut.getText().equals("0")){
+            txtSusut.setText("");
+        }
+    }//GEN-LAST:event_txtSusutFocusGained
+
+    private void txtSusutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSusutFocusLost
+        // TODO add your handling code here:
+        if (txtSusut.getText().equals("")){
+            txtSusut.setText("0");
+        }
+    }//GEN-LAST:event_txtSusutFocusLost
+
+    private void txtSusutKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSusutKeyReleased
+        // TODO add your handling code here:
+        //        upah();
+    }//GEN-LAST:event_txtSusutKeyReleased
+
+    private void txtKordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusGained
+        // TODO add your handling code here:
+        if (txtKord.getText().equals("Note")){
+            txtKord.setText("");
+        }
+    }//GEN-LAST:event_txtKordFocusGained
+
+    private void txtKordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusLost
+        // TODO add your handling code here:
+        if (txtKord.getText().equals("")){
+            txtKord.setText("Note");
+        }
+    }//GEN-LAST:event_txtKordFocusLost
+
+    private void txtTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTabFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTabFocusGained
+
+    private void txtTabFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTabFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTabFocusLost
+
+    private void txtCashinPrimasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinPrimasFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCashinPrimasFocusGained
+
+    private void txtCashinPrimasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinPrimasFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCashinPrimasFocusLost
+
+    private void txtCashinPrimasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCashinPrimasKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCashinPrimasKeyReleased
+
+    private void txtNoSJFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoSJFocusGained
+
+    private void txtNoSJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoSJFocusLost
+
+    private void txtNoSJKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNoSJKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoSJKeyReleased
+
+    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoteFocusGained
+
+    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoteFocusLost
+
+    private void txtNoteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNoteKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNoteKeyReleased
+
+    private void txtStockpileFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockpileFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockpileFocusGained
+
+    private void txtStockpileFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockpileFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockpileFocusLost
+
+    private void txtStockpileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockpileKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockpileKeyReleased
+
+    private void txtTonaseMuatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonaseMuatFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTonaseMuatFocusGained
+
+    private void txtTonaseMuatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonaseMuatFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTonaseMuatFocusLost
+
+    private void txtTonaseMuatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonaseMuatKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTonaseMuatKeyReleased
+
+    private void cmbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +1473,93 @@ public class frmTransport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnBaru1;
+    private javax.swing.JLabel btnBatal;
+    private javax.swing.JLabel btnCetak;
+    private javax.swing.JLabel btnHapus1;
+    private javax.swing.JLabel btnSimpan;
+    private com.toedter.calendar.JDateChooser cmbDate;
+    private javax.swing.JComboBox<String> cmbID;
+    private javax.swing.JComboBox<String> cmbKdMobil;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
+    private javax.swing.JSeparator jSeparator23;
+    private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
+    private javax.swing.JSeparator jSeparator28;
+    private javax.swing.JSeparator jSeparator29;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtCash;
+    private javax.swing.JTextField txtCashinPrimas;
+    private javax.swing.JTextField txtCashinSupplier;
+    private javax.swing.JTextField txtDO;
+    private javax.swing.JTextField txtJumlahTotal;
+    private javax.swing.JTextField txtKas;
+    private javax.swing.JTextField txtKasPrimas;
+    private javax.swing.JTextField txtKdTransport;
+    private javax.swing.JTextField txtKord;
+    private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtNoSJ;
+    private javax.swing.JTextField txtNopol;
+    private javax.swing.JTextField txtNote;
+    private javax.swing.JTextField txtRP;
+    private javax.swing.JTextField txtStockpile;
+    private javax.swing.JTextField txtSusut;
+    private javax.swing.JTextField txtSusutTonase;
+    private javax.swing.JTextField txtTab;
+    private javax.swing.JTextField txtTempatBongkar;
+    private javax.swing.JTextField txtTonaseMuat;
+    private javax.swing.JTextField txtTonasePabrik;
     // End of variables declaration//GEN-END:variables
 }

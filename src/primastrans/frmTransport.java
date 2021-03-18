@@ -49,6 +49,35 @@ public class frmTransport extends javax.swing.JFrame {
         });
     }
 
+    private void jumlahtotal(){
+        long a = Long.parseLong(txtTonasePabrik.getText());
+        long b = Long.parseLong(txtRP.getText());
+        long c = a * b; 
+        txtJumlahTotal.setText(Long.toString(c));
+    }
+    
+    private void susuttonase(){
+        long a = Long.parseLong(txtTonasePabrik.getText());
+        long b = Long.parseLong(txtTonaseMuat.getText());
+        long c = b - a; 
+        txtSusutTonase.setText(Long.toString(c));
+    }
+    
+    private void cashinsupplier(){
+        long a = Long.parseLong(txtJumlahTotal.getText());
+        long b = Long.parseLong(txtKas.getText());
+        long c = a - b; 
+        txtCashinSupplier.setText(Long.toString(c));
+    }
+    
+    private void cashinprimas(){
+        long a = Long.parseLong(txtCashinSupplier.getText());
+        long b = Long.parseLong(txtKasPrimas.getText());
+        long c = Long.parseLong(txtKord.getText());
+        long d = Long.parseLong(txtTab.getText());
+        long e = a - b - c - d; 
+        txtCashinPrimas.setText(Long.toString(e));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -400,7 +429,7 @@ public class frmTransport extends javax.swing.JFrame {
         txtDO.setBackground(new java.awt.Color(242, 233, 242));
         txtDO.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtDO.setForeground(new java.awt.Color(102, 102, 102));
-        txtDO.setText("DO");
+        txtDO.setText("Delivery Order");
         txtDO.setBorder(null);
         txtDO.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -408,11 +437,6 @@ public class frmTransport extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtDOFocusLost(evt);
-            }
-        });
-        txtDO.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtDOKeyReleased(evt);
             }
         });
         jPanel3.add(txtDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 170, 30));
@@ -492,19 +516,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtCashinSupplier.setForeground(new java.awt.Color(102, 102, 102));
         txtCashinSupplier.setText("0");
         txtCashinSupplier.setBorder(null);
-        txtCashinSupplier.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCashinSupplierFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCashinSupplierFocusLost(evt);
-            }
-        });
-        txtCashinSupplier.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCashinSupplierKeyReleased(evt);
-            }
-        });
         jPanel3.add(txtCashinSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 170, 170, 30));
 
         jSeparator13.setBackground(new java.awt.Color(102, 102, 102));
@@ -522,6 +533,19 @@ public class frmTransport extends javax.swing.JFrame {
         txtKasPrimas.setForeground(new java.awt.Color(102, 102, 102));
         txtKasPrimas.setText("0");
         txtKasPrimas.setBorder(null);
+        txtKasPrimas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtKasPrimasFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtKasPrimasFocusLost(evt);
+            }
+        });
+        txtKasPrimas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKasPrimasKeyReleased(evt);
+            }
+        });
         jPanel3.add(txtKasPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 220, 170, 30));
 
         jSeparator14.setBackground(new java.awt.Color(102, 102, 102));
@@ -569,6 +593,14 @@ public class frmTransport extends javax.swing.JFrame {
         txtCash.setForeground(new java.awt.Color(102, 102, 102));
         txtCash.setText("0");
         txtCash.setBorder(null);
+        txtCash.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCashFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCashFocusLost(evt);
+            }
+        });
         jPanel3.add(txtCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 170, 30));
 
         jSeparator16.setBackground(new java.awt.Color(102, 102, 102));
@@ -594,6 +626,11 @@ public class frmTransport extends javax.swing.JFrame {
                 txtKordFocusLost(evt);
             }
         });
+        txtKord.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKordKeyReleased(evt);
+            }
+        });
         jPanel3.add(txtKord, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 70, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
@@ -617,6 +654,11 @@ public class frmTransport extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtTabFocusLost(evt);
+            }
+        });
+        txtTab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTabKeyReleased(evt);
             }
         });
         jPanel3.add(txtTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 120, 170, 30));
@@ -680,6 +722,19 @@ public class frmTransport extends javax.swing.JFrame {
         txtRP.setForeground(new java.awt.Color(102, 102, 102));
         txtRP.setText("0");
         txtRP.setBorder(null);
+        txtRP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtRPFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRPFocusLost(evt);
+            }
+        });
+        txtRP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRPKeyReleased(evt);
+            }
+        });
         jPanel3.add(txtRP, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 170, 30));
 
         jSeparator22.setBackground(new java.awt.Color(102, 102, 102));
@@ -714,19 +769,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtCashinPrimas.setForeground(new java.awt.Color(102, 102, 102));
         txtCashinPrimas.setText("0");
         txtCashinPrimas.setBorder(null);
-        txtCashinPrimas.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCashinPrimasFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCashinPrimasFocusLost(evt);
-            }
-        });
-        txtCashinPrimas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCashinPrimasKeyReleased(evt);
-            }
-        });
         jPanel3.add(txtCashinPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 170, 170, 30));
 
         jSeparator26.setBackground(new java.awt.Color(102, 102, 102));
@@ -742,7 +784,7 @@ public class frmTransport extends javax.swing.JFrame {
         txtNoSJ.setBackground(new java.awt.Color(242, 233, 242));
         txtNoSJ.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtNoSJ.setForeground(new java.awt.Color(102, 102, 102));
-        txtNoSJ.setText("0");
+        txtNoSJ.setText("No Surat Jalan");
         txtNoSJ.setBorder(null);
         txtNoSJ.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -750,11 +792,6 @@ public class frmTransport extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtNoSJFocusLost(evt);
-            }
-        });
-        txtNoSJ.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNoSJKeyReleased(evt);
             }
         });
         jPanel3.add(txtNoSJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 220, 170, 30));
@@ -816,12 +853,20 @@ public class frmTransport extends javax.swing.JFrame {
         txtTempatBongkar.setForeground(new java.awt.Color(102, 102, 102));
         txtTempatBongkar.setText("Tempat Bongkar");
         txtTempatBongkar.setBorder(null);
+        txtTempatBongkar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTempatBongkarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTempatBongkarFocusLost(evt);
+            }
+        });
         jPanel3.add(txtTempatBongkar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 170, 30));
 
         txtStockpile.setBackground(new java.awt.Color(242, 233, 242));
         txtStockpile.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtStockpile.setForeground(new java.awt.Color(102, 102, 102));
-        txtStockpile.setText("Stock Pile");
+        txtStockpile.setText("Stockpile");
         txtStockpile.setBorder(null);
         txtStockpile.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -829,11 +874,6 @@ public class frmTransport extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtStockpileFocusLost(evt);
-            }
-        });
-        txtStockpile.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtStockpileKeyReleased(evt);
             }
         });
         jPanel3.add(txtStockpile, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 170, 30));
@@ -867,7 +907,7 @@ public class frmTransport extends javax.swing.JFrame {
         txtNopol.setBackground(new java.awt.Color(242, 233, 242));
         txtNopol.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtNopol.setForeground(new java.awt.Color(102, 102, 102));
-        txtNopol.setText("NOPOL");
+        txtNopol.setText("Plat Nomor");
         txtNopol.setBorder(null);
         jPanel3.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 170, 30));
 
@@ -1004,9 +1044,7 @@ public class frmTransport extends javax.swing.JFrame {
         txtTonaseMuat.setEditable(true);
         txtTonasePabrik.setEditable(true);
         txtRP.setEditable(true);
-        txtJumlahTotal.setEditable(true);
         txtKas.setEditable(true);
-        txtCashinSupplier.setEditable(true);
         txtKasPrimas.setEditable(true);
         txtSusut.setEditable(true);
         txtCash.setEditable(true);
@@ -1014,7 +1052,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtTab.setEditable(true);
         txtCashinPrimas.setEditable(true);
         txtNoSJ.setEditable(true);
-        txtSusutTonase.setEditable(true);
         txtNote.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
@@ -1058,8 +1095,8 @@ public class frmTransport extends javax.swing.JFrame {
         txtNopol.setText("Nopol");
         cmbID.setSelectedItem(null);
         txtNama.setText("Nama Supir");
-        txtDO.setText("DO");
-        txtStockpile.setText("Stock Pile");
+        txtDO.setText("Delivery Order");
+        txtStockpile.setText("Stockpile");
         txtTempatBongkar.setText("Tempat Bongkar");
         txtTonaseMuat.setText("0");
         txtTonasePabrik.setText("0");
@@ -1257,23 +1294,16 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSimpanMouseClicked
 
     private void txtDOFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDOFocusGained
-        // TODO add your handling code here:
-        if (txtDO.getText().equals("0")){
+        if (txtDO.getText().equals("Delivery Order")){
             txtDO.setText("");
         }
     }//GEN-LAST:event_txtDOFocusGained
 
     private void txtDOFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDOFocusLost
-        // TODO add your handling code here:
         if (txtDO.getText().equals("")){
-            txtDO.setText("0");
+            txtDO.setText("Delivery Order");
         }
     }//GEN-LAST:event_txtDOFocusLost
-
-    private void txtDOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDOKeyReleased
-        // TODO add your handling code here:
-        //        total();
-    }//GEN-LAST:event_txtDOKeyReleased
 
     private void txtTonasePabrikFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonasePabrikFocusGained
         // TODO add your handling code here:
@@ -1290,50 +1320,27 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTonasePabrikFocusLost
 
     private void txtTonasePabrikKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonasePabrikKeyReleased
-        // TODO add your handling code here:
-        //        total();
+        jumlahtotal();
+        susuttonase();
     }//GEN-LAST:event_txtTonasePabrikKeyReleased
 
     private void txtKasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasFocusGained
-        // TODO add your handling code here:
         if (txtKas.getText().equals("0")){
             txtKas.setText("");
         }
     }//GEN-LAST:event_txtKasFocusGained
 
     private void txtKasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasFocusLost
-        // TODO add your handling code here:
         if (txtKas.getText().equals("")){
             txtKas.setText("0");
         }
     }//GEN-LAST:event_txtKasFocusLost
 
     private void txtKasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasKeyReleased
-        // TODO add your handling code here:
-        //        total();
+        cashinsupplier();
     }//GEN-LAST:event_txtKasKeyReleased
 
-    private void txtCashinSupplierFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinSupplierFocusGained
-        // TODO add your handling code here:
-        if (txtCashinSupplier.getText().equals("0")){
-            txtCashinSupplier.setText("");
-        }
-    }//GEN-LAST:event_txtCashinSupplierFocusGained
-
-    private void txtCashinSupplierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinSupplierFocusLost
-        // TODO add your handling code here:
-        if (txtCashinSupplier.getText().equals("")){
-            txtCashinSupplier.setText("0");
-        }
-    }//GEN-LAST:event_txtCashinSupplierFocusLost
-
-    private void txtCashinSupplierKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCashinSupplierKeyReleased
-        // TODO add your handling code here:
-        //        total();
-    }//GEN-LAST:event_txtCashinSupplierKeyReleased
-
     private void txtSusutFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSusutFocusGained
-        // TODO add your handling code here:
         if (txtSusut.getText().equals("0")){
             txtSusut.setText("");
         }
@@ -1352,57 +1359,51 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSusutKeyReleased
 
     private void txtKordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusGained
-        // TODO add your handling code here:
-        if (txtKord.getText().equals("Note")){
+        if (txtKord.getText().equals("0")){
             txtKord.setText("");
         }
     }//GEN-LAST:event_txtKordFocusGained
 
     private void txtKordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusLost
-        // TODO add your handling code here:
         if (txtKord.getText().equals("")){
-            txtKord.setText("Note");
+            txtKord.setText("0");
         }
     }//GEN-LAST:event_txtKordFocusLost
 
     private void txtTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTabFocusGained
-        // TODO add your handling code here:
+        if (txtTab.getText().equals("0")){
+            txtTab.setText("");
+        }
     }//GEN-LAST:event_txtTabFocusGained
 
     private void txtTabFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTabFocusLost
-        // TODO add your handling code here:
+        if (txtTab.getText().equals("")){
+            txtTab.setText("0");
+        }
     }//GEN-LAST:event_txtTabFocusLost
 
-    private void txtCashinPrimasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinPrimasFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCashinPrimasFocusGained
-
-    private void txtCashinPrimasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashinPrimasFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCashinPrimasFocusLost
-
-    private void txtCashinPrimasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCashinPrimasKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCashinPrimasKeyReleased
-
     private void txtNoSJFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusGained
-        // TODO add your handling code here:
+        if (txtNoSJ.getText().equals("No Surat Jalan")){
+            txtNoSJ.setText("");
+        }
     }//GEN-LAST:event_txtNoSJFocusGained
 
     private void txtNoSJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusLost
-        // TODO add your handling code here:
+        if (txtTab.getText().equals("")){
+            txtTab.setText("No Surat Jalan");
+        }
     }//GEN-LAST:event_txtNoSJFocusLost
 
-    private void txtNoSJKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNoSJKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNoSJKeyReleased
-
     private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
-        // TODO add your handling code here:
+        if (txtNote.getText().equals("Note")){
+            txtNote.setText("");
+        }
     }//GEN-LAST:event_txtNoteFocusGained
 
     private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
-        // TODO add your handling code here:
+        if (txtNote.getText().equals("")){
+            txtNote.setText("Note");
+        }
     }//GEN-LAST:event_txtNoteFocusLost
 
     private void txtNoteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNoteKeyReleased
@@ -1410,23 +1411,27 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNoteKeyReleased
 
     private void txtStockpileFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockpileFocusGained
-        // TODO add your handling code here:
+        if (txtStockpile.getText().equals("Stockpile")){
+            txtStockpile.setText("");
+        }
     }//GEN-LAST:event_txtStockpileFocusGained
 
     private void txtStockpileFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockpileFocusLost
-        // TODO add your handling code here:
+        if (txtStockpile.getText().equals("")){
+            txtStockpile.setText("Stockpile");
+        }
     }//GEN-LAST:event_txtStockpileFocusLost
 
-    private void txtStockpileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockpileKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStockpileKeyReleased
-
     private void txtTonaseMuatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonaseMuatFocusGained
-        // TODO add your handling code here:
+        if (txtTonaseMuat.getText().equals("0")){
+            txtTonaseMuat.setText("");
+        }
     }//GEN-LAST:event_txtTonaseMuatFocusGained
 
     private void txtTonaseMuatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTonaseMuatFocusLost
-        // TODO add your handling code here:
+        if (txtTonaseMuat.getText().equals("")){
+            txtTonaseMuat.setText("0");
+        }
     }//GEN-LAST:event_txtTonaseMuatFocusLost
 
     private void txtTonaseMuatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonaseMuatKeyReleased
@@ -1436,6 +1441,70 @@ public class frmTransport extends javax.swing.JFrame {
     private void cmbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbIDActionPerformed
+
+    private void txtTempatBongkarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTempatBongkarFocusGained
+        if (txtTempatBongkar.getText().equals("Tempat Bongkar")){
+            txtTempatBongkar.setText("");
+        }
+    }//GEN-LAST:event_txtTempatBongkarFocusGained
+
+    private void txtTempatBongkarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTempatBongkarFocusLost
+        if (txtTempatBongkar.getText().equals("")){
+            txtTempatBongkar.setText("Tempat Bongkar");
+        }
+    }//GEN-LAST:event_txtTempatBongkarFocusLost
+
+    private void txtRPFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRPFocusGained
+        if (txtRP.getText().equals("0")){
+            txtRP.setText("");
+        }
+    }//GEN-LAST:event_txtRPFocusGained
+
+    private void txtRPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRPFocusLost
+        if (txtRP.getText().equals("")){
+            txtRP.setText("0");
+        }
+    }//GEN-LAST:event_txtRPFocusLost
+
+    private void txtKasPrimasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasPrimasFocusGained
+        if (txtKasPrimas.getText().equals("0")){
+            txtKasPrimas.setText("");
+        }
+    }//GEN-LAST:event_txtKasPrimasFocusGained
+
+    private void txtKasPrimasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasPrimasFocusLost
+        if (txtKasPrimas.getText().equals("")){
+            txtKasPrimas.setText("0");
+        }
+    }//GEN-LAST:event_txtKasPrimasFocusLost
+
+    private void txtCashFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashFocusGained
+        if (txtCash.getText().equals("0")){
+            txtCash.setText("");
+        }
+    }//GEN-LAST:event_txtCashFocusGained
+
+    private void txtCashFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashFocusLost
+        if (txtCash.getText().equals("")){
+            txtCash.setText("0");
+        }
+    }//GEN-LAST:event_txtCashFocusLost
+
+    private void txtRPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRPKeyReleased
+        jumlahtotal();
+    }//GEN-LAST:event_txtRPKeyReleased
+
+    private void txtKasPrimasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasPrimasKeyReleased
+        cashinprimas();
+    }//GEN-LAST:event_txtKasPrimasKeyReleased
+
+    private void txtKordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKordKeyReleased
+        cashinprimas();
+    }//GEN-LAST:event_txtKordKeyReleased
+
+    private void txtTabKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTabKeyReleased
+        cashinprimas();
+    }//GEN-LAST:event_txtTabKeyReleased
 
     /**
      * @param args the command line arguments

@@ -12,6 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -342,7 +345,7 @@ public class frmOli extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, 20));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -504,12 +507,12 @@ public class frmOli extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHapusMouseClicked
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
-//        try {
-//            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSupir.jasper"), null, Config.configDB());
-//            JasperViewer.viewReport(jp, false);
-//        } catch(Exception e) {
-//            JOptionPane.showMessageDialog(rootPane, e);
-//        }
+        try {
+            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptOli.jasper"), null, Config.configDB());
+            JasperViewer.viewReport(jp, false);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnBaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaruMouseClicked

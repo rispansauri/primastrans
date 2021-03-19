@@ -198,9 +198,9 @@ public class frmPenghasilan extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         txtLabaBersih = new javax.swing.JTextField();
         jSeparator18 = new javax.swing.JSeparator();
-        cmbDate = new com.toedter.calendar.JDateChooser();
         cmbKdMobil = new javax.swing.JComboBox<>();
         txtRitBatubara = new javax.swing.JTextField();
+        cmbDate = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -571,9 +571,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 170, 10));
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
-        cmbKdMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 30));
 
         txtRitBatubara.setBackground(new java.awt.Color(242, 233, 242));
@@ -582,6 +580,9 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtRitBatubara.setText("0");
         txtRitBatubara.setBorder(null);
         jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
+
+        cmbDate.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

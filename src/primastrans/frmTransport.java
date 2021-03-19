@@ -845,8 +845,6 @@ public class frmTransport extends javax.swing.JFrame {
         jSeparator29.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator29.setForeground(new java.awt.Color(242, 233, 242));
         jPanel3.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 350, 170, 10));
-
-        cmbKdMobil.setBorder(null);
         jPanel3.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 60, 30));
 
         txtTempatBongkar.setBackground(new java.awt.Color(242, 233, 242));

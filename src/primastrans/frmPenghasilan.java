@@ -66,7 +66,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         
     }
     
-//    private void textboxOn() {
+    private void textboxOn() {
 //        txtHarga.setEditable(true);
 //        txtPart.setEditable(true);
 //        txtToko.setEditable(true);
@@ -76,9 +76,9 @@ public class frmPenghasilan extends javax.swing.JFrame {
 //        cmbKdmobil.setEnabled(true);
 //        cmbJenis.setEnabled(true);
 //        jPanel4.setVisible(true);
-//        btnSimpan.setVisible(true);
-//        btnBatal.setVisible(true);
-//    }
+        btnSimpan.setVisible(true);
+        btnBatal.setVisible(true);
+    }
     
 //    private void textboxOff() {
 //        txtKd.setEditable(false);
@@ -909,8 +909,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
     private void btnBaru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaru1MouseClicked
         // TODO add your handling code here:
-//        textboxOn();
-//        kosong();
+        textboxOn();
         kdPenghasilan();
     }//GEN-LAST:event_btnBaru1MouseClicked
 

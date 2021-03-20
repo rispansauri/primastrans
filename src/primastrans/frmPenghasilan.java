@@ -9,6 +9,8 @@ package primastrans;
  *
  * @author R
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -27,11 +29,33 @@ public class frmPenghasilan extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         load_table();
-//        kosong();
-//        textboxOff();
+        kosong();
+        textboxOff();
         cmbMobil();
+        
+        cmbKdMobil.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                getTransport();
+            }
+        });
+        
     }
 
+    private void getTransport(){
+//        try {
+//            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
+//            java.sql.Connection conn=Config.configDB();
+//            java.sql.Statement stm=conn.createStatement();
+//            java.sql.ResultSet res=stm.executeQuery(sql);
+//            if(res.next() == true) {
+//                txtNama.setText(res.getString("nm_supir"));
+//            }
+//        }catch ( SQLException err ) {
+//            System.out.println(err.getMessage());
+//        }  
+    }
+    
     private void kdPenghasilan() {
         try {
             String sql = "select * from tb_penghasilan order by kd_penghasilan desc";
@@ -67,50 +91,55 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }
     
     private void textboxOn() {
-//        txtHarga.setEditable(true);
-//        txtPart.setEditable(true);
-//        txtToko.setEditable(true);
-//        txtQty.setEditable(true);
-//        txtNote.setEditable(true);
-//        cmbDate.setEnabled(true);
-//        cmbKdmobil.setEnabled(true);
-//        cmbJenis.setEnabled(true);
-//        jPanel4.setVisible(true);
+        cmbDate.setEnabled(true);
+        cmbKdMobil.setEnabled(true);
+        txtRitBatubara.setEnabled(true);
+        txtSplit.setEnabled(true);
+        txtBeskos.setEnabled(true);
+        txtRitBeskos.setEnabled(true);
+        txtLoading.setEnabled(true);
+        txtTotal.setEditable(true);
+        jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
         btnBatal.setVisible(true);
     }
     
-//    private void textboxOff() {
-//        txtKd.setEditable(false);
-//        txtTotal.setEditable(false);
-//        txtJumlah.setEditable(false);
-//        txtHarga.setEditable(false);
-//        txtPart.setEditable(false);
-//        txtToko.setEditable(false);
-//        txtQty.setEditable(false);
-//        txtNote.setEditable(false);
+    private void textboxOff() {
+//        txtKdPenghasilan.setEditable(false);
 //        cmbDate.setEnabled(false);
-//        cmbKdmobil.setEnabled(false);
-//        cmbJenis.setEnabled(false);
+//        cmbKdMobil.setEnabled(false);
+//        txtBatubara.setEnabled(false);
+//        txtRitBatubara.setEnabled(false);
+//        txtSplit.setEnabled(false);
+//        txtBeskos.setEnabled(false);
+//        txtRitBeskos.setEnabled(false);
+//        txtLoading.setEnabled(false);
+//        txtJumlah.setEditable(false);
+//        txtSparepart.setEditable(false);
+//        txtTotal.setEditable(false);
+//        txtLabaKotor.setEditable(false);
+//        txtLabaBersih.setEditable(false);
 //        jPanel4.setVisible(false);
 //        btnSimpan.setVisible(false);
 //        btnBatal.setVisible(false);
-//    }
+    }
     
-//    private void kosong(){
-//        txtKd.setText("");
-//        txtHarga.setText("0");
-//        txtPart.setText("Nama Sparepart");
-//        txtJumlah.setText("0");
-//        txtTotal.setText("0");
-//        txtToko.setText("Nama Toko"); 
-//        txtQty.setText("0");       
-//        txtNote.setText("Note");  
-//        cmbDate.setDate(null);
-//        cmbKdmobil.setSelectedItem(null);
-//        cmbJenis.setSelectedItem(null);
-//        lblHidden.setVisible(false);
-//    }
+    private void kosong(){
+        txtKdPenghasilan.setText(null);
+        cmbDate.setDate(null);
+        cmbKdMobil.setSelectedItem(null);
+        txtBatubara.setText(null);
+        txtRitBatubara.setText(null);
+        txtSplit.setText(null);
+        txtBeskos.setText(null);
+        txtRitBeskos.setText(null);
+        txtLoading.setText(null);
+        txtJumlah.setText(null);
+        txtSparepart.setText(null);
+        txtTotal.setText(null);
+        txtLabaKotor.setText(null);
+        txtLabaBersih.setText(null);
+    }
     
     private void load_table(){
         // membuat tampilan model tabel
@@ -729,40 +758,38 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
-        // TODO add your handling code here:
-//        textboxOff();
-//        kosong();
+        textboxOff();
+        kosong();
     }//GEN-LAST:event_btnBatalMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
-        // TODO add your handling code here:
-//        try{
-//            String query = "select * from tb_upah_supir where kd_upah = '"+txtKdPenghasilan.getText()+"'";
-//            java.sql.Connection conn=(Connection)Config.configDB();
-//            java.sql.Statement stm=conn.createStatement();
-//            java.sql.ResultSet res=stm.executeQuery(query);
-//            if(res.next()){
-//                String sql ="UPDATE tb_upah_supir SET kd_upah = '"+txtKdPenghasilan.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"',kd_mobil= '"+cmbMobil.getSelectedItem()+"', nopol = '"+txtBatubara.getText()+"', bayaran = '"+txtSplit.getText()+"', koordinasi = '"+txtBeskos.getText()+"',subsidi= '"+txtRitBeskos.getText()+"', bon = '"+txtLoading.getText()+"', total = '"+txtJumlah.getText()+"', potongan = '"+txtSparepart.getText()+"',upah= '"+txtTotal.getText()+"',note= '"+txtLabaKotor.getText()+"' WHERE kd_upah = '"+txtKdPenghasilan.getText()+"'";
-//                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-//                pst.execute();
-//                JOptionPane.showMessageDialog(null, "data berhasil diedit");
-//            }else{
-//                String sql = "INSERT INTO tb_upah_supir VALUES ('"+txtKdPenghasilan.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+cmbMobil.getSelectedItem()+"', '"+txtBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"')";
-//                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-//                pst.execute();
-//                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
-//            }
-//            load_table();
-//            textboxOff();
-//            kosong();
-//        }catch (Exception e){
-//            JOptionPane.showMessageDialog(this, e.getMessage());
-//        }
+        try{
+            String query = "select * from tb_penghasilan where kd_penghasilan = '"+txtKdPenghasilan.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(query);
+            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
+            if(res.next()){
+                String sql ="UPDATE tb_penghasilan SET tgl = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"', batubara = '"+txtBatubara.getText()+"', ritase_batubara = '"+txtRitBatubara.getText()+"', split = '"+txtSplit.getText()+"', beskos = '"+txtBeskos.getText()+"', ritase_beskos = '"+txtRitBeskos.getText()+"', loading = '"+txtLoading.getText()+"', jumlah = '"+txtJumlah.getText()+"', sparepart = '"+txtSparepart.getText()+"', total = '"+txtTotal.getText()+"', pendapatan_kotor_rit = '"+txtLabaKotor.getText()+"', pendapatan_bersih_rit = '"+txtLabaBersih.getText()+"' WHERE kd_penghasilan = '"+txtKdPenghasilan.getText()+"'";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "data berhasil diedit");
+            }else{
+                String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+            }
+            load_table();
+            textboxOff();
+            kosong();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
     private void txtSplitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSplitFocusGained
@@ -876,35 +903,42 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLabaKotorFocusLost
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-//        int baris = jTable1.rowAtPoint(evt.getPoint());
-//        String kdupah =jTable1.getValueAt(baris, 0).toString();
-//        txtKdPenghasilan.setText(kdupah);
-//        String id = jTable1.getValueAt(baris,1).toString();
-//        cmbID.setSelectedItem(id);
-//        String nama=jTable1.getValueAt(baris, 2).toString();
-//        txtNama.setText(nama);
-//        String kdmobil = jTable1.getValueAt(baris, 3).toString();
-//        cmbMobil.setSelectedItem(kdmobil);
-//        String nopol =jTable1.getValueAt(baris, 4).toString();
-//        txtBatubara.setText(nopol);
-//        String bayaran = jTable1.getValueAt(baris,5).toString();
-//        txtSplit.setText(bayaran);
-//        String koordinasi=jTable1.getValueAt(baris, 6).toString();
-//        txtBeskos.setText(koordinasi);
-//        String subsidi = jTable1.getValueAt(baris, 7).toString();
-//        txtRitBeskos.setText(subsidi);
-//        String bon =jTable1.getValueAt(baris, 8).toString();
-//        txtLoading.setText(bon);
-//        String total = jTable1.getValueAt(baris,9).toString();
-//        txtJumlah.setText(total);
-//        String potongan=jTable1.getValueAt(baris, 10).toString();
-//        txtSparepart.setText(potongan);
-//        String upah = jTable1.getValueAt(baris, 11).toString();
-//        txtTotal.setText(upah);
-//        String note = jTable1.getValueAt(baris, 12).toString();
-//        txtLabaKotor.setText(note);
-//        textboxOn();
+        int baris = jTable1.rowAtPoint(evt.getPoint());
+        String kdpenghasilan =jTable1.getValueAt(baris, 0).toString();
+        txtKdPenghasilan.setText(kdpenghasilan);
+        String tgl = jTable1.getValueAt(baris,1).toString();
+        try {
+            java.util.Date date;
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(tgl);
+            cmbDate.setDate(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(frmOli.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String kd=jTable1.getValueAt(baris, 2).toString();
+        cmbKdMobil.setSelectedItem(kd);
+        String btbr =jTable1.getValueAt(baris, 3).toString();
+        txtBatubara.setText(btbr);
+        String ritbtbr = jTable1.getValueAt(baris, 4).toString();
+        txtRitBatubara.setText(ritbtbr);
+        String split = jTable1.getValueAt(baris,5).toString();
+        txtSplit.setText(split);
+        String beskos=jTable1.getValueAt(baris, 6).toString();
+        txtBeskos.setText(beskos);
+        String ritbeskos = jTable1.getValueAt(baris, 7).toString();
+        txtRitBeskos.setText(ritbeskos);
+        String loading =jTable1.getValueAt(baris, 8).toString();
+        txtLoading.setText(loading);
+        String jumlah = jTable1.getValueAt(baris,9).toString();
+        txtJumlah.setText(jumlah);
+        String sparepart=jTable1.getValueAt(baris, 10).toString();
+        txtSparepart.setText(sparepart);
+        String total = jTable1.getValueAt(baris, 11).toString();
+        txtTotal.setText(total);
+        String kotor = jTable1.getValueAt(baris, 12).toString();
+        txtLabaKotor.setText(kotor);
+        String bersih = jTable1.getValueAt(baris, 13).toString();
+        txtLabaBersih.setText(bersih);
+        textboxOn();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnBaru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaru1MouseClicked

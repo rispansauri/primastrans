@@ -430,13 +430,12 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtBatubara.setForeground(new java.awt.Color(102, 102, 102));
         txtBatubara.setText("0");
         txtBatubara.setBorder(null);
-
         txtBatubara.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBatubaraKeyReleased(evt);
             }
         });
-        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
+        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 170, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
@@ -629,8 +628,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtLabaKotor.setForeground(new java.awt.Color(102, 102, 102));
         txtLabaKotor.setText("0");
         txtLabaKotor.setBorder(null);
-
-        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 170, 30));
+        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator17.setForeground(new java.awt.Color(242, 233, 242));
@@ -647,21 +645,11 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtLabaBersih.setForeground(new java.awt.Color(102, 102, 102));
         txtLabaBersih.setText("0");
         txtLabaBersih.setBorder(null);
-
-        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 170, 30));
+        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 170, 30));
 
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 170, 10));
-
-        cmbDate.setDateFormatString("yyyy-MM-dd");
-        cmbDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                cmbDatePropertyChange(evt);
-            }
-        });
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
-
 
         jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, 30));
 
@@ -678,12 +666,10 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtRitBatubaraFocusLost(evt);
             }
         });
-        txtRitBatubara.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtRitBatubaraKeyReleased(evt);
-            }
-        });
-        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
+        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 170, 30));
+
+        cmbDate.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

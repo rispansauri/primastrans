@@ -26,7 +26,7 @@ public class frmSparepart extends javax.swing.JFrame {
      */
     public frmSparepart() {
         initComponents();
-        this.setLocationRelativeTo(null);
+         
         load_table();
         kosong();
         textboxOff();

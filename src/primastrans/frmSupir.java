@@ -441,7 +441,7 @@ public class frmSupir extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
             if(res.next()){
-                String sql ="UPDATE tb_supir SET id = '"+txtID.getText()+"','"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE id = '"+txtID.getText()+"'";
+                String sql ="UPDATE tb_supir SET id = '"+txtID.getText()+"', nik = '"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE id = '"+txtID.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil di edit");

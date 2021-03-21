@@ -5,6 +5,9 @@
  */
 package primastrans;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author chevi
@@ -36,19 +39,19 @@ public class mainMenu extends javax.swing.JFrame {
         btnTransaksi = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnReport = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
+        pnlMobil = new javax.swing.JPanel();
         btnMobil = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        pnlSupir = new javax.swing.JPanel();
         btnSupir = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
+        pnlTransport = new javax.swing.JPanel();
         btnTransport = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
+        pnlSparepart = new javax.swing.JPanel();
         btnSparepart = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
+        pnlGantiOli = new javax.swing.JPanel();
         btnGantiOli = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
+        pnlUpahSupir = new javax.swing.JPanel();
         btnUpahSupir = new javax.swing.JLabel();
-        jPanel21 = new javax.swing.JPanel();
+        pnlPenghasilan = new javax.swing.JPanel();
         btnPenghasilan = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         masterPanel = new javax.swing.JPanel();
@@ -57,6 +60,16 @@ public class mainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         sidebarPanel.setBackground(new java.awt.Color(61, 115, 80));
         sidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,7 +149,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 636, 328, -1));
 
-        jPanel10.setBackground(new java.awt.Color(61, 115, 80));
+        pnlMobil.setBackground(new java.awt.Color(61, 115, 80));
 
         btnMobil.setBackground(new java.awt.Color(204, 204, 204));
         btnMobil.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -147,24 +160,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMobilMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMobilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMobilMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlMobilLayout = new javax.swing.GroupLayout(pnlMobil);
+        pnlMobil.setLayout(pnlMobilLayout);
+        pnlMobilLayout.setHorizontalGroup(
+            pnlMobilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMobilLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlMobilLayout.setVerticalGroup(
+            pnlMobilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnMobil, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 271, 328, -1));
+        sidebarPanel.add(pnlMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 271, 328, -1));
 
-        jPanel11.setBackground(new java.awt.Color(61, 115, 80));
+        pnlSupir.setBackground(new java.awt.Color(61, 115, 80));
 
         btnSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -175,24 +195,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSupirMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSupirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSupirMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSupir, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlSupirLayout = new javax.swing.GroupLayout(pnlSupir);
+        pnlSupir.setLayout(pnlSupirLayout);
+        pnlSupirLayout.setHorizontalGroup(
+            pnlSupirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSupirLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnSupir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlSupirLayout.setVerticalGroup(
+            pnlSupirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSupir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, 328, -1));
+        sidebarPanel.add(pnlSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, 328, -1));
 
-        jPanel14.setBackground(new java.awt.Color(61, 115, 80));
+        pnlTransport.setBackground(new java.awt.Color(61, 115, 80));
 
         btnTransport.setBackground(new java.awt.Color(204, 204, 204));
         btnTransport.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -203,24 +230,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTransportMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTransportMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTransportMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlTransportLayout = new javax.swing.GroupLayout(pnlTransport);
+        pnlTransport.setLayout(pnlTransportLayout);
+        pnlTransportLayout.setHorizontalGroup(
+            pnlTransportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTransportLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlTransportLayout.setVerticalGroup(
+            pnlTransportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnTransport, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 412, 328, -1));
+        sidebarPanel.add(pnlTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 412, 328, -1));
 
-        jPanel18.setBackground(new java.awt.Color(61, 115, 80));
+        pnlSparepart.setBackground(new java.awt.Color(61, 115, 80));
 
         btnSparepart.setBackground(new java.awt.Color(204, 204, 204));
         btnSparepart.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -231,24 +265,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSparepartMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSparepartMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSparepartMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSparepart, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlSparepartLayout = new javax.swing.GroupLayout(pnlSparepart);
+        pnlSparepart.setLayout(pnlSparepartLayout);
+        pnlSparepartLayout.setHorizontalGroup(
+            pnlSparepartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSparepartLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnSparepart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlSparepartLayout.setVerticalGroup(
+            pnlSparepartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSparepart, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 468, 328, -1));
+        sidebarPanel.add(pnlSparepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 468, 328, -1));
 
-        jPanel19.setBackground(new java.awt.Color(61, 115, 80));
+        pnlGantiOli.setBackground(new java.awt.Color(61, 115, 80));
 
         btnGantiOli.setBackground(new java.awt.Color(204, 204, 204));
         btnGantiOli.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -259,24 +300,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGantiOliMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGantiOliMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGantiOliMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnGantiOli, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlGantiOliLayout = new javax.swing.GroupLayout(pnlGantiOli);
+        pnlGantiOli.setLayout(pnlGantiOliLayout);
+        pnlGantiOliLayout.setHorizontalGroup(
+            pnlGantiOliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGantiOliLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnGantiOli, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlGantiOliLayout.setVerticalGroup(
+            pnlGantiOliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnGantiOli, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 524, 328, -1));
+        sidebarPanel.add(pnlGantiOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 524, 328, -1));
 
-        jPanel20.setBackground(new java.awt.Color(61, 115, 80));
+        pnlUpahSupir.setBackground(new java.awt.Color(61, 115, 80));
 
         btnUpahSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnUpahSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -287,24 +335,31 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnUpahSupirMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUpahSupirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUpahSupirMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnUpahSupir, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlUpahSupirLayout = new javax.swing.GroupLayout(pnlUpahSupir);
+        pnlUpahSupir.setLayout(pnlUpahSupirLayout);
+        pnlUpahSupirLayout.setHorizontalGroup(
+            pnlUpahSupirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUpahSupirLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnUpahSupir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlUpahSupirLayout.setVerticalGroup(
+            pnlUpahSupirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnUpahSupir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
+        sidebarPanel.add(pnlUpahSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
 
-        jPanel21.setBackground(new java.awt.Color(61, 115, 80));
+        pnlPenghasilan.setBackground(new java.awt.Color(61, 115, 80));
 
         btnPenghasilan.setBackground(new java.awt.Color(204, 204, 204));
         btnPenghasilan.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -315,29 +370,36 @@ public class mainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPenghasilanMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPenghasilanMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPenghasilanMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnPenghasilan, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout pnlPenghasilanLayout = new javax.swing.GroupLayout(pnlPenghasilan);
+        pnlPenghasilan.setLayout(pnlPenghasilanLayout);
+        pnlPenghasilanLayout.setHorizontalGroup(
+            pnlPenghasilanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPenghasilanLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnPenghasilan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlPenghasilanLayout.setVerticalGroup(
+            pnlPenghasilanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnPenghasilan, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 665, 328, -1));
+        sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 665, 328, -1));
 
         jLayeredPane1.setBackground(new java.awt.Color(242, 233, 242));
 
         masterPanel.setBackground(new java.awt.Color(242, 233, 242));
         masterPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("WELCOME :)");
         masterPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 150, 60));
@@ -384,9 +446,17 @@ public class mainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    void setColor(JPanel panel){
+        panel.setBackground(new Color(242,233,242));
+    }
+    
+    void resetColor(JPanel panel){
+        panel.setBackground(new Color(61,115,80));
+    }
+    
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void btnMobilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMobilMouseClicked
@@ -428,6 +498,91 @@ public class mainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         new frmPenghasilan().setVisible(true);
     }//GEN-LAST:event_btnPenghasilanMouseClicked
+
+    private void btnMobilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMobilMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlMobil);
+    }//GEN-LAST:event_btnMobilMouseEntered
+
+    private void btnSupirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupirMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlSupir);
+    }//GEN-LAST:event_btnSupirMouseEntered
+
+    private void btnTransportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransportMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlTransport);
+    }//GEN-LAST:event_btnTransportMouseEntered
+
+    private void btnSparepartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSparepartMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlSparepart);
+    }//GEN-LAST:event_btnSparepartMouseEntered
+
+    private void btnGantiOliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGantiOliMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlGantiOli);
+    }//GEN-LAST:event_btnGantiOliMouseEntered
+
+    private void btnUpahSupirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpahSupirMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlUpahSupir);
+    }//GEN-LAST:event_btnUpahSupirMouseEntered
+
+    private void btnPenghasilanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPenghasilanMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlPenghasilan);
+    }//GEN-LAST:event_btnPenghasilanMouseEntered
+
+    private void btnMobilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMobilMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlMobil);
+    }//GEN-LAST:event_btnMobilMouseExited
+
+    private void btnSupirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupirMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlSupir);
+    }//GEN-LAST:event_btnSupirMouseExited
+
+    private void btnTransportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransportMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlTransport);
+    }//GEN-LAST:event_btnTransportMouseExited
+
+    private void btnSparepartMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSparepartMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlSparepart);
+    }//GEN-LAST:event_btnSparepartMouseExited
+
+    private void btnGantiOliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGantiOliMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlGantiOli);
+    }//GEN-LAST:event_btnGantiOliMouseExited
+
+    private void btnUpahSupirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpahSupirMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlUpahSupir);
+    }//GEN-LAST:event_btnUpahSupirMouseExited
+
+    private void btnPenghasilanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPenghasilanMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlPenghasilan);
+    }//GEN-LAST:event_btnPenghasilanMouseExited
+
+    int xy, xx;
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x = xx, y = xy);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
 
     /**
      * @param args the command line arguments
@@ -479,17 +634,17 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel masterPanel;
+    private javax.swing.JPanel pnlGantiOli;
+    private javax.swing.JPanel pnlMobil;
+    private javax.swing.JPanel pnlPenghasilan;
+    private javax.swing.JPanel pnlSparepart;
+    private javax.swing.JPanel pnlSupir;
+    private javax.swing.JPanel pnlTransport;
+    private javax.swing.JPanel pnlUpahSupir;
     private javax.swing.JPanel sidebarPanel;
     // End of variables declaration//GEN-END:variables
 }

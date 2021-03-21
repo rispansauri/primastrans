@@ -93,52 +93,51 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private void textboxOn() {
         cmbDate.setEnabled(true);
         cmbKdMobil.setEnabled(true);
-        txtRitBatubara.setEnabled(true);
-        txtSplit.setEnabled(true);
-        txtBeskos.setEnabled(true);
-        txtRitBeskos.setEnabled(true);
-        txtLoading.setEnabled(true);
-        txtTotal.setEditable(true);
+        txtRitBatubara.setEditable(true);
+        txtSplit.setEditable(true);
+        txtBeskos.setEditable(true);
+        txtRitBeskos.setEditable(true);
+        txtLoading.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
         btnBatal.setVisible(true);
     }
     
     private void textboxOff() {
-//        txtKdPenghasilan.setEditable(false);
-//        cmbDate.setEnabled(false);
-//        cmbKdMobil.setEnabled(false);
-//        txtBatubara.setEnabled(false);
-//        txtRitBatubara.setEnabled(false);
-//        txtSplit.setEnabled(false);
-//        txtBeskos.setEnabled(false);
-//        txtRitBeskos.setEnabled(false);
-//        txtLoading.setEnabled(false);
-//        txtJumlah.setEditable(false);
-//        txtSparepart.setEditable(false);
-//        txtTotal.setEditable(false);
-//        txtLabaKotor.setEditable(false);
-//        txtLabaBersih.setEditable(false);
-//        jPanel4.setVisible(false);
-//        btnSimpan.setVisible(false);
-//        btnBatal.setVisible(false);
+        txtKdPenghasilan.setEditable(false);
+        cmbDate.setEnabled(false);
+        cmbKdMobil.setEnabled(false);
+        txtBatubara.setEditable(false);
+        txtRitBatubara.setEditable(false);
+        txtSplit.setEditable(false);
+        txtBeskos.setEditable(false);
+        txtRitBeskos.setEditable(false);
+        txtLoading.setEditable(false);
+        txtJumlah.setEditable(false);
+        txtSparepart.setEditable(false);
+        txtTotal.setEditable(false);
+        txtLabaKotor.setEditable(false);
+        txtLabaBersih.setEditable(false);
+        jPanel4.setVisible(false);
+        btnSimpan.setVisible(false);
+        btnBatal.setVisible(false);
     }
     
     private void kosong(){
-        txtKdPenghasilan.setText(null);
+        txtKdPenghasilan.setText("Kode Penghasilan");
         cmbDate.setDate(null);
         cmbKdMobil.setSelectedItem(null);
-        txtBatubara.setText(null);
-        txtRitBatubara.setText(null);
-        txtSplit.setText(null);
-        txtBeskos.setText(null);
-        txtRitBeskos.setText(null);
-        txtLoading.setText(null);
-        txtJumlah.setText(null);
-        txtSparepart.setText(null);
-        txtTotal.setText(null);
-        txtLabaKotor.setText(null);
-        txtLabaBersih.setText(null);
+        txtBatubara.setText("0");
+        txtRitBatubara.setText("0");
+        txtSplit.setText("0");
+        txtBeskos.setText("0");
+        txtRitBeskos.setText("0");
+        txtLoading.setText("0");
+        txtJumlah.setText("0");
+        txtSparepart.setText("0");
+        txtTotal.setText("0");
+        txtLabaKotor.setText("0");
+        txtLabaBersih.setText("0");
     }
     
     private void load_table(){
@@ -252,48 +251,48 @@ public class frmPenghasilan extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Kode Penghasilan");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
         txtKdPenghasilan.setBackground(new java.awt.Color(242, 233, 242));
         txtKdPenghasilan.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtKdPenghasilan.setForeground(new java.awt.Color(102, 102, 102));
         txtKdPenghasilan.setText("Kode Penghasilan");
         txtKdPenghasilan.setBorder(null);
-        jPanel2.add(txtKdPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 30));
+        jPanel2.add(txtKdPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 170, 30));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Tanggal");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Kode Mobil");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Batubara");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 170, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 170, 10));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 170, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 170, 10));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 120, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 120, 10));
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 60, 10));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 60, 10));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -305,7 +304,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 102, 38));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 102, 38));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -348,30 +347,30 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, -1, 40));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Ritase Batubara");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         txtBatubara.setBackground(new java.awt.Color(242, 233, 242));
         txtBatubara.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtBatubara.setForeground(new java.awt.Color(102, 102, 102));
         txtBatubara.setText("0");
         txtBatubara.setBorder(null);
-        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
+        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 170, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 170, 10));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 170, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Split");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         txtSplit.setBackground(new java.awt.Color(242, 233, 242));
         txtSplit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -391,17 +390,17 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtSplitKeyReleased(evt);
             }
         });
-        jPanel2.add(txtSplit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 170, 30));
+        jPanel2.add(txtSplit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 170, 30));
 
         jSeparator10.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator10.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 170, 10));
+        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 170, 10));
 
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Beskos");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
 
         txtBeskos.setBackground(new java.awt.Color(242, 233, 242));
         txtBeskos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -421,17 +420,17 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtBeskosKeyReleased(evt);
             }
         });
-        jPanel2.add(txtBeskos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 170, 30));
+        jPanel2.add(txtBeskos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 170, 30));
 
         jSeparator11.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator11.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 170, 10));
+        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 170, 10));
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Ritase Beskos");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
 
         txtRitBeskos.setBackground(new java.awt.Color(242, 233, 242));
         txtRitBeskos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -451,17 +450,17 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtRitBeskosKeyReleased(evt);
             }
         });
-        jPanel2.add(txtRitBeskos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 170, 30));
+        jPanel2.add(txtRitBeskos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 170, 30));
 
         jSeparator12.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator12.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 170, 10));
+        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 170, 10));
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Loading");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
         txtLoading.setBackground(new java.awt.Color(242, 233, 242));
         txtLoading.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -481,81 +480,73 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtLoadingKeyReleased(evt);
             }
         });
-        jPanel2.add(txtLoading, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 170, 30));
+        jPanel2.add(txtLoading, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, 30));
 
         jSeparator13.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator13.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 170, 10));
+        jPanel2.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 170, 10));
 
         jLabel12.setBackground(new java.awt.Color(102, 102, 102));
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Jumlah");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
         txtJumlah.setBackground(new java.awt.Color(242, 233, 242));
         txtJumlah.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtJumlah.setForeground(new java.awt.Color(102, 102, 102));
         txtJumlah.setText("0");
         txtJumlah.setBorder(null);
-        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 170, 30));
+        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 170, 30));
 
         jSeparator14.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator14.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 170, 10));
+        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 170, 10));
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Sparepart");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
         txtSparepart.setBackground(new java.awt.Color(242, 233, 242));
         txtSparepart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtSparepart.setForeground(new java.awt.Color(102, 102, 102));
         txtSparepart.setText("0");
         txtSparepart.setBorder(null);
-        txtSparepart.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSparepartFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtSparepartFocusLost(evt);
-            }
-        });
         txtSparepart.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSparepartKeyReleased(evt);
             }
         });
-        jPanel2.add(txtSparepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 170, 30));
+        jPanel2.add(txtSparepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 170, 30));
 
         jSeparator15.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator15.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 170, 10));
+        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 170, 10));
 
         jLabel14.setBackground(new java.awt.Color(102, 102, 102));
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Total");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
 
         txtTotal.setBackground(new java.awt.Color(242, 233, 242));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(102, 102, 102));
         txtTotal.setText("0");
         txtTotal.setBorder(null);
-        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 170, 30));
+        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 170, 30));
 
         jSeparator16.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator16.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 170, 10));
+        jPanel2.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 170, 10));
 
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Laba Kotor / Rit");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
 
         txtLabaKotor.setBackground(new java.awt.Color(242, 233, 242));
         txtLabaKotor.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -570,17 +561,17 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtLabaKotorFocusLost(evt);
             }
         });
-        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 170, 30));
+        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator17.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 170, 10));
+        jPanel2.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 170, 10));
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Laba Bersih / Rit");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));
 
         txtLabaBersih.setBackground(new java.awt.Color(242, 233, 242));
         txtLabaBersih.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -595,23 +586,31 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtLabaBersihFocusLost(evt);
             }
         });
-        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 170, 30));
+        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 170, 30));
 
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 170, 10));
+        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 170, 10));
 
-        jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 30));
+        jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, 30));
 
         txtRitBatubara.setBackground(new java.awt.Color(242, 233, 242));
         txtRitBatubara.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtRitBatubara.setForeground(new java.awt.Color(102, 102, 102));
         txtRitBatubara.setText("0");
         txtRitBatubara.setBorder(null);
-        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
+        txtRitBatubara.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtRitBatubaraFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRitBatubaraFocusLost(evt);
+            }
+        });
+        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 170, 30));
 
         cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -869,20 +868,6 @@ public class frmPenghasilan extends javax.swing.JFrame {
 //        total();
     }//GEN-LAST:event_txtLoadingKeyReleased
 
-    private void txtSparepartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSparepartFocusGained
-        // TODO add your handling code here:
-        if (txtSparepart.getText().equals("0")){
-            txtSparepart.setText("");
-        }
-    }//GEN-LAST:event_txtSparepartFocusGained
-
-    private void txtSparepartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSparepartFocusLost
-        // TODO add your handling code here:
-        if (txtSparepart.getText().equals("")){
-            txtSparepart.setText("0");
-        }
-    }//GEN-LAST:event_txtSparepartFocusLost
-
     private void txtSparepartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSparepartKeyReleased
         // TODO add your handling code here:
 //        upah();
@@ -984,6 +969,20 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private void txtLabaBersihFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLabaBersihFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLabaBersihFocusLost
+
+    private void txtRitBatubaraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBatubaraFocusGained
+        // TODO add your handling code here:
+         if (txtRitBatubara.getText().equals("0")){
+            txtRitBatubara.setText("");
+        }
+    }//GEN-LAST:event_txtRitBatubaraFocusGained
+
+    private void txtRitBatubaraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBatubaraFocusLost
+        // TODO add your handling code here:
+         if (txtRitBatubara.getText().equals("")){
+            txtRitBatubara.setText("0");
+        }
+    }//GEN-LAST:event_txtRitBatubaraFocusLost
 
     /**
      * @param args the command line arguments

@@ -487,12 +487,6 @@ public class mainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMasterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMasterMouseClicked
-        masterPanel.setVisible(true);
-        transaksiPanel.setVisible(false);
-        reportPanel.setVisible(false);
-    }//GEN-LAST:event_btnMasterMouseClicked
-
     private void btnTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransaksiMouseClicked
         masterPanel.setVisible(false);
         transaksiPanel.setVisible(true);
@@ -545,6 +539,12 @@ public class mainMenu extends javax.swing.JFrame {
         new frmPenghasilan().setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
 
+    private void btnMasterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMasterMouseClicked
+        masterPanel.setVisible(true);
+        transaksiPanel.setVisible(false);
+        reportPanel.setVisible(false);
+    }//GEN-LAST:event_btnMasterMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -585,7 +585,6 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnReport;
     private javax.swing.JLabel btnTransaksi;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -599,7 +598,6 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;

@@ -37,23 +37,93 @@ public class frmPenghasilan extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 getTransport();
+                getSparepart();
             }
         });
-        
     }
-
+    
+    private void getLaba(){
+        long a = Long.parseLong(txtJumlah.getText());
+        long b = Long.parseLong(txtRitBatubara.getText());
+        long c = Long.parseLong(txtRitBeskos.getText());
+        long d = a /(b+c); 
+        txtLabaKotor.setText(Long.toString(d));
+        
+        long e = Long.parseLong(txtTotal.getText());
+        long f = e / (b+c); 
+        txtLabaBersih.setText(Long.toString(f));
+    }
+    
+    private void getTotal(){
+        long a = Long.parseLong(txtJumlah.getText());
+        long b = Long.parseLong(txtSparepart.getText());
+        long c = a - b; 
+        txtTotal.setText(Long.toString(c));
+    }
+    
+    private void matjumlah(){
+        long a = Long.parseLong(txtBatubara.getText());
+        long b = Long.parseLong(txtSplit.getText());
+        long c = Long.parseLong(txtBeskos.getText());
+        long d = Long.parseLong(txtLoading.getText());
+        long e = a + b + c + d; 
+        txtJumlah.setText(Long.toString(e));
+    }
+    
+    private void getSparepart(){
+        try {
+            String month;
+            String year;
+            SimpleDateFormat sdf1 = new SimpleDateFormat("MM");
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
+            java.util.Date date1 = cmbDate.getDate();
+            java.util.Date date2 = cmbDate.getDate();
+            month = sdf1.format(date1);
+            year = sdf2.format(date2);
+            
+            String sql = "SELECT * FROM tb_sparepart WHERE kd_mobil = '"+cmbKdMobil.getSelectedItem()+"' AND MONTH(tgl) = '"+month+"' AND YEAR(tgl) = '"+year+"' ";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            long total = 0;
+            while(res.next()){
+                long amount = Long.parseLong(res.getString("total"));
+                total += amount;
+            }
+            txtSparepart.setText(""+total);
+//            lblHidden1.setText(""+total);
+//            lblHidden2.setText(""+total);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void getTransport(){
-//        try {
-//            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
-//            java.sql.Connection conn=Config.configDB();
-//            java.sql.Statement stm=conn.createStatement();
-//            java.sql.ResultSet res=stm.executeQuery(sql);
-//            if(res.next() == true) {
-//                txtNama.setText(res.getString("nm_supir"));
-//            }
-//        }catch ( SQLException err ) {
-//            System.out.println(err.getMessage());
-//        }  
+        try {
+            String month;
+            String year;
+            SimpleDateFormat sdf1 = new SimpleDateFormat("MM");
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
+            java.util.Date date1 = cmbDate.getDate();
+            java.util.Date date2 = cmbDate.getDate();
+            month = sdf1.format(date1);
+            year = sdf2.format(date2);
+            
+            String sql = "SELECT * FROM tb_transport WHERE kd_mobil = '"+cmbKdMobil.getSelectedItem()+"' AND MONTH(tgl_muat) = '"+month+"' AND YEAR(tgl_muat) = '"+year+"' ";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            long total = 0;
+            while(res.next()){
+                long amount = Long.parseLong(res.getString("cashin_primas"));
+                total += amount;
+            }
+            txtBatubara.setText(""+total);
+//            lblHidden1.setText(""+total);
+//            lblHidden2.setText(""+total);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void kdPenghasilan() {
@@ -85,7 +155,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 cmbKdMobil.addItem(res.getString("kd_mobil"));
             }
         }catch (Exception e) {
-            
+            JOptionPane.showMessageDialog(null, e);
         }
         
     }
@@ -360,7 +430,13 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtBatubara.setForeground(new java.awt.Color(102, 102, 102));
         txtBatubara.setText("0");
         txtBatubara.setBorder(null);
-        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 170, 30));
+
+        txtBatubara.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBatubaraKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
@@ -553,15 +629,8 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtLabaKotor.setForeground(new java.awt.Color(102, 102, 102));
         txtLabaKotor.setText("0");
         txtLabaKotor.setBorder(null);
-        txtLabaKotor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtLabaKotorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtLabaKotorFocusLost(evt);
-            }
-        });
-        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 170, 30));
+
+        jPanel2.add(txtLabaKotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator17.setForeground(new java.awt.Color(242, 233, 242));
@@ -578,19 +647,21 @@ public class frmPenghasilan extends javax.swing.JFrame {
         txtLabaBersih.setForeground(new java.awt.Color(102, 102, 102));
         txtLabaBersih.setText("0");
         txtLabaBersih.setBorder(null);
-        txtLabaBersih.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtLabaBersihFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtLabaBersihFocusLost(evt);
-            }
-        });
-        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 170, 30));
+
+        jPanel2.add(txtLabaBersih, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 170, 30));
 
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 170, 10));
+        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 170, 10));
+
+        cmbDate.setDateFormatString("yyyy-MM-dd");
+        cmbDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cmbDatePropertyChange(evt);
+            }
+        });
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+
 
         jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, 30));
 
@@ -607,10 +678,12 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 txtRitBatubaraFocusLost(evt);
             }
         });
-        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 170, 30));
-
-        cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        txtRitBatubara.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRitBatubaraKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -779,114 +852,40 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil diedit");
             }else{
-                String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
-                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+                String month;
+                String year;
+                SimpleDateFormat sdf1 = new SimpleDateFormat("MM");
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
+                java.util.Date date1 = cmbDate.getDate();
+                java.util.Date date2 = cmbDate.getDate();
+                month = sdf1.format(date1);
+                year = sdf2.format(date2);
+                String q1 = "select * from tb_penghasilan where kd_mobil = '"+cmbKdMobil.getSelectedItem()+"' AND MONTH(tgl) = '"+month+"' AND YEAR(tgl) = '"+year+"'";
+                java.sql.Connection con=(Connection)Config.configDB();
+                java.sql.Statement st=con.createStatement();
+                java.sql.ResultSet rs=st.executeQuery(q1);
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null, "Penghasilan mobil "+cmbKdMobil.getSelectedItem()+" pada bulan "+month+" tahun "+year+" sudah terdaftar");
+                }else{
+                    String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
+                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+                }
             }
             load_table();
             textboxOff();
             kosong();
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            kosong();
         }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
-    private void txtSplitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSplitFocusGained
-        // TODO add your handling code here:
-        if (txtSplit.getText().equals("0")){
-            txtSplit.setText("");
-        }
-    }//GEN-LAST:event_txtSplitFocusGained
-
-    private void txtSplitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSplitFocusLost
-        // TODO add your handling code here:
-        if (txtSplit.getText().equals("")){
-            txtSplit.setText("0");
-        }
-
-    }//GEN-LAST:event_txtSplitFocusLost
-
-    private void txtSplitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSplitKeyReleased
-        // TODO add your handling code here:
-//        total();
-    }//GEN-LAST:event_txtSplitKeyReleased
-
-    private void txtBeskosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBeskosFocusGained
-        // TODO add your handling code here:
-        if (txtBeskos.getText().equals("0")){
-            txtBeskos.setText("");
-        }
-    }//GEN-LAST:event_txtBeskosFocusGained
-
-    private void txtBeskosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBeskosFocusLost
-        // TODO add your handling code here:
-        if (txtBeskos.getText().equals("")){
-            txtBeskos.setText("0");
-        }
-    }//GEN-LAST:event_txtBeskosFocusLost
-
-    private void txtBeskosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBeskosKeyReleased
-        // TODO add your handling code here:
-//        total();
-    }//GEN-LAST:event_txtBeskosKeyReleased
-
-    private void txtRitBeskosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBeskosFocusGained
-        // TODO add your handling code here:
-        if (txtRitBeskos.getText().equals("0")){
-            txtRitBeskos.setText("");
-        }
-    }//GEN-LAST:event_txtRitBeskosFocusGained
-
-    private void txtRitBeskosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBeskosFocusLost
-        // TODO add your handling code here:
-        if (txtRitBeskos.getText().equals("")){
-            txtRitBeskos.setText("0");
-        }
-    }//GEN-LAST:event_txtRitBeskosFocusLost
-
-    private void txtRitBeskosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitBeskosKeyReleased
-        // TODO add your handling code here:
-//        total();
-    }//GEN-LAST:event_txtRitBeskosKeyReleased
-
-    private void txtLoadingFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoadingFocusGained
-        // TODO add your handling code here:
-        if (txtLoading.getText().equals("0")){
-            txtLoading.setText("");
-        }
-    }//GEN-LAST:event_txtLoadingFocusGained
-
-    private void txtLoadingFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoadingFocusLost
-        // TODO add your handling code here:
-        if (txtLoading.getText().equals("")){
-            txtLoading.setText("0");
-        }
-    }//GEN-LAST:event_txtLoadingFocusLost
-
-    private void txtLoadingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoadingKeyReleased
-        // TODO add your handling code here:
-//        total();
-    }//GEN-LAST:event_txtLoadingKeyReleased
 
     private void txtSparepartKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSparepartKeyReleased
         // TODO add your handling code here:
 //        upah();
     }//GEN-LAST:event_txtSparepartKeyReleased
-
-    private void txtLabaKotorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLabaKotorFocusGained
-        // TODO add your handling code here:
-        if (txtLabaKotor.getText().equals("Note")){
-            txtLabaKotor.setText("");
-        }
-    }//GEN-LAST:event_txtLabaKotorFocusGained
-
-    private void txtLabaKotorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLabaKotorFocusLost
-        // TODO add your handling code here:
-        if (txtLabaKotor.getText().equals("")){
-            txtLabaKotor.setText("Note");
-        }
-    }//GEN-LAST:event_txtLabaKotorFocusLost
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int baris = jTable1.rowAtPoint(evt.getPoint());
@@ -957,33 +956,109 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
             load_table();
-//            kosong();
+            kosong();
         }else{
             JOptionPane.showMessageDialog(null, "Data batal dihapus.");
         }
     }//GEN-LAST:event_btnHapus1MouseClicked
 
-    private void txtLabaBersihFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLabaBersihFocusGained
+    private void cmbDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cmbDatePropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLabaBersihFocusGained
+    }//GEN-LAST:event_cmbDatePropertyChange
 
-    private void txtLabaBersihFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLabaBersihFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLabaBersihFocusLost
+    private void txtBatubaraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBatubaraKeyReleased
+        matjumlah();
+        getTotal();
+        getLaba();
+    }//GEN-LAST:event_txtBatubaraKeyReleased
+
+    private void txtSplitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSplitKeyReleased
+        matjumlah();
+        getTotal();
+        getLaba();
+    }//GEN-LAST:event_txtSplitKeyReleased
+
+    private void txtBeskosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBeskosKeyReleased
+        matjumlah();
+        getTotal();
+        getLaba();
+    }//GEN-LAST:event_txtBeskosKeyReleased
+
+    private void txtLoadingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoadingKeyReleased
+        matjumlah();
+        getTotal();
+        getLaba();
+    }//GEN-LAST:event_txtLoadingKeyReleased
 
     private void txtRitBatubaraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBatubaraFocusGained
-        // TODO add your handling code here:
-         if (txtRitBatubara.getText().equals("0")){
+        if (txtRitBatubara.getText().equals("0")){
             txtRitBatubara.setText("");
         }
     }//GEN-LAST:event_txtRitBatubaraFocusGained
 
     private void txtRitBatubaraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBatubaraFocusLost
-        // TODO add your handling code here:
-         if (txtRitBatubara.getText().equals("")){
+        if (txtRitBatubara.getText().equals("")){
             txtRitBatubara.setText("0");
         }
     }//GEN-LAST:event_txtRitBatubaraFocusLost
+
+    private void txtSplitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSplitFocusGained
+        if (txtSplit.getText().equals("0")){
+            txtSplit.setText("");
+        }
+    }//GEN-LAST:event_txtSplitFocusGained
+
+    private void txtSplitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSplitFocusLost
+        if (txtSplit.getText().equals("")){
+            txtSplit.setText("0");
+        }
+    }//GEN-LAST:event_txtSplitFocusLost
+
+    private void txtBeskosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBeskosFocusGained
+        if (txtBeskos.getText().equals("0")){
+            txtBeskos.setText("");
+        }
+    }//GEN-LAST:event_txtBeskosFocusGained
+
+    private void txtBeskosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBeskosFocusLost
+        if (txtBeskos.getText().equals("")){
+            txtBeskos.setText("0");
+        }
+    }//GEN-LAST:event_txtBeskosFocusLost
+
+    private void txtRitBeskosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBeskosFocusGained
+        if (txtRitBeskos.getText().equals("0")){
+            txtRitBeskos.setText("");
+        }
+    }//GEN-LAST:event_txtRitBeskosFocusGained
+
+    private void txtRitBeskosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitBeskosFocusLost
+        if (txtRitBeskos.getText().equals("")){
+            txtRitBeskos.setText("0");
+        }
+    }//GEN-LAST:event_txtRitBeskosFocusLost
+
+    private void txtLoadingFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoadingFocusGained
+        if (txtLoading.getText().equals("0")){
+            txtLoading.setText("");
+        }
+    }//GEN-LAST:event_txtLoadingFocusGained
+
+    private void txtLoadingFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoadingFocusLost
+        if (txtLoading.getText().equals("")){
+            txtLoading.setText("0");
+        }
+    }//GEN-LAST:event_txtLoadingFocusLost
+
+
+    private void txtRitBatubaraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitBatubaraKeyReleased
+        getTotal();
+    }//GEN-LAST:event_txtRitBatubaraKeyReleased
+
+    private void txtRitBeskosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitBeskosKeyReleased
+        getTotal();
+    }//GEN-LAST:event_txtRitBeskosKeyReleased
+    
 
     /**
      * @param args the command line arguments

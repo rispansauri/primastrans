@@ -1267,30 +1267,29 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
-        // TODO add your handling code here:
-                try{
-                        String query = "select * from tb_transport where kd_transport = '"+txtKdTransport.getText()+"'";
-                        java.sql.Connection conn=(Connection)Config.configDB();
-                        java.sql.Statement stm=conn.createStatement();
-                        java.sql.ResultSet res=stm.executeQuery(query);
-                        SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
-                        if(res.next()){
-                                String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', susut = '"+txtSusut.getText()+"',cash= '"+txtCash.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
-                                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                                pst.execute();
-                                JOptionPane.showMessageDialog(null, "data berhasil diedit");
-                            }else{
-                                String sql = "INSERT INTO tb_transport VALUES ('"+txtKdTransport.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"', '"+txtNopol.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+txtDO.getText()+"','"+txtStockpile.getText()+"','"+txtTempatBongkar.getText()+"','"+txtTonaseMuat.getText()+"','"+txtTonasePabrik.getText()+"','"+txtRP.getText()+"','"+txtJumlahTotal.getText()+"','"+txtKas.getText()+"','"+txtCashinSupplier.getText()+"','"+txtKasPrimas.getText()+"','"+txtSusut.getText()+"','"+txtCash.getText()+"','"+txtKord.getText()+"','"+txtTab.getText()+"','"+txtCashinPrimas.getText()+"','"+txtNoSJ.getText()+"','"+txtSusutTonase.getText()+"','"+txtNote.getText()+"')";
-                                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                                pst.execute();
-                                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
-                            }
-                        load_table();
-                        textboxOff();
-                        kosong();
-                    }catch (Exception e){
-                        JOptionPane.showMessageDialog(this, e.getMessage());
-                    }
+        try{
+            String query = "select * from tb_transport where kd_transport = '"+txtKdTransport.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(query);
+            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
+            if(res.next()){
+                    String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', susut = '"+txtSusut.getText()+"',cash= '"+txtCash.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
+                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "data berhasil diedit");
+                }else{
+                    String sql = "INSERT INTO tb_transport VALUES ('"+txtKdTransport.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"', '"+txtNopol.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+txtDO.getText()+"','"+txtStockpile.getText()+"','"+txtTempatBongkar.getText()+"','"+txtTonaseMuat.getText()+"','"+txtTonasePabrik.getText()+"','"+txtRP.getText()+"','"+txtJumlahTotal.getText()+"','"+txtKas.getText()+"','"+txtCashinSupplier.getText()+"','"+txtKasPrimas.getText()+"','"+txtSusut.getText()+"','"+txtCash.getText()+"','"+txtKord.getText()+"','"+txtTab.getText()+"','"+txtCashinPrimas.getText()+"','"+txtNoSJ.getText()+"','"+txtSusutTonase.getText()+"','"+txtNote.getText()+"')";
+                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+                }
+            load_table();
+            textboxOff();
+            kosong();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
     private void txtDOFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDOFocusGained

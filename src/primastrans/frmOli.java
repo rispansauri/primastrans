@@ -27,6 +27,7 @@ public class frmOli extends javax.swing.JFrame {
      */
     public frmOli() {
         initComponents();
+        this.setLocationRelativeTo(null);
         load_table();
         cmbMobil();
         textboxOff();
@@ -550,6 +551,7 @@ public class frmOli extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked

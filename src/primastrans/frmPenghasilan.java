@@ -763,6 +763,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked

@@ -492,6 +492,7 @@ public class frmSupir extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void btnBaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaruMouseClicked

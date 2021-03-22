@@ -117,8 +117,8 @@ public class frmOli extends javax.swing.JFrame {
         txtKode.setText(null);
         cmbMobil.setSelectedItem(null);
         cmbDate.setDate(null);
-        txtJarak.setText(null);
-        txtNote.setText(null);        
+        txtJarak.setText("Jarak");
+        txtNote.setText("Note");        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -381,6 +381,14 @@ public class frmOli extends javax.swing.JFrame {
         txtJarak.setBackground(new java.awt.Color(242, 233, 242));
         txtJarak.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtJarak.setBorder(null);
+        txtJarak.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtJarakFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtJarakFocusLost(evt);
+            }
+        });
         jPanel2.add(txtJarak, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 210, 30));
 
         jScrollPane2.setBorder(null);
@@ -392,6 +400,14 @@ public class frmOli extends javax.swing.JFrame {
         txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtNote.setRows(5);
         txtNote.setBorder(null);
+        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNoteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoteFocusLost(evt);
+            }
+        });
         jScrollPane2.setViewportView(txtNote);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 210, 29));
@@ -446,6 +462,7 @@ public class frmOli extends javax.swing.JFrame {
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 102, 38));
 
         cmbDate.setBackground(new java.awt.Color(242, 233, 242));
+        cmbDate.setDateFormatString("yyyy-MM-dd");
         jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -558,6 +575,30 @@ public class frmOli extends javax.swing.JFrame {
         textboxOff();
         kosong();
     }//GEN-LAST:event_btnBatalMouseClicked
+
+    private void txtJarakFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJarakFocusGained
+        if (txtJarak.getText().equals("Jarak")){
+            txtJarak.setText("");
+        }
+    }//GEN-LAST:event_txtJarakFocusGained
+
+    private void txtJarakFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJarakFocusLost
+        if (txtJarak.getText().equals("")){
+            txtJarak.setText("Jarak");
+        }
+    }//GEN-LAST:event_txtJarakFocusLost
+
+    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
+        if (txtNote.getText().equals("Note")){
+            txtNote.setText("");
+        }
+    }//GEN-LAST:event_txtNoteFocusGained
+
+    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
+        if (txtNote.getText().equals("")){
+            txtNote.setText("Note");
+        }
+    }//GEN-LAST:event_txtNoteFocusLost
 
     
     

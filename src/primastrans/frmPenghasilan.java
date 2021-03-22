@@ -36,11 +36,46 @@ public class frmPenghasilan extends javax.swing.JFrame {
         cmbKdMobil.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                getTransport();
-                getSparepart();
+                try{
+                    String month;
+                    String year;
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("MM");
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
+                    java.util.Date date1 = cmbDate.getDate();
+                    java.util.Date date2 = cmbDate.getDate();
+                    month = sdf1.format(date1);
+                    year = sdf2.format(date2);
+                    String q1 = "select * from tb_penghasilan where kd_mobil = '"+cmbKdMobil.getSelectedItem()+"' AND MONTH(tgl) = '"+month+"' AND YEAR(tgl) = '"+year+"'";
+                    java.sql.Connection con=(Connection)Config.configDB();
+                    java.sql.Statement st=con.createStatement();
+                    java.sql.ResultSet rs=st.executeQuery(q1);
+                    
+                    if(rs.next()){
+                        JOptionPane.showMessageDialog(null, "Penghasilan mobil "+cmbKdMobil.getSelectedItem()+" pada bulan "+month+" tahun "+year+" sudah terdaftar.\nMemasuki mode edit");
+                        txtKdPenghasilan.setText(rs.getString(1));
+                        cmbDate.setDate(rs.getDate(2));
+                        txtBatubara.setText(rs.getString(4));
+                        txtRitBatubara.setText(rs.getString(5));
+                        txtSplit.setText(rs.getString(6));
+                        txtBeskos.setText(rs.getString(7));
+                        txtRitBeskos.setText(rs.getString(8));
+                        txtLoading.setText(rs.getString(9));
+                        txtJumlah.setText(rs.getString(10));
+                        txtSparepart.setText(rs.getString(11));
+                        txtTotal.setText(rs.getString(12));
+                        txtLabaKotor.setText(rs.getString(13));
+                        txtLabaBersih.setText(rs.getString(14));
+                    }else{
+                        getTransport();
+                        getSparepart();
+                    }
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
             }
         });
     }
+    
     
     private void getLaba(){
         long a = Long.parseLong(txtJumlah.getText());
@@ -91,8 +126,6 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 total += amount;
             }
             txtSparepart.setText(""+total);
-//            lblHidden1.setText(""+total);
-//            lblHidden2.setText(""+total);
         } catch (SQLException ex) {
             Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -119,8 +152,6 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 total += amount;
             }
             txtBatubara.setText(""+total);
-//            lblHidden1.setText(""+total);
-//            lblHidden2.setText(""+total);
         } catch (SQLException ex) {
             Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -196,7 +227,6 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private void kosong(){
         txtKdPenghasilan.setText("Kode Penghasilan");
         cmbDate.setDate(null);
-        cmbKdMobil.setSelectedItem(null);
         txtBatubara.setText("0");
         txtRitBatubara.setText("0");
         txtSplit.setText("0");
@@ -649,7 +679,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 170, 10));
+        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 170, 10));
 
         jPanel2.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, 30));
 
@@ -664,6 +694,11 @@ public class frmPenghasilan extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtRitBatubaraFocusLost(evt);
+            }
+        });
+        txtRitBatubara.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRitBatubaraKeyReleased(evt);
             }
         });
         jPanel2.add(txtRitBatubara, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 170, 30));
@@ -816,8 +851,8 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
-        textboxOff();
         kosong();
+        textboxOff();
     }//GEN-LAST:event_btnBatalMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -838,32 +873,18 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil diedit");
             }else{
-                String month;
-                String year;
-                SimpleDateFormat sdf1 = new SimpleDateFormat("MM");
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy");
-                java.util.Date date1 = cmbDate.getDate();
-                java.util.Date date2 = cmbDate.getDate();
-                month = sdf1.format(date1);
-                year = sdf2.format(date2);
-                String q1 = "select * from tb_penghasilan where kd_mobil = '"+cmbKdMobil.getSelectedItem()+"' AND MONTH(tgl) = '"+month+"' AND YEAR(tgl) = '"+year+"'";
-                java.sql.Connection con=(Connection)Config.configDB();
-                java.sql.Statement st=con.createStatement();
-                java.sql.ResultSet rs=st.executeQuery(q1);
-                if(rs.next()){
-                    JOptionPane.showMessageDialog(null, "Penghasilan mobil "+cmbKdMobil.getSelectedItem()+" pada bulan "+month+" tahun "+year+" sudah terdaftar");
-                }else{
-                    String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
-                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                    pst.execute();
-                    JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
-                }
+                
+                String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
+
             }
             load_table();
+            kosong();
             textboxOff();
-            kosong();
         }catch (Exception e){
-            kosong();
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnSimpanMouseClicked
 
@@ -913,8 +934,8 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnBaru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaru1MouseClicked
-        // TODO add your handling code here:
         textboxOn();
+        kosong();
         kdPenghasilan();
     }//GEN-LAST:event_btnBaru1MouseClicked
 
@@ -943,6 +964,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
             }
             load_table();
             kosong();
+            textboxOff();
         }else{
             JOptionPane.showMessageDialog(null, "Data batal dihapus.");
         }
@@ -953,9 +975,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbDatePropertyChange
 
     private void txtBatubaraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBatubaraKeyReleased
-        matjumlah();
-        getTotal();
-        getLaba();
+        
     }//GEN-LAST:event_txtBatubaraKeyReleased
 
     private void txtSplitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSplitKeyReleased
@@ -1038,11 +1058,15 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
 
     private void txtRitBatubaraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitBatubaraKeyReleased
+        matjumlah();
         getTotal();
+        getLaba();
     }//GEN-LAST:event_txtRitBatubaraKeyReleased
 
     private void txtRitBeskosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitBeskosKeyReleased
+        matjumlah();
         getTotal();
+        getLaba();
     }//GEN-LAST:event_txtRitBeskosKeyReleased
     
 

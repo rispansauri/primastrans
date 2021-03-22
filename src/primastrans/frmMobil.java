@@ -222,11 +222,14 @@ public class frmMobil extends javax.swing.JFrame {
         txtNopol.setBackground(new java.awt.Color(242, 233, 242));
         txtNopol.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtNopol.setForeground(new java.awt.Color(102, 102, 102));
-        txtNopol.setText("NOPOL");
+        txtNopol.setText("Plat Nomor");
         txtNopol.setBorder(null);
         txtNopol.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNopolFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNopolFocusLost(evt);
             }
         });
         jPanel2.add(txtNopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 170, 30));
@@ -246,6 +249,9 @@ public class frmMobil extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtMerkFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMerkFocusLost(evt);
+            }
         });
         jPanel2.add(txtMerk, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 170, 30));
 
@@ -263,6 +269,9 @@ public class frmMobil extends javax.swing.JFrame {
         txtJenis.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtJenisFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtJenisFocusLost(evt);
             }
         });
         jPanel2.add(txtJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
@@ -457,19 +466,40 @@ public class frmMobil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSimpanMouseClicked
 
     private void txtNopolFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNopolFocusGained
-        // TODO add your handling code here:
-        txtNopol.setText("");
+        if (txtNopol.getText().equals("Plat Nomor")){
+            txtNopol.setText("");
+        }
     }//GEN-LAST:event_txtNopolFocusGained
 
+    private void txtNopolFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNopolFocusLost
+        if (txtNopol.getText().equals("")){
+            txtNopol.setText("Plat Nomor");
+        }
+    }//GEN-LAST:event_txtNopolFocusLost
+
     private void txtMerkFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMerkFocusGained
-        // TODO add your handling code here:
-        txtMerk.setText("");
+        if (txtMerk.getText().equals("Merk")){
+            txtMerk.setText("");
+        }
     }//GEN-LAST:event_txtMerkFocusGained
 
+    private void txtMerkFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMerkFocusLost
+        if (txtMerk.getText().equals("")){
+            txtMerk.setText("Merk");
+        }
+    }//GEN-LAST:event_txtMerkFocusLost
+
     private void txtJenisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJenisFocusGained
-        // TODO add your handling code here:
-        txtJenis.setText("");
+        if (txtJenis.getText().equals("Jenis")){
+            txtJenis.setText("");
+        }
     }//GEN-LAST:event_txtJenisFocusGained
+
+    private void txtJenisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJenisFocusLost
+        if (txtJenis.getText().equals("")){
+            txtJenis.setText("Jenis");
+        }
+    }//GEN-LAST:event_txtJenisFocusLost
 
     private void kdMobil() {
         try {
@@ -511,7 +541,7 @@ public class frmMobil extends javax.swing.JFrame {
     
     private void kosong(){
         txtKdMobil.setText("Kode Mobil");
-        txtNopol.setText("NOPOL");
+        txtNopol.setText("Plat Nomor");
         txtMerk.setText("Merk");
         txtJenis.setText("Jenis");
     }

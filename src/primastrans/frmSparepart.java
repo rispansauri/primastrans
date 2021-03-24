@@ -150,9 +150,9 @@ public class frmSparepart extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKd.setEditable(false);
-        txtTotal.setEditable(false);
-        txtJumlah.setEditable(false);
+        txtKd.setEnabled(false);
+        txtTotal.setEnabled(false);
+        txtJumlah.setEnabled(false);
         txtHarga.setEditable(false);
         txtPart.setEditable(false);
         txtToko.setEditable(false);

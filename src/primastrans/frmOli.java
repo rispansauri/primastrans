@@ -93,7 +93,7 @@ public class frmOli extends javax.swing.JFrame {
         
     }
     private void textboxOn() {
-        cmbMobil.setEditable(true);
+        cmbMobil.setEnabled(true);
         cmbDate.setEnabled(true);
         txtJarak.setEditable(true);
         txtNote.setEditable(true);
@@ -103,8 +103,8 @@ public class frmOli extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKode.setEditable(false);
-        cmbMobil.setEditable(false);
+        txtKode.setEnabled(false);
+        cmbMobil.setEnabled(false);
         cmbDate.setEnabled(false);
         txtJarak.setEditable(false);
         txtNote.setEditable(false);

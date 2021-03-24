@@ -936,18 +936,13 @@ public class frmUpahSupir extends javax.swing.JFrame {
     }
     
     private void textboxOn() {
-        txtKdUpah.setEditable(true);
         cmbID.setEnabled(true);
-        txtNama.setEditable(false);
         cmbMobil.setEnabled(true);
-        txtNopol.setEditable(false);
         txtBayaran.setEditable(true);
         txtKoordinasi.setEditable(true);
         txtSubsidi.setEditable(true);
         txtBon.setEditable(true);
-        txtTotal.setEditable(false);
         txtPotongan.setEditable(true);
-        txtUpah.setEditable(false);
         txtNote.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
@@ -955,18 +950,18 @@ public class frmUpahSupir extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKdUpah.setEditable(false);
+        txtKdUpah.setEnabled(false);
         cmbID.setEnabled(false);
-        txtNama.setEditable(false);
+        txtNama.setEnabled(false);
         cmbMobil.setEnabled(false);
-        txtNopol.setEditable(false);
+        txtNopol.setEnabled(false);
         txtBayaran.setEditable(false);
         txtKoordinasi.setEditable(false);
         txtSubsidi.setEditable(false);
         txtBon.setEditable(false);
-        txtTotal.setEditable(false);
+        txtTotal.setEnabled(false);
         txtPotongan.setEditable(false);
-        txtUpah.setEditable(false);
+        txtUpah.setEnabled(false);
         txtNote.setEditable(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);

@@ -61,7 +61,7 @@ public class frmSupir extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtID.setEditable(false);
+        txtID.setEnabled(false);
         txtNIK.setEditable(false);
         txtNama.setEditable(false);
         jPanel4.setVisible(false);

@@ -530,7 +530,7 @@ public class frmMobil extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKdMobil.setEditable(false);
+        txtKdMobil.setEnabled(false);
         txtNopol.setEditable(false);
         txtMerk.setEditable(false);
         txtJenis.setEditable(false);

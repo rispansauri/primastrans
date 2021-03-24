@@ -205,20 +205,20 @@ public class frmPenghasilan extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKdPenghasilan.setEditable(false);
+        txtKdPenghasilan.setEnabled(false);
         cmbDate.setEnabled(false);
         cmbKdMobil.setEnabled(false);
-        txtBatubara.setEditable(false);
+        txtBatubara.setEnabled(false);
         txtRitBatubara.setEditable(false);
         txtSplit.setEditable(false);
         txtBeskos.setEditable(false);
         txtRitBeskos.setEditable(false);
         txtLoading.setEditable(false);
-        txtJumlah.setEditable(false);
-        txtSparepart.setEditable(false);
-        txtTotal.setEditable(false);
-        txtLabaKotor.setEditable(false);
-        txtLabaBersih.setEditable(false);
+        txtJumlah.setEnabled(false);
+        txtSparepart.setEnabled(false);
+        txtTotal.setEnabled(false);
+        txtLabaKotor.setEnabled(false);
+        txtLabaBersih.setEnabled(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);
         btnBatal.setVisible(false);

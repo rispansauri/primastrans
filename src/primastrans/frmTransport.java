@@ -1058,29 +1058,29 @@ public class frmTransport extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKdTransport.setEditable(false);
+        txtKdTransport.setEnabled(false);
         cmbDate.setEnabled(false);
         cmbKdMobil.setEnabled(false);
-        txtNopol.setEditable(false);
+        txtNopol.setEnabled(false);
         cmbID.setEnabled(false);
-        txtNama.setEditable(false);
+        txtNama.setEnabled(false);
         txtDO.setEditable(false);
         txtStockpile.setEditable(false);
         txtTempatBongkar.setEditable(false);
         txtTonaseMuat.setEditable(false);
         txtTonasePabrik.setEditable(false);
         txtRP.setEditable(false);
-        txtJumlahTotal.setEditable(false);
+        txtJumlahTotal.setEnabled(false);
         txtKas.setEditable(false);
-        txtCashinSupplier.setEditable(false);
+        txtCashinSupplier.setEnabled(false);
         txtKasPrimas.setEditable(false);
         txtSusut.setEditable(false);
         txtCash.setEditable(false);
         txtKord.setEditable(false);
         txtTab.setEditable(false);
-        txtCashinPrimas.setEditable(false);
+        txtCashinPrimas.setEnabled(false);
         txtNoSJ.setEditable(false);
-        txtSusutTonase.setEditable(false);
+        txtSusutTonase.setEnabled(false);
         txtNote.setEditable(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);
@@ -1109,7 +1109,7 @@ public class frmTransport extends javax.swing.JFrame {
         txtKord.setText("0");
         txtTab.setText("0");
         txtCashinPrimas.setText("0");
-        txtNoSJ.setText("0");
+        txtNoSJ.setText("No Surat Jln");
         txtSusutTonase.setText("0");
         txtNote.setText("Note");
     }
@@ -1382,14 +1382,14 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTabFocusLost
 
     private void txtNoSJFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusGained
-        if (txtNoSJ.getText().equals("No Surat Jalan")){
+        if (txtNoSJ.getText().equals("No Surat Jln")){
             txtNoSJ.setText("");
         }
     }//GEN-LAST:event_txtNoSJFocusGained
 
     private void txtNoSJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoSJFocusLost
         if (txtTab.getText().equals("")){
-            txtTab.setText("No Surat Jalan");
+            txtTab.setText("No Surat Jln");
         }
     }//GEN-LAST:event_txtNoSJFocusLost
 

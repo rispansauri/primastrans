@@ -370,7 +370,7 @@ public class frmTransport extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel3.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 400, 102, 38));
+        jPanel3.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 300, 102, 38));
 
         jPanel4.setBackground(new java.awt.Color(242, 233, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -402,7 +402,7 @@ public class frmTransport extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 400, -1, 40));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 300, -1, 40));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -550,7 +550,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Kord");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 80, -1, -1));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 280, -1, -1));
 
         txtKord.setBackground(new java.awt.Color(242, 233, 242));
         txtKord.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -570,17 +570,17 @@ public class frmTransport extends javax.swing.JFrame {
                 txtKordKeyReleased(evt);
             }
         });
-        jPanel3.add(txtKord, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 70, 170, 30));
+        jPanel3.add(txtKord, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 270, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator17.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 100, 170, 10));
+        jPanel3.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 300, 170, 10));
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Tab");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 130, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 330, -1, -1));
 
         txtTab.setBackground(new java.awt.Color(242, 233, 242));
         txtTab.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -600,11 +600,11 @@ public class frmTransport extends javax.swing.JFrame {
                 txtTabKeyReleased(evt);
             }
         });
-        jPanel3.add(txtTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 120, 170, 30));
+        jPanel3.add(txtTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 170, 30));
 
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 150, 170, 10));
+        jPanel3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 350, 170, 10));
 
         cmbID.setBorder(null);
         jPanel3.add(cmbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, 30));
@@ -697,24 +697,24 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(102, 102, 102));
         jLabel24.setText("Cash In Primas");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 180, -1, -1));
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 80, -1, -1));
 
         txtCashinPrimas.setBackground(new java.awt.Color(242, 233, 242));
         txtCashinPrimas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCashinPrimas.setForeground(new java.awt.Color(102, 102, 102));
         txtCashinPrimas.setText("0");
         txtCashinPrimas.setBorder(null);
-        jPanel3.add(txtCashinPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 170, 170, 30));
+        jPanel3.add(txtCashinPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 70, 170, 30));
 
         jSeparator26.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator26.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 200, 170, 10));
+        jPanel3.add(jSeparator26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 100, 170, 10));
 
         jLabel25.setBackground(new java.awt.Color(102, 102, 102));
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(102, 102, 102));
         jLabel25.setText("No SJ");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 230, -1, -1));
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 130, -1, -1));
 
         txtNoSJ.setBackground(new java.awt.Color(242, 233, 242));
         txtNoSJ.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -729,34 +729,34 @@ public class frmTransport extends javax.swing.JFrame {
                 txtNoSJFocusLost(evt);
             }
         });
-        jPanel3.add(txtNoSJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 220, 170, 30));
+        jPanel3.add(txtNoSJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 120, 170, 30));
 
         jSeparator27.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator27.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 250, 170, 10));
+        jPanel3.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 150, 170, 10));
 
         jLabel26.setBackground(new java.awt.Color(102, 102, 102));
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(102, 102, 102));
         jLabel26.setText("Susut Tonase");
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 280, -1, -1));
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 180, -1, -1));
 
         txtSusutTonase.setBackground(new java.awt.Color(242, 233, 242));
         txtSusutTonase.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtSusutTonase.setForeground(new java.awt.Color(102, 102, 102));
         txtSusutTonase.setText("0");
         txtSusutTonase.setBorder(null);
-        jPanel3.add(txtSusutTonase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 270, 170, 30));
+        jPanel3.add(txtSusutTonase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 170, 170, 30));
 
         jSeparator28.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator28.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 300, 170, 10));
+        jPanel3.add(jSeparator28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 200, 170, 10));
 
         jLabel27.setBackground(new java.awt.Color(102, 102, 102));
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(102, 102, 102));
         jLabel27.setText("Note");
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 330, -1, -1));
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 230, -1, -1));
 
         txtNote.setBackground(new java.awt.Color(242, 233, 242));
         txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -776,11 +776,11 @@ public class frmTransport extends javax.swing.JFrame {
                 txtNoteKeyReleased(evt);
             }
         });
-        jPanel3.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 320, 170, 30));
+        jPanel3.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 220, 170, 30));
 
         jSeparator29.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator29.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 350, 170, 10));
+        jPanel3.add(jSeparator29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 250, 170, 10));
         jPanel3.add(cmbKdMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 60, 30));
 
         txtTempatBongkar.setBackground(new java.awt.Color(242, 233, 242));
@@ -868,7 +868,7 @@ public class frmTransport extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

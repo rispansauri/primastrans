@@ -129,12 +129,6 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtKasPrimas = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
-        txtSusut = new javax.swing.JTextField();
-        jSeparator15 = new javax.swing.JSeparator();
-        jLabel14 = new javax.swing.JLabel();
-        txtCash = new javax.swing.JTextField();
-        jSeparator16 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
         txtKord = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
@@ -552,61 +546,6 @@ public class frmTransport extends javax.swing.JFrame {
         jSeparator14.setForeground(new java.awt.Color(242, 233, 242));
         jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 250, 170, 10));
 
-        jLabel13.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText("Susut");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 280, -1, -1));
-
-        txtSusut.setBackground(new java.awt.Color(242, 233, 242));
-        txtSusut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtSusut.setForeground(new java.awt.Color(102, 102, 102));
-        txtSusut.setText("0");
-        txtSusut.setBorder(null);
-        txtSusut.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSusutFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtSusutFocusLost(evt);
-            }
-        });
-        txtSusut.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSusutKeyReleased(evt);
-            }
-        });
-        jPanel3.add(txtSusut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 270, 170, 30));
-
-        jSeparator15.setBackground(new java.awt.Color(102, 102, 102));
-        jSeparator15.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 300, 170, 10));
-
-        jLabel14.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("Cash");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 330, -1, -1));
-
-        txtCash.setBackground(new java.awt.Color(242, 233, 242));
-        txtCash.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtCash.setForeground(new java.awt.Color(102, 102, 102));
-        txtCash.setText("0");
-        txtCash.setBorder(null);
-        txtCash.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCashFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCashFocusLost(evt);
-            }
-        });
-        jPanel3.add(txtCash, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 170, 30));
-
-        jSeparator16.setBackground(new java.awt.Color(102, 102, 102));
-        jSeparator16.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 350, 170, 10));
-
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
@@ -666,9 +605,6 @@ public class frmTransport extends javax.swing.JFrame {
         jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
         jPanel3.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 150, 170, 10));
-
-        cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel3.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
 
         cmbID.setBorder(null);
         jPanel3.add(cmbID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 60, 30));
@@ -1045,8 +981,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtRP.setEditable(true);
         txtKas.setEditable(true);
         txtKasPrimas.setEditable(true);
-        txtSusut.setEditable(true);
-        txtCash.setEditable(true);
         txtKord.setEditable(true);
         txtTab.setEditable(true);
         txtCashinPrimas.setEditable(true);
@@ -1074,8 +1008,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtKas.setEditable(false);
         txtCashinSupplier.setEnabled(false);
         txtKasPrimas.setEditable(false);
-        txtSusut.setEditable(false);
-        txtCash.setEditable(false);
         txtKord.setEditable(false);
         txtTab.setEditable(false);
         txtCashinPrimas.setEnabled(false);
@@ -1104,8 +1036,6 @@ public class frmTransport extends javax.swing.JFrame {
         txtKas.setText("0");
         txtCashinSupplier.setText("0");
         txtKasPrimas.setText("0");
-        txtSusut.setText("0");
-        txtCash.setText("0");
         txtKord.setText("0");
         txtTab.setText("0");
         txtCashinPrimas.setText("0");
@@ -1133,8 +1063,6 @@ public class frmTransport extends javax.swing.JFrame {
         model.addColumn("Kas");
         model.addColumn("Cashin Supp");
         model.addColumn("Kas Primas");
-        model.addColumn("Susut");
-        model.addColumn("Cash");
         model.addColumn("Kord");
         model.addColumn("Tab");
         model.addColumn("Cashin Primas");
@@ -1149,7 +1077,7 @@ public class frmTransport extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13),res.getString(14),res.getString(15),res.getString(16),res.getString(17),res.getString(18),res.getString(19),res.getString(20),res.getString(21),res.getString(22),res.getString(23),res.getString(24)});
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13),res.getString(14),res.getString(15),res.getString(16),res.getString(17),res.getString(18),res.getString(19),res.getString(20),res.getString(21),res.getString(22)});
             }
             jTable1.setModel(model);
         } catch (Exception e) {
@@ -1198,21 +1126,17 @@ public class frmTransport extends javax.swing.JFrame {
                 txtCashinSupplier.setText(cashinsupp);
                 String kasprimas=jTable1.getValueAt(baris, 15).toString();
                 txtKasPrimas.setText(kasprimas);
-                String susut = jTable1.getValueAt(baris, 16).toString();
-                txtSusut.setText(susut);
-                String cash =jTable1.getValueAt(baris, 17).toString();
-                txtCash.setText(cash);
-                String kord = jTable1.getValueAt(baris,18).toString();
+                String kord = jTable1.getValueAt(baris,16).toString();
                 txtKord.setText(kord);
-                String tab=jTable1.getValueAt(baris, 19).toString();
+                String tab=jTable1.getValueAt(baris, 17).toString();
                 txtTab.setText(tab);
-                String cashinprimas = jTable1.getValueAt(baris, 20).toString();
+                String cashinprimas = jTable1.getValueAt(baris, 18).toString();
                 txtCashinPrimas.setText(cashinprimas);
-                String nosj =jTable1.getValueAt(baris, 21).toString();
+                String nosj =jTable1.getValueAt(baris, 19).toString();
                 txtNoSJ.setText(nosj);
-                String susuttonase = jTable1.getValueAt(baris,22).toString();
+                String susuttonase = jTable1.getValueAt(baris,20).toString();
                 txtSusutTonase.setText(susuttonase);
-                String note = jTable1.getValueAt(baris, 23).toString();
+                String note = jTable1.getValueAt(baris, 21).toString();
                 txtNote.setText(note);
                 textboxOn();
     }//GEN-LAST:event_jTable1MouseClicked
@@ -1248,20 +1172,18 @@ public class frmTransport extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
             load_table();
-                        kosong();
+            kosong();
         }else{
             JOptionPane.showMessageDialog(null, "Data batal dihapus.");
         }
     }//GEN-LAST:event_btnHapus1MouseClicked
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
-        // TODO add your handling code here:
-                textboxOff();
-                kosong();
+        textboxOff();
+        kosong();
     }//GEN-LAST:event_btnBatalMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
         this.dispose();
         new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -1274,12 +1196,12 @@ public class frmTransport extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(query);
             SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             if(res.next()){
-                    String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', susut = '"+txtSusut.getText()+"',cash= '"+txtCash.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
+                    String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
                     java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                     pst.execute();
                     JOptionPane.showMessageDialog(null, "data berhasil diedit");
                 }else{
-                    String sql = "INSERT INTO tb_transport VALUES ('"+txtKdTransport.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"', '"+txtNopol.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+txtDO.getText()+"','"+txtStockpile.getText()+"','"+txtTempatBongkar.getText()+"','"+txtTonaseMuat.getText()+"','"+txtTonasePabrik.getText()+"','"+txtRP.getText()+"','"+txtJumlahTotal.getText()+"','"+txtKas.getText()+"','"+txtCashinSupplier.getText()+"','"+txtKasPrimas.getText()+"','"+txtSusut.getText()+"','"+txtCash.getText()+"','"+txtKord.getText()+"','"+txtTab.getText()+"','"+txtCashinPrimas.getText()+"','"+txtNoSJ.getText()+"','"+txtSusutTonase.getText()+"','"+txtNote.getText()+"')";
+                    String sql = "INSERT INTO tb_transport VALUES ('"+txtKdTransport.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"', '"+txtNopol.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+txtDO.getText()+"','"+txtStockpile.getText()+"','"+txtTempatBongkar.getText()+"','"+txtTonaseMuat.getText()+"','"+txtTonasePabrik.getText()+"','"+txtRP.getText()+"','"+txtJumlahTotal.getText()+"','"+txtKas.getText()+"','"+txtCashinSupplier.getText()+"','"+txtKasPrimas.getText()+"','"+txtKord.getText()+"','"+txtTab.getText()+"','"+txtCashinPrimas.getText()+"','"+txtNoSJ.getText()+"','"+txtSusutTonase.getText()+"','"+txtNote.getText()+"')";
                     java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                     pst.execute();
                     JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
@@ -1338,24 +1260,6 @@ public class frmTransport extends javax.swing.JFrame {
     private void txtKasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasKeyReleased
         cashinsupplier();
     }//GEN-LAST:event_txtKasKeyReleased
-
-    private void txtSusutFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSusutFocusGained
-        if (txtSusut.getText().equals("0")){
-            txtSusut.setText("");
-        }
-    }//GEN-LAST:event_txtSusutFocusGained
-
-    private void txtSusutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSusutFocusLost
-        // TODO add your handling code here:
-        if (txtSusut.getText().equals("")){
-            txtSusut.setText("0");
-        }
-    }//GEN-LAST:event_txtSusutFocusLost
-
-    private void txtSusutKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSusutKeyReleased
-        // TODO add your handling code here:
-        //        upah();
-    }//GEN-LAST:event_txtSusutKeyReleased
 
     private void txtKordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusGained
         if (txtKord.getText().equals("0")){
@@ -1477,18 +1381,6 @@ public class frmTransport extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtKasPrimasFocusLost
 
-    private void txtCashFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashFocusGained
-        if (txtCash.getText().equals("0")){
-            txtCash.setText("");
-        }
-    }//GEN-LAST:event_txtCashFocusGained
-
-    private void txtCashFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCashFocusLost
-        if (txtCash.getText().equals("")){
-            txtCash.setText("0");
-        }
-    }//GEN-LAST:event_txtCashFocusLost
-
     private void txtRPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRPKeyReleased
         jumlahtotal();
     }//GEN-LAST:event_txtRPKeyReleased
@@ -1553,8 +1445,6 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1588,8 +1478,6 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
-    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
@@ -1608,7 +1496,6 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCash;
     private javax.swing.JTextField txtCashinPrimas;
     private javax.swing.JTextField txtCashinSupplier;
     private javax.swing.JTextField txtDO;
@@ -1623,7 +1510,6 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JTextField txtNote;
     private javax.swing.JTextField txtRP;
     private javax.swing.JTextField txtStockpile;
-    private javax.swing.JTextField txtSusut;
     private javax.swing.JTextField txtSusutTonase;
     private javax.swing.JTextField txtTab;
     private javax.swing.JTextField txtTempatBongkar;

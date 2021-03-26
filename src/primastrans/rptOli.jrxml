@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="434e74be-72c3-44f2-8abd-13fda14f1712">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="Dari Tanggal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Sampai" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_ganti_oli WHERE tgl BETWEEN $P{Dari Tanggal} AND $P{Sampai}]]>
+	</queryString>
+	<field name="kd_ganti_oli" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_mobil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jarak" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="note" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="tgl">
+		<groupExpression><![CDATA[$F{tgl}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5fba04bb-4fa4-40d0-8cf9-6c7b3f0879d0" x="346" y="0" width="271" height="79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[DATA PEMAKAIAN OLI PT PRIMAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="210" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="68686b35-c7ad-46ab-afe9-d47de253c833" x="0" y="0" width="960" height="210"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box leftPadding="0">
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<staticText>
+							<reportElement uuid="89721ebe-9503-4939-9bb0-4997561f2209" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<textElement verticalAlignment="Middle"/>
+							<text><![CDATA[TANGGAL]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="tgl" width="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[(new SimpleDateFormat("yyyy-MM-dd")).format($F{tgl})]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#65CAC0" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="ced41623-603c-4248-abed-51ac541851e5" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{tgl}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="kd_mobil" height="30">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{kd_mobil}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#65CAC0" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="4f334628-23b2-41d8-8e0b-db87a18b9c00" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{kd_mobil}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="jarakMeasure" class="java.lang.Integer">
+					<measureExpression><![CDATA[$F{jarak}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="b436a67a-6bd8-4571-831d-c613d3b63876" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="tgl">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="36909373-8e3e-48d2-a6d8-06d2c84d7e92" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="kd_mobil">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="ef609724-6c4b-4d76-a9b8-8da5a2555ff8" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="tgl" columnTotalGroup="kd_mobil">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="0d8b6b42-f389-42c1-aa83-61feed0ca82d" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

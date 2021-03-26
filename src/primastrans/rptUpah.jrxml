@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="595" orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d90c770b-468d-42fe-a4c5-b3baf8b3f4e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#65CAC0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#CFE6E3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#65CAC0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFE6E3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DS_Upah" uuid="a68130c3-263c-4365-ae2b-4e457bc4b28b">
+		<parameter name="kdmobil" class="java.lang.String"/>
+		<parameter name="dari1" class="java.util.Date"/>
+		<parameter name="sampai1" class="java.util.Date"/>
+		<queryString>
+			<![CDATA[SELECT * FROM tb_upah_supir  WHERE tgl BETWEEN $P{dari1} AND $P{sampai1}]]>
+		</queryString>
+		<field name="kd_upah" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="id" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nm_supir" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="kd_mobil" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nopol" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="bayaran" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="koordinasi" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="subsidi" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="bon" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="total" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="potongan" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="upah" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="note" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="tgl" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<variable name="bayaran" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{bayaran}]]></variableExpression>
+		</variable>
+		<variable name="koordinasi" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{koordinasi}]]></variableExpression>
+		</variable>
+		<variable name="subsidi" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{subsidi}]]></variableExpression>
+		</variable>
+		<variable name="bon" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{bon}]]></variableExpression>
+		</variable>
+		<variable name="total" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{total}]]></variableExpression>
+		</variable>
+		<variable name="potongan" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{potongan}]]></variableExpression>
+		</variable>
+		<variable name="upah" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{upah}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="Dari Tanggal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Sampai" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_upah_supir]]>
+	</queryString>
+	<field name="kd_upah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_supir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_mobil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nopol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayaran" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="koordinasi" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subsidi" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bon" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="potongan" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="upah" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="note" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="nopol">
+		<groupExpression><![CDATA[$F{nopol}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<textField>
+				<reportElement uuid="9af2aa50-755a-4cdf-9756-ca167ecbdb3e" x="378" y="0" width="214" height="97"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Bayaran"+"\nPer " + (new SimpleDateFormat("dd").format($P{Dari Tanggal})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{Sampai}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="174" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="2cb93b65-e291-4a6c-b08a-c421a0f78e94" key="table 1" style="table 1" x="0" y="0" width="960" height="174"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DS_Upah" uuid="7b5d17f0-b7e6-4e42-a2c6-d3a10ea9842b">
+						<datasetParameter name="dari1">
+							<datasetParameterExpression><![CDATA[$P{Dari Tanggal}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="sampai1">
+							<datasetParameterExpression><![CDATA[$P{Sampai}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="a3ff5666-c091-414b-8084-1797659e5520">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f11d90ac-0ade-454a-84fe-ab71e845a1f1" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[NAMA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="acd4f60d-ac80-4c19-8bd3-6d89cc29b6b4" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nm_supir}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6866ecef-9ade-471b-b0cd-c4d901180917">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="c25a16a6-e231-42f5-9748-769137ea72d7" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[NO POL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="202c8ed0-2bdc-402f-867f-a2818c4255aa" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="d5669475-e477-4d6c-ac91-33b88ecf8701" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nopol}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="935cfe81-4911-4f55-b728-29fe1e67d504">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="96687fe4-3539-42ec-b3b3-4c446b6338c6" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[BAYARAN SUPIR]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="3918b070-100f-45bd-b100-ed9ac5e6291c" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{bayaran}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="f270b3dc-1454-4eea-9053-52f886df5ae9" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bayaran}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7ce60f0e-ddf1-409f-a993-f9ef87899094">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2420b9b8-52a6-4b9e-b900-6fb76f4a503c" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[KOORDINASI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="3a87e09a-2297-4221-914c-09b071342a54" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{koordinasi}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="2a6df046-24d0-4c93-b9bd-edf32cd27e9c" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{koordinasi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="18723e3c-c741-44ee-9681-5c3e25934f6a">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a9dcf1c5-3386-413b-925a-80943d1da126" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[SUBSIDI]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="03f42a9b-fe0e-4e7c-a2f7-cefc9c0e4e7b" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{subsidi}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="4e5de4b9-8a2a-418e-bdce-20b83a703702" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{subsidi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="31b89907-b049-4bc9-a636-4d88ba18c080">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="675520d7-03b5-4ec9-809f-3b65766b2fcb" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[BON]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="794e23eb-42bd-4d0b-a7f1-cd953407d7ca" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{bon}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="8e8a38fa-b38d-4b4b-b5f9-5b5a3be29cd6" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bon}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="597daf15-8f3c-46a4-bcd2-5de361b372dd">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="b52fe6e6-1992-44fd-bf70-8dfd5f93e821" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="45bb5899-be68-4c62-85cc-d0a570e92a60" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="064bdd3d-fcc2-44d9-bb65-14c8ee59c205" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c9ea598e-01b0-4729-a666-6fb70b769c89">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="eb614399-41a5-43ca-ab9c-d46822cfb564" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[POTONGAN]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="f5a0bad2-effb-44af-b3df-e20df532b427" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{potongan}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="a184458b-44ce-4099-a2b6-d507df328f75" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{potongan}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e07fa14f-8d60-4f4e-b4f6-531f3498006b">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="dfc84f2a-e34e-4535-9f5d-649b16a9d4f1" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[UPAH]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="b2b1fd51-d016-4c34-8e11-524ddad44b6d" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{upah}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="437a43f4-20ff-4dca-ada3-acd3b4cf0044" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{upah}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="136" uuid="18e2539a-386f-466c-aa08-c99e7deac199">
+						<jr:columnHeader style="table 1_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f9e87800-5947-4d4a-aed4-ab3a3247ebe3" x="0" y="0" width="136" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[NOTE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="4851c024-5e5c-431a-91e9-7e074973003e" x="0" y="0" width="136" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{note}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

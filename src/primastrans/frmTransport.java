@@ -19,6 +19,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class frmTransport extends javax.swing.JFrame {
 
@@ -1226,12 +1229,23 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
         // TODO add your handling code here:
-        //        try {
-            //            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptMobil.jasper"), null, Config.configDB());
-            //            JasperViewer.viewReport(jp, false);
-            //        } catch(Exception e) {
-            //            JOptionPane.showMessageDialog(rootPane, e);
-            //        }
+        Object[] options = {"Mobil","Supplier"};
+        int opsi = JOptionPane.showOptionDialog(null, "Cetak Berdasarkan:", "Cetak",  JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,null,options, options[1]);     
+            if (opsi == JOptionPane.YES_OPTION){
+                    try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportMobil.jasper"), null, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+            }else{
+                    try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportSupplier.jasper"), null, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+            }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked

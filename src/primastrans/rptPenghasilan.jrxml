@@ -254,7 +254,7 @@
 			<textField pattern="dd MMMMM yyyy">
 				<reportElement uuid="5295e1e0-dc03-4c9d-9005-c83b04930cde" x="32" y="9" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[(new SimpleDateFormat("MMMM yyyy").format($F{tgl}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(new SimpleDateFormat("MMMM yyyy").format($P{tanggal}))]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

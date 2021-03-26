@@ -15,10 +15,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class frmPenghasilan extends javax.swing.JFrame {
 
@@ -339,6 +343,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         btnCetak = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnHapus1 = new javax.swing.JLabel();
+        cmbTGL = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -831,6 +836,9 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
 
+        cmbTGL.setDateFormatString("yyyy-MM-dd");
+        jPanel1.add(cmbTGL, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 100, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -941,12 +949,15 @@ public class frmPenghasilan extends javax.swing.JFrame {
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
         // TODO add your handling code here:
-        //        try {
-            //            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptMobil.jasper"), null, Config.configDB());
-            //            JasperViewer.viewReport(jp, false);
-            //        } catch(Exception e) {
-            //            JOptionPane.showMessageDialog(rootPane, e);
-            //        }
+                    HashMap param = new HashMap();
+                    param.put("tanggal",cmbTGL.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptPenghasilan.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
@@ -1113,6 +1124,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private javax.swing.JLabel btnSimpan;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbKdMobil;
+    private com.toedter.calendar.JDateChooser cmbTGL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

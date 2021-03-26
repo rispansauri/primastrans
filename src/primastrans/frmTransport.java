@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -36,6 +37,9 @@ public class frmTransport extends javax.swing.JFrame {
         textboxOff();
         cmbID();
         cmbMobil();
+        cmbNopol();
+        cmbSupp();
+                
         
         cmbID.addActionListener(new ActionListener(){
             @Override
@@ -102,6 +106,14 @@ public class frmTransport extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         btnHapus1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        btnCetak1 = new javax.swing.JLabel();
+        cmbSupp = new javax.swing.JComboBox<>();
+        cmbMbl = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cmbDari = new com.toedter.calendar.JDateChooser();
+        cmbSampai = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtKdTransport = new javax.swing.JTextField();
@@ -245,7 +257,7 @@ public class frmTransport extends javax.swing.JFrame {
         btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnCetak.setForeground(new java.awt.Color(204, 204, 204));
         btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCetak.setText("Cetak");
+        btnCetak.setText("Cetak/Mobil");
         btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCetakMouseClicked(evt);
@@ -267,7 +279,7 @@ public class frmTransport extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 420, -1, -1));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 420, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -311,6 +323,62 @@ public class frmTransport extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 10, -1, 20));
+
+        jPanel8.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel8.setToolTipText("");
+
+        btnCetak1.setBackground(new java.awt.Color(204, 204, 204));
+        btnCetak1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak1.setForeground(new java.awt.Color(204, 204, 204));
+        btnCetak1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCetak1.setText("Cetak/Supp");
+        btnCetak1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCetak1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 420, -1, -1));
+
+        cmbSupp.setBorder(null);
+        jPanel2.add(cmbSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 420, 80, 40));
+
+        cmbMbl.setBorder(null);
+        jPanel2.add(cmbMbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 420, 110, 40));
+
+        jLabel13.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setText("Dari");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, -1, 40));
+
+        jLabel14.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel14.setText("Sampai");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 420, -1, 40));
+
+        cmbDari.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 160, 40));
+
+        cmbSampai.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 420, 160, 40));
 
         jPanel3.setBackground(new java.awt.Color(242, 233, 242));
         jPanel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -944,6 +1012,36 @@ public class frmTransport extends javax.swing.JFrame {
         
     }
     
+     private void cmbNopol() {
+        try { 
+            String sql = "select * from tb_mobil";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbMbl.addItem(res.getString("nopol"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+     
+      private void cmbSupp() {
+        try { 
+            String sql = "select * from tb_transport";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbSupp.addItem(res.getString("do"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+    
     private void getSupir(){
         try {
             String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
@@ -1153,23 +1251,17 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
         // TODO add your handling code here:
-        Object[] options = {"Mobil","Supplier"};
-        int opsi = JOptionPane.showOptionDialog(null, "Cetak Berdasarkan:", "Cetak",  JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,null,options, options[1]);     
-            if (opsi == JOptionPane.YES_OPTION){
-                    try {
-                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportMobil.jasper"), null, Config.configDB());
+         HashMap param = new HashMap();
+                    param.put("mobil1",cmbMbl.getSelectedItem());
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportMobil.jasper"), param, Config.configDB());
                         JasperViewer.viewReport(jp, false);
+                        
                     } catch(Exception e) {
                         JOptionPane.showMessageDialog(rootPane, e);
                     }
-            }else{
-                    try {
-                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportSupplier.jasper"), null, Config.configDB());
-                        JasperViewer.viewReport(jp, false);
-                    } catch(Exception e) {
-                        JOptionPane.showMessageDialog(rootPane, e);
-                    }
-            }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
@@ -1411,6 +1503,21 @@ public class frmTransport extends javax.swing.JFrame {
         cashinprimas();
     }//GEN-LAST:event_txtTabKeyReleased
 
+    private void btnCetak1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetak1MouseClicked
+        // TODO add your handling code here:
+        HashMap param = new HashMap();
+                    param.put("do1",cmbSupp.getSelectedItem());
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportSupp.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+    }//GEN-LAST:event_btnCetak1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1450,15 +1557,22 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel btnBaru1;
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnCetak;
+    private javax.swing.JLabel btnCetak1;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
+    private com.toedter.calendar.JDateChooser cmbDari;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbID;
     private javax.swing.JComboBox<String> cmbKdMobil;
+    private javax.swing.JComboBox<String> cmbMbl;
+    private com.toedter.calendar.JDateChooser cmbSampai;
+    private javax.swing.JComboBox<String> cmbSupp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1486,6 +1600,7 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

@@ -61,7 +61,7 @@ public class frmSupir extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtID.setEditable(false);
+        txtID.setEnabled(false);
         txtNIK.setEditable(false);
         txtNama.setEditable(false);
         jPanel4.setVisible(false);
@@ -441,6 +441,7 @@ public class frmSupir extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
             if(res.next()){
+
                 String sql = "UPDATE tb_supir SET id = '"+txtID.getText()+"', nik = '"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE id = '"+txtID.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
@@ -492,6 +493,7 @@ public class frmSupir extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void btnBaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaruMouseClicked

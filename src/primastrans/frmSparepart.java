@@ -10,10 +10,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -26,7 +30,7 @@ public class frmSparepart extends javax.swing.JFrame {
      */
     public frmSparepart() {
         initComponents();
-        this.setLocationRelativeTo(null);
+         
         load_table();
         kosong();
         textboxOff();
@@ -61,6 +65,7 @@ public class frmSparepart extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
                 cmbKdmobil.addItem(res.getString("kd_mobil"));
+                cmbMobil.addItem(res.getString("kd_mobil"));
             }
         }catch (Exception e) {
             
@@ -150,9 +155,9 @@ public class frmSparepart extends javax.swing.JFrame {
     }
     
     private void textboxOff() {
-        txtKd.setEditable(false);
-        txtTotal.setEditable(false);
-        txtJumlah.setEditable(false);
+        txtKd.setEnabled(false);
+        txtTotal.setEnabled(false);
+        txtJumlah.setEnabled(false);
         txtHarga.setEditable(false);
         txtPart.setEditable(false);
         txtToko.setEditable(false);
@@ -241,6 +246,9 @@ public class frmSparepart extends javax.swing.JFrame {
         btnHapus = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        cmbMobil = new javax.swing.JComboBox<>();
+        cmbDari = new com.toedter.calendar.JDateChooser();
+        cmbSampai = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtKd = new javax.swing.JTextField();
@@ -408,6 +416,15 @@ public class frmSparepart extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 111, 620, 236));
+
+        cmbMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+
+        cmbDari.setDateFormatString("yyyy-MM-dd");
+        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 130, -1));
+
+        cmbSampai.setDateFormatString("yyyy-MM-dd");
+        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 130, -1));
 
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
@@ -746,12 +763,17 @@ public class frmSparepart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBaruMouseClicked
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
-//        try {
-//            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSupir.jasper"), null, Config.configDB());
-//            JasperViewer.viewReport(jp, false);
-//        } catch(Exception e) {
-//            JOptionPane.showMessageDialog(rootPane, e);
-//        }
+                    HashMap param = new HashMap();
+                    param.put("mobil",cmbMobil.getSelectedItem());
+                    param.put("dari",cmbDari.getDate());
+                    param.put("sampai",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSparepart.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusMouseClicked
@@ -852,6 +874,7 @@ public class frmSparepart extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
@@ -977,9 +1000,12 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus;
     private javax.swing.JLabel btnSimpan;
+    private com.toedter.calendar.JDateChooser cmbDari;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbJenis;
     private javax.swing.JComboBox<String> cmbKdmobil;
+    private javax.swing.JComboBox<String> cmbMobil;
+    private com.toedter.calendar.JDateChooser cmbSampai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

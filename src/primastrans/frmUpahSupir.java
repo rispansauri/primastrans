@@ -13,6 +13,8 @@ package primastrans;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -116,6 +118,9 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jSeparator17 = new javax.swing.JSeparator();
         cmbID = new javax.swing.JComboBox<>();
         cmbMobil = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator18 = new javax.swing.JSeparator();
+        cmbDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -252,7 +257,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Kode Upah");
+        jLabel2.setText("Tanggal");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         txtKdUpah.setBackground(new java.awt.Color(242, 233, 242));
@@ -260,12 +265,12 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtKdUpah.setForeground(new java.awt.Color(102, 102, 102));
         txtKdUpah.setText("Kode Upah");
         txtKdUpah.setBorder(null);
-        jPanel2.add(txtKdUpah, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 30));
+        jPanel2.add(txtKdUpah, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 170, 30));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("ID");
+        jLabel3.setText("ID Supir");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         txtNama.setBackground(new java.awt.Color(242, 233, 242));
@@ -293,7 +298,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 170, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 120, 10));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
@@ -600,6 +605,19 @@ public class frmUpahSupir extends javax.swing.JFrame {
         cmbMobil.setBorder(null);
         jPanel2.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 120, 30));
 
+        jLabel16.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Kode Upah");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+
+        jSeparator18.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator18.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel2.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 170, 10));
+
+        cmbDate.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 120, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -648,6 +666,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtUpah.setText(upah);
         String note = jTable1.getValueAt(baris, 12).toString();
         txtNote.setText(note);
+        String tgl = jTable1.getValueAt(baris,13).toString();
+        try {
+            java.util.Date date;
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(tgl);
+            cmbDate.setDate(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(frmOli.class.getName()).log(Level.SEVERE, null, ex);
+        }
         textboxOn();
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -697,6 +723,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         this.dispose();
+        new mainMenu().setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
@@ -706,13 +733,14 @@ public class frmUpahSupir extends javax.swing.JFrame {
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
+            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             if(res.next()){
-                String sql ="UPDATE tb_upah_supir SET kd_upah = '"+txtKdUpah.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"',kd_mobil= '"+cmbMobil.getSelectedItem()+"', nopol = '"+txtNopol.getText()+"', bayaran = '"+txtBayaran.getText()+"', koordinasi = '"+txtKoordinasi.getText()+"',subsidi= '"+txtSubsidi.getText()+"', bon = '"+txtBon.getText()+"', total = '"+txtTotal.getText()+"', potongan = '"+txtPotongan.getText()+"',upah= '"+txtUpah.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_upah = '"+txtKdUpah.getText()+"'";
+                String sql ="UPDATE tb_upah_supir SET kd_upah = '"+txtKdUpah.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"',kd_mobil= '"+cmbMobil.getSelectedItem()+"', nopol = '"+txtNopol.getText()+"', bayaran = '"+txtBayaran.getText()+"', koordinasi = '"+txtKoordinasi.getText()+"',subsidi= '"+txtSubsidi.getText()+"', bon = '"+txtBon.getText()+"', total = '"+txtTotal.getText()+"', potongan = '"+txtPotongan.getText()+"',upah= '"+txtUpah.getText()+"',note= '"+txtNote.getText()+"',tgl = '"+Date_Format.format(cmbDate.getDate())+"' WHERE kd_upah = '"+txtKdUpah.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil diedit");
             }else{
-                String sql = "INSERT INTO tb_upah_supir VALUES ('"+txtKdUpah.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+cmbMobil.getSelectedItem()+"', '"+txtNopol.getText()+"', '"+txtBayaran.getText()+"', '"+txtKoordinasi.getText()+"', '"+txtSubsidi.getText()+"', '"+txtBon.getText()+"', '"+txtTotal.getText()+"', '"+txtPotongan.getText()+"', '"+txtUpah.getText()+"', '"+txtNote.getText()+"')";
+                String sql = "INSERT INTO tb_upah_supir VALUES ('"+txtKdUpah.getText()+"','"+cmbID.getSelectedItem()+"','"+txtNama.getText()+"','"+cmbMobil.getSelectedItem()+"', '"+txtNopol.getText()+"', '"+txtBayaran.getText()+"', '"+txtKoordinasi.getText()+"', '"+txtSubsidi.getText()+"', '"+txtBon.getText()+"', '"+txtTotal.getText()+"', '"+txtPotongan.getText()+"', '"+txtUpah.getText()+"', '"+txtNote.getText()+"','"+Date_Format.format(cmbDate.getDate())+"')";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
@@ -935,41 +963,38 @@ public class frmUpahSupir extends javax.swing.JFrame {
     }
     
     private void textboxOn() {
-        txtKdUpah.setEditable(true);
         cmbID.setEnabled(true);
-        txtNama.setEditable(false);
         cmbMobil.setEnabled(true);
-        txtNopol.setEditable(false);
         txtBayaran.setEditable(true);
         txtKoordinasi.setEditable(true);
         txtSubsidi.setEditable(true);
         txtBon.setEditable(true);
-        txtTotal.setEditable(false);
         txtPotongan.setEditable(true);
-        txtUpah.setEditable(false);
         txtNote.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
         btnBatal.setVisible(true);
+        cmbDate.setEnabled(true);
     }
     
     private void textboxOff() {
-        txtKdUpah.setEditable(false);
+        txtKdUpah.setEnabled(false);
         cmbID.setEnabled(false);
-        txtNama.setEditable(false);
+        txtNama.setEnabled(false);
         cmbMobil.setEnabled(false);
-        txtNopol.setEditable(false);
+        txtNopol.setEnabled(false);
         txtBayaran.setEditable(false);
         txtKoordinasi.setEditable(false);
         txtSubsidi.setEditable(false);
         txtBon.setEditable(false);
-        txtTotal.setEditable(false);
+        txtTotal.setEnabled(false);
         txtPotongan.setEditable(false);
-        txtUpah.setEditable(false);
+        txtUpah.setEnabled(false);
         txtNote.setEditable(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);
         btnBatal.setVisible(false);
+        cmbDate.setEnabled(false);
     }
     
     private void kosong(){
@@ -986,6 +1011,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         txtPotongan.setText("0");
         txtUpah.setText("0");
         txtNote.setText("Note");
+        cmbDate.setDate(null);
     }
     private void load_table(){
         // membuat tampilan model tabel
@@ -1003,6 +1029,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         model.addColumn("Potongan");
         model.addColumn("Upah");
         model.addColumn("Note");
+        model.addColumn("Tanggal");
         
         //menampilkan data database kedalam tabel
         try {
@@ -1011,7 +1038,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13)});
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13),res.getString(14)});
             }
             jTable1.setModel(model);
         } catch (Exception e) {
@@ -1060,6 +1087,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
+    private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbID;
     private javax.swing.JComboBox<String> cmbMobil;
     private javax.swing.JLabel jLabel1;
@@ -1069,6 +1097,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1092,6 +1121,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;

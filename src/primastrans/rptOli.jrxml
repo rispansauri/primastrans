@@ -1,213 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a417c8e3-2095-4f90-870f-24ba28062b8a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="434e74be-72c3-44f2-8abd-13fda14f1712">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
-	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
-	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
-	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
-	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
-			<style mode="Opaque" backcolor="#F0EFEF"/>
-		</conditionalStyle>
-	</style>
-	<parameter name="dari_tanggal" class="java.util.Date">
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="Dari Tanggal" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="sampai_tanggal" class="java.util.Date">
+	<parameter name="Sampai" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
-     tb_ganti_oli.`kd_ganti_oli` AS tb_ganti_oli_kd_ganti_oli,
-     tb_ganti_oli.`kd_mobil` AS tb_ganti_oli_kd_mobil,
-     tb_ganti_oli.`tgl` AS tb_ganti_oli_tgl,
-     tb_ganti_oli.`jarak` AS tb_ganti_oli_jarak,
-     tb_ganti_oli.`note` AS tb_ganti_oli_note
-FROM
-     `tb_ganti_oli` tb_ganti_oli
-WHERE tgl between $P{dari_tanggal} and $P{sampai_tanggal}]]>
+		<![CDATA[SELECT * FROM tb_ganti_oli WHERE tgl BETWEEN $P{Dari Tanggal} AND $P{Sampai}]]>
 	</queryString>
-	<field name="tb_ganti_oli_kd_ganti_oli" class="java.lang.String"/>
-	<field name="tb_ganti_oli_kd_mobil" class="java.lang.String"/>
-	<field name="tb_ganti_oli_tgl" class="java.sql.Date"/>
-	<field name="tb_ganti_oli_jarak" class="java.lang.Integer"/>
-	<field name="tb_ganti_oli_note" class="java.lang.String"/>
-	<group name="tb_ganti_oli_tgl">
-		<groupExpression><![CDATA[$F{tb_ganti_oli_tgl}]]></groupExpression>
-		<groupHeader>
-			<band height="37">
-				<frame>
-					<reportElement uuid="3b66ae9a-fad8-4001-a971-4e73290f8d76" mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000"/>
-					<textField isStretchWithOverflow="true">
-						<reportElement uuid="768d8c19-b7b3-4560-8944-44e8622214db" style="SubTitle" isPrintRepeatedValues="false" x="2" y="0" width="479" height="24" forecolor="#FFFFFF"/>
-						<textElement>
-							<font isBold="false"/>
-						</textElement>
-						<textFieldExpression><![CDATA[$F{tb_ganti_oli_tgl}]]></textFieldExpression>
-					</textField>
-				</frame>
-			</band>
-		</groupHeader>
-		<groupFooter>
-			<band height="6"/>
-		</groupFooter>
+	<field name="kd_ganti_oli" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_mobil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jarak" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="note" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="tgl">
+		<groupExpression><![CDATA[$F{tgl}]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="132" splitType="Stretch">
-			<frame>
-				<reportElement uuid="7a803e18-ae2b-4d60-b3a1-ee3bbfd93abe" mode="Opaque" x="0" y="0" width="552" height="95" backcolor="#000000"/>
-				<staticText>
-					<reportElement uuid="18ee81c7-ca17-47e4-bb4f-e638cb760752" style="Title" x="0" y="0" width="370" height="66"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
-				</staticText>
-				<staticText>
-					<reportElement uuid="7f8e07d7-de50-4a35-aa78-d0b5f465d3d7" style="SubTitle" x="157" y="66" width="249" height="29"/>
-					<textElement>
-						<font size="22" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
-				</staticText>
-			</frame>
-			<frame>
-				<reportElement uuid="4e65224f-daf7-4d4b-be0b-02df09601882" mode="Opaque" x="0" y="100" width="553" height="32" forecolor="#000000" backcolor="#CC0000"/>
-				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement uuid="6527cb9a-eeb8-4ab1-92d2-08d1b3db3402" x="307" y="12" width="144" height="20" forecolor="#FFFFFF"/>
-					<textElement textAlignment="Right">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement uuid="167b548a-dee7-4035-810c-b9579f2652c0" x="2" y="12" width="100" height="20"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$P{dari_tanggal}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement uuid="8debc2b0-865b-43ed-a16f-d9d54fcdd717" x="199" y="12" width="100" height="20"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$P{sampai_tanggal}]]></textFieldExpression>
-				</textField>
-			</frame>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5fba04bb-4fa4-40d0-8cf9-6c7b3f0879d0" x="346" y="0" width="271" height="79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[DATA PEMAKAIAN OLI PT PRIMAS]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="26" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="72d36922-9d26-4ea7-9950-057a90ff5c98" style="Column header" x="0" y="7" width="138" height="18" forecolor="#000000"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[tb_ganti_oli_kd_ganti_oli]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="546bef4b-7a5a-4f19-ba87-d4bd6c703e7f" style="Column header" x="138" y="7" width="138" height="18" forecolor="#000000"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[tb_ganti_oli_kd_mobil]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="556f3d20-715c-48e7-a7fc-65524e458061" style="Column header" x="276" y="7" width="138" height="18" forecolor="#000000"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[tb_ganti_oli_jarak]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="3378cc5e-2b0c-4c10-bf11-6c0fca13c88c" style="Column header" x="414" y="7" width="138" height="18" forecolor="#000000"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[tb_ganti_oli_note]]></text>
-			</staticText>
-		</band>
+		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="18" splitType="Stretch">
-			<frame>
-				<reportElement uuid="303c7d90-0a65-4a47-abfd-2ba4957a8439" style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="86e82069-e800-4935-a5d3-8a5b1d6bebfe" style="Detail" positionType="Float" x="0" y="0" width="138" height="18"/>
-					<textElement>
-						<font size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tb_ganti_oli_kd_ganti_oli}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="0426d682-111d-4b6c-a9db-ce0061edefb9" style="Detail" positionType="Float" x="138" y="0" width="138" height="18"/>
-					<textElement>
-						<font size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tb_ganti_oli_kd_mobil}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="cda86586-0b2c-4959-916a-b901a9dce660" style="Detail" positionType="Float" x="276" y="0" width="138" height="18"/>
-					<textElement>
-						<font size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tb_ganti_oli_jarak}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="8340e621-0063-4699-825a-9dbd6f11b039" style="Detail" positionType="Float" x="414" y="0" width="138" height="18"/>
-					<textElement>
-						<font size="14"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{tb_ganti_oli_note}]]></textFieldExpression>
-				</textField>
-			</frame>
-		</band>
+		<band splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="7" splitType="Stretch">
-			<line>
-				<reportElement uuid="d8089ba6-a958-4b29-a1c0-12da99a542f9" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="25" splitType="Stretch">
-			<frame>
-				<reportElement uuid="f234c6b0-1ceb-455d-b105-32a57d3b55c8" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000"/>
-				<textField evaluationTime="Report">
-					<reportElement uuid="d19eb5c7-0c92-4b38-bb36-e7cad902a0ad" style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF"/>
-					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement uuid="260f11a7-c009-4af9-ba58-2b3152e1ac50" style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-				</textField>
-				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement uuid="eee09aff-1b9b-4448-b872-e09a8a9e439d" style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF"/>
-					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
-					</textElement>
-					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-				</textField>
-			</frame>
-		</band>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band splitType="Stretch"/>
+		<band height="210" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="68686b35-c7ad-46ab-afe9-d47de253c833" x="0" y="0" width="960" height="210"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box leftPadding="0">
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<staticText>
+							<reportElement uuid="89721ebe-9503-4939-9bb0-4997561f2209" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<textElement verticalAlignment="Middle"/>
+							<text><![CDATA[TANGGAL]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="tgl" width="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[(new SimpleDateFormat("yyyy-MM-dd")).format($F{tgl})]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#65CAC0" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="ced41623-603c-4248-abed-51ac541851e5" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{tgl}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="kd_mobil" height="30">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{kd_mobil}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#65CAC0" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="4f334628-23b2-41d8-8e0b-db87a18b9c00" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{kd_mobil}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="jarakMeasure" class="java.lang.Integer">
+					<measureExpression><![CDATA[$F{jarak}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="b436a67a-6bd8-4571-831d-c613d3b63876" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="tgl">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="36909373-8e3e-48d2-a6d8-06d2c84d7e92" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="kd_mobil">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="ef609724-6c4b-4d76-a9b8-8da5a2555ff8" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="tgl" columnTotalGroup="kd_mobil">
+					<cellContents backcolor="#CFE6E3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="0d8b6b42-f389-42c1-aa83-61feed0ca82d" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
 	</summary>
 </jasperReport>

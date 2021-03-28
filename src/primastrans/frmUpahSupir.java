@@ -735,7 +735,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(query);
             SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             if(res.next()){
-                String sql ="UPDATE tb_upah_supir SET kd_upah = '"+txtKdUpah.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"',kd_mobil= '"+cmbMobil.getSelectedItem()+"', nopol = '"+txtNopol.getText()+"', bayaran = '"+txtBayaran.getText()+"', koordinasi = '"+txtKoordinasi.getText()+"',subsidi= '"+txtSubsidi.getText()+"', bon = '"+txtBon.getText()+"', total = '"+txtTotal.getText()+"', potongan = '"+txtPotongan.getText()+"',upah= '"+txtUpah.getText()+"',note= '"+txtNote.getText()+"',tgl = '"+Date_Format.format(cmbDate.getDate())+"' WHERE kd_upah = '"+txtKdUpah.getText()+"'";
+                String sql ="UPDATE tb_upah_supir SET kd_upah = '"+txtKdUpah.getText()+"', id_supir = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"',kd_mobil= '"+cmbMobil.getSelectedItem()+"', nopol = '"+txtNopol.getText()+"', bayaran = '"+txtBayaran.getText()+"', koordinasi = '"+txtKoordinasi.getText()+"',subsidi= '"+txtSubsidi.getText()+"', bon = '"+txtBon.getText()+"', total = '"+txtTotal.getText()+"', potongan = '"+txtPotongan.getText()+"',upah= '"+txtUpah.getText()+"',note= '"+txtNote.getText()+"',tgl = '"+Date_Format.format(cmbDate.getDate())+"' WHERE kd_upah = '"+txtKdUpah.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil diedit");
@@ -888,12 +888,12 @@ public class frmUpahSupir extends javax.swing.JFrame {
     
     private void cmbID() {
         try { 
-            String sql = "select id from tb_supir";
+            String sql = "select id_supir from tb_supir";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                cmbID.addItem(res.getString("id"));
+                cmbID.addItem(res.getString("id_supir"));
             }
         }catch (Exception e) {
             
@@ -918,7 +918,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
     
     private void getSupir(){
         try {
-            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
+            String sql = "SELECT * FROM tb_supir WHERE id_supir = '"+cmbID.getSelectedItem()+"'";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

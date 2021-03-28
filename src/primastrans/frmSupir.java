@@ -34,12 +34,12 @@ public class frmSupir extends javax.swing.JFrame {
 
     private void idSupir() {
         try {
-            String sql = "select * from tb_supir order by id desc";
+            String sql = "select * from tb_supir order by id_supir desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
             if (rs.next()) {
-                String kd = rs.getString("id").substring(1);
+                String kd = rs.getString("id_supir").substring(1);
                 String AN = "" + (Integer.parseInt(kd) + 1);
                 txtID.setText("S" + AN);
             } else {
@@ -110,8 +110,6 @@ public class frmSupir extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         btnHapus = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        btnCetak = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btnBaru = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -188,36 +186,6 @@ public class frmSupir extends javax.swing.JFrame {
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(61, 115, 80));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel6.setToolTipText("");
-
-        btnCetak.setBackground(new java.awt.Color(204, 204, 204));
-        btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnCetak.setForeground(new java.awt.Color(204, 204, 204));
-        btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCetak.setText("Cetak");
-        btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCetakMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         jPanel7.setBackground(new java.awt.Color(61, 115, 80));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel7.setToolTipText("");
@@ -259,13 +227,11 @@ public class frmSupir extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
@@ -279,7 +245,6 @@ public class frmSupir extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -436,13 +401,13 @@ public class frmSupir extends javax.swing.JFrame {
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
         // TODO add your handling code here:
         try{
-            String query = "select * from tb_supir where id = '"+txtID.getText()+"'";
+            String query = "select * from tb_supir where id_supir = '"+txtID.getText()+"'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
             if(res.next()){
 
-                String sql = "UPDATE tb_supir SET id = '"+txtID.getText()+"', nik = '"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE id = '"+txtID.getText()+"'";
+                String sql = "UPDATE tb_supir SET id_supir = '"+txtID.getText()+"', nik = '"+txtNIK.getText()+"', nm_supir = '"+txtNama.getText()+"' WHERE id_supir = '"+txtID.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil di edit");
@@ -465,7 +430,7 @@ public class frmSupir extends javax.swing.JFrame {
          int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
         if (opsi == JOptionPane.YES_OPTION){
             try {
-                String sql ="delete from tb_supir where id='"+txtID.getText()+"'";
+                String sql ="delete from tb_supir where id_supir='"+txtID.getText()+"'";
                 java.sql.Connection conn=(Connection)Config.configDB();
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
@@ -479,16 +444,6 @@ public class frmSupir extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data batal dihapus.");
         }
     }//GEN-LAST:event_btnHapusMouseClicked
-
-    private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
-        // TODO add your handling code here:
-         try {
-            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSupir.jasper"), null, Config.configDB());
-            JasperViewer.viewReport(jp, false);
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
-    }//GEN-LAST:event_btnCetakMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
@@ -559,7 +514,6 @@ public class frmSupir extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBaru;
     private javax.swing.JLabel btnBatal;
-    private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus;
     private javax.swing.JLabel btnSimpan;
     private javax.swing.JLabel jLabel1;
@@ -571,7 +525,6 @@ public class frmSupir extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

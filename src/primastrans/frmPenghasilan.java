@@ -873,12 +873,10 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil diedit");
             }else{
-                
                 String sql = "INSERT INTO tb_penghasilan VALUES ('"+txtKdPenghasilan.getText()+"','"+Date_Format.format(cmbDate.getDate())+"','"+cmbKdMobil.getSelectedItem()+"','"+txtBatubara.getText()+"', '"+txtRitBatubara.getText()+"', '"+txtSplit.getText()+"', '"+txtBeskos.getText()+"', '"+txtRitBeskos.getText()+"', '"+txtLoading.getText()+"', '"+txtJumlah.getText()+"', '"+txtSparepart.getText()+"', '"+txtTotal.getText()+"', '"+txtLabaKotor.getText()+"', '"+txtLabaBersih.getText()+"')";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
-
             }
             load_table();
             kosong();

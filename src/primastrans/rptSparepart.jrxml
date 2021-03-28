@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="960" pageHeight="802" orientation="Landscape" columnWidth="960" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c5078b39-fe27-4b65-8e5d-1793a5c6bfd5">
-	<property name="ireport.zoom" value="1.3310000000000073"/>
-	<property name="ireport.x" value="24"/>
+	<property name="ireport.zoom" value="1.3310000000000084"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="mobil" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -13,11 +13,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT tgl, nm_part, qty, toko, jumlah, jenis_bayar,note
+		<![CDATA[SELECT tgl, nm_part, qty, toko, jumlah, jenis_bayar, note
 FROM tb_sparepart
 LEFT JOIN tb_sparepart_detail
 ON tb_sparepart.kd_belanja = tb_sparepart_detail.kd_belanja
-WHERE kd_mobil=$P{mobil} AND tgl BETWEEN $P{dari} AND $P{sampai}]]>
+WHERE tb_sparepart.kd_mobil = $P{mobil} AND tgl BETWEEN $P{dari} AND $P{sampai}]]>
 	</queryString>
 	<field name="tgl" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -46,7 +46,7 @@ WHERE kd_mobil=$P{mobil} AND tgl BETWEEN $P{dari} AND $P{sampai}]]>
 	<group name="tgl">
 		<groupExpression><![CDATA[$F{tgl}]]></groupExpression>
 		<groupFooter>
-			<band height="26">
+			<band height="20">
 				<line>
 					<reportElement uuid="b877d1f5-71b1-41fa-bb6c-a696ab084b70" x="827" y="-1" width="1" height="20"/>
 				</line>
@@ -60,25 +60,23 @@ WHERE kd_mobil=$P{mobil} AND tgl BETWEEN $P{dari} AND $P{sampai}]]>
 					<reportElement uuid="dcab418a-7421-4539-9069-256b159b3402" x="586" y="0" width="1" height="19"/>
 				</line>
 				<line>
+					<reportElement uuid="d16520df-2631-458e-be22-89283b865d97" x="443" y="0" width="1" height="19"/>
+				</line>
+				<line>
+					<reportElement uuid="63b96092-bdcd-4ba4-8d96-423d97a51f1c" x="345" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement uuid="1995b881-3e39-453e-a8b7-08199a685928" x="176" y="0" width="1" height="19"/>
+				</line>
+				<line>
 					<reportElement uuid="c967521a-a5d6-4d74-afa8-c3895624b1e1" x="35" y="0" width="1" height="19"/>
 				</line>
 				<line>
 					<reportElement uuid="537fa190-b7e2-45b2-826a-31f4c2d9a2cc" x="722" y="0" width="1" height="20"/>
 				</line>
-				<textField pattern="#,##0">
-					<reportElement uuid="c30db075-151b-4e08-8bbc-340980f19e7c" x="607" y="0" width="100" height="20"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="11"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement uuid="630ed480-3c6c-44af-8433-bcbba1558863" x="40" y="0" width="546" height="17"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="11"/>
-					</textElement>
-					<text><![CDATA[TOTAL]]></text>
-				</staticText>
+				<line>
+					<reportElement uuid="f66a3cbb-f754-416d-841e-60ae9e2d1178" x="79" y="0" width="1" height="19"/>
+				</line>
 			</band>
 		</groupFooter>
 	</group>
@@ -290,7 +288,40 @@ WHERE kd_mobil=$P{mobil} AND tgl BETWEEN $P{dari} AND $P{sampai}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="50" splitType="Stretch"/>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement uuid="dcab418a-7421-4539-9069-256b159b3402" x="586" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="537fa190-b7e2-45b2-826a-31f4c2d9a2cc" x="722" y="0" width="1" height="20"/>
+			</line>
+			<line>
+				<reportElement uuid="c9f940c9-97cc-4a3c-a764-1dc5bc375403" x="928" y="-1" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement uuid="b877d1f5-71b1-41fa-bb6c-a696ab084b70" x="827" y="-1" width="1" height="20"/>
+			</line>
+			<staticText>
+				<reportElement uuid="630ed480-3c6c-44af-8433-bcbba1558863" x="40" y="0" width="546" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c7be474b-4977-4163-97df-f78cc486c4da" x="35" y="19" width="894" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="c967521a-a5d6-4d74-afa8-c3895624b1e1" x="35" y="0" width="1" height="19"/>
+			</line>
+			<textField pattern="#,##0">
+				<reportElement uuid="c30db075-151b-4e08-8bbc-340980f19e7c" x="607" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>

@@ -116,6 +116,7 @@ public class frmTransport extends javax.swing.JFrame {
         cmbSampai = new com.toedter.calendar.JDateChooser();
         jLabel23 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtKdTransport = new javax.swing.JTextField();
@@ -324,7 +325,7 @@ public class frmTransport extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 10, -1, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1680, 10, -1, 20));
 
         jPanel8.setBackground(new java.awt.Color(61, 115, 80));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -393,6 +394,17 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(204, 204, 204));
         jLabel28.setText("Masukan range tanggal:");
         jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 420, -1, -1));
+
+        jLabel29.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel29.setText("?");
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1640, 10, -1, 20));
 
         jPanel3.setBackground(new java.awt.Color(242, 233, 242));
         jPanel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -1532,6 +1544,11 @@ public class frmTransport extends javax.swing.JFrame {
                     }
     }//GEN-LAST:event_btnCetak1MouseClicked
 
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih berdasarkan Mobil atau Supplier");
+    }//GEN-LAST:event_jLabel29MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1602,6 +1619,7 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -47,8 +47,6 @@ public class frmMobil extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         btnBaru1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        btnCetak = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnHapus1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -137,38 +135,6 @@ public class frmMobil extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
-
-        jPanel6.setBackground(new java.awt.Color(61, 115, 80));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel6.setToolTipText("");
-
-        btnCetak.setBackground(new java.awt.Color(204, 204, 204));
-        btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnCetak.setForeground(new java.awt.Color(204, 204, 204));
-        btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCetak.setText("Cetak");
-        btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCetakMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -397,16 +363,6 @@ public class frmMobil extends javax.swing.JFrame {
         kdMobil();
     }//GEN-LAST:event_btnBaru1MouseClicked
 
-    private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
-        // TODO add your handling code here:
-//        try {
-//            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptMobil.jasper"), null, Config.configDB());
-//            JasperViewer.viewReport(jp, false);
-//        } catch(Exception e) {
-//            JOptionPane.showMessageDialog(rootPane, e);
-//        }
-    }//GEN-LAST:event_btnCetakMouseClicked
-
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
         // TODO add your handling code here:
         int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
@@ -605,7 +561,6 @@ public class frmMobil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBaru1;
     private javax.swing.JLabel btnBatal;
-    private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
     private javax.swing.JLabel jLabel1;
@@ -618,7 +573,6 @@ public class frmMobil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator5;

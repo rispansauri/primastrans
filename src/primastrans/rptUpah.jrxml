@@ -53,7 +53,7 @@
 		<field name="kd_upah" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
-		<field name="id" class="java.lang.String">
+		<field name="id_supir" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="nm_supir" class="java.lang.String">
@@ -126,7 +126,7 @@
 	<field name="kd_upah" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="id" class="java.lang.String">
+	<field name="id_supir" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nm_supir" class="java.lang.String">

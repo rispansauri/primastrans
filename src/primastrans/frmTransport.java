@@ -15,10 +15,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class frmTransport extends javax.swing.JFrame {
 
@@ -33,6 +37,9 @@ public class frmTransport extends javax.swing.JFrame {
         textboxOff();
         cmbID();
         cmbMobil();
+        cmbNopol();
+        cmbSupp();
+                
         
         cmbID.addActionListener(new ActionListener(){
             @Override
@@ -99,6 +106,17 @@ public class frmTransport extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         btnHapus1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        btnCetak1 = new javax.swing.JLabel();
+        cmbSupp = new javax.swing.JComboBox<>();
+        cmbMbl = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cmbDari = new com.toedter.calendar.JDateChooser();
+        cmbSampai = new com.toedter.calendar.JDateChooser();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtKdTransport = new javax.swing.JTextField();
@@ -242,7 +260,7 @@ public class frmTransport extends javax.swing.JFrame {
         btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnCetak.setForeground(new java.awt.Color(204, 204, 204));
         btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCetak.setText("Cetak");
+        btnCetak.setText("Cetak/Mobil");
         btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCetakMouseClicked(evt);
@@ -264,7 +282,7 @@ public class frmTransport extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 420, -1, -1));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 460, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -307,7 +325,86 @@ public class frmTransport extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 10, -1, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1680, 10, -1, 20));
+
+        jPanel8.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel8.setToolTipText("");
+
+        btnCetak1.setBackground(new java.awt.Color(204, 204, 204));
+        btnCetak1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak1.setForeground(new java.awt.Color(204, 204, 204));
+        btnCetak1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCetak1.setText("Cetak/Supp");
+        btnCetak1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCetak1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 460, -1, -1));
+
+        cmbSupp.setBorder(null);
+        jPanel2.add(cmbSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 460, 80, 40));
+
+        cmbMbl.setBorder(null);
+        jPanel2.add(cmbMbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 460, 110, 40));
+
+        jLabel13.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setText("Dari");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, -1, 40));
+
+        jLabel14.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel14.setText("Sampai");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 460, -1, 40));
+
+        cmbDari.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 460, 160, 40));
+
+        cmbSampai.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 460, 160, 40));
+
+        jLabel23.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel23.setText("Pilih cetak berdasarkan:");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 420, -1, -1));
+
+        jLabel28.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel28.setText("Masukan range tanggal:");
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 420, -1, -1));
+
+        jLabel29.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel29.setText("?");
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1640, 10, -1, 20));
 
         jPanel3.setBackground(new java.awt.Color(242, 233, 242));
         jPanel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -417,7 +514,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("DO");
+        jLabel8.setText("DO (Supplier)");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
 
         txtDO.setBackground(new java.awt.Color(242, 233, 242));
@@ -442,7 +539,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel9.setText("Stock Pile");
+        jLabel9.setText("Stock Pile (Muat)");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
         txtTonasePabrik.setBackground(new java.awt.Color(242, 233, 242));
@@ -502,7 +599,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("Cash In dr Supp");
+        jLabel11.setText("Cash In Supplier");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 180, -1, -1));
 
         txtCashinSupplier.setBackground(new java.awt.Color(242, 233, 242));
@@ -549,7 +646,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel15.setText("Kord");
+        jLabel15.setText("Koordinasi");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 280, -1, -1));
 
         txtKord.setBackground(new java.awt.Color(242, 233, 242));
@@ -579,7 +676,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel16.setText("Tab");
+        jLabel16.setText("Tabungan");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 330, -1, -1));
 
         txtTab.setBackground(new java.awt.Color(242, 233, 242));
@@ -649,7 +746,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel20.setBackground(new java.awt.Color(102, 102, 102));
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel20.setText("RP");
+        jLabel20.setText("RP (Harga/Ton)");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
 
         txtRP.setBackground(new java.awt.Color(242, 233, 242));
@@ -713,7 +810,7 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel25.setBackground(new java.awt.Color(102, 102, 102));
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel25.setText("No SJ");
+        jLabel25.setText("No Surat Jalan");
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 130, -1, -1));
 
         txtNoSJ.setBackground(new java.awt.Color(242, 233, 242));
@@ -913,12 +1010,12 @@ public class frmTransport extends javax.swing.JFrame {
     
     private void cmbID() {
         try { 
-            String sql = "select id from tb_supir";
+            String sql = "select id_supir from tb_supir";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                cmbID.addItem(res.getString("id"));
+                cmbID.addItem(res.getString("id_supir"));
             }
         }catch (Exception e) {
             
@@ -941,9 +1038,39 @@ public class frmTransport extends javax.swing.JFrame {
         
     }
     
+     private void cmbNopol() {
+        try { 
+            String sql = "select * from tb_mobil";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbMbl.addItem(res.getString("nopol"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+     
+      private void cmbSupp() {
+        try { 
+            String sql = "select * from tb_transport";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbSupp.addItem(res.getString("do"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+    
     private void getSupir(){
         try {
-            String sql = "SELECT * FROM tb_supir WHERE id = '"+cmbID.getSelectedItem()+"'";
+            String sql = "SELECT * FROM tb_supir WHERE id_supir = '"+cmbID.getSelectedItem()+"'";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -1150,12 +1277,17 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
         // TODO add your handling code here:
-        //        try {
-            //            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptMobil.jasper"), null, Config.configDB());
-            //            JasperViewer.viewReport(jp, false);
-            //        } catch(Exception e) {
-            //            JOptionPane.showMessageDialog(rootPane, e);
-            //        }
+         HashMap param = new HashMap();
+                    param.put("mobil1",cmbMbl.getSelectedItem());
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportMobil.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
@@ -1196,7 +1328,7 @@ public class frmTransport extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(query);
             SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             if(res.next()){
-                    String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
+                    String sql ="UPDATE tb_transport SET kd_transport = '"+txtKdTransport.getText()+"', tgl_muat = '"+Date_Format.format(cmbDate.getDate())+"', kd_mobil = '"+cmbKdMobil.getSelectedItem()+"',nopol= '"+txtNopol.getText()+"', id_supir = '"+cmbID.getSelectedItem()+"', nm_supir = '"+txtNama.getText()+"', do = '"+txtDO.getText()+"',stockpile= '"+txtStockpile.getText()+"', tempat_bongkar = '"+txtTempatBongkar.getText()+"', tonase_muat = '"+txtTonaseMuat.getText()+"', tonase_pabrik = '"+txtTonasePabrik.getText()+"',rp= '"+txtRP.getText()+"',jumlah_total= '"+txtJumlahTotal.getText()+"', kas= '"+txtKas.getText()+"', cashin_dr_sply = '"+txtCashinSupplier.getText()+"', kas_primas = '"+txtKasPrimas.getText()+"', kord = '"+txtKord.getText()+"', tab = '"+txtTab.getText()+"', cashin_primas = '"+txtCashinPrimas.getText()+"',no_sj= '"+txtNoSJ.getText()+"',susut_tonase= '"+txtSusutTonase.getText()+"',note= '"+txtNote.getText()+"' WHERE kd_transport = '"+txtKdTransport.getText()+"'";
                     java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                     pst.execute();
                     JOptionPane.showMessageDialog(null, "data berhasil diedit");
@@ -1397,6 +1529,26 @@ public class frmTransport extends javax.swing.JFrame {
         cashinprimas();
     }//GEN-LAST:event_txtTabKeyReleased
 
+    private void btnCetak1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetak1MouseClicked
+        // TODO add your handling code here:
+        HashMap param = new HashMap();
+                    param.put("do1",cmbSupp.getSelectedItem());
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportSupp.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+    }//GEN-LAST:event_btnCetak1MouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih berdasarkan Mobil atau Supplier");
+    }//GEN-LAST:event_jLabel29MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1436,15 +1588,22 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel btnBaru1;
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnCetak;
+    private javax.swing.JLabel btnCetak1;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
+    private com.toedter.calendar.JDateChooser cmbDari;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbID;
     private javax.swing.JComboBox<String> cmbKdMobil;
+    private javax.swing.JComboBox<String> cmbMbl;
+    private com.toedter.calendar.JDateChooser cmbSampai;
+    private javax.swing.JComboBox<String> cmbSupp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1454,10 +1613,13 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1472,6 +1634,7 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

@@ -30,7 +30,7 @@ public class frmSparepart extends javax.swing.JFrame {
      */
     public frmSparepart() {
         initComponents();
-         
+        this.setLocationRelativeTo(null); 
         load_table();
         kosong();
         textboxOff();
@@ -249,6 +249,9 @@ public class frmSparepart extends javax.swing.JFrame {
         cmbMobil = new javax.swing.JComboBox<>();
         cmbDari = new com.toedter.calendar.JDateChooser();
         cmbSampai = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtKd = new javax.swing.JTextField();
@@ -288,6 +291,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -416,15 +420,28 @@ public class frmSparepart extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 111, 620, 236));
-
-        cmbMobil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 60, -1));
 
         cmbDari.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 130, -1));
+        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 130, -1));
 
         cmbSampai.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 130, -1));
+        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 130, -1));
+
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setText("Sampai");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setText("Mobil");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, -1));
+
+        jLabel12.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel12.setText("Dari");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
@@ -558,7 +575,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, 30));
+        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 60, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
@@ -735,6 +752,17 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Total Harga");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+
+        jLabel17.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("?");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -959,6 +987,11 @@ public class frmSparepart extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_txtNoteFocusLost
 
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Form Sparepart.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Pilih kode mobil lalu masukan tanggal dari dan sampai lalu pilih 'Cetak'");
+    }//GEN-LAST:event_jLabel17MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1009,13 +1042,17 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

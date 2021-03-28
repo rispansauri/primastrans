@@ -333,6 +333,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         cmbKdMobil = new javax.swing.JComboBox<>();
         txtRitBatubara = new javax.swing.JTextField();
         cmbDate = new com.toedter.calendar.JDateChooser();
+        jLabel17 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -711,6 +712,17 @@ public class frmPenghasilan extends javax.swing.JFrame {
         cmbDate.setDateFormatString("yyyy-MM-dd");
         jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
+        jLabel17.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("?");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, 20));
+
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1077,6 +1089,11 @@ public class frmPenghasilan extends javax.swing.JFrame {
         getTotal();
         getLaba();
     }//GEN-LAST:event_txtRitBeskosKeyReleased
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Form Penghasilan.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Tentukan bulan apa yang akan dicetak lalu klik 'Cetak'");
+    }//GEN-LAST:event_jLabel17MouseClicked
     
 
     /**
@@ -1131,6 +1148,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

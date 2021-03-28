@@ -396,7 +396,7 @@ public class frmTransport extends javax.swing.JFrame {
         jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 420, -1, -1));
 
         jLabel29.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(204, 204, 204));
         jLabel29.setText("?");
         jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1546,7 +1546,7 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih berdasarkan Mobil atau Supplier");
+        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih berdasarkan Mobil atau Supplier");
     }//GEN-LAST:event_jLabel29MouseClicked
 
     /**

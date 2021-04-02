@@ -28,16 +28,57 @@ public class frmSparepart extends javax.swing.JFrame {
     /**
      * Creates new form frmSparepart
      */
+    
+    
+    
     public frmSparepart() {
         initComponents();
         this.setLocationRelativeTo(null); 
         load_table();
+        load_table2();
         kosong();
         textboxOff();
         cmbMobil();
         cmbJenispembayaran();
     }
-
+    
+    private void visibleOff(){
+        cmbJenis.setVisible(false);
+        cmbDate.setVisible(false);
+        cmbKdmobil.setVisible(false);
+        txtToko.setVisible(false);
+        txtNote.setVisible(false);
+        jLabel14.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel13.setVisible(false);
+        jLabel11.setVisible(false);
+        jSeparator6.setVisible(false);
+        jSeparator3.setVisible(false);
+        jSeparator5.setVisible(false);
+        jSeparator9.setVisible(false);
+        jSeparator8.setVisible(false);
+                
+    }
+    
+    private void visibleOn(){
+        cmbJenis.setVisible(true);
+        cmbDate.setVisible(true);
+        cmbKdmobil.setVisible(true);
+        txtToko.setVisible(true);
+        txtNote.setVisible(true);
+        jLabel14.setVisible(true);
+        jLabel8.setVisible(true);
+        jLabel7.setVisible(true);
+        jLabel13.setVisible(true);
+        jLabel11.setVisible(true);
+        jSeparator6.setVisible(true);
+        jSeparator3.setVisible(true);
+        jSeparator5.setVisible(true);
+        jSeparator9.setVisible(true);
+        jSeparator8.setVisible(true);
+    }
+    
     private void kdBelanja() {
         try {
             String sql = "select * from tb_sparepart order by kd_belanja desc";
@@ -50,6 +91,25 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtKd.setText("SPT" + AN);
             } else {
                 txtKd.setText("SPT1");
+            }
+
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+           }
+    }
+    
+    private void noDetail() {
+        try {
+            String sql = "select * from tb_sparepart_detail order by no_detail desc";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet rs=stm.executeQuery(sql);
+            if (rs.next()) {
+                int kd = Integer.parseInt(rs.getString("no_detail"));
+                int AN = kd + 1;
+                lblHidden1.setText(""+AN);
+            } else {
+                lblHidden1.setText("1");
             }
 
            }catch(Exception e){
@@ -80,7 +140,7 @@ public class frmSparepart extends javax.swing.JFrame {
     
     private void total(){
         try {
-            String sql = "SELECT * FROM tb_sparepart_detail WHERE kd_belanja = '"+txtKd.getText()+"'";
+            String sql = "SELECT * FROM tb_sparepart_detail WHERE kd_belanja = '"+txtKd.getText()+"' AND NOT no_detail = '"+lblHidden1.getText()+"' ";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -97,19 +157,6 @@ public class frmSparepart extends javax.swing.JFrame {
     }
     
     private void jumlahtext(){
-//        try {
-//            String sql = "SELECT * FROM tb_sparepart_detail WHERE kd_belanja = '"+txtKd.getText()+"'";
-//            java.sql.Connection conn=(Connection)Config.configDB();
-//            java.sql.Statement stm=conn.createStatement();
-//            java.sql.ResultSet res=stm.executeQuery(sql);
-//            long total = 0;
-//            if(res.next()){
-//                while(res.next()){
-//                    long amount = Long.parseLong(res.getString("jumlah"));
-//                    total += amount;
-//                }
-//                lblHidden.setText(Long.toString(total));
-                
                 long a = Long.parseLong(txtHarga.getText());
                 long b = Long.parseLong(txtQty.getText());
                 long d = a * b; 
@@ -119,24 +166,6 @@ public class frmSparepart extends javax.swing.JFrame {
                 long e = d + c;
                 txtTotal.setText(Long.toString(e));
                 
-//            }else{
-//                long a = Long.parseLong(txtHarga.getText());
-//                long b = Long.parseLong(txtQty.getText());
-//                a *= b;
-//                txtJumlah.setText(Long.toString(a));
-//                txtTotal.setText(Long.toString(a));
-//            }  
-//        } catch (SQLException ex) {
-//            Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-//        BigDecimal a = new BigDecimal(txtHarga.getText());
-//        BigDecimal b = new BigDecimal(txtQty.getText());
-//        BigDecimal c = new BigDecimal(lblHidden.getText());
-//        BigDecimal d = a.multiply(b);
-//        BigDecimal e = c.add(d);
-//        txtJumlah.setText(""+d);
-//        txtTotal.setText(""+e);
     }
     
     
@@ -225,6 +254,30 @@ public class frmSparepart extends javax.swing.JFrame {
         }
     }
     
+    private void load_table2(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Kode Belanja");
+        model.addColumn("Nama Part");
+        model.addColumn("Harga");
+        model.addColumn("QTY");
+        model.addColumn("Jumlah");
+        model.addColumn("No Barang");
+        
+        //menampilkan data database kedalam tabel
+        try {
+            String sql = "select * from tb_sparepart_detail where kd_belanja ='"+txtKd.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
+            }
+            jTable2.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
     
     
     /**
@@ -252,6 +305,8 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtKd = new javax.swing.JTextField();
@@ -285,13 +340,16 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnSimpan = new javax.swing.JLabel();
         btnBatal = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtNote = new javax.swing.JTextArea();
         txtJumlah = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        txtNote = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        btnSimpanbarang = new javax.swing.JLabel();
+        btnBatalbarang = new javax.swing.JLabel();
+        lblHidden1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -443,6 +501,26 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel12.setText("Dari");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable2);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 370, 240));
+
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -550,7 +628,7 @@ public class frmSparepart extends javax.swing.JFrame {
         lblHidden.setForeground(new java.awt.Color(102, 102, 102));
         lblHidden.setText("hidden");
         lblHidden.setEnabled(false);
-        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
 
         txtTotal.setBackground(new java.awt.Color(242, 233, 242));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -572,46 +650,46 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Jenis Pembayaran");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 60, 30));
+        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 60, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 60, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Tanggal");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
         cmbDate.setBackground(new java.awt.Color(242, 233, 242));
         cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 210, -1));
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 210, -1));
 
         jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator3.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 210, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 210, 10));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Kode Mobil");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
-        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, 30));
+        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, -1, 30));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 40, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 40, 10));
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Toko");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
 
         txtToko.setBackground(new java.awt.Color(242, 233, 242));
         txtToko.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -626,21 +704,21 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtTokoFocusLost(evt);
             }
         });
-        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 210, 30));
+        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 210, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 210, 10));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 210, 10));
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Note");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, -1, -1));
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 210, 10));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 210, 10));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -683,7 +761,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, -1, 40));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -695,30 +773,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 102, 38));
-
-        jScrollPane3.setBorder(null);
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        txtNote.setBackground(new java.awt.Color(242, 233, 242));
-        txtNote.setColumns(20);
-        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNote.setForeground(new java.awt.Color(102, 102, 102));
-        txtNote.setRows(5);
-        txtNote.setText("Note");
-        txtNote.setBorder(null);
-        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNoteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNoteFocusLost(evt);
-            }
-        });
-        jScrollPane3.setViewportView(txtNote);
-
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 210, 29));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 102, 38));
 
         txtJumlah.setBackground(new java.awt.Color(242, 233, 242));
         txtJumlah.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -764,20 +819,87 @@ public class frmSparepart extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, 20));
 
+        txtNote.setBackground(new java.awt.Color(242, 233, 242));
+        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNote.setForeground(new java.awt.Color(102, 102, 102));
+        txtNote.setText("Note");
+        txtNote.setBorder(null);
+        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNoteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNoteFocusLost(evt);
+            }
+        });
+        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 210, 30));
+
+        jPanel8.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel8.setToolTipText("");
+
+        btnSimpanbarang.setBackground(new java.awt.Color(102, 102, 102));
+        btnSimpanbarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSimpanbarang.setForeground(new java.awt.Color(102, 102, 102));
+        btnSimpanbarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSimpanbarang.setText("Simpan");
+        btnSimpanbarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSimpanbarangMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSimpanbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSimpanbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, 40));
+
+        btnBatalbarang.setBackground(new java.awt.Color(102, 102, 102));
+        btnBatalbarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBatalbarang.setForeground(new java.awt.Color(102, 102, 102));
+        btnBatalbarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBatalbarang.setText("Batal");
+        btnBatalbarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBatalbarangMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnBatalbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 102, 38));
+
+        lblHidden1.setBackground(new java.awt.Color(102, 102, 102));
+        lblHidden1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblHidden1.setForeground(new java.awt.Color(102, 102, 102));
+        lblHidden1.setText("hidden");
+        lblHidden1.setEnabled(false);
+        jPanel2.add(lblHidden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -787,6 +909,7 @@ public class frmSparepart extends javax.swing.JFrame {
         textboxOn();
         kosong();
         kdBelanja();
+        noDetail();
         lblHidden.setText("0");
     }//GEN-LAST:event_btnBaruMouseClicked
 
@@ -817,6 +940,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
             load_table();
+            load_table2();
             kosong();
         }else{
             JOptionPane.showMessageDialog(null, "Data batal dihapus.");
@@ -843,8 +967,15 @@ public class frmSparepart extends javax.swing.JFrame {
         cmbJenis.setSelectedItem(jenis);
         String note = jTable1.getValueAt(baris, 6).toString();
         txtNote.setText(note);
+        txtPart.setText("Nama Sparepart");
+        txtHarga.setText("0");
+        txtQty.setText("0");
+        txtJumlah.setText("0");
+        noDetail();
+        visibleOn();
         textboxOn();
         total();
+        load_table2();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void txtPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPartFocusGained
@@ -869,27 +1000,19 @@ public class frmSparepart extends javax.swing.JFrame {
             java.sql.ResultSet res=stm.executeQuery(query);
             SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             if(res.next() == true){
-                if(txtPart.getText().equals("") && txtHarga.getText().equals("") && txtQty.getText().equals("")){
-                    String sql ="UPDATE tb_sparepart SET kd_belanja = '"+txtKd.getText()+"',kd_mobil = '"+cmbKdmobil.getSelectedItem()+"', tgl = '"+Date_Format.format(cmbDate.getDate())+"', toko = '"+txtToko.getText()+"', total = '"+txtTotal.getText()+"', jenis_bayar = '"+cmbJenis.getSelectedItem()+"', note = '"+txtNote.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
-                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                    pst.execute();
-                    JOptionPane.showMessageDialog(null, "data berhasil di Edit");
-                }else{
-                    String sql2 = "INSERT INTO tb_sparepart_detail VALUES ('"+txtKd.getText()+"','"+txtPart.getText()+"','"+txtHarga.getText()+"','"+txtQty.getText()+"','"+txtJumlah.getText()+"')";
-                    java.sql.PreparedStatement pst2=conn.prepareStatement(sql2);
-                    pst2.execute();
-                    String sql ="UPDATE tb_sparepart SET total = '"+txtTotal.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
-                    java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                    pst.execute();
-                    JOptionPane.showMessageDialog(null, "data berhasil di tambahkan");
-                }
+                String sql ="UPDATE tb_sparepart SET kd_belanja = '"+txtKd.getText()+"',kd_mobil = '"+cmbKdmobil.getSelectedItem()+"', tgl = '"+Date_Format.format(cmbDate.getDate())+"', toko = '"+txtToko.getText()+"', total = '"+txtTotal.getText()+"', jenis_bayar = '"+cmbJenis.getSelectedItem()+"', note = '"+txtNote.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "data berhasil di Edit");
             }else{
                 String sql = "INSERT INTO tb_sparepart VALUES ('"+txtKd.getText()+"','"+cmbKdmobil.getSelectedItem()+"','"+Date_Format.format(cmbDate.getDate())+"','"+txtToko.getText()+"','"+txtTotal.getText()+"','"+cmbJenis.getSelectedItem()+"','"+txtNote.getText()+"')";
-                String sql2 = "INSERT INTO tb_sparepart_detail VALUES ('"+txtKd.getText()+"','"+txtPart.getText()+"','"+txtHarga.getText()+"','"+txtQty.getText()+"','"+txtJumlah.getText()+"')";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-                java.sql.PreparedStatement pst2=conn.prepareStatement(sql2);
                 pst.execute();
-                pst2.execute();
+                
+                String sql2 = "INSERT INTO tb_sparepart_detail VALUES ('"+txtKd.getText()+"','"+txtPart.getText()+"','"+txtHarga.getText()+"','"+txtQty.getText()+"','"+txtJumlah.getText()+"','"+Integer.parseInt(lblHidden1.getText())+"')";
+                java.sql.PreparedStatement pst1=conn.prepareStatement(sql2);
+                pst1.execute();
+                
                 JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
             }
             load_table();
@@ -945,13 +1068,6 @@ public class frmSparepart extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtJumlahActionPerformed
 
-    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
-        // TODO add your handling code here:
-        if (txtNote.getText().equals("Note")){
-        txtNote.setText("");
-         }
-    }//GEN-LAST:event_txtNoteFocusGained
-
     private void txtPartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPartFocusLost
         // TODO add your handling code here:
         if (txtPart.getText().equals("")){
@@ -980,17 +1096,78 @@ public class frmSparepart extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_txtTokoFocusLost
 
-    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
-        // TODO add your handling code here:
-        if (txtNote.getText().equals("")){
-        txtNote.setText("Note");
-         }
-    }//GEN-LAST:event_txtNoteFocusLost
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Form Sparepart.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Pilih kode mobil lalu masukan tanggal dari dan sampai lalu pilih 'Cetak'");
     }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int baris = jTable2.rowAtPoint(evt.getPoint());
+        String kd =jTable2.getValueAt(baris, 0).toString();
+        txtKd.setText(kd);
+        String part =jTable2.getValueAt(baris, 1).toString();
+        txtPart.setText(part);
+        String harga =jTable2.getValueAt(baris, 2).toString();
+        txtHarga.setText(harga);
+        String qty =jTable2.getValueAt(baris, 3).toString();
+        txtQty.setText(qty);
+        String jumlah =jTable2.getValueAt(baris, 4).toString();
+        txtJumlah.setText(jumlah);
+        String nodet =jTable2.getValueAt(baris, 5).toString();
+        lblHidden1.setText(nodet);
+        visibleOff();
+        total();
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
+        if (txtNote.getText().equals("Note")){
+            txtNote.setText("");
+        }
+    }//GEN-LAST:event_txtNoteFocusGained
+
+    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
+        if (txtNote.getText().equals("")){
+            txtNote.setText("Note");
+        }
+    }//GEN-LAST:event_txtNoteFocusLost
+
+    private void btnSimpanbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanbarangMouseClicked
+        try {
+            String query = "SELECT * FROM tb_sparepart_detail WHERE kd_belanja = '"+txtKd.getText()+"' AND no_detail = '"+lblHidden1.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(query);
+            if(res.next() == true){
+                String sql ="UPDATE tb_sparepart SET total = '"+txtTotal.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+
+                String sql1 ="UPDATE tb_sparepart_detail SET nm_part = '"+txtPart.getText()+"',harga = '"+txtHarga.getText()+"',qty = '"+txtQty.getText()+"',jumlah = '"+txtJumlah.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"' AND no_detail = '"+lblHidden1.getText()+"'";
+                java.sql.PreparedStatement pst1=conn.prepareStatement(sql1);
+                pst1.execute();
+
+                JOptionPane.showMessageDialog(null, "Update Berhasil");
+            }else{
+                String sql ="UPDATE tb_sparepart SET total = '"+txtTotal.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                
+                String sql2 = "INSERT INTO tb_sparepart_detail VALUES ('"+txtKd.getText()+"','"+txtPart.getText()+"','"+txtHarga.getText()+"','"+txtQty.getText()+"','"+txtJumlah.getText()+"','"+Integer.parseInt(lblHidden1.getText())+"')";
+                java.sql.PreparedStatement pst1=conn.prepareStatement(sql2);
+                pst1.execute();
+            }
+            load_table();
+            load_table2();
+            noDetail();
+        } catch (SQLException ex) {
+            Logger.getLogger(frmSparepart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSimpanbarangMouseClicked
+
+    private void btnBatalbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalbarangMouseClicked
+        visibleOn();
+        textboxOff();
+    }//GEN-LAST:event_btnBatalbarangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1030,9 +1207,11 @@ public class frmSparepart extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBaru;
     private javax.swing.JLabel btnBatal;
+    private javax.swing.JLabel btnBatalbarang;
     private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus;
     private javax.swing.JLabel btnSimpan;
+    private javax.swing.JLabel btnSimpanbarang;
     private com.toedter.calendar.JDateChooser cmbDari;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbJenis;
@@ -1062,8 +1241,9 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
@@ -1075,11 +1255,13 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblHidden;
+    private javax.swing.JLabel lblHidden1;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtJumlah;
     private javax.swing.JTextField txtKd;
-    private javax.swing.JTextArea txtNote;
+    private javax.swing.JTextField txtNote;
     private javax.swing.JTextField txtPart;
     private javax.swing.JTextField txtQty;
     private javax.swing.JTextField txtToko;

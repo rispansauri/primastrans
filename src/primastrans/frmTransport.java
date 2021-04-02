@@ -404,7 +404,7 @@ public class frmTransport extends javax.swing.JFrame {
                 jLabel29MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1640, 10, -1, 20));
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 10, -1, 20));
 
         jPanel3.setBackground(new java.awt.Color(242, 233, 242));
         jPanel3.setForeground(new java.awt.Color(204, 204, 204));

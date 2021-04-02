@@ -40,9 +40,12 @@ public class frmSparepart extends javax.swing.JFrame {
         textboxOff();
         cmbMobil();
         cmbJenispembayaran();
+        barangvisibleOff();
+        btnTambahBarang.setVisible(false);
+        jPanel9.setVisible(false);
     }
     
-    private void visibleOff(){
+    private void headvisibleOff(){
         cmbJenis.setVisible(false);
         cmbDate.setVisible(false);
         cmbKdmobil.setVisible(false);
@@ -58,10 +61,14 @@ public class frmSparepart extends javax.swing.JFrame {
         jSeparator5.setVisible(false);
         jSeparator9.setVisible(false);
         jSeparator8.setVisible(false);
+        btnBatal.setVisible(false);
+        btnSimpan.setVisible(false);
+        jPanel4.setVisible(false);
+        
                 
     }
     
-    private void visibleOn(){
+    private void headvisibleOn(){
         cmbJenis.setVisible(true);
         cmbDate.setVisible(true);
         cmbKdmobil.setVisible(true);
@@ -77,6 +84,52 @@ public class frmSparepart extends javax.swing.JFrame {
         jSeparator5.setVisible(true);
         jSeparator9.setVisible(true);
         jSeparator8.setVisible(true);
+    }
+    
+     private void barangvisibleOff(){
+        txtPart.setVisible(false);
+        txtHarga.setVisible(false);
+        txtQty.setVisible(false);
+        txtJumlah.setVisible(false);
+        txtTotal.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel10.setVisible(false);
+        jLabel15.setVisible(false);
+        jLabel16.setVisible(false);
+        jSeparator1.setVisible(false);
+        jSeparator2.setVisible(false);
+        jSeparator4.setVisible(false);
+        jSeparator7.setVisible(false);
+        jSeparator10.setVisible(false);
+        btnBatalbarang.setVisible(false);
+        btnSimpanbarang.setVisible(false);
+        jPanel8.setVisible(false);   
+        btnTambahBarang.setVisible(true);
+        jPanel9.setVisible(true);
+    }
+    
+    private void barangvisibleOn(){
+        txtPart.setVisible(true);
+        txtHarga.setVisible(true);
+        txtQty.setVisible(true);
+        txtJumlah.setVisible(true);
+        txtTotal.setVisible(true);
+        jLabel9.setVisible(true);
+        jLabel2.setVisible(true);
+        jLabel10.setVisible(true);
+        jLabel15.setVisible(true);
+        jLabel16.setVisible(true);
+        jSeparator1.setVisible(true);
+        jSeparator2.setVisible(true);
+        jSeparator4.setVisible(true);
+        jSeparator7.setVisible(true);
+        jSeparator10.setVisible(true);
+        btnBatalbarang.setVisible(true);
+        btnSimpanbarang.setVisible(true);
+        jPanel8.setVisible(true);
+        btnTambahBarang.setVisible(false);
+        jPanel9.setVisible(false);
     }
     
     private void kdBelanja() {
@@ -307,6 +360,8 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtKd = new javax.swing.JTextField();
@@ -336,7 +391,6 @@ public class frmSparepart extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnSimpan = new javax.swing.JLabel();
         btnBatal = new javax.swing.JLabel();
@@ -344,12 +398,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         txtNote = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         btnSimpanbarang = new javax.swing.JLabel();
         btnBatalbarang = new javax.swing.JLabel();
         lblHidden1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btnTambahBarang = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -361,7 +416,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DATA BELANJA SPAREPART");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(61, 115, 80));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -393,7 +448,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnBaru, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(61, 115, 80));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -425,7 +480,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, -1, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 410, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -457,7 +512,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -478,28 +533,28 @@ public class frmSparepart extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 111, 620, 236));
-        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 60, -1));
+        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 60, -1));
 
         cmbDari.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 130, -1));
+        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 130, -1));
 
         cmbSampai.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 130, -1));
+        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 130, -1));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Sampai");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Mobil");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 204));
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("Dari");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -520,6 +575,28 @@ public class frmSparepart extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable2);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 370, 240));
+
+        jLabel17.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setText("?");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, -1, 20));
+
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("×");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, -1, 20));
 
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
@@ -542,7 +619,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Nama Part");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
 
         txtPart.setBackground(new java.awt.Color(242, 233, 242));
         txtPart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -557,17 +634,17 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtPartFocusLost(evt);
             }
         });
-        jPanel2.add(txtPart, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 210, 30));
+        jPanel2.add(txtPart, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, 210, 30));
 
         jSeparator2.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator2.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 210, 10));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, 210, 10));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Harga");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, -1, -1));
 
         txtHarga.setBackground(new java.awt.Color(242, 233, 242));
         txtHarga.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -587,17 +664,17 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtHargaKeyReleased(evt);
             }
         });
-        jPanel2.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 210, 30));
+        jPanel2.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, 210, 30));
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 210, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 200, 210, 10));
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Qty");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, -1, -1));
 
         txtQty.setBackground(new java.awt.Color(242, 233, 242));
         txtQty.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -617,18 +694,18 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtQtyKeyReleased(evt);
             }
         });
-        jPanel2.add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, 30));
+        jPanel2.add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 220, 210, 30));
 
         jSeparator4.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator4.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 210, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 210, 10));
 
         lblHidden.setBackground(new java.awt.Color(102, 102, 102));
         lblHidden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblHidden.setForeground(new java.awt.Color(102, 102, 102));
         lblHidden.setText("hidden");
         lblHidden.setEnabled(false);
-        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+        jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         txtTotal.setBackground(new java.awt.Color(242, 233, 242));
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -640,56 +717,56 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtTotalActionPerformed(evt);
             }
         });
-        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 210, 30));
+        jPanel2.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, 210, 30));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 210, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, 210, 10));
 
         jLabel14.setBackground(new java.awt.Color(102, 102, 102));
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Jenis Pembayaran");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 30));
+        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 60, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 60, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 60, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Tanggal");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         cmbDate.setBackground(new java.awt.Color(242, 233, 242));
         cmbDate.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 210, -1));
+        jPanel2.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 210, -1));
 
         jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator3.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 210, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 210, 10));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Kode Mobil");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, -1, 30));
+        jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, 30));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 40, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 40, 10));
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Toko");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         txtToko.setBackground(new java.awt.Color(242, 233, 242));
         txtToko.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -704,32 +781,21 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtTokoFocusLost(evt);
             }
         });
-        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 210, 30));
+        jPanel2.add(txtToko, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 210, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 210, 10));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 210, 10));
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Note");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 210, 10));
-
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("×");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, 20));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 210, 10));
 
         jPanel4.setBackground(new java.awt.Color(242, 233, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -761,7 +827,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, 40));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -773,7 +839,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 102, 38));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 102, 38));
 
         txtJumlah.setBackground(new java.awt.Color(242, 233, 242));
         txtJumlah.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -790,34 +856,23 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtJumlahActionPerformed(evt);
             }
         });
-        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 210, 30));
+        jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 270, 210, 30));
 
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Jumlah");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
 
         jSeparator10.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator10.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 210, 10));
+        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 300, 210, 10));
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Total Harga");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
-
-        jLabel17.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setText("?");
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, 20));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
 
         txtNote.setBackground(new java.awt.Color(242, 233, 242));
         txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -832,7 +887,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 txtNoteFocusLost(evt);
             }
         });
-        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 210, 30));
+        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 210, 30));
 
         jPanel8.setBackground(new java.awt.Color(242, 233, 242));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -864,7 +919,7 @@ public class frmSparepart extends javax.swing.JFrame {
                 .addComponent(btnSimpanbarang, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, 40));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 390, -1, 40));
 
         btnBatalbarang.setBackground(new java.awt.Color(102, 102, 102));
         btnBatalbarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -876,30 +931,61 @@ public class frmSparepart extends javax.swing.JFrame {
                 btnBatalbarangMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatalbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 102, 38));
+        jPanel2.add(btnBatalbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 102, 38));
 
         lblHidden1.setBackground(new java.awt.Color(102, 102, 102));
         lblHidden1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblHidden1.setForeground(new java.awt.Color(102, 102, 102));
         lblHidden1.setText("hidden");
         lblHidden1.setEnabled(false);
-        jPanel2.add(lblHidden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        jPanel2.add(lblHidden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, -1, -1));
+
+        jPanel9.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel9.setToolTipText("");
+
+        btnTambahBarang.setBackground(new java.awt.Color(102, 102, 102));
+        btnTambahBarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnTambahBarang.setForeground(new java.awt.Color(102, 102, 102));
+        btnTambahBarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnTambahBarang.setText("+ Barang");
+        btnTambahBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTambahBarangMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnTambahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnTambahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1132, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -910,6 +996,8 @@ public class frmSparepart extends javax.swing.JFrame {
         kosong();
         kdBelanja();
         noDetail();
+        btnTambahBarang.setVisible(true);
+        jPanel9.setVisible(true);
         lblHidden.setText("0");
     }//GEN-LAST:event_btnBaruMouseClicked
 
@@ -972,10 +1060,13 @@ public class frmSparepart extends javax.swing.JFrame {
         txtQty.setText("0");
         txtJumlah.setText("0");
         noDetail();
-        visibleOn();
+        headvisibleOn();
+        barangvisibleOff();
         textboxOn();
         total();
         load_table2();
+        btnTambahBarang.setVisible(true);
+        jPanel9.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void txtPartFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPartFocusGained
@@ -1115,7 +1206,8 @@ public class frmSparepart extends javax.swing.JFrame {
         txtJumlah.setText(jumlah);
         String nodet =jTable2.getValueAt(baris, 5).toString();
         lblHidden1.setText(nodet);
-        visibleOff();
+        headvisibleOff();
+        barangvisibleOn();
         total();
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -1165,9 +1257,16 @@ public class frmSparepart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSimpanbarangMouseClicked
 
     private void btnBatalbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalbarangMouseClicked
-        visibleOn();
-        textboxOff();
+        headvisibleOn();
+        barangvisibleOff();
+        btnTambahBarang.setVisible(false);
+        jPanel9.setVisible(false);
     }//GEN-LAST:event_btnBatalbarangMouseClicked
+
+    private void btnTambahBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTambahBarangMouseClicked
+        // TODO add your handling code here:
+        barangvisibleOn();
+    }//GEN-LAST:event_btnTambahBarangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1212,6 +1311,7 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JLabel btnHapus;
     private javax.swing.JLabel btnSimpan;
     private javax.swing.JLabel btnSimpanbarang;
+    private javax.swing.JLabel btnTambahBarang;
     private com.toedter.calendar.JDateChooser cmbDari;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbJenis;
@@ -1242,6 +1342,7 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

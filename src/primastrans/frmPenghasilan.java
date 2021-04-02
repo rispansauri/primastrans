@@ -721,7 +721,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
                 jLabel17MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, 20));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, 20));
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

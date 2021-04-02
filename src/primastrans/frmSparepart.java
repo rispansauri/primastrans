@@ -996,9 +996,14 @@ public class frmSparepart extends javax.swing.JFrame {
         kosong();
         kdBelanja();
         noDetail();
-        btnTambahBarang.setVisible(true);
-        jPanel9.setVisible(true);
+        headvisibleOn();
+        barangvisibleOn();
+        btnTambahBarang.setVisible(false);
+        jPanel9.setVisible(false);
         lblHidden.setText("0");
+        jPanel8.setVisible(false);
+        btnSimpanbarang.setVisible(false);
+        btnBatalbarang.setVisible(false);
     }//GEN-LAST:event_btnBaruMouseClicked
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
@@ -1120,9 +1125,9 @@ public class frmSparepart extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void btnBatalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalMouseClicked
-        // TODO add your handling code here:
         textboxOff();
         kosong();
+        barangvisibleOff();
     }//GEN-LAST:event_btnBatalMouseClicked
 
     private void txtQtyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQtyFocusGained
@@ -1259,8 +1264,8 @@ public class frmSparepart extends javax.swing.JFrame {
     private void btnBatalbarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBatalbarangMouseClicked
         headvisibleOn();
         barangvisibleOff();
-        btnTambahBarang.setVisible(false);
-        jPanel9.setVisible(false);
+        btnTambahBarang.setVisible(true);
+        jPanel9.setVisible(true);
     }//GEN-LAST:event_btnBatalbarangMouseClicked
 
     private void btnTambahBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTambahBarangMouseClicked

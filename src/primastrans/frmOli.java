@@ -5,6 +5,8 @@
  */
 package primastrans;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,56 @@ public class frmOli extends javax.swing.JFrame {
         cmbMobil();
         textboxOff();
         kosong();
+        lblhidden.setVisible(false);
+        cmbMobil.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                try{
+                    String q1 = "SELECT * FROM tb_ganti_oli WHERE kd_mobil = '"+cmbMobil.getSelectedItem()+"' ORDER BY tgl DESC LIMIT 1";
+                    java.sql.Connection con=(Connection)Config.configDB();
+                    java.sql.Statement st=con.createStatement();
+                    java.sql.ResultSet rs=st.executeQuery(q1);
+                    while(rs.next()){
+                        txtJarak.setText(rs.getString("jarak"));
+                        lblhidden.setText(rs.getString("jarak"));
+                    }
+                }catch (SQLException ex) {
+                    Logger.getLogger(frmOli.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                try{
+                    String q1 = "SELECT * FROM tb_mobil WHERE kd_mobil = '"+cmbMobil.getSelectedItem()+"'";
+                    java.sql.Connection con=(Connection)Config.configDB();
+                    java.sql.Statement st=con.createStatement();
+                    java.sql.ResultSet rs=st.executeQuery(q1);
+                    String a = null;
+                    while(rs.next()){
+                        a = rs.getString(3);
+                    }
+                    if(a.equals("Rusak")){
+                        txtRit.setVisible(true);
+                        txtJarak.setEnabled(false);
+                        jSeparator7.setVisible(true);
+                        jLabel9.setVisible(true);
+                        boxReset.setVisible(true);
+                        txtNote.setVisible(false);
+                        jLabel6.setVisible(false);
+                        jSeparator6.setVisible(false);
+                    }else{
+                        txtRit.setVisible(false);
+                        txtJarak.setEnabled(true);
+                        jSeparator7.setVisible(false);
+                        jLabel9.setVisible(false);
+                        boxReset.setVisible(false);
+                        txtNote.setVisible(true);
+                        jLabel6.setVisible(true);
+                        jSeparator6.setVisible(true);
+                    }  
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmOli.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
     
     private void load_table(){
@@ -96,30 +148,34 @@ public class frmOli extends javax.swing.JFrame {
     private void textboxOn() {
         cmbMobil.setEnabled(true);
         cmbDate.setEnabled(true);
-        txtJarak.setEditable(true);
-        txtNote.setEditable(true);
         jPanel4.setVisible(true);
         btnSimpan1.setVisible(true);
         btnBatal.setVisible(true);
+        txtRit.setEnabled(true);
+        boxReset.setEnabled(true);
     }
     
     private void textboxOff() {
         txtKode.setEnabled(false);
         cmbMobil.setEnabled(false);
         cmbDate.setEnabled(false);
-        txtJarak.setEditable(false);
-        txtNote.setEditable(false);
+        txtJarak.setEnabled(false);
         jPanel4.setVisible(false);
         btnSimpan1.setVisible(false);
         btnBatal.setVisible(false);
+        txtNote.setVisible(false);
+        jLabel6.setVisible(false);
+        jSeparator6.setVisible(false);
+        txtRit.setEnabled(false);
+        boxReset.setEnabled(false);
     }
     
     private void kosong(){
-        txtKode.setText(null);
-        cmbMobil.setSelectedItem(null);
-        cmbDate.setDate(null);
+        kdOli();
         txtJarak.setText("Jarak");
-        txtNote.setText("Note");        
+        txtNote.setText("");    
+        lblhidden.setText("0");
+        txtRit.setText("0");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,14 +214,18 @@ public class frmOli extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtJarak = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtNote = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnSimpan1 = new javax.swing.JLabel();
         btnBatal = new javax.swing.JLabel();
         cmbDate = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        txtRit = new javax.swing.JTextField();
+        lblhidden = new javax.swing.JLabel();
+        boxReset = new java.awt.Checkbox();
+        txtNote = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -360,11 +420,11 @@ public class frmOli extends javax.swing.JFrame {
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 210, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 210, 10));
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 210, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 40, 10));
 
         jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator3.setForeground(new java.awt.Color(242, 233, 242));
@@ -416,8 +476,8 @@ public class frmOli extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("Jarak");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+        jLabel5.setText("Kilometer");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
 
         txtJarak.setBackground(new java.awt.Color(242, 233, 242));
         txtJarak.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -430,33 +490,12 @@ public class frmOli extends javax.swing.JFrame {
                 txtJarakFocusLost(evt);
             }
         });
-        jPanel2.add(txtJarak, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 210, 30));
-
-        jScrollPane2.setBorder(null);
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        txtNote.setBackground(new java.awt.Color(242, 233, 242));
-        txtNote.setColumns(20);
-        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNote.setRows(5);
-        txtNote.setBorder(null);
-        txtNote.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNoteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNoteFocusLost(evt);
-            }
-        });
-        jScrollPane2.setViewportView(txtNote);
-
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 210, 29));
+        jPanel2.add(txtJarak, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 210, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Note");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(242, 233, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -488,7 +527,7 @@ public class frmOli extends javax.swing.JFrame {
                 .addComponent(btnSimpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, -1, 40));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, 40));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -500,7 +539,7 @@ public class frmOli extends javax.swing.JFrame {
                 btnBatalMouseClicked(evt);
             }
         });
-        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 102, 38));
+        jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 102, 38));
 
         cmbDate.setBackground(new java.awt.Color(242, 233, 242));
         cmbDate.setDateFormatString("yyyy-MM-dd");
@@ -516,6 +555,49 @@ public class frmOli extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 20));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Ritase");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 210, 10));
+
+        txtRit.setBackground(new java.awt.Color(242, 233, 242));
+        txtRit.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtRit.setBorder(null);
+        txtRit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtRitFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRitFocusLost(evt);
+            }
+        });
+        txtRit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRitKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtRit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 40, 30));
+
+        lblhidden.setText("0");
+        jPanel2.add(lblhidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
+
+        boxReset.setLabel("Ganti Oli?");
+        boxReset.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                boxResetItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(boxReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 80, -1));
+
+        txtNote.setBackground(new java.awt.Color(242, 233, 242));
+        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNote.setBorder(null);
+        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 210, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -590,7 +672,6 @@ public class frmOli extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnBaruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaruMouseClicked
-        // TODO add your handling code here:
         textboxOn();
         kosong();
         kdOli();
@@ -644,22 +725,45 @@ public class frmOli extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtJarakFocusLost
 
-    private void txtNoteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusGained
-        if (txtNote.getText().equals("Note")){
-            txtNote.setText("");
-        }
-    }//GEN-LAST:event_txtNoteFocusGained
-
-    private void txtNoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNoteFocusLost
-        if (txtNote.getText().equals("")){
-            txtNote.setText("Note");
-        }
-    }//GEN-LAST:event_txtNoteFocusLost
-
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Form Ganti Oli.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih 'Cetak'");
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void txtRitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRitFocusGained
+
+    private void txtRitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRitFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRitFocusLost
+
+    private void txtRitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitKeyReleased
+        boolean checked = boxReset.getState();
+        if(checked) {
+            long a = Long.parseLong(txtRit.getText());
+            long c = a * 300;
+            txtJarak.setText(Long.toString(c));
+        } else{
+            long a = Long.parseLong(txtRit.getText());
+            long b = Long.parseLong(lblhidden.getText());
+            long c = a * 300 + b;
+            txtJarak.setText(Long.toString(c));
+        }
+    }//GEN-LAST:event_txtRitKeyReleased
+
+    private void boxResetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxResetItemStateChanged
+        boolean checked = boxReset.getState();
+        if(checked) {
+            txtNote.setVisible(true);
+            jLabel6.setVisible(true);
+            jSeparator6.setVisible(true);
+        }else{
+            txtNote.setVisible(false);
+            jLabel6.setVisible(false);
+            jSeparator6.setVisible(false);
+        }
+    }//GEN-LAST:event_boxResetItemStateChanged
 
     
     
@@ -699,6 +803,7 @@ public class frmOli extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Checkbox boxReset;
     private javax.swing.JLabel btnBaru;
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnCetak;
@@ -718,6 +823,7 @@ public class frmOli extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -725,15 +831,17 @@ public class frmOli extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblhidden;
     private javax.swing.JTextField txtJarak;
     private javax.swing.JTextField txtKode;
-    private javax.swing.JTextArea txtNote;
+    private javax.swing.JTextField txtNote;
+    private javax.swing.JTextField txtRit;
     // End of variables declaration//GEN-END:variables
 }

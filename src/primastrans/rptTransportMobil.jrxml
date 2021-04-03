@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1560" pageHeight="900" orientation="Landscape" columnWidth="1520" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa3cad10-87b9-4e86-99b6-40f0018563bb">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="396"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -86,7 +86,7 @@
 		<field name="nopol" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
-		<field name="id" class="java.lang.String">
+		<field name="id_supir" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="nm_supir" class="java.lang.String">
@@ -184,10 +184,19 @@
 	<queryString>
 		<![CDATA[select * from tb_transport]]>
 	</queryString>
+	<field name="kd_transport" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="tgl_muat" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="kd_mobil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nopol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_supir" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nm_supir" class="java.lang.String">
@@ -248,7 +257,50 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="95" splitType="Stretch"/>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="93b49817-51c3-4ace-9406-90fe0cd0ebbf" x="536" y="17" width="251" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Data Transport Berdasarkan Mobil]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d125b566-5b26-4125-b0df-843ecaf97465" x="787" y="17" width="100" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mobil1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="93b49817-51c3-4ace-9406-90fe0cd0ebbf" x="563" y="45" width="34" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Dari]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93b49817-51c3-4ace-9406-90fe0cd0ebbf" x="697" y="45" width="67" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Sampai]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e9c10670-67f2-4742-987a-de33f6a5a788" x="597" y="45" width="100" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dari1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="21687573-adba-48ac-890f-1be58514043d" x="762" y="45" width="100" height="28"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sampai1}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="227" splitType="Stretch">

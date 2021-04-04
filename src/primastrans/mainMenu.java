@@ -53,6 +53,8 @@ public class mainMenu extends javax.swing.JFrame {
         btnUpahSupir = new javax.swing.JLabel();
         pnlPenghasilan = new javax.swing.JPanel();
         btnPenghasilan = new javax.swing.JLabel();
+        pnlSupp = new javax.swing.JPanel();
+        btnSupp = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         masterPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -78,7 +80,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("PRiMASTRANS");
-        sidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        sidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(61, 115, 80));
 
@@ -101,7 +103,7 @@ public class mainMenu extends javax.swing.JFrame {
             .addComponent(btnMaster)
         );
 
-        sidebarPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 242, 328, -1));
+        sidebarPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 328, -1));
 
         jPanel4.setBackground(new java.awt.Color(61, 115, 80));
 
@@ -394,6 +396,41 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 665, 328, -1));
 
+        pnlSupp.setBackground(new java.awt.Color(61, 115, 80));
+
+        btnSupp.setBackground(new java.awt.Color(204, 204, 204));
+        btnSupp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btnSupp.setForeground(new java.awt.Color(204, 204, 204));
+        btnSupp.setText("Data Supplier");
+        btnSupp.setToolTipText("");
+        btnSupp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSuppMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSuppMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSuppMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlSuppLayout = new javax.swing.GroupLayout(pnlSupp);
+        pnlSupp.setLayout(pnlSuppLayout);
+        pnlSuppLayout.setHorizontalGroup(
+            pnlSuppLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSuppLayout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(btnSupp, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+        );
+        pnlSuppLayout.setVerticalGroup(
+            pnlSuppLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSupp, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        sidebarPanel.add(pnlSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 328, -1));
+
         jLayeredPane1.setBackground(new java.awt.Color(242, 233, 242));
 
         masterPanel.setBackground(new java.awt.Color(242, 233, 242));
@@ -583,6 +620,22 @@ public class mainMenu extends javax.swing.JFrame {
         xy = evt.getY();
     }//GEN-LAST:event_formMousePressed
 
+    private void btnSuppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new frmSupplier().setVisible(true);
+    }//GEN-LAST:event_btnSuppMouseClicked
+
+    private void btnSuppMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseEntered
+        // TODO add your handling code here:
+        setColor(pnlSupp);
+    }//GEN-LAST:event_btnSuppMouseEntered
+
+    private void btnSuppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseExited
+        // TODO add your handling code here:
+        resetColor(pnlSupp);
+    }//GEN-LAST:event_btnSuppMouseExited
+
 
     /**
      * @param args the command line arguments
@@ -627,6 +680,7 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnReport;
     private javax.swing.JLabel btnSparepart;
     private javax.swing.JLabel btnSupir;
+    private javax.swing.JLabel btnSupp;
     private javax.swing.JLabel btnTransaksi;
     private javax.swing.JLabel btnTransport;
     private javax.swing.JLabel btnUpahSupir;
@@ -643,6 +697,7 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPenghasilan;
     private javax.swing.JPanel pnlSparepart;
     private javax.swing.JPanel pnlSupir;
+    private javax.swing.JPanel pnlSupp;
     private javax.swing.JPanel pnlTransport;
     private javax.swing.JPanel pnlUpahSupir;
     private javax.swing.JPanel sidebarPanel;

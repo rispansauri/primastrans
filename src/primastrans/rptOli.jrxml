@@ -63,36 +63,36 @@
 	<summary>
 		<band height="210" splitType="Stretch">
 			<crosstab>
-				<reportElement uuid="68686b35-c7ad-46ab-afe9-d47de253c833" x="0" y="0" width="960" height="210"/>
+				<reportElement uuid="fd80d155-7531-441f-a1a7-31849c5f4cbf" x="0" y="0" width="960" height="210"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
 				<crosstabHeaderCell>
 					<cellContents>
-						<box leftPadding="0">
-							<pen lineWidth="1.0"/>
-							<topPen lineWidth="1.0"/>
-							<leftPen lineWidth="1.0"/>
-							<bottomPen lineWidth="1.0"/>
-							<rightPen lineWidth="1.0"/>
-						</box>
 						<staticText>
-							<reportElement uuid="89721ebe-9503-4939-9bb0-4997561f2209" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<reportElement uuid="5a87b49d-4bdc-431c-9462-7af2094fbd6e" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
 							<textElement verticalAlignment="Middle"/>
-							<text><![CDATA[TANGGAL]]></text>
+							<text><![CDATA[Tanggal]]></text>
 						</staticText>
 					</cellContents>
 				</crosstabHeaderCell>
 				<rowGroup name="tgl" width="70">
-					<bucket class="java.lang.String">
-						<bucketExpression><![CDATA[(new SimpleDateFormat("yyyy-MM-dd")).format($F{tgl})]]></bucketExpression>
+					<bucket class="java.sql.Date">
+						<bucketExpression><![CDATA[$F{tgl}]]></bucketExpression>
 					</bucket>
 					<crosstabRowHeader>
-						<cellContents backcolor="#65CAC0" mode="Opaque">
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement uuid="ced41623-603c-4248-abed-51ac541851e5" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
-								<textElement/>
-								<textFieldExpression><![CDATA[$V{tgl}]]></textFieldExpression>
+								<reportElement uuid="1ffa9c2f-2217-4dd8-bbe5-7de34991e7ed" style="Crosstab Data Text" x="0" y="0" width="70" height="23"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[(new SimpleDateFormat("dd/MM/yyyy").format($V{tgl}))]]></textFieldExpression>
 							</textField>
 						</cellContents>
 					</crosstabRowHeader>
@@ -100,72 +100,84 @@
 						<cellContents/>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="kd_mobil" height="30">
+				<columnGroup name="kd_mobil" height="30" totalPosition="End">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{kd_mobil}]]></bucketExpression>
 					</bucket>
 					<crosstabColumnHeader>
-						<cellContents backcolor="#65CAC0" mode="Opaque">
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement uuid="4f334628-23b2-41d8-8e0b-db87a18b9c00" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
-								<textElement/>
+								<reportElement uuid="fb9b9aa2-1458-4f81-bb9b-434186e56e04" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{kd_mobil}]]></textFieldExpression>
 							</textField>
 						</cellContents>
 					</crosstabColumnHeader>
 					<crosstabTotalColumnHeader>
-						<cellContents/>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement uuid="89f091a4-45c6-43cb-9c64-516f1276cffa" x="0" y="0" width="139" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Note]]></text>
+							</staticText>
+						</cellContents>
 					</crosstabTotalColumnHeader>
 				</columnGroup>
 				<measure name="jarakMeasure" class="java.lang.Integer">
 					<measureExpression><![CDATA[$F{jarak}]]></measureExpression>
 				</measure>
-				<crosstabCell width="50" height="25">
+				<measure name="note" class="java.lang.String">
+					<measureExpression><![CDATA[$F{note}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="23">
 					<cellContents>
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
-						<textField>
-							<reportElement uuid="b436a67a-6bd8-4571-831d-c613d3b63876" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-							<textElement/>
+						<textField isBlankWhenNull="true">
+							<reportElement uuid="b740e317-5c55-4f42-bf53-42399d2c6b3a" style="Crosstab Data Text" x="0" y="0" width="50" height="23"/>
+							<textElement verticalAlignment="Middle"/>
 							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
 				<crosstabCell height="25" rowTotalGroup="tgl">
-					<cellContents backcolor="#CFE6E3" mode="Opaque">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField>
-							<reportElement uuid="36909373-8e3e-48d2-a6d8-06d2c84d7e92" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<reportElement uuid="c35466c9-27c2-4ac4-94d1-b00261c8ea12" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
 							<textElement/>
 							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
-				<crosstabCell width="50" columnTotalGroup="kd_mobil">
-					<cellContents backcolor="#CFE6E3" mode="Opaque">
+				<crosstabCell width="139" height="23" columnTotalGroup="kd_mobil">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField>
-							<reportElement uuid="ef609724-6c4b-4d76-a9b8-8da5a2555ff8" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-							<textElement/>
-							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+							<reportElement uuid="bed5be8f-ab0e-41ac-8e52-a0bfb568cb56" style="Crosstab Data Text" x="0" y="0" width="139" height="23"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$V{note}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
 				<crosstabCell rowTotalGroup="tgl" columnTotalGroup="kd_mobil">
-					<cellContents backcolor="#CFE6E3" mode="Opaque">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField>
-							<reportElement uuid="0d8b6b42-f389-42c1-aa83-61feed0ca82d" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<reportElement uuid="015f8e64-0481-4b3d-9cf8-eb0b9f850cec" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
 							<textElement/>
 							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
 						</textField>

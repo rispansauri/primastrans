@@ -64,6 +64,23 @@ public class frmTransport extends javax.swing.JFrame {
         });
     }
 
+    private void notes(){
+        try { 
+            String sql = "select * from tb_supplier where kd_do = '"+cmbKdDO.getSelectedItem()+"'";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                long a = Integer.parseInt(res.getString("kas"));
+                long b = Integer.parseInt(txtKas.getText());
+                long c = a - b;
+                txtNote.setText(Long.toString(c));
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(frmTransport.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        
     private void jumlahtotal(){
         long a = Long.parseLong(txtTonasePabrik.getText());
         long b = Long.parseLong(txtRP.getText());
@@ -643,11 +660,6 @@ public class frmTransport extends javax.swing.JFrame {
                 txtKasPrimasFocusLost(evt);
             }
         });
-        txtKasPrimas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtKasPrimasKeyReleased(evt);
-            }
-        });
         jPanel3.add(txtKasPrimas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 270, 170, 30));
 
         jSeparator14.setBackground(new java.awt.Color(102, 102, 102));
@@ -673,11 +685,6 @@ public class frmTransport extends javax.swing.JFrame {
                 txtKordFocusLost(evt);
             }
         });
-        txtKord.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtKordKeyReleased(evt);
-            }
-        });
         jPanel3.add(txtKord, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 320, 170, 30));
 
         jSeparator17.setBackground(new java.awt.Color(102, 102, 102));
@@ -701,11 +708,6 @@ public class frmTransport extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtTabFocusLost(evt);
-            }
-        });
-        txtTab.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTabKeyReleased(evt);
             }
         });
         jPanel3.add(txtTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 70, 170, 30));
@@ -1157,16 +1159,10 @@ public class frmTransport extends javax.swing.JFrame {
         cmbKdMobil.setEnabled(true);
         cmbID.setEnabled(true);
         cmbKdDO.setEnabled(true);
-        txtDO.setEditable(true);
-        txtStockpile.setEditable(true);
-        txtTempatBongkar.setEditable(true);
         txtTonaseMuat.setEditable(true);
         txtTonasePabrik.setEditable(true);
         txtRP.setEditable(true);
         txtKas.setEditable(true);
-        txtKasPrimas.setEditable(true);
-        txtKord.setEditable(true);
-        txtTab.setEditable(true);
         txtCashinPrimas.setEditable(true);
         txtNoSJ.setEditable(true);
         txtNote.setEditable(true);
@@ -1183,18 +1179,18 @@ public class frmTransport extends javax.swing.JFrame {
         cmbID.setEnabled(false);
         txtNama.setEnabled(false);
         cmbKdDO.setEnabled(false);
-        txtDO.setEditable(false);
-        txtStockpile.setEditable(false);
-        txtTempatBongkar.setEditable(false);
+        txtDO.setEnabled(false);
+        txtStockpile.setEnabled(false);
+        txtTempatBongkar.setEnabled(false);
         txtTonaseMuat.setEditable(false);
         txtTonasePabrik.setEditable(false);
         txtRP.setEditable(false);
         txtJumlahTotal.setEnabled(false);
         txtKas.setEditable(false);
         txtCashinSupplier.setEnabled(false);
-        txtKasPrimas.setEditable(false);
-        txtKord.setEditable(false);
-        txtTab.setEditable(false);
+        txtKasPrimas.setEnabled(false);
+        txtKord.setEnabled(false);
+        txtTab.setEnabled(false);
         txtCashinPrimas.setEnabled(false);
         txtNoSJ.setEditable(false);
         txtSusutTonase.setEnabled(false);
@@ -1434,6 +1430,8 @@ public class frmTransport extends javax.swing.JFrame {
     private void txtTonasePabrikKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonasePabrikKeyReleased
         jumlahtotal();
         susuttonase();
+        cashinsupplier();
+        cashinprimas();
     }//GEN-LAST:event_txtTonasePabrikKeyReleased
 
     private void txtKasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKasFocusGained
@@ -1449,7 +1447,11 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtKasFocusLost
 
     private void txtKasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasKeyReleased
+        jumlahtotal();
+        susuttonase();
         cashinsupplier();
+        cashinprimas();
+        notes();
     }//GEN-LAST:event_txtKasKeyReleased
 
     private void txtKordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKordFocusGained
@@ -1529,7 +1531,10 @@ public class frmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTonaseMuatFocusLost
 
     private void txtTonaseMuatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonaseMuatKeyReleased
-        // TODO add your handling code here:
+        jumlahtotal();
+        susuttonase();
+        cashinsupplier();
+        cashinprimas();
     }//GEN-LAST:event_txtTonaseMuatKeyReleased
 
     private void cmbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDActionPerformed
@@ -1574,19 +1579,10 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void txtRPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRPKeyReleased
         jumlahtotal();
+        susuttonase();
+        cashinsupplier();
+        cashinprimas();
     }//GEN-LAST:event_txtRPKeyReleased
-
-    private void txtKasPrimasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKasPrimasKeyReleased
-        cashinprimas();
-    }//GEN-LAST:event_txtKasPrimasKeyReleased
-
-    private void txtKordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKordKeyReleased
-        cashinprimas();
-    }//GEN-LAST:event_txtKordKeyReleased
-
-    private void txtTabKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTabKeyReleased
-        cashinprimas();
-    }//GEN-LAST:event_txtTabKeyReleased
 
     private void btnCetak1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetak1MouseClicked
         // TODO add your handling code here:

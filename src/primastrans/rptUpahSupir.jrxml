@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa25e3bd-8a5a-4a70-8873-2f720d3ffe99">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM tb_transport]]>
+	</queryString>
+	<field name="nopol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_supir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="do" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stockpile" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tempat_bongkar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kas_primas" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kord" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tab" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="kas" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$V{kas}]]></variableExpression>
+	</variable>
+	<variable name="tab" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="222" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="ff1a46a3-ac08-4362-a3f9-f2da91ceabf1" x="0" y="0" width="802" height="222"/>
+				<crosstabHeaderCell>
+					<cellContents backcolor="#FFFFFF">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<staticText>
+							<reportElement uuid="249de0f3-7ad7-4683-8fc8-198136a6170e" style="Crosstab Data Text" x="0" y="0" width="70" height="49"/>
+							<textElement verticalAlignment="Middle"/>
+							<text><![CDATA[NAMA SUPIR]]></text>
+						</staticText>
+						<staticText>
+							<reportElement uuid="436fbab4-09c2-4c9f-8623-d90fca407104" style="Crosstab Data Text" x="71" y="0" width="69" height="49"/>
+							<textElement verticalAlignment="Middle"/>
+							<text><![CDATA[NO POL]]></text>
+						</staticText>
+						<line>
+							<reportElement uuid="93977183-e6fb-43d1-b186-e415dfe3902a" style="Crosstab Data Text" x="70" y="0" width="1" height="51"/>
+						</line>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="nm_supir" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{nm_supir}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textField>
+								<reportElement uuid="3327be1e-da0e-4051-8f45-8b392f600ba7" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{nm_supir}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#B5D5BC" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<staticText>
+								<reportElement uuid="387db2f3-34c5-4f43-bea8-2abe523ca064" x="0" y="0" width="140" height="14"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+							<staticText>
+								<reportElement uuid="387db2f3-34c5-4f43-bea8-2abe523ca064" x="0" y="14" width="140" height="13"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[Rincian]]></text>
+							</staticText>
+							<line>
+								<reportElement uuid="5b5efb59-e00a-4835-8817-205fee0823c2" style="Crosstab Data Text" x="0" y="14" width="140" height="1"/>
+							</line>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="nopol" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{nopol}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textField>
+								<reportElement uuid="8d089137-d49b-4a85-9125-fb573d6e38f6" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{nopol}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="do" height="16" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{do}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textField>
+								<reportElement uuid="a749b2d5-1eb3-417d-bded-7943cfb96985" style="Crosstab Data Text" x="0" y="0" width="112" height="15"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{do}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<staticText>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="0" y="0" width="50" height="49"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[KORD]]></text>
+							</staticText>
+							<staticText>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="52" y="0" width="50" height="49"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[BAYARAN SUPIR]]></text>
+							</staticText>
+							<staticText>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="101" y="0" width="58" height="49"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[TABUNGAN]]></text>
+							</staticText>
+							<line>
+								<reportElement uuid="2f61df90-3b5a-4bdb-b250-cbbfd9659dda" style="Crosstab Data Text" x="50" y="0" width="1" height="51"/>
+							</line>
+							<line>
+								<reportElement uuid="d1469674-9211-4746-bcc5-03c217c2ad15" style="Crosstab Data Text" x="100" y="0" width="1" height="51"/>
+							</line>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="tempat_bongkar" height="35" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{tempat_bongkar}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textField>
+								<reportElement uuid="a0be5dad-5a45-4dde-90c2-a420a9939963" style="Crosstab Data Text" x="0" y="1" width="51" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{tempat_bongkar}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="87f71ce7-87bd-4f3e-b9cd-a958e02a8af2" style="Crosstab Data Text" x="51" y="1" width="61" height="15" backcolor="#33FFCC"/>
+								<textElement/>
+								<text><![CDATA[TAB]]></text>
+							</staticText>
+							<textField pattern="#,##0">
+								<reportElement uuid="a0be5dad-5a45-4dde-90c2-a420a9939963" style="Crosstab Data Text" x="0" y="18" width="51" height="15"/>
+								<textElement/>
+								<textFieldExpression><![CDATA["Rp"+$V{head_kas}]]></textFieldExpression>
+							</textField>
+							<textField pattern="#,##0">
+								<reportElement uuid="a0be5dad-5a45-4dde-90c2-a420a9939963" style="Crosstab Data Text" x="51" y="18" width="61" height="17" backcolor="#33FFCC"/>
+								<textElement/>
+								<textFieldExpression><![CDATA["Rp"+$V{head_tab}]]></textFieldExpression>
+							</textField>
+							<line>
+								<reportElement uuid="8a082735-481c-4af6-aa3d-c42df81f9ca4" style="Crosstab Data Text" x="50" y="0" width="1" height="17"/>
+							</line>
+							<line>
+								<reportElement uuid="8a082735-481c-4af6-aa3d-c42df81f9ca4" style="Crosstab Data Text" x="0" y="17" width="112" height="1"/>
+							</line>
+							<line>
+								<reportElement uuid="8a082735-481c-4af6-aa3d-c42df81f9ca4" style="Crosstab Data Text" x="50" y="18" width="1" height="17"/>
+							</line>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="kas_primasMeasure" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{kas_primas}]]></measureExpression>
+				</measure>
+				<measure name="tabungan" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{tab}]]></measureExpression>
+				</measure>
+				<measure name="sum_kas" class="java.lang.Long" calculation="Sum">
+					<measureExpression><![CDATA[$F{kas_primas}]]></measureExpression>
+				</measure>
+				<measure name="sum_tab" class="java.lang.Long" calculation="Sum">
+					<measureExpression><![CDATA[$F{tab}]]></measureExpression>
+				</measure>
+				<measure name="kord" class="java.lang.Long" calculation="Sum">
+					<measureExpression><![CDATA[$F{kord}]]></measureExpression>
+				</measure>
+				<measure name="sum_kas/supir" class="java.lang.Long" calculation="Sum">
+					<measureExpression><![CDATA[$F{kas_primas}]]></measureExpression>
+				</measure>
+				<measure name="sum_tab/supir" class="java.lang.Long" calculation="Sum">
+					<measureExpression><![CDATA[$F{tab}]]></measureExpression>
+				</measure>
+				<measure name="head_kas" class="java.lang.Long">
+					<measureExpression><![CDATA[$F{kas_primas}]]></measureExpression>
+				</measure>
+				<measure name="head_tab" class="java.lang.Long">
+					<measureExpression><![CDATA[$F{tab}]]></measureExpression>
+				</measure>
+				<measure name="count_kas" class="java.lang.Long" calculation="Count">
+					<measureExpression><![CDATA[$F{kas_primas}]]></measureExpression>
+				</measure>
+				<crosstabCell width="112" height="25">
+					<cellContents backcolor="#FFFFFF">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textField isBlankWhenNull="true">
+							<reportElement uuid="b45b0fb3-5d82-44ba-badf-10e0a50e6398" style="Crosstab Data Text" x="0" y="0" width="112" height="25"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$V{kas_primasMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="112" height="27" rowTotalGroup="nm_supir">
+					<cellContents backcolor="#B5D5BC" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textField pattern="#,##0">
+							<reportElement uuid="9ec9ec46-0dc6-4644-b3e5-f1a37a5128f8" style="Crosstab Data Text" x="0" y="14" width="50" height="13"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_kas}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0">
+							<reportElement uuid="9ec9ec46-0dc6-4644-b3e5-f1a37a5128f8" style="Crosstab Data Text" x="51" y="14" width="61" height="13"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_tab}]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement uuid="5b5efb59-e00a-4835-8817-205fee0823c2" style="Crosstab Data Text" x="0" y="14" width="112" height="1"/>
+						</line>
+						<line>
+							<reportElement uuid="5b5efb59-e00a-4835-8817-205fee0823c2" style="Crosstab Data Text" x="50" y="15" width="1" height="12"/>
+						</line>
+						<textField>
+							<reportElement uuid="9ec9ec46-0dc6-4644-b3e5-f1a37a5128f8" style="Crosstab Data Text" x="0" y="0" width="112" height="14"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$V{count_kas}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="159" height="25" columnTotalGroup="do">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textField pattern="#,##0">
+							<reportElement uuid="cf8e277b-578f-4af2-bfe3-dd55d8594493" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{kord}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0">
+							<reportElement uuid="cf8e277b-578f-4af2-bfe3-dd55d8594493" style="Crosstab Data Text" x="52" y="0" width="48" height="25"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_kas/supir}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0">
+							<reportElement uuid="cf8e277b-578f-4af2-bfe3-dd55d8594493" style="Crosstab Data Text" x="102" y="0" width="57" height="25"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_tab/supir}]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement uuid="d1469674-9211-4746-bcc5-03c217c2ad15" style="Crosstab Data Text" x="50" y="0" width="1" height="25"/>
+						</line>
+						<line>
+							<reportElement uuid="d1469674-9211-4746-bcc5-03c217c2ad15" style="Crosstab Data Text" x="100" y="0" width="1" height="25"/>
+						</line>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="159" height="27" rowTotalGroup="nm_supir" columnTotalGroup="do">
+					<cellContents backcolor="#B5D5BC" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textField pattern="#,##0">
+							<reportElement uuid="7eaa8985-0fec-4223-b01c-5afbdbc0a9c2" style="Crosstab Data Text" x="0" y="0" width="50" height="14"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{kord}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0">
+							<reportElement uuid="7eaa8985-0fec-4223-b01c-5afbdbc0a9c2" style="Crosstab Data Text" x="52" y="0" width="48" height="14"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_kas/supir}]]></textFieldExpression>
+						</textField>
+						<textField pattern="#,##0">
+							<reportElement uuid="7eaa8985-0fec-4223-b01c-5afbdbc0a9c2" style="Crosstab Data Text" x="102" y="0" width="57" height="14"/>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA["Rp"+$V{sum_tab/supir}]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement uuid="2ea79255-8f9a-4154-a3f8-f1bf3bb0054e" style="Crosstab Data Text" x="0" y="14" width="159" height="1"/>
+						</line>
+						<line>
+							<reportElement uuid="32dcd487-21f6-4fa5-a74c-2769032f0b36" style="Crosstab Data Text" x="50" y="0" width="1" height="14"/>
+						</line>
+						<line>
+							<reportElement uuid="55081ce9-981e-4a95-bb55-17bdb936e5d9" style="Crosstab Data Text" x="100" y="0" width="1" height="14"/>
+						</line>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="25" columnTotalGroup="tempat_bongkar">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="27" rowTotalGroup="nm_supir" columnTotalGroup="tempat_bongkar">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="112" height="0" rowTotalGroup="nopol">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="159" height="0" rowTotalGroup="nopol" columnTotalGroup="do">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="nopol" columnTotalGroup="tempat_bongkar">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

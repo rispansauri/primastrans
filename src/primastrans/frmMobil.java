@@ -55,19 +55,16 @@ public class frmMobil extends javax.swing.JFrame {
         txtKdMobil = new javax.swing.JTextField();
         txtNopol = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtMerk = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtJenis = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
         btnBatal = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnSimpan = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
+        jSeparator9 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -208,51 +205,11 @@ public class frmMobil extends javax.swing.JFrame {
         jLabel3.setText("NOPOL");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
-        txtMerk.setBackground(new java.awt.Color(242, 233, 242));
-        txtMerk.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtMerk.setForeground(new java.awt.Color(102, 102, 102));
-        txtMerk.setText("Merk");
-        txtMerk.setBorder(null);
-        txtMerk.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtMerkFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtMerkFocusLost(evt);
-            }
-        });
-        jPanel2.add(txtMerk, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 170, 30));
-
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("Merk");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
-
-        txtJenis.setBackground(new java.awt.Color(242, 233, 242));
-        txtJenis.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtJenis.setForeground(new java.awt.Color(102, 102, 102));
-        txtJenis.setText("Jenis");
-        txtJenis.setBorder(null);
-        txtJenis.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtJenisFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtJenisFocusLost(evt);
-            }
-        });
-        jPanel2.add(txtJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 30));
-
-        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("Jenis");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-
-        jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
-        jSeparator5.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 170, 10));
+        jLabel4.setText("Status Odometer");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
@@ -260,11 +217,7 @@ public class frmMobil extends javax.swing.JFrame {
 
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator7.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, 10));
-
-        jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
-        jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 170, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 80, 10));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -332,6 +285,13 @@ public class frmMobil extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, 20));
 
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rusak", "Normal" }));
+        jPanel2.add(cmbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 80, 30));
+
+        jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator9.setForeground(new java.awt.Color(242, 233, 242));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, 10));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -362,22 +322,18 @@ public class frmMobil extends javax.swing.JFrame {
         txtKdMobil.setText(kdmobil);
         String nopol = jTable1.getValueAt(baris,1).toString();
         txtNopol.setText(nopol);
-        String merk=jTable1.getValueAt(baris, 2).toString();
-        txtMerk.setText(merk);
-        String jenis = jTable1.getValueAt(baris, 3).toString();
-        txtJenis.setText(jenis);
+        String statusodo=jTable1.getValueAt(baris, 2).toString();
+        cmbStatus.setSelectedItem(statusodo);
         textboxOn();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnBaru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaru1MouseClicked
-        // TODO add your handling code here:
         textboxOn();
         kosong();
         kdMobil();
     }//GEN-LAST:event_btnBaru1MouseClicked
 
     private void btnHapus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapus1MouseClicked
-        // TODO add your handling code here:
         int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
         if (opsi == JOptionPane.YES_OPTION){
             try {
@@ -409,19 +365,18 @@ public class frmMobil extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void btnSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseClicked
-        // TODO add your handling code here:
         try{
             String query = "select * from tb_mobil where kd_mobil = '"+txtKdMobil.getText()+"'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(query);
             if(res.next()){
-                String sql ="UPDATE tb_mobil SET kd_mobil = '"+txtKdMobil.getText()+"', nopol = '"+txtNopol.getText()+"', merk = '"+txtMerk.getText()+"',jenis= '"+txtJenis.getText()+"' WHERE kd_mobil = '"+txtKdMobil.getText()+"'";
+                String sql ="UPDATE tb_mobil SET kd_mobil = '"+txtKdMobil.getText()+"', nopol = '"+txtNopol.getText()+"', status_odo = '"+cmbStatus.getSelectedItem()+"' WHERE kd_mobil = '"+txtKdMobil.getText()+"'";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "data berhasil di edit");
             }else{
-                String sql = "INSERT INTO tb_mobil VALUES ('"+txtKdMobil.getText()+"','"+txtNopol.getText()+"','"+txtMerk.getText()+"','"+txtJenis.getText()+"')";
+                String sql = "INSERT INTO tb_mobil VALUES ('"+txtKdMobil.getText()+"','"+txtNopol.getText()+"','"+cmbStatus.getSelectedItem()+"')";
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Penyimpanan data berhasil");
@@ -445,30 +400,6 @@ public class frmMobil extends javax.swing.JFrame {
             txtNopol.setText("Plat Nomor");
         }
     }//GEN-LAST:event_txtNopolFocusLost
-
-    private void txtMerkFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMerkFocusGained
-        if (txtMerk.getText().equals("Merk")){
-            txtMerk.setText("");
-        }
-    }//GEN-LAST:event_txtMerkFocusGained
-
-    private void txtMerkFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMerkFocusLost
-        if (txtMerk.getText().equals("")){
-            txtMerk.setText("Merk");
-        }
-    }//GEN-LAST:event_txtMerkFocusLost
-
-    private void txtJenisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJenisFocusGained
-        if (txtJenis.getText().equals("Jenis")){
-            txtJenis.setText("");
-        }
-    }//GEN-LAST:event_txtJenisFocusGained
-
-    private void txtJenisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJenisFocusLost
-        if (txtJenis.getText().equals("")){
-            txtJenis.setText("Jenis");
-        }
-    }//GEN-LAST:event_txtJenisFocusLost
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
@@ -496,8 +427,7 @@ public class frmMobil extends javax.swing.JFrame {
     
     private void textboxOn() {
         txtNopol.setEditable(true);
-        txtMerk.setEditable(true);
-        txtJenis.setEditable(true);
+        cmbStatus.setEnabled(true);
         jPanel4.setVisible(true);
         btnSimpan.setVisible(true);
         btnBatal.setVisible(true);
@@ -506,8 +436,7 @@ public class frmMobil extends javax.swing.JFrame {
     private void textboxOff() {
         txtKdMobil.setEnabled(false);
         txtNopol.setEditable(false);
-        txtMerk.setEditable(false);
-        txtJenis.setEditable(false);
+        cmbStatus.setEnabled(false);
         jPanel4.setVisible(false);
         btnSimpan.setVisible(false);
         btnBatal.setVisible(false);
@@ -516,16 +445,13 @@ public class frmMobil extends javax.swing.JFrame {
     private void kosong(){
         txtKdMobil.setText("Kode Mobil");
         txtNopol.setText("Plat Nomor");
-        txtMerk.setText("Merk");
-        txtJenis.setText("Jenis");
     }
     private void load_table(){
         // membuat tampilan model tabel
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Kode Mobil");
-        model.addColumn("NOPOL");
-        model.addColumn("Merk");
-        model.addColumn("Jenis");
+        model.addColumn("Nomor Polisi");
+        model.addColumn("Status Odometer");
         
         //menampilkan data database kedalam tabel
         try {
@@ -534,7 +460,7 @@ public class frmMobil extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4)});
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3)});
             }
             jTable1.setModel(model);
         } catch (Exception e) {
@@ -581,11 +507,11 @@ public class frmMobil extends javax.swing.JFrame {
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -594,14 +520,11 @@ public class frmMobil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtJenis;
     private javax.swing.JTextField txtKdMobil;
-    private javax.swing.JTextField txtMerk;
     private javax.swing.JTextField txtNopol;
     // End of variables declaration//GEN-END:variables
 }

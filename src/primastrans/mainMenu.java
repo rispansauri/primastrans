@@ -149,7 +149,7 @@ public class mainMenu extends javax.swing.JFrame {
             .addComponent(btnReport)
         );
 
-        sidebarPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 636, 328, -1));
+        sidebarPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
 
         pnlMobil.setBackground(new java.awt.Color(61, 115, 80));
 
@@ -359,7 +359,7 @@ public class mainMenu extends javax.swing.JFrame {
             .addComponent(btnUpahSupir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(pnlUpahSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
+        sidebarPanel.add(pnlUpahSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 328, -1));
 
         pnlPenghasilan.setBackground(new java.awt.Color(61, 115, 80));
 
@@ -394,7 +394,7 @@ public class mainMenu extends javax.swing.JFrame {
             .addComponent(btnPenghasilan, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 665, 328, -1));
+        sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 328, -1));
 
         pnlSupp.setBackground(new java.awt.Color(61, 115, 80));
 
@@ -462,7 +462,7 @@ public class mainMenu extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(masterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+            .addComponent(masterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -476,7 +476,7 @@ public class mainMenu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+            .addComponent(sidebarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
             .addComponent(jLayeredPane1)
         );
 

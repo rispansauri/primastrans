@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="595" orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea369325-cfec-499b-9939-23826b027c84">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PENGHASILAN PERBULAN" language="groovy" pageWidth="1000" pageHeight="595" orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea369325-cfec-499b-9939-23826b027c84">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -247,7 +247,15 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band splitType="Stretch"/>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e88fe71a-cc98-49a1-98ba-93f9868f7363" x="0" y="0" width="960" height="83"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PENGHASILAN BULAN " + (new SimpleDateFormat("MMMM yyyy").format($P{tanggal}))]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="29" splitType="Stretch">
@@ -271,7 +279,7 @@
 					</datasetRun>
 					<jr:column width="34" uuid="5bb16ac6-b599-4097-95d9-db343d0b0c0d">
 						<jr:tableFooter style="table 4_CH" height="24" rowSpan="1"/>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="50c5c033-18a1-4e5f-ad4b-0a5ebd0720a7" x="0" y="0" width="34" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -288,7 +296,7 @@
 					</jr:column>
 					<jr:column width="64" uuid="bae52c66-1ba3-401d-acc6-81fe0c8d89b5">
 						<jr:tableFooter style="table 4_CH" height="24" rowSpan="1"/>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="9f62d953-1fca-4551-8b17-ec571e34df80" x="0" y="0" width="64" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -305,7 +313,7 @@
 					</jr:column>
 					<jr:column width="56" uuid="3273f2d4-73ff-4cfe-ae3a-5893e57b30ed">
 						<jr:tableFooter style="table 4_CH" height="24" rowSpan="1"/>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="068d9f78-be4b-4ab4-953e-c79d47b808db" x="0" y="0" width="56" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -328,7 +336,7 @@
 								<textFieldExpression><![CDATA[$V{batubara}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="a8e052af-2728-481b-b79c-024cd8fda55d" x="0" y="0" width="74" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -351,7 +359,7 @@
 								<textFieldExpression><![CDATA[$V{ritBatubara}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="358257ac-d8ce-4989-a814-b5920b904fec" x="0" y="0" width="60" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -374,7 +382,7 @@
 								<textFieldExpression><![CDATA[$V{split}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="f9bb45b0-e07c-4b3e-bc19-80d3e81546a5" x="0" y="0" width="74" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -397,7 +405,7 @@
 								<textFieldExpression><![CDATA[$V{beskos}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="b874d0d6-37b6-4aef-bd9c-5b28a80244e5" x="0" y="0" width="75" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -420,7 +428,7 @@
 								<textFieldExpression><![CDATA[$V{ritBeskos}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="8fa332d7-edc4-459c-8bd9-b7e8b205d802" x="0" y="0" width="45" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -443,7 +451,7 @@
 								<textFieldExpression><![CDATA[$V{loading}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="98546d18-5271-43d7-a0de-8131986f7669" x="0" y="0" width="75" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -466,7 +474,7 @@
 								<textFieldExpression><![CDATA[$V{jumlah}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="09663013-1bb2-45c9-a100-b2de9a65c742" x="0" y="0" width="79" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -489,7 +497,7 @@
 								<textFieldExpression><![CDATA[$V{sparepart}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="feeba922-711a-4d22-bf61-0d63aeb70959" x="0" y="0" width="80" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -512,7 +520,7 @@
 								<textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="c88dda38-2fcf-46ea-8f53-8afb609f7fe6" x="0" y="0" width="83" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -535,7 +543,7 @@
 								<textFieldExpression><![CDATA[$V{kotor}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="83e531a6-c2d2-488b-835b-bdd816f08b49" x="0" y="0" width="81" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -558,7 +566,7 @@
 								<textFieldExpression><![CDATA[$V{bersih}]]></textFieldExpression>
 							</textField>
 						</jr:tableFooter>
-						<jr:columnHeader style="table 4_TH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement uuid="212f783e-3a7b-478c-a2ac-3ce874fa4127" x="0" y="0" width="80" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>

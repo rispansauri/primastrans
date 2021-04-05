@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="670" pageHeight="842" columnWidth="630" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d72407d-c965-4a29-8d6e-15a62078c9cd">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LAPORAN PEMBELIAN SPAREPART" language="groovy" pageWidth="670" pageHeight="842" columnWidth="630" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d72407d-c965-4a29-8d6e-15a62078c9cd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -148,7 +148,7 @@ FROM tb_sparepart]]>
 	<title>
 		<band height="115" splitType="Stretch">
 			<textField>
-				<reportElement uuid="ea327903-ab04-4f7e-b3a9-520f44c48bd6" x="177" y="0" width="255" height="79"/>
+				<reportElement uuid="ea327903-ab04-4f7e-b3a9-520f44c48bd6" x="0" y="0" width="630" height="79"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>

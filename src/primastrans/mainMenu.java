@@ -79,7 +79,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("PRiMASTRANS");
+        jLabel1.setText("PRIMASTRANS");
         sidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(61, 115, 80));

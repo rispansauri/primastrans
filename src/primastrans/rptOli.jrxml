@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="434e74be-72c3-44f2-8abd-13fda14f1712">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DATA PEMAKAIAN OLI PT PRIMAS" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="434e74be-72c3-44f2-8abd-13fda14f1712">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -36,13 +36,13 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="5fba04bb-4fa4-40d0-8cf9-6c7b3f0879d0" x="346" y="0" width="271" height="79"/>
+			<textField>
+				<reportElement uuid="9bb10b32-a085-468e-9ba7-e549315e2718" x="0" y="0" width="802" height="79"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[DATA PEMAKAIAN OLI PT PRIMAS]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["DATA PEMAKAIAN OLI PT PRIMAS\nDARI " + (new SimpleDateFormat("dd MMMM yyyy").format($P{Dari Tanggal})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{Sampai}))]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -63,7 +63,7 @@
 	<summary>
 		<band height="210" splitType="Stretch">
 			<crosstab>
-				<reportElement uuid="fd80d155-7531-441f-a1a7-31849c5f4cbf" x="0" y="0" width="960" height="210"/>
+				<reportElement uuid="fd80d155-7531-441f-a1a7-31849c5f4cbf" x="0" y="0" width="802" height="210"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -72,11 +72,13 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<crosstabHeaderCell>
-					<cellContents>
+					<cellContents backcolor="#C5E1F8">
 						<staticText>
 							<reportElement uuid="5a87b49d-4bdc-431c-9462-7af2094fbd6e" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
-							<textElement verticalAlignment="Middle"/>
-							<text><![CDATA[Tanggal]]></text>
+							<textElement verticalAlignment="Middle">
+								<font size="11"/>
+							</textElement>
+							<text><![CDATA[TANGGAL]]></text>
 						</staticText>
 					</cellContents>
 				</crosstabHeaderCell>
@@ -85,13 +87,15 @@
 						<bucketExpression><![CDATA[$F{tgl}]]></bucketExpression>
 					</bucket>
 					<crosstabRowHeader>
-						<cellContents backcolor="#F0F8FF" mode="Opaque">
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
 								<reportElement uuid="1ffa9c2f-2217-4dd8-bbe5-7de34991e7ed" style="Crosstab Data Text" x="0" y="0" width="70" height="23"/>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
 								<textFieldExpression><![CDATA[(new SimpleDateFormat("dd/MM/yyyy").format($V{tgl}))]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -105,26 +109,30 @@
 						<bucketExpression><![CDATA[$F{kd_mobil}]]></bucketExpression>
 					</bucket>
 					<crosstabColumnHeader>
-						<cellContents backcolor="#F0F8FF" mode="Opaque">
+						<cellContents backcolor="#C5E1F8" mode="Opaque">
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
 								<reportElement uuid="fb9b9aa2-1458-4f81-bb9b-434186e56e04" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
-								<textElement verticalAlignment="Middle"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$V{kd_mobil}]]></textFieldExpression>
 							</textField>
 						</cellContents>
 					</crosstabColumnHeader>
 					<crosstabTotalColumnHeader>
-						<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<cellContents backcolor="#C5E1F8" mode="Opaque">
 							<box>
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<staticText>
-								<reportElement uuid="89f091a4-45c6-43cb-9c64-516f1276cffa" x="0" y="0" width="139" height="30"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Note]]></text>
+								<reportElement uuid="89f091a4-45c6-43cb-9c64-516f1276cffa" style="Crosstab Data Text" x="0" y="0" width="139" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<text><![CDATA[NOTE]]></text>
 							</staticText>
 						</cellContents>
 					</crosstabTotalColumnHeader>
@@ -142,7 +150,9 @@
 						</box>
 						<textField isBlankWhenNull="true">
 							<reportElement uuid="b740e317-5c55-4f42-bf53-42399d2c6b3a" style="Crosstab Data Text" x="0" y="0" width="50" height="23"/>
-							<textElement verticalAlignment="Middle"/>
+							<textElement verticalAlignment="Middle">
+								<font size="11"/>
+							</textElement>
 							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
@@ -160,13 +170,15 @@
 					</cellContents>
 				</crosstabCell>
 				<crosstabCell width="139" height="23" columnTotalGroup="kd_mobil">
-					<cellContents backcolor="#BFE1FF" mode="Opaque">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField>
 							<reportElement uuid="bed5be8f-ab0e-41ac-8e52-a0bfb568cb56" style="Crosstab Data Text" x="0" y="0" width="139" height="23"/>
-							<textElement verticalAlignment="Middle"/>
+							<textElement verticalAlignment="Middle">
+								<font size="11"/>
+							</textElement>
 							<textFieldExpression><![CDATA[$V{note}]]></textFieldExpression>
 						</textField>
 					</cellContents>

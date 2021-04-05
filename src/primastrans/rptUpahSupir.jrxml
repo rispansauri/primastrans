@@ -87,7 +87,15 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement uuid="36e5c2f4-0654-4698-a807-750d59f5dc1b" x="0" y="0" width="802" height="79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UPAH SUPIR BATUBARA\nPER " + (new SimpleDateFormat("dd MMMM").format($P{dari})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai}))]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>

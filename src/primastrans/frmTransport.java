@@ -936,6 +936,11 @@ public class frmTransport extends javax.swing.JFrame {
                 txtTonaseMuatFocusLost(evt);
             }
         });
+        txtTonaseMuat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTonaseMuatKeyReleased(evt);
+            }
+        });
         jPanel3.add(txtTonaseMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 170, 30));
 
         jLabel22.setBackground(new java.awt.Color(102, 102, 102));

@@ -74,6 +74,16 @@ public class mainMenu extends javax.swing.JFrame {
         });
 
         sidebarPanel.setBackground(new java.awt.Color(61, 115, 80));
+        sidebarPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                sidebarPanelMouseDragged(evt);
+            }
+        });
+        sidebarPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sidebarPanelMousePressed(evt);
+            }
+        });
         sidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -606,35 +616,38 @@ public class mainMenu extends javax.swing.JFrame {
         resetColor(pnlPenghasilan);
     }//GEN-LAST:event_btnPenghasilanMouseExited
 
-    int xy, xx;
+    
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        // TODO add your handling code here:
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x = xx, y = xy);
+        
     }//GEN-LAST:event_formMouseDragged
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        // TODO add your handling code here:
-        xx = evt.getX();
-        xy = evt.getY();
+       
     }//GEN-LAST:event_formMousePressed
 
     private void btnSuppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseClicked
-        // TODO add your handling code here:
         this.setVisible(false);
         new frmSupplier().setVisible(true);
     }//GEN-LAST:event_btnSuppMouseClicked
 
     private void btnSuppMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseEntered
-        // TODO add your handling code here:
         setColor(pnlSupp);
     }//GEN-LAST:event_btnSuppMouseEntered
 
     private void btnSuppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseExited
-        // TODO add your handling code here:
         resetColor(pnlSupp);
     }//GEN-LAST:event_btnSuppMouseExited
+    int xy, xx;
+    private void sidebarPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sidebarPanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_sidebarPanelMouseDragged
+
+    private void sidebarPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sidebarPanelMousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_sidebarPanelMousePressed
 
 
     /**

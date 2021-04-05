@@ -934,11 +934,6 @@ public class frmTransport extends javax.swing.JFrame {
                 txtTonaseMuatFocusLost(evt);
             }
         });
-        txtTonaseMuat.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTonaseMuatKeyReleased(evt);
-            }
-        });
         jPanel3.add(txtTonaseMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 170, 30));
 
         jLabel22.setBackground(new java.awt.Color(102, 102, 102));
@@ -1527,10 +1522,6 @@ public class frmTransport extends javax.swing.JFrame {
             txtTonaseMuat.setText("0");
         }
     }//GEN-LAST:event_txtTonaseMuatFocusLost
-
-    private void txtTonaseMuatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTonaseMuatKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTonaseMuatKeyReleased
 
     private void cmbIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIDActionPerformed
         // TODO add your handling code here:

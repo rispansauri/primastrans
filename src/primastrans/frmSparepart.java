@@ -5,7 +5,6 @@
  */
 package primastrans;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -187,8 +186,8 @@ public class frmSparepart extends javax.swing.JFrame {
     }
     
     private void cmbJenispembayaran(){
-        cmbJenis.addItem("Cash");
         cmbJenis.addItem("Kredit");
+        cmbJenis.addItem("Cash");
     }
     
     private void total(){
@@ -730,11 +729,11 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 60, 30));
+        jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 100, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator6.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 60, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 100, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

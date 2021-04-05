@@ -1069,7 +1069,7 @@ public class frmTransport extends javax.swing.JFrame {
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
             while(res.next()){
-                cmbMbl.addItem(res.getString("nopol"));
+                cmbMbl.addItem(res.getString("kd_mobil"));
             }
         }catch (Exception e) {
             
@@ -1079,7 +1079,7 @@ public class frmTransport extends javax.swing.JFrame {
      
       private void cmbSupp() {
         try { 
-            String sql = "select * from tb_transport";
+            String sql = "SELECT DISTINCT do FROM tb_transport";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

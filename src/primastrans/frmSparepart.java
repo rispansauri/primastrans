@@ -409,6 +409,16 @@ public class frmSparepart extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -1271,6 +1281,17 @@ public class frmSparepart extends javax.swing.JFrame {
         // TODO add your handling code here:
         barangvisibleOn();
     }//GEN-LAST:event_btnTambahBarangMouseClicked
+    int xy, xx;
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_jPanel1MouseDragged
 
     /**
      * @param args the command line arguments

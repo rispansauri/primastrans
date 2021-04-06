@@ -263,7 +263,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BATUBARA\nTANGGAL " + (new SimpleDateFormat("dd").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1})) + "\n" +$P{mobil1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["BATUBARA\nTANGGAL " + (new SimpleDateFormat("dd MMMM yyyy").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1})) + "\n" +$P{mobil1}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

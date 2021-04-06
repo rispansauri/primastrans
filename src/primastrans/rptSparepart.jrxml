@@ -302,12 +302,12 @@ FROM tb_sparepart]]>
 									<bottomPen lineWidth="1.0"/>
 									<rightPen lineWidth="1.0"/>
 								</box>
-								<textField>
+								<textField pattern="#,##0">
 									<reportElement uuid="934a3ed5-9396-44ce-9801-05fe9ba9c124" x="0" y="0" width="77" height="30"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="10"/>
 									</textElement>
-									<textFieldExpression><![CDATA["Rp. " $F{harga}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -377,12 +377,12 @@ FROM tb_sparepart]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1" height="30" rowSpan="1">
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement uuid="9e0098c6-31ab-4c6c-b355-7270f14e0906" x="0" y="0" width="90" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10"/>
 								</textElement>
-								<textFieldExpression><![CDATA["Rp. " $V{total}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
 							</textField>
 						</jr:columnFooter>
 						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
@@ -393,12 +393,12 @@ FROM tb_sparepart]]>
 								<bottomPen lineWidth="1.0"/>
 								<rightPen lineWidth="1.0"/>
 							</box>
-							<textField>
+							<textField pattern="#,##0">
 								<reportElement uuid="62cccef3-fa5e-4ea2-bcae-0b443638c44c" x="0" y="0" width="90" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10"/>
 								</textElement>
-								<textFieldExpression><![CDATA["Rp. "$F{jumlah}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

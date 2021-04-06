@@ -430,7 +430,7 @@ public class frmMobil extends javax.swing.JFrame {
 
     private void kdMobil() {
         try {
-            String sql = "select * from tb_mobil order by kd_mobil desc";
+            String sql = "select * from tb_mobil ORDER BY LENGTH(kd_mobil) DESC, kd_mobil DESC";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -469,15 +469,13 @@ public class frmMobil extends javax.swing.JFrame {
         txtNopol.setText("Plat Nomor");
     }
     private void load_table(){
-        // membuat tampilan model tabel
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Kode Mobil");
         model.addColumn("Nomor Polisi");
         model.addColumn("Status Odometer");
         
-        //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_mobil";
+            String sql = "select * from tb_mobil ORDER BY LENGTH(kd_mobil) ASC, kd_mobil ASC";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

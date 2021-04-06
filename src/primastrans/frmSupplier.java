@@ -466,7 +466,7 @@ public class frmSupplier extends javax.swing.JFrame {
 
     private void idSupp() {
         try {
-            String sql = "select * from tb_supplier order by id_supplier desc";
+            String sql = "select * from tb_supplier ORDER BY LENGTH(id_supplier) desc, id_supplier desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -540,7 +540,7 @@ public class frmSupplier extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_supplier";
+            String sql = "select * from tb_supplier ORDER BY LENGTH(id_supplier) asc, id_supplier asc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

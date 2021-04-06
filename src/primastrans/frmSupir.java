@@ -6,12 +6,8 @@
 package primastrans;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
-import net.sf.jasperreports.view.*;
-import net.sf.jasperreports.engine.*;
 
 /**
  *
@@ -34,7 +30,7 @@ public class frmSupir extends javax.swing.JFrame {
 
     private void idSupir() {
         try {
-            String sql = "select * from tb_supir order by id_supir desc";
+            String sql = "select * from tb_supir ORDER BY LENGTH(id_supir) desc, id_supir desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -82,7 +78,7 @@ public class frmSupir extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_supir";
+            String sql = "select * from tb_supir ORDER BY LENGTH(id_supir) ASC, id_supir ASC";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

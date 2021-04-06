@@ -60,6 +60,10 @@ public class frmTransport extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 getKdDO();
+                jumlahtotal();
+                susuttonase();
+                cashinsupplier();
+                cashinprimas();
             }
         });
     }
@@ -493,7 +497,7 @@ public class frmTransport extends javax.swing.JFrame {
 
         jSeparator8.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
-        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 80, 10));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 170, 10));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
         btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -972,7 +976,7 @@ public class frmTransport extends javax.swing.JFrame {
 
         cmbDate.setDateFormatString("yyyy-MM-dd");
         jPanel3.add(cmbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
-        jPanel3.add(cmbKdDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 80, 30));
+        jPanel3.add(cmbKdDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 170, 30));
 
         jLabel30.setBackground(new java.awt.Color(102, 102, 102));
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1025,7 +1029,7 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void kdTransport() {
         try {
-            String sql = "select * from tb_transport order by kd_transport desc";
+            String sql = "select * from tb_transport ORDER BY LENGTH(kd_transport) desc, kd_transport desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -1264,7 +1268,7 @@ public class frmTransport extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_transport";
+            String sql = "select * from tb_transport ORDER BY LENGTH(kd_transport) asc, kd_transport asc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

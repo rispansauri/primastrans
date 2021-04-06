@@ -133,7 +133,7 @@ public class frmSparepart extends javax.swing.JFrame {
     
     private void kdBelanja() {
         try {
-            String sql = "select * from tb_sparepart order by kd_belanja desc";
+            String sql = "select * from tb_sparepart ORDER BY LENGTH(kd_belanja) desc, kd_belanja desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -293,7 +293,7 @@ public class frmSparepart extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_sparepart";
+            String sql = "select * from tb_sparepart ORDER BY LENGTH(kd_belanja) ASC, kd_belanja ASC";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

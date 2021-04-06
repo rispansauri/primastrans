@@ -98,7 +98,7 @@ public class frmOli extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_ganti_oli";
+            String sql = "select * from tb_ganti_oli ORDER BY LENGTH(kd_ganti_oli) ASC, kd_ganti_oli ASC";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -128,7 +128,7 @@ public class frmOli extends javax.swing.JFrame {
     
     private void kdOli() {
         try {
-            String sql = "select * from tb_ganti_oli order by kd_ganti_oli desc";
+            String sql = "select * from tb_ganti_oli ORDER BY LENGTH(kd_ganti_oli) DESC, kd_ganti_oli DESC";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);

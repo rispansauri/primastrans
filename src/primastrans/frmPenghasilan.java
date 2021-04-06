@@ -11,7 +11,6 @@ package primastrans;
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -164,7 +163,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
     
     private void kdPenghasilan() {
         try {
-            String sql = "select * from tb_penghasilan order by kd_penghasilan desc";
+            String sql = "select * from tb_penghasilan ORDER BY LENGTH(kd_penghasilan) desc, kd_penghasilan desc";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet rs=stm.executeQuery(sql);
@@ -280,7 +279,7 @@ public class frmPenghasilan extends javax.swing.JFrame {
         
         //menampilkan data database kedalam tabel
         try {
-            String sql = "select * from tb_penghasilan";
+            String sql = "select * from tb_penghasilan ORDER BY LENGTH(kd_penghasilan) ASC, kd_penghasilan ASC";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

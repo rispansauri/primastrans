@@ -10,13 +10,8 @@ package primastrans;
  * @author R
  */
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.*;
 import javax.swing.table.*;
-import net.sf.jasperreports.view.*;
-import net.sf.jasperreports.engine.*;
 
 
 public class frmMobil extends javax.swing.JFrame {

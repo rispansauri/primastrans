@@ -72,7 +72,7 @@
 FROM tb_sparepart
 LEFT JOIN tb_sparepart_detail
 ON tb_sparepart.kd_belanja = tb_sparepart_detail.kd_belanja
-WHERE tb_sparepart.kd_mobil = $P{mobil1} AND tgl BETWEEN $P{dari1} AND $P{sampai1}]]>
+WHERE tb_sparepart.kd_mobil = $P{mobil1} AND tgl BETWEEN $P{dari1} AND $P{sampai1} order by tgl]]>
 		</queryString>
 		<field name="tgl" class="java.sql.Date">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -115,8 +115,7 @@ WHERE tb_sparepart.kd_mobil = $P{mobil1} AND tgl BETWEEN $P{dari1} AND $P{sampai
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT *
-FROM tb_sparepart]]>
+		<![CDATA[SELECT * FROM tb_sparepart]]>
 	</queryString>
 	<field name="kd_belanja" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>

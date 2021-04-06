@@ -171,7 +171,7 @@ public class frmSparepart extends javax.swing.JFrame {
     
     private void cmbMobil() {
         try { 
-            String sql = "select * from tb_mobil";
+            String sql = "select * from tb_mobil ORDER BY LENGTH(kd_mobil) asc, kd_mobil asc";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

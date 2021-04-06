@@ -1082,7 +1082,7 @@ public class frmTransport extends javax.swing.JFrame {
     
     private void cmbID() {
         try { 
-            String sql = "select id_supir from tb_supir";
+            String sql = "select id_supir from tb_supir ORDER BY LENGTH(id_supir) asc, id_supir asc";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -1097,7 +1097,7 @@ public class frmTransport extends javax.swing.JFrame {
     
     private void cmbMobil() {
         try { 
-            String sql = "select * from tb_mobil";
+            String sql = "select * from tb_mobil ORDER BY LENGTH(kd_mobil) asc, kd_mobil asc";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);
@@ -1112,7 +1112,7 @@ public class frmTransport extends javax.swing.JFrame {
     
      private void cmbNopol() {
         try { 
-            String sql = "select * from tb_mobil";
+            String sql = "select * from tb_mobil ORDER BY LENGTH(kd_mobil) asc, kd_mobil asc";
             java.sql.Connection conn=Config.configDB();
             java.sql.Statement stm=conn.createStatement();
             java.sql.ResultSet res=stm.executeQuery(sql);

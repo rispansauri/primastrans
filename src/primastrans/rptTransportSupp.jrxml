@@ -52,7 +52,7 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[select * from tb_transport where do=$P{do2} and tgl_muat between $P{dari2} and $P{sampai2}]]>
+			<![CDATA[select * from tb_transport where do=$P{do2} and tgl_muat between $P{dari2} and $P{sampai2} order by tgl_muat]]>
 		</queryString>
 		<field name="kd_transport" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>

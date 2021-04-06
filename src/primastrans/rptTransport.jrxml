@@ -51,7 +51,7 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[select * from tb_transport where tgl_muat between  $P{dari2} and $P{sampai2}]]>
+			<![CDATA[select * from tb_transport where tgl_muat between  $P{dari2} and $P{sampai2} order by tgl_muat]]>
 		</queryString>
 		<field name="kd_transport" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -279,7 +279,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="11"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$F{tgl_muat}]]></textFieldExpression>
+									<textFieldExpression><![CDATA[(new SimpleDateFormat("dd/MM/yyyy").format($F{tgl_muat}))]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>

@@ -146,6 +146,8 @@ public class frmTransport extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btnCetak2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtKdTransport = new javax.swing.JTextField();
@@ -324,7 +326,7 @@ public class frmTransport extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 460, -1, -1));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 470, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(61, 115, 80));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -399,43 +401,43 @@ public class frmTransport extends javax.swing.JFrame {
                 .addComponent(btnCetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 460, -1, -1));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 470, -1, -1));
 
         cmbSupp.setBorder(null);
-        jPanel2.add(cmbSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 460, 80, 40));
+        jPanel2.add(cmbSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 470, 80, 40));
 
         cmbMbl.setBorder(null);
-        jPanel2.add(cmbMbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 460, 110, 40));
+        jPanel2.add(cmbMbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 470, 110, 40));
 
         jLabel13.setBackground(new java.awt.Color(204, 204, 204));
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
         jLabel13.setText("Dari");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, -1, 40));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 400, -1, 40));
 
         jLabel14.setBackground(new java.awt.Color(204, 204, 204));
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(204, 204, 204));
         jLabel14.setText("Sampai");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 460, -1, 40));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 400, -1, 40));
 
         cmbDari.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 460, 160, 40));
+        jPanel2.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 400, 160, 40));
 
         cmbSampai.setDateFormatString("yyyy-MM-dd");
-        jPanel2.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 460, 160, 40));
+        jPanel2.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 400, 160, 40));
 
         jLabel23.setBackground(new java.awt.Color(204, 204, 204));
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(204, 204, 204));
         jLabel23.setText("Pilih cetak berdasarkan:");
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 420, -1, -1));
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 480, -1, -1));
 
         jLabel28.setBackground(new java.awt.Color(204, 204, 204));
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(204, 204, 204));
         jLabel28.setText("Masukan range tanggal:");
-        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 420, -1, -1));
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 410, -1, -1));
 
         jLabel29.setBackground(new java.awt.Color(204, 204, 204));
         jLabel29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -447,6 +449,38 @@ public class frmTransport extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 10, -1, 20));
+
+        jPanel9.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel9.setToolTipText("");
+
+        btnCetak2.setBackground(new java.awt.Color(204, 204, 204));
+        btnCetak2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak2.setForeground(new java.awt.Color(204, 204, 204));
+        btnCetak2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCetak2.setText("Cetak *");
+        btnCetak2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCetak2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCetak2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 470, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(242, 233, 242));
         jPanel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -1629,6 +1663,20 @@ public class frmTransport extends javax.swing.JFrame {
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
+    private void btnCetak2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetak2MouseClicked
+        // TODO add your handling code here:
+         HashMap param = new HashMap();
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
+                try {
+                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransport.jasper"), param, Config.configDB());
+                        JasperViewer.viewReport(jp, false);
+                        
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, e);
+                    }
+    }//GEN-LAST:event_btnCetak2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1669,6 +1717,7 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnCetak1;
+    private javax.swing.JLabel btnCetak2;
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
     private com.toedter.calendar.JDateChooser cmbDari;
@@ -1717,6 +1766,7 @@ public class frmTransport extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

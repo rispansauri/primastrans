@@ -114,7 +114,7 @@
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement uuid="fb9b9aa2-1458-4f81-bb9b-434186e56e04" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<reportElement uuid="fb9b9aa2-1458-4f81-bb9b-434186e56e04" style="Crosstab Data Text" x="0" y="0" width="84" height="30"/>
 								<textElement verticalAlignment="Middle">
 									<font size="11"/>
 								</textElement>
@@ -143,17 +143,17 @@
 				<measure name="note" class="java.lang.String">
 					<measureExpression><![CDATA[$F{note}]]></measureExpression>
 				</measure>
-				<crosstabCell width="50" height="23">
+				<crosstabCell width="84" height="23">
 					<cellContents>
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
-						<textField isBlankWhenNull="true">
-							<reportElement uuid="b740e317-5c55-4f42-bf53-42399d2c6b3a" style="Crosstab Data Text" x="0" y="0" width="50" height="23"/>
+						<textField pattern="###0.00" isBlankWhenNull="true">
+							<reportElement uuid="b740e317-5c55-4f42-bf53-42399d2c6b3a" style="Crosstab Data Text" x="0" y="0" width="84" height="23"/>
 							<textElement verticalAlignment="Middle">
 								<font size="11"/>
 							</textElement>
-							<textFieldExpression><![CDATA[$V{jarakMeasure}]]></textFieldExpression>
+							<textFieldExpression><![CDATA[$V{jarakMeasure} +" KM"]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>

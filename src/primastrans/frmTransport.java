@@ -1658,7 +1658,7 @@ public class frmTransport extends javax.swing.JFrame {
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih berdasarkan Mobil atau Supplier");
+        JOptionPane.showMessageDialog(this, "Form Transport.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.\n - Mencetak laporan: Masukan tanggal dari dan sampai lalu pilih Cetak Rincian atau berdasarkan Mobil atau Supplier");
     }//GEN-LAST:event_jLabel29MouseClicked
     int xy, xx;
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed

@@ -108,7 +108,6 @@ public class frmSupir extends javax.swing.JFrame {
         btnHapus = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btnBaru = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNIK = new javax.swing.JTextField();
@@ -129,7 +128,7 @@ public class frmSupir extends javax.swing.JFrame {
         setBackground(new java.awt.Color(186, 79, 84));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -143,11 +142,12 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DATA SUPIR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 50, -1, -1));
 
+        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -168,12 +168,12 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 111, 384, 236));
 
-        jPanel5.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel5.setToolTipText("");
 
         btnHapus.setBackground(new java.awt.Color(204, 204, 204));
-        btnHapus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHapus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(204, 204, 204));
         btnHapus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnHapus.setText("Hapus");
@@ -200,12 +200,12 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
-        jPanel7.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel7.setBackground(new java.awt.Color(184, 92, 17));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel7.setToolTipText("");
 
         btnBaru.setBackground(new java.awt.Color(204, 204, 204));
-        btnBaru.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBaru.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnBaru.setForeground(new java.awt.Color(204, 204, 204));
         btnBaru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBaru.setText("Baru");
@@ -232,28 +232,17 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
-        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("×");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, 20));
-
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("NIK");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         txtNIK.setBackground(new java.awt.Color(242, 233, 242));
-        txtNIK.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNIK.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNIK.setForeground(new java.awt.Color(102, 102, 102));
         txtNIK.setText("NIK");
         txtNIK.setBorder(null);
@@ -265,7 +254,7 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel2.add(txtNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 210, 30));
 
         txtNama.setBackground(new java.awt.Color(242, 233, 242));
-        txtNama.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNama.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNama.setForeground(new java.awt.Color(102, 102, 102));
         txtNama.setText("Nama");
         txtNama.setBorder(null);
@@ -277,7 +266,7 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 210, 30));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nama");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
@@ -295,7 +284,7 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel4.setToolTipText("");
 
         btnSimpan.setBackground(new java.awt.Color(102, 102, 102));
-        btnSimpan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSimpan.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnSimpan.setForeground(new java.awt.Color(102, 102, 102));
         btnSimpan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSimpan.setText("Simpan");
@@ -331,10 +320,10 @@ public class frmSupir extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, 20));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
-        btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBatal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnBatal.setForeground(new java.awt.Color(102, 102, 102));
         btnBatal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBatal.setText("Batal");
@@ -346,7 +335,7 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 102, 38));
 
         txtID.setBackground(new java.awt.Color(242, 233, 242));
-        txtID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtID.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtID.setForeground(new java.awt.Color(102, 102, 102));
         txtID.setText("ID");
         txtID.setBorder(null);
@@ -357,7 +346,7 @@ public class frmSupir extends javax.swing.JFrame {
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 10));
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("ID");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
@@ -371,16 +360,16 @@ public class frmSupir extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,10 +472,6 @@ public class frmSupir extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Form Supir.\n - Mengisikan data: Klik 'Baru' lalu form akan tersedia untuk diisi.\n - Mengubah data: Piih data lalu klik pada tabel, data akan muncul di form untuk diubah.\n - Menghapus data: Piih data lalu klik pada tabel, lalu tekan tombol 'Hapus' data akan terhapus.");
     }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
     int xy, xx;
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         xx = evt.getX();
@@ -547,7 +532,6 @@ public class frmSupir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

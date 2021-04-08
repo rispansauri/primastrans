@@ -61,7 +61,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -75,10 +75,10 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("REKAP UPAH SUPIR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(242, 233, 242));
         jPanel2.setForeground(new java.awt.Color(204, 204, 204));
@@ -107,7 +107,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, 20));
 
         jLabel17.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Dari");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 40));
@@ -119,7 +119,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jPanel2.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 140, 30));
 
         jLabel18.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setText("Sampai");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, 40));
@@ -129,7 +129,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jPanel6.setToolTipText("");
 
         btnCetak.setBackground(new java.awt.Color(102, 102, 102));
-        btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnCetak.setForeground(new java.awt.Color(102, 102, 102));
         btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCetak.setText("Cetak");

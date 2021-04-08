@@ -73,7 +73,7 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
 
-        sidebarPanel.setBackground(new java.awt.Color(61, 115, 80));
+        sidebarPanel.setBackground(new java.awt.Color(184, 92, 17));
         sidebarPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 sidebarPanelMouseDragged(evt);
@@ -92,7 +92,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel1.setText("PRIMASTRANS");
         sidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel3.setBackground(new java.awt.Color(184, 92, 17));
 
         btnMaster.setBackground(new java.awt.Color(153, 153, 153));
         btnMaster.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -115,7 +115,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 328, -1));
 
-        jPanel4.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel4.setBackground(new java.awt.Color(184, 92, 17));
 
         btnTransaksi.setBackground(new java.awt.Color(153, 153, 153));
         btnTransaksi.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -138,7 +138,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 383, 328, -1));
 
-        jPanel5.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
 
         btnReport.setBackground(new java.awt.Color(153, 153, 153));
         btnReport.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -161,7 +161,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
 
-        pnlMobil.setBackground(new java.awt.Color(61, 115, 80));
+        pnlMobil.setBackground(new java.awt.Color(184, 92, 17));
 
         btnMobil.setBackground(new java.awt.Color(204, 204, 204));
         btnMobil.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -196,7 +196,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 271, 328, -1));
 
-        pnlSupir.setBackground(new java.awt.Color(61, 115, 80));
+        pnlSupir.setBackground(new java.awt.Color(184, 92, 17));
 
         btnSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -231,7 +231,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, 328, -1));
 
-        pnlTransport.setBackground(new java.awt.Color(61, 115, 80));
+        pnlTransport.setBackground(new java.awt.Color(184, 92, 17));
 
         btnTransport.setBackground(new java.awt.Color(204, 204, 204));
         btnTransport.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -266,7 +266,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 412, 328, -1));
 
-        pnlSparepart.setBackground(new java.awt.Color(61, 115, 80));
+        pnlSparepart.setBackground(new java.awt.Color(184, 92, 17));
 
         btnSparepart.setBackground(new java.awt.Color(204, 204, 204));
         btnSparepart.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -301,7 +301,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlSparepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 468, 328, -1));
 
-        pnlGantiOli.setBackground(new java.awt.Color(61, 115, 80));
+        pnlGantiOli.setBackground(new java.awt.Color(184, 92, 17));
 
         btnGantiOli.setBackground(new java.awt.Color(204, 204, 204));
         btnGantiOli.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -336,7 +336,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlGantiOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 524, 328, -1));
 
-        pnlUpahSupir.setBackground(new java.awt.Color(61, 115, 80));
+        pnlUpahSupir.setBackground(new java.awt.Color(184, 92, 17));
 
         btnUpahSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnUpahSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -371,7 +371,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlUpahSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 328, -1));
 
-        pnlPenghasilan.setBackground(new java.awt.Color(61, 115, 80));
+        pnlPenghasilan.setBackground(new java.awt.Color(184, 92, 17));
 
         btnPenghasilan.setBackground(new java.awt.Color(204, 204, 204));
         btnPenghasilan.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -406,7 +406,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 328, -1));
 
-        pnlSupp.setBackground(new java.awt.Color(61, 115, 80));
+        pnlSupp.setBackground(new java.awt.Color(184, 92, 17));
 
         btnSupp.setBackground(new java.awt.Color(204, 204, 204));
         btnSupp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -498,7 +498,7 @@ public class mainMenu extends javax.swing.JFrame {
     }
     
     void resetColor(JPanel panel){
-        panel.setBackground(new Color(61,115,80));
+        panel.setBackground(new Color(184, 92, 17));
     }
     
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked

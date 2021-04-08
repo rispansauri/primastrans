@@ -408,7 +408,7 @@ public class frmSparepart extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -422,17 +422,17 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DATA BELANJA SPAREPART");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, -1, -1));
 
-        jPanel7.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel7.setBackground(new java.awt.Color(184, 92, 17));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel7.setToolTipText("");
 
         btnBaru.setBackground(new java.awt.Color(204, 204, 204));
-        btnBaru.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBaru.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnBaru.setForeground(new java.awt.Color(204, 204, 204));
         btnBaru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBaru.setText("Baru");
@@ -459,12 +459,12 @@ public class frmSparepart extends javax.swing.JFrame {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
-        jPanel6.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel6.setBackground(new java.awt.Color(184, 92, 17));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel6.setToolTipText("");
 
         btnCetak.setBackground(new java.awt.Color(204, 204, 204));
-        btnCetak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCetak.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnCetak.setForeground(new java.awt.Color(204, 204, 204));
         btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCetak.setText("Cetak");
@@ -491,12 +491,12 @@ public class frmSparepart extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 410, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(61, 115, 80));
+        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel5.setToolTipText("");
 
         btnHapus.setBackground(new java.awt.Color(204, 204, 204));
-        btnHapus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHapus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(204, 204, 204));
         btnHapus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnHapus.setText("Hapus");
@@ -523,6 +523,7 @@ public class frmSparepart extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
 
+        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -542,29 +543,35 @@ public class frmSparepart extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 111, 620, 236));
-        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 60, -1));
+
+        cmbMobil.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel1.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 366, 60, 30));
 
         cmbDari.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 130, -1));
+        jPanel1.add(cmbDari, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 409, 130, 30));
 
         cmbSampai.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 130, -1));
+        jPanel1.add(cmbSampai, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 130, 30));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Sampai");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Mobil");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 370, -1, -1));
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("Dari");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, -1, -1));
 
+        jTable2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -612,26 +619,26 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Kode Belanja");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         txtKd.setBackground(new java.awt.Color(242, 233, 242));
-        txtKd.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKd.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtKd.setForeground(new java.awt.Color(102, 102, 102));
         txtKd.setText("Kode");
         txtKd.setBorder(null);
         jPanel2.add(txtKd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 210, 30));
 
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Nama Part");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
 
         txtPart.setBackground(new java.awt.Color(242, 233, 242));
-        txtPart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtPart.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtPart.setForeground(new java.awt.Color(102, 102, 102));
         txtPart.setText("Nama Sparepart");
         txtPart.setBorder(null);
@@ -650,13 +657,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, 210, 10));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Harga");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, -1, -1));
 
         txtHarga.setBackground(new java.awt.Color(242, 233, 242));
-        txtHarga.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtHarga.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtHarga.setForeground(new java.awt.Color(102, 102, 102));
         txtHarga.setText("Harga Satuan");
         txtHarga.setBorder(null);
@@ -680,13 +687,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 200, 210, 10));
 
         jLabel10.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Qty");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, -1, -1));
 
         txtQty.setBackground(new java.awt.Color(242, 233, 242));
-        txtQty.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtQty.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtQty.setForeground(new java.awt.Color(102, 102, 102));
         txtQty.setText("Jumlah Barang");
         txtQty.setBorder(null);
@@ -717,7 +724,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(lblHidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         txtTotal.setBackground(new java.awt.Color(242, 233, 242));
-        txtTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(102, 102, 102));
         txtTotal.setText("Total Harga Keseluruhan");
         txtTotal.setBorder(null);
@@ -733,12 +740,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, 210, 10));
 
         jLabel14.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Jenis Pembayaran");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         cmbJenis.setBackground(new java.awt.Color(242, 233, 242));
+        cmbJenis.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel2.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 100, 30));
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
@@ -746,7 +754,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 100, 10));
 
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Tanggal");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
@@ -760,11 +768,12 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 210, 10));
 
         jLabel7.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Kode Mobil");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
+        cmbKdmobil.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel2.add(cmbKdmobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, 30));
 
         jSeparator5.setBackground(new java.awt.Color(102, 102, 102));
@@ -772,13 +781,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 40, 10));
 
         jLabel13.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Toko");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         txtToko.setBackground(new java.awt.Color(242, 233, 242));
-        txtToko.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtToko.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtToko.setForeground(new java.awt.Color(102, 102, 102));
         txtToko.setText("Nama Toko");
         txtToko.setBorder(null);
@@ -797,7 +806,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 210, 10));
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Note");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
@@ -811,7 +820,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel4.setToolTipText("");
 
         btnSimpan.setBackground(new java.awt.Color(102, 102, 102));
-        btnSimpan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSimpan.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnSimpan.setForeground(new java.awt.Color(102, 102, 102));
         btnSimpan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSimpan.setText("Simpan");
@@ -839,7 +848,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, 40));
 
         btnBatal.setBackground(new java.awt.Color(102, 102, 102));
-        btnBatal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBatal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnBatal.setForeground(new java.awt.Color(102, 102, 102));
         btnBatal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBatal.setText("Batal");
@@ -851,7 +860,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 102, 38));
 
         txtJumlah.setBackground(new java.awt.Color(242, 233, 242));
-        txtJumlah.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtJumlah.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtJumlah.setForeground(new java.awt.Color(102, 102, 102));
         txtJumlah.setText("Harga Barang");
         txtJumlah.setBorder(null);
@@ -868,7 +877,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 270, 210, 30));
 
         jLabel15.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Jumlah");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, -1, -1));
@@ -878,13 +887,13 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 300, 210, 10));
 
         jLabel16.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Total Harga");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
 
         txtNote.setBackground(new java.awt.Color(242, 233, 242));
-        txtNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtNote.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNote.setForeground(new java.awt.Color(102, 102, 102));
         txtNote.setText("Note");
         txtNote.setBorder(null);
@@ -903,7 +912,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel8.setToolTipText("");
 
         btnSimpanbarang.setBackground(new java.awt.Color(102, 102, 102));
-        btnSimpanbarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSimpanbarang.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnSimpanbarang.setForeground(new java.awt.Color(102, 102, 102));
         btnSimpanbarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSimpanbarang.setText("Simpan");
@@ -931,7 +940,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 390, -1, 40));
 
         btnBatalbarang.setBackground(new java.awt.Color(102, 102, 102));
-        btnBatalbarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBatalbarang.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnBatalbarang.setForeground(new java.awt.Color(102, 102, 102));
         btnBatalbarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBatalbarang.setText("Batal");
@@ -954,7 +963,7 @@ public class frmSparepart extends javax.swing.JFrame {
         jPanel9.setToolTipText("");
 
         btnTambahBarang.setBackground(new java.awt.Color(102, 102, 102));
-        btnTambahBarang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnTambahBarang.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnTambahBarang.setForeground(new java.awt.Color(102, 102, 102));
         btnTambahBarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnTambahBarang.setText("+ Barang");

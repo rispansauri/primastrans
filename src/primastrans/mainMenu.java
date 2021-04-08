@@ -6,6 +6,7 @@
 package primastrans;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -73,7 +74,7 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
 
-        sidebarPanel.setBackground(new java.awt.Color(184, 92, 17));
+        sidebarPanel.setBackground(new java.awt.Color(229, 152, 60));
         sidebarPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 sidebarPanelMouseDragged(evt);
@@ -88,15 +89,15 @@ public class mainMenu extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(248, 246, 233));
         jLabel1.setText("PRIMASTRANS");
         sidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel3.setBackground(new java.awt.Color(229, 152, 60));
 
         btnMaster.setBackground(new java.awt.Color(153, 153, 153));
         btnMaster.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnMaster.setForeground(new java.awt.Color(153, 153, 153));
+        btnMaster.setForeground(new java.awt.Color(248, 246, 233));
         btnMaster.setText("Master");
         btnMaster.setToolTipText("");
 
@@ -115,11 +116,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 328, -1));
 
-        jPanel4.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel4.setBackground(new java.awt.Color(229, 152, 60));
 
         btnTransaksi.setBackground(new java.awt.Color(153, 153, 153));
         btnTransaksi.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnTransaksi.setForeground(new java.awt.Color(153, 153, 153));
+        btnTransaksi.setForeground(new java.awt.Color(248, 246, 233));
         btnTransaksi.setText("Transaksi");
         btnTransaksi.setToolTipText("");
 
@@ -138,11 +139,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 383, 328, -1));
 
-        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel5.setBackground(new java.awt.Color(229, 152, 60));
 
         btnReport.setBackground(new java.awt.Color(153, 153, 153));
         btnReport.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnReport.setForeground(new java.awt.Color(153, 153, 153));
+        btnReport.setForeground(new java.awt.Color(248, 246, 233));
         btnReport.setText("Rekap");
         btnReport.setToolTipText("");
 
@@ -161,11 +162,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 328, -1));
 
-        pnlMobil.setBackground(new java.awt.Color(184, 92, 17));
+        pnlMobil.setBackground(new java.awt.Color(229, 152, 60));
 
         btnMobil.setBackground(new java.awt.Color(204, 204, 204));
         btnMobil.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnMobil.setForeground(new java.awt.Color(204, 204, 204));
+        btnMobil.setForeground(new java.awt.Color(248, 246, 233));
         btnMobil.setText("Data Mobil");
         btnMobil.setToolTipText("");
         btnMobil.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,11 +197,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 271, 328, -1));
 
-        pnlSupir.setBackground(new java.awt.Color(184, 92, 17));
+        pnlSupir.setBackground(new java.awt.Color(229, 152, 60));
 
         btnSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnSupir.setForeground(new java.awt.Color(204, 204, 204));
+        btnSupir.setForeground(new java.awt.Color(248, 246, 233));
         btnSupir.setText("Data Supir");
         btnSupir.setToolTipText("");
         btnSupir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -231,11 +232,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, 328, -1));
 
-        pnlTransport.setBackground(new java.awt.Color(184, 92, 17));
+        pnlTransport.setBackground(new java.awt.Color(229, 152, 60));
 
         btnTransport.setBackground(new java.awt.Color(204, 204, 204));
         btnTransport.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnTransport.setForeground(new java.awt.Color(204, 204, 204));
+        btnTransport.setForeground(new java.awt.Color(248, 246, 233));
         btnTransport.setText("Transport");
         btnTransport.setToolTipText("");
         btnTransport.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,11 +267,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 412, 328, -1));
 
-        pnlSparepart.setBackground(new java.awt.Color(184, 92, 17));
+        pnlSparepart.setBackground(new java.awt.Color(229, 152, 60));
 
         btnSparepart.setBackground(new java.awt.Color(204, 204, 204));
         btnSparepart.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnSparepart.setForeground(new java.awt.Color(204, 204, 204));
+        btnSparepart.setForeground(new java.awt.Color(248, 246, 233));
         btnSparepart.setText("Sparepart");
         btnSparepart.setToolTipText("");
         btnSparepart.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -290,9 +291,9 @@ public class mainMenu extends javax.swing.JFrame {
         pnlSparepartLayout.setHorizontalGroup(
             pnlSparepartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSparepartLayout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(btnSparepart, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addGap(101, 101, 101))
         );
         pnlSparepartLayout.setVerticalGroup(
             pnlSparepartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,11 +302,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlSparepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 468, 328, -1));
 
-        pnlGantiOli.setBackground(new java.awt.Color(184, 92, 17));
+        pnlGantiOli.setBackground(new java.awt.Color(229, 152, 60));
 
         btnGantiOli.setBackground(new java.awt.Color(204, 204, 204));
         btnGantiOli.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnGantiOli.setForeground(new java.awt.Color(204, 204, 204));
+        btnGantiOli.setForeground(new java.awt.Color(248, 246, 233));
         btnGantiOli.setText("Ganti Oli");
         btnGantiOli.setToolTipText("");
         btnGantiOli.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -336,11 +337,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlGantiOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 524, 328, -1));
 
-        pnlUpahSupir.setBackground(new java.awt.Color(184, 92, 17));
+        pnlUpahSupir.setBackground(new java.awt.Color(229, 152, 60));
 
         btnUpahSupir.setBackground(new java.awt.Color(204, 204, 204));
         btnUpahSupir.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnUpahSupir.setForeground(new java.awt.Color(204, 204, 204));
+        btnUpahSupir.setForeground(new java.awt.Color(248, 246, 233));
         btnUpahSupir.setText("Upah Supir");
         btnUpahSupir.setToolTipText("");
         btnUpahSupir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -371,11 +372,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlUpahSupir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 328, -1));
 
-        pnlPenghasilan.setBackground(new java.awt.Color(184, 92, 17));
+        pnlPenghasilan.setBackground(new java.awt.Color(229, 152, 60));
 
         btnPenghasilan.setBackground(new java.awt.Color(204, 204, 204));
         btnPenghasilan.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnPenghasilan.setForeground(new java.awt.Color(204, 204, 204));
+        btnPenghasilan.setForeground(new java.awt.Color(248, 246, 233));
         btnPenghasilan.setText("Penghasilan");
         btnPenghasilan.setToolTipText("");
         btnPenghasilan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -406,11 +407,11 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlPenghasilan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 328, -1));
 
-        pnlSupp.setBackground(new java.awt.Color(184, 92, 17));
+        pnlSupp.setBackground(new java.awt.Color(229, 152, 60));
 
         btnSupp.setBackground(new java.awt.Color(204, 204, 204));
         btnSupp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnSupp.setForeground(new java.awt.Color(204, 204, 204));
+        btnSupp.setForeground(new java.awt.Color(248, 246, 233));
         btnSupp.setText("Data Supplier");
         btnSupp.setToolTipText("");
         btnSupp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -443,7 +444,8 @@ public class mainMenu extends javax.swing.JFrame {
 
         jLayeredPane1.setBackground(new java.awt.Color(242, 233, 242));
 
-        masterPanel.setBackground(new java.awt.Color(242, 233, 242));
+        masterPanel.setBackground(new java.awt.Color(248, 246, 233));
+        masterPanel.setForeground(new java.awt.Color(248, 246, 233));
         masterPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
@@ -494,11 +496,19 @@ public class mainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     void setColor(JPanel panel){
-        panel.setBackground(new Color(242,233,242));
+        panel.setBackground(new Color(248,246,233));
     }
     
     void resetColor(JPanel panel){
-        panel.setBackground(new Color(184, 92, 17));
+        panel.setBackground(new Color(229,152,60));
+    }
+    
+    void setColor1(JLabel label){
+        label.setForeground(new Color(229,152,60));
+    }
+    
+    void resetColor1(JLabel label){
+        label.setForeground(new Color(248,246,233));
     }
     
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
@@ -549,71 +559,85 @@ public class mainMenu extends javax.swing.JFrame {
     private void btnMobilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMobilMouseEntered
         // TODO add your handling code here:
         setColor(pnlMobil);
+        setColor1(btnMobil);
     }//GEN-LAST:event_btnMobilMouseEntered
 
     private void btnSupirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupirMouseEntered
         // TODO add your handling code here:
         setColor(pnlSupir);
+        setColor1(btnSupir);
     }//GEN-LAST:event_btnSupirMouseEntered
 
     private void btnTransportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransportMouseEntered
         // TODO add your handling code here:
         setColor(pnlTransport);
+        setColor1(btnTransport);
     }//GEN-LAST:event_btnTransportMouseEntered
 
     private void btnSparepartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSparepartMouseEntered
         // TODO add your handling code here:
         setColor(pnlSparepart);
+        setColor1(btnSparepart);
     }//GEN-LAST:event_btnSparepartMouseEntered
 
     private void btnGantiOliMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGantiOliMouseEntered
         // TODO add your handling code here:
         setColor(pnlGantiOli);
+        setColor1(btnGantiOli);
     }//GEN-LAST:event_btnGantiOliMouseEntered
 
     private void btnUpahSupirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpahSupirMouseEntered
         // TODO add your handling code here:
         setColor(pnlUpahSupir);
+        setColor1(btnUpahSupir);
     }//GEN-LAST:event_btnUpahSupirMouseEntered
 
     private void btnPenghasilanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPenghasilanMouseEntered
         // TODO add your handling code here:
         setColor(pnlPenghasilan);
+        setColor1(btnPenghasilan);
     }//GEN-LAST:event_btnPenghasilanMouseEntered
 
     private void btnMobilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMobilMouseExited
         // TODO add your handling code here:
         resetColor(pnlMobil);
+        resetColor1(btnMobil);
     }//GEN-LAST:event_btnMobilMouseExited
 
     private void btnSupirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupirMouseExited
         // TODO add your handling code here:
         resetColor(pnlSupir);
+        resetColor1(btnSupir);
     }//GEN-LAST:event_btnSupirMouseExited
 
     private void btnTransportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransportMouseExited
         // TODO add your handling code here:
         resetColor(pnlTransport);
+        resetColor1(btnTransport);
     }//GEN-LAST:event_btnTransportMouseExited
 
     private void btnSparepartMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSparepartMouseExited
         // TODO add your handling code here:
         resetColor(pnlSparepart);
+        resetColor1(btnSparepart);
     }//GEN-LAST:event_btnSparepartMouseExited
 
     private void btnGantiOliMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGantiOliMouseExited
         // TODO add your handling code here:
         resetColor(pnlGantiOli);
+        resetColor1(btnGantiOli);
     }//GEN-LAST:event_btnGantiOliMouseExited
 
     private void btnUpahSupirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpahSupirMouseExited
         // TODO add your handling code here:
         resetColor(pnlUpahSupir);
+        resetColor1(btnUpahSupir);
     }//GEN-LAST:event_btnUpahSupirMouseExited
 
     private void btnPenghasilanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPenghasilanMouseExited
         // TODO add your handling code here:
         resetColor(pnlPenghasilan);
+        resetColor1(btnPenghasilan);
     }//GEN-LAST:event_btnPenghasilanMouseExited
 
     
@@ -632,10 +656,12 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void btnSuppMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseEntered
         setColor(pnlSupp);
+        setColor1(btnSupp);
     }//GEN-LAST:event_btnSuppMouseEntered
 
     private void btnSuppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuppMouseExited
         resetColor(pnlSupp);
+        resetColor1(btnSupp);
     }//GEN-LAST:event_btnSuppMouseExited
     int xy, xx;
     private void sidebarPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sidebarPanelMouseDragged

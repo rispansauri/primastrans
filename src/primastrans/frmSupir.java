@@ -128,7 +128,7 @@ public class frmSupir extends javax.swing.JFrame {
         setBackground(new java.awt.Color(186, 79, 84));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel1.setBackground(new java.awt.Color(229, 152, 60));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -141,9 +141,9 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setBackground(new java.awt.Color(248, 246, 233));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(248, 246, 233));
         jLabel1.setText("DATA SUPIR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 50, -1, -1));
 
@@ -168,13 +168,13 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 111, 384, 236));
 
-        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel5.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
         jPanel5.setToolTipText("");
 
-        btnHapus.setBackground(new java.awt.Color(204, 204, 204));
+        btnHapus.setBackground(new java.awt.Color(248, 246, 233));
         btnHapus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnHapus.setForeground(new java.awt.Color(204, 204, 204));
+        btnHapus.setForeground(new java.awt.Color(248, 246, 233));
         btnHapus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnHapus.setText("Hapus");
         btnHapus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -200,13 +200,13 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
-        jPanel7.setBackground(new java.awt.Color(184, 92, 17));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel7.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
         jPanel7.setToolTipText("");
 
-        btnBaru.setBackground(new java.awt.Color(204, 204, 204));
+        btnBaru.setBackground(new java.awt.Color(248, 246, 233));
         btnBaru.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnBaru.setForeground(new java.awt.Color(204, 204, 204));
+        btnBaru.setForeground(new java.awt.Color(248, 246, 233));
         btnBaru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBaru.setText("Baru");
         btnBaru.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +232,7 @@ public class frmSupir extends javax.swing.JFrame {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel2.setBackground(new java.awt.Color(248, 246, 233));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
@@ -241,7 +241,7 @@ public class frmSupir extends javax.swing.JFrame {
         jLabel2.setText("NIK");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
-        txtNIK.setBackground(new java.awt.Color(242, 233, 242));
+        txtNIK.setBackground(new java.awt.Color(248, 246, 233));
         txtNIK.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNIK.setForeground(new java.awt.Color(102, 102, 102));
         txtNIK.setText("NIK");
@@ -253,7 +253,7 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(txtNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 210, 30));
 
-        txtNama.setBackground(new java.awt.Color(242, 233, 242));
+        txtNama.setBackground(new java.awt.Color(248, 246, 233));
         txtNama.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNama.setForeground(new java.awt.Color(102, 102, 102));
         txtNama.setText("Nama");
@@ -279,7 +279,7 @@ public class frmSupir extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, 10));
 
-        jPanel4.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel4.setBackground(new java.awt.Color(248, 246, 233));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel4.setToolTipText("");
 
@@ -334,7 +334,7 @@ public class frmSupir extends javax.swing.JFrame {
         });
         jPanel2.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 102, 38));
 
-        txtID.setBackground(new java.awt.Color(242, 233, 242));
+        txtID.setBackground(new java.awt.Color(248, 246, 233));
         txtID.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtID.setForeground(new java.awt.Color(102, 102, 102));
         txtID.setText("ID");

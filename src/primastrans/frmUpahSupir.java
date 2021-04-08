@@ -61,7 +61,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel1.setBackground(new java.awt.Color(229, 152, 60));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -76,11 +76,11 @@ public class frmUpahSupir extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(248, 246, 233));
         jLabel1.setText("REKAP UPAH SUPIR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel2.setBackground(new java.awt.Color(248, 246, 233));
         jPanel2.setForeground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -124,7 +124,7 @@ public class frmUpahSupir extends javax.swing.JFrame {
         jLabel18.setText("Sampai");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, 40));
 
-        jPanel6.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel6.setBackground(new java.awt.Color(248, 246, 233));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel6.setToolTipText("");
 

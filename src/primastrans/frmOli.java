@@ -230,7 +230,7 @@ public class frmOli extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(184, 92, 17));
+        jPanel1.setBackground(new java.awt.Color(229, 152, 60));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel1MouseDragged(evt);
@@ -263,16 +263,16 @@ public class frmOli extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(248, 246, 233));
         jLabel1.setText("DATA GANTI OLI");
 
-        jPanel5.setBackground(new java.awt.Color(184, 92, 17));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel5.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
         jPanel5.setToolTipText("");
 
         btnHapus.setBackground(new java.awt.Color(204, 204, 204));
         btnHapus.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnHapus.setForeground(new java.awt.Color(204, 204, 204));
+        btnHapus.setForeground(new java.awt.Color(248, 246, 233));
         btnHapus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnHapus.setText("Hapus");
         btnHapus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -296,13 +296,13 @@ public class frmOli extends javax.swing.JFrame {
                 .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(184, 92, 17));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel6.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
         jPanel6.setToolTipText("");
 
         btnCetak.setBackground(new java.awt.Color(204, 204, 204));
         btnCetak.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnCetak.setForeground(new java.awt.Color(204, 204, 204));
+        btnCetak.setForeground(new java.awt.Color(248, 246, 233));
         btnCetak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCetak.setText("Cetak");
         btnCetak.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -326,13 +326,13 @@ public class frmOli extends javax.swing.JFrame {
                 .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(184, 92, 17));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel7.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
         jPanel7.setToolTipText("");
 
         btnBaru.setBackground(new java.awt.Color(204, 204, 204));
         btnBaru.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnBaru.setForeground(new java.awt.Color(204, 204, 204));
+        btnBaru.setForeground(new java.awt.Color(248, 246, 233));
         btnBaru.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnBaru.setText("Baru");
         btnBaru.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,14 +358,14 @@ public class frmOli extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(204, 204, 204));
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setForeground(new java.awt.Color(248, 246, 233));
         jLabel17.setText("Dari");
 
         cmbDari.setDateFormatString("yyyy-MM-dd");
 
         jLabel18.setBackground(new java.awt.Color(204, 204, 204));
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel18.setForeground(new java.awt.Color(248, 246, 233));
         jLabel18.setText("Sampai");
 
         cmbSampai.setDateFormatString("yyyy-MM-dd");
@@ -426,7 +426,7 @@ public class frmOli extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel2.setBackground(new java.awt.Color(248, 246, 233));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
@@ -465,7 +465,7 @@ public class frmOli extends javax.swing.JFrame {
         jLabel2.setText("Kode Ganti Oli");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
-        txtKode.setBackground(new java.awt.Color(242, 233, 242));
+        txtKode.setBackground(new java.awt.Color(248, 246, 233));
         txtKode.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtKode.setBorder(null);
         jPanel2.add(txtKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 210, 30));
@@ -475,7 +475,6 @@ public class frmOli extends javax.swing.JFrame {
         jLabel3.setText("Kode Mobil");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
-        cmbMobil.setBackground(new java.awt.Color(242, 233, 242));
         cmbMobil.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         cmbMobil.setBorder(null);
         jPanel2.add(cmbMobil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 58, -1));
@@ -490,7 +489,7 @@ public class frmOli extends javax.swing.JFrame {
         jLabel5.setText("Kilometer");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
 
-        txtJarak.setBackground(new java.awt.Color(242, 233, 242));
+        txtJarak.setBackground(new java.awt.Color(248, 246, 233));
         txtJarak.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtJarak.setBorder(null);
         txtJarak.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -508,7 +507,7 @@ public class frmOli extends javax.swing.JFrame {
         jLabel6.setText("Note");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(242, 233, 242));
+        jPanel4.setBackground(new java.awt.Color(248, 246, 233));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel4.setToolTipText("");
 
@@ -576,7 +575,7 @@ public class frmOli extends javax.swing.JFrame {
         jSeparator8.setForeground(new java.awt.Color(242, 233, 242));
         jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 210, 10));
 
-        txtRit.setBackground(new java.awt.Color(242, 233, 242));
+        txtRit.setBackground(new java.awt.Color(248, 246, 233));
         txtRit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtRit.setBorder(null);
         txtRit.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -606,7 +605,7 @@ public class frmOli extends javax.swing.JFrame {
         });
         jPanel2.add(boxReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 90, -1));
 
-        txtNote.setBackground(new java.awt.Color(242, 233, 242));
+        txtNote.setBackground(new java.awt.Color(248, 246, 233));
         txtNote.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNote.setBorder(null);
         jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 210, 30));

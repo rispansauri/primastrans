@@ -104,11 +104,14 @@
 		</box>
 	</style>
 	<subDataset name="DS penghasilan" uuid="4d10a0de-bb9d-4530-884e-d8caaa6d4185">
-		<parameter name="ptanggal" class="java.util.Date">
+		<parameter name="bulan1" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="tahun1" class="java.lang.Integer">
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[SELECT * FROM tb_penghasilan WHERE MONTH(tgl) = MONTH($P{ptanggal}) AND YEAR(tgl) = YEAR($P{ptanggal})]]>
+			<![CDATA[SELECT * FROM tb_penghasilan WHERE MONTH(tgl) = $P{bulan1} AND YEAR(tgl) = $P{tahun1}]]>
 		</queryString>
 		<field name="kd_penghasilan" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -189,7 +192,10 @@
 			<groupExpression><![CDATA[$F{tgl}]]></groupExpression>
 		</group>
 	</subDataset>
-	<parameter name="tanggal" class="java.util.Date">
+	<parameter name="bulan" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tahun" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -253,7 +259,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<textFieldExpression><![CDATA["PENGHASILAN BULAN " + (new SimpleDateFormat("MMMM yyyy").format($P{tanggal}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA["PENGHASILAN BULAN " + (new java.text.DateFormatSymbols().getMonths()[$P{bulan} -1]).toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -262,7 +268,7 @@
 			<textField pattern="dd MMMMM yyyy">
 				<reportElement uuid="5295e1e0-dc03-4c9d-9005-c83b04930cde" x="32" y="9" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[(new SimpleDateFormat("MMMM yyyy").format($P{tanggal}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(new java.text.DateFormatSymbols().getMonths()[$P{bulan} -1]).toUpperCase() +"-"+ $P{tahun}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -272,8 +278,11 @@
 				<reportElement uuid="c67d46d7-2b0d-4c1a-9e2e-8bbbda45a868" key="table 4" style="table 4" x="0" y="0" width="960" height="122"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DS penghasilan" uuid="a76f7608-7e36-4caf-8587-0fe039cf7f20">
-						<datasetParameter name="ptanggal">
-							<datasetParameterExpression><![CDATA[$P{tanggal}]]></datasetParameterExpression>
+						<datasetParameter name="bulan1">
+							<datasetParameterExpression><![CDATA[$P{bulan}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="tahun1">
+							<datasetParameterExpression><![CDATA[$P{tahun}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>

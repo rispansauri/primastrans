@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -360,7 +362,8 @@ public class frmPenghasilan extends javax.swing.JFrame {
         btnCetak = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnHapus1 = new javax.swing.JLabel();
-        cmbTGL = new com.toedter.calendar.JDateChooser();
+        cmbBulan = new com.toedter.calendar.JMonthChooser();
+        cmbTahun = new com.toedter.calendar.JYearChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -887,9 +890,8 @@ public class frmPenghasilan extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
-
-        cmbTGL.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(cmbTGL, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 100, 40));
+        jPanel1.add(cmbBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, 40));
+        jPanel1.add(cmbTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 410, 80, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1000,7 +1002,10 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
         // TODO add your handling code here:
                     HashMap param = new HashMap();
-                    param.put("tanggal",cmbTGL.getDate());
+                    int month = cmbBulan.getMonth()+1;
+                    int year = cmbTahun.getYear();
+                    param.put("bulan",month);
+                    param.put("tahun",year);
                 try {
                         JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptPenghasilan.jasper"), param, Config.configDB());
                         JasperViewer.viewReport(jp, false);
@@ -1224,9 +1229,10 @@ public class frmPenghasilan extends javax.swing.JFrame {
     private javax.swing.JLabel btnHapus1;
     private javax.swing.JLabel btnSimpan;
     private javax.swing.JCheckBox cbxPenghasilanTambahan;
+    private com.toedter.calendar.JMonthChooser cmbBulan;
     private com.toedter.calendar.JDateChooser cmbDate;
     private javax.swing.JComboBox<String> cmbKdMobil;
-    private com.toedter.calendar.JDateChooser cmbTGL;
+    private com.toedter.calendar.JYearChooser cmbTahun;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa25e3bd-8a5a-4a70-8873-2f720d3ffe99">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1080" pageHeight="720" orientation="Landscape" columnWidth="1040" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa25e3bd-8a5a-4a70-8873-2f720d3ffe99">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -89,7 +89,7 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<textField>
-				<reportElement uuid="36e5c2f4-0654-4698-a807-750d59f5dc1b" x="0" y="0" width="802" height="79"/>
+				<reportElement uuid="36e5c2f4-0654-4698-a807-750d59f5dc1b" x="0" y="0" width="1040" height="79"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
@@ -115,7 +115,7 @@
 	<summary>
 		<band height="222" splitType="Stretch">
 			<crosstab>
-				<reportElement uuid="ff1a46a3-ac08-4362-a3f9-f2da91ceabf1" x="0" y="0" width="802" height="222"/>
+				<reportElement uuid="ff1a46a3-ac08-4362-a3f9-f2da91ceabf1" x="0" y="0" width="1040" height="222"/>
 				<crosstabHeaderCell>
 					<cellContents backcolor="#FFFFFF">
 						<box>
@@ -126,17 +126,17 @@
 							<rightPen lineWidth="1.0"/>
 						</box>
 						<staticText>
-							<reportElement uuid="249de0f3-7ad7-4683-8fc8-198136a6170e" style="Crosstab Data Text" x="0" y="0" width="70" height="49"/>
+							<reportElement uuid="249de0f3-7ad7-4683-8fc8-198136a6170e" style="Crosstab Data Text" x="0" y="0" width="70" height="64"/>
 							<textElement verticalAlignment="Middle"/>
 							<text><![CDATA[NAMA SUPIR]]></text>
 						</staticText>
 						<staticText>
-							<reportElement uuid="436fbab4-09c2-4c9f-8623-d90fca407104" style="Crosstab Data Text" x="71" y="0" width="69" height="49"/>
+							<reportElement uuid="436fbab4-09c2-4c9f-8623-d90fca407104" style="Crosstab Data Text" x="71" y="0" width="69" height="64"/>
 							<textElement verticalAlignment="Middle"/>
 							<text><![CDATA[NO POL]]></text>
 						</staticText>
 						<line>
-							<reportElement uuid="93977183-e6fb-43d1-b186-e415dfe3902a" style="Crosstab Data Text" x="70" y="0" width="1" height="51"/>
+							<reportElement uuid="93977183-e6fb-43d1-b186-e415dfe3902a" style="Crosstab Data Text" x="70" y="0" width="1" height="66"/>
 						</line>
 					</cellContents>
 				</crosstabHeaderCell>
@@ -221,7 +221,7 @@
 						</cellContents>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<columnGroup name="do" height="16" totalPosition="End">
+				<columnGroup name="do" height="16" totalPosition="End" headerPosition="Stretch">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{do}]]></bucketExpression>
 					</bucket>
@@ -251,36 +251,60 @@
 								<rightPen lineWidth="1.0"/>
 							</box>
 							<staticText>
-								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="0" y="0" width="50" height="49"/>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="0" y="0" width="50" height="64"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10"/>
 								</textElement>
 								<text><![CDATA[KORD]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="52" y="0" width="50" height="49"/>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="52" y="0" width="50" height="64"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10"/>
 								</textElement>
 								<text><![CDATA[BAYARAN SUPIR]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="101" y="0" width="58" height="49"/>
+								<reportElement uuid="806773d2-de6d-4326-b0fa-ebb2c4597db5" x="101" y="0" width="58" height="64"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10"/>
 								</textElement>
 								<text><![CDATA[TABUNGAN]]></text>
 							</staticText>
 							<line>
-								<reportElement uuid="2f61df90-3b5a-4bdb-b250-cbbfd9659dda" style="Crosstab Data Text" x="50" y="0" width="1" height="51"/>
+								<reportElement uuid="2f61df90-3b5a-4bdb-b250-cbbfd9659dda" style="Crosstab Data Text" x="50" y="0" width="1" height="66"/>
 							</line>
 							<line>
-								<reportElement uuid="d1469674-9211-4746-bcc5-03c217c2ad15" style="Crosstab Data Text" x="100" y="0" width="1" height="51"/>
+								<reportElement uuid="d1469674-9211-4746-bcc5-03c217c2ad15" style="Crosstab Data Text" x="100" y="0" width="1" height="64"/>
 							</line>
 						</cellContents>
 					</crosstabTotalColumnHeader>
 				</columnGroup>
-				<columnGroup name="tempat_bongkar" height="35" totalPosition="End">
+				<columnGroup name="stockpile" height="15" headerPosition="Stretch">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{stockpile}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textField>
+								<reportElement uuid="b1dc71b8-555c-43fb-980a-e6efbba2a248" style="Crosstab Data Text" x="0" y="0" width="112" height="14"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{stockpile}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="tempat_bongkar" height="35" totalPosition="End" headerPosition="Stretch">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{tempat_bongkar}]]></bucketExpression>
 					</bucket>
@@ -535,6 +559,15 @@
 							<rightPen lineWidth="1.0"/>
 						</box>
 					</cellContents>
+				</crosstabCell>
+				<crosstabCell columnTotalGroup="stockpile">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="nm_supir" columnTotalGroup="stockpile">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="nopol" columnTotalGroup="stockpile">
+					<cellContents/>
 				</crosstabCell>
 			</crosstab>
 		</band>

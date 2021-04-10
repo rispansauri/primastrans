@@ -7,10 +7,14 @@ package primastrans;
 
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.security.CodeSource;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -721,36 +725,34 @@ public class mainMenu extends javax.swing.JFrame {
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_sidebarPanelMousePressed
-
+    
+    String location = null;
+    String filename;
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-//       try{
-//                String dbname = "db_transport";
-//                String dbuser = "root";
-//                String dbpass = "";
-//                String folderpath = "src" + "/Backup";
-//                
-//                File fl = new File(folderpath);
-//                fl.mkdir();
-//                
-//                String savepath = "/" + folderpath + "/" + "" + dbname +  ""+".sql/";
-//                String execudecmd = "C:/xampp/mysql/bin/mysqldump.exe -u" + dbuser + " -p" + dbpass + " --database " + dbname + " -r " + savepath;     
-//                Process runtimeprocess = Runtime.getRuntime().exec(execudecmd);
-//                int processcomplete = runtimeprocess.waitFor();
-//                
-//                if (processcomplete == 0){
-//                    JOptionPane.showMessageDialog(rootPane,"Backup Successfully");
-//                }
-//                else{
-//                     JOptionPane.showMessageDialog(rootPane,"Backup Failed");
-//                     File f2 = new File("src/Backup/"+ dbname+".sql");
-//                     f2.delete();
-//                }               
-//            }catch(Exception e){
-//                JOptionPane.showMessageDialog(rootPane,e);
-//            }
+        JFileChooser path = new JFileChooser();
+        path.showOpenDialog(this);
+        Process p = null;
+        try{
+            File f =path.getSelectedFile();
+            location = f.getAbsolutePath();
+            location = location.replace('\\', '/');
+            filename = location + ".sql";
+            
+            Runtime rt = Runtime.getRuntime();
+            p = rt.exec("C:/xampp/mysql/bin/mysqldump.exe -uroot --add-drop-database -B db_transport -r" + filename);
+            
+            int exitVal = p.waitFor();
+            if(exitVal == 0){
+                JOptionPane.showMessageDialog(null, "Data Dibackup!");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error!");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jLabel4MouseClicked
-
+    
+    
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
 //        try {

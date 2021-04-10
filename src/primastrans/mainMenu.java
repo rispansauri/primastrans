@@ -6,18 +6,18 @@
 package primastrans;
 
 import java.awt.Color;
-import java.awt.HeadlessException;
-import java.io.BufferedReader;
+import java.awt.Component;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.security.CodeSource;
+import java.sql.Connection;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -31,7 +31,8 @@ public class mainMenu extends javax.swing.JFrame {
      */
     public mainMenu() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
+        loadTabel(); 
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,9 +72,11 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         masterPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -492,12 +495,6 @@ public class mainMenu extends javax.swing.JFrame {
         masterPanel.setForeground(new java.awt.Color(248, 246, 233));
         masterPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("WELCOME :)");
-        masterPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 150, 60));
-
         jLabel14.setBackground(new java.awt.Color(204, 204, 204));
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
@@ -514,6 +511,26 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("primas.trans@yahoo.com | JL. Kapten Naseh No. 26 Panglayungan Tasikmalaya | Fax. (0265)2354458");
         masterPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 730, 940, 30));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        masterPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 730, 420));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("DATA TRANSPORT MINGGU INI");
+        masterPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 280, 70));
 
         jLayeredPane1.setLayer(masterPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -546,6 +563,78 @@ public class mainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadTabel(){
+        
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Kode Trans");
+        model.addColumn("Tanggal");
+        model.addColumn("Kode Mobil");
+        model.addColumn("NOPOL");
+        model.addColumn("ID Supir");
+        model.addColumn("Nama");
+        model.addColumn("DO");
+        model.addColumn("Stock Pile");
+        model.addColumn("Tempat Bongkar");
+        model.addColumn("Tonase Muat");
+        model.addColumn("Tonase Pabrik");
+        model.addColumn("RP");
+        model.addColumn("Jumlah Total");
+        model.addColumn("Kas");
+        model.addColumn("Cashin Supp");
+        model.addColumn("Kas Primas");
+        model.addColumn("Kord");
+        model.addColumn("Tab");
+        model.addColumn("Cashin Primas");
+        model.addColumn("No SJ");
+        model.addColumn("Susut Tonase");
+        model.addColumn("Note");
+        
+        try {
+            String sql = "select * from tb_transport WHERE tgl_muat >= now() - interval 7 DAY ORDER BY LENGTH(kd_transport) asc, kd_transport asc";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6),res.getString(7),res.getString(8),res.getString(9),res.getString(10),res.getString(11),res.getString(12),res.getString(13),res.getString(14),res.getString(15),res.getString(16),res.getString(17),res.getString(18),res.getString(19),res.getString(20),res.getString(21),res.getString(22)});
+            }
+            jTable1.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF );
+
+        for (int column = 0; column < jTable1.getColumnCount(); column++){
+            TableColumn tableColumn = jTable1.getColumnModel().getColumn(column);
+            int preferredWidth = tableColumn.getMinWidth();
+            int maxWidth = 0;
+            TableCellRenderer rend = jTable1.getTableHeader().getDefaultRenderer();
+            TableCellRenderer rendCol = tableColumn.getHeaderRenderer();
+            if (rendCol == null) rendCol = rend;
+            Component header = rendCol.getTableCellRendererComponent(jTable1, tableColumn.getHeaderValue(), false, false, 0, column);
+            maxWidth = header.getPreferredSize().width;
+            System.out.println("maxWidth :"+maxWidth);
+
+            for (int row = 0; row < jTable1.getRowCount(); row++){
+                TableCellRenderer cellRenderer = jTable1.getCellRenderer(row, column);
+                Component c = jTable1.prepareRenderer(cellRenderer, row, column);
+                int width = c.getPreferredSize().width + jTable1.getIntercellSpacing().width;
+                preferredWidth = Math.max(preferredWidth, width);
+                System.out.println("preferredWidth :"+preferredWidth);
+                System.out.println("Width :"+width);
+
+                //  We've exceeded the maximum width, no need to check other rows
+
+                if (preferredWidth <= maxWidth){
+                    preferredWidth = maxWidth;
+                    break;
+                }
+            }
+            tableColumn.setPreferredWidth(preferredWidth);
+        }
+    }
+    
     void setColor(JPanel panel){
         panel.setBackground(new Color(248,246,233));
     }
@@ -846,15 +935,17 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnUpahSupir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel masterPanel;
     private javax.swing.JPanel pnlGantiOli;
     private javax.swing.JPanel pnlMobil;

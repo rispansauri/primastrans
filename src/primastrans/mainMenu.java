@@ -6,7 +6,13 @@
 package primastrans;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.CodeSource;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -56,6 +62,9 @@ public class mainMenu extends javax.swing.JFrame {
         btnPenghasilan = new javax.swing.JLabel();
         pnlSupp = new javax.swing.JPanel();
         btnSupp = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         masterPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -443,6 +452,36 @@ public class mainMenu extends javax.swing.JFrame {
 
         sidebarPanel.add(pnlSupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 328, -1));
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(248, 246, 233));
+        jLabel4.setText("Backup");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        sidebarPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 740, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(248, 246, 233));
+        jLabel5.setText("Restore");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        sidebarPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 740, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(248, 246, 233));
+        jLabel6.setText("|");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        sidebarPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 740, -1, -1));
+
         jLayeredPane1.setBackground(new java.awt.Color(242, 233, 242));
 
         masterPanel.setBackground(new java.awt.Color(248, 246, 233));
@@ -683,6 +722,78 @@ public class mainMenu extends javax.swing.JFrame {
         xy = evt.getY();
     }//GEN-LAST:event_sidebarPanelMousePressed
 
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+//       try{
+//                String dbname = "db_transport";
+//                String dbuser = "root";
+//                String dbpass = "";
+//                String folderpath = "src" + "/Backup";
+//                
+//                File fl = new File(folderpath);
+//                fl.mkdir();
+//                
+//                String savepath = "/" + folderpath + "/" + "" + dbname +  ""+".sql/";
+//                String execudecmd = "C:/xampp/mysql/bin/mysqldump.exe -u" + dbuser + " -p" + dbpass + " --database " + dbname + " -r " + savepath;     
+//                Process runtimeprocess = Runtime.getRuntime().exec(execudecmd);
+//                int processcomplete = runtimeprocess.waitFor();
+//                
+//                if (processcomplete == 0){
+//                    JOptionPane.showMessageDialog(rootPane,"Backup Successfully");
+//                }
+//                else{
+//                     JOptionPane.showMessageDialog(rootPane,"Backup Failed");
+//                     File f2 = new File("src/Backup/"+ dbname+".sql");
+//                     f2.delete();
+//                }               
+//            }catch(Exception e){
+//                JOptionPane.showMessageDialog(rootPane,e);
+//            }
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+//        try {
+//            /*NOTE: String s is the mysql file name including the .sql in its name*/
+//            /*NOTE: Getting path to the Jar file being executed*/
+//            /*NOTE: YourImplementingClass-> replace with the class executing the code*/
+//            CodeSource codeSource = mainMenu.class.getProtectionDomain().getCodeSource();
+//            File jarFile = new File(codeSource.getLocation().toURI().getPath());
+//            String jarDir = jarFile.getParentFile().getPath();
+//
+//            /*NOTE: Creating Database Constraints*/
+//             String dbName = "YourDBName";
+//             String dbUser = "YourUserName";
+//             String dbPass = "YourUserPassword";
+//
+//            /*NOTE: Creating Path Constraints for restoring*/
+//            String restorePath = jarDir + "\\backup" + "\\" + s;
+//
+//            /*NOTE: Used to create a cmd command*/
+//            /*NOTE: Do not create a single large string, this will cause buffer locking, use string array*/
+//            String[] executeCmd = new String[]{"mysql", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
+//
+//            /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
+//            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+//            int processComplete = runtimeProcess.waitFor();
+//
+//            /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
+//            if (processComplete == 0) {
+//                JOptionPane.showMessageDialog(null, "Successfully restored from SQL : " + s);
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Error at restoring");
+//            }
+//
+//
+//        } catch (URISyntaxException | IOException | InterruptedException | HeadlessException ex) {
+//            JOptionPane.showMessageDialog(null, "Error at Restoredbfromsql" + ex.getMessage());
+//        }
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -735,6 +846,9 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

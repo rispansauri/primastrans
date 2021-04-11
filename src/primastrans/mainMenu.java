@@ -529,8 +529,8 @@ public class mainMenu extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("DATA TRANSPORT MINGGU INI");
-        masterPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 280, 70));
+        jLabel7.setText("DATA TRANSPORT 7 HARI TERAKHIR");
+        masterPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 300, 70));
 
         jLayeredPane1.setLayer(masterPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -841,31 +841,33 @@ public class mainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel4MouseClicked
     
-    String path=null;
+    String path = null;
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(this);
-        try {
+        try{
             File f = fc.getSelectedFile();
             path = f.getAbsolutePath();
             path = path.replace('\\', '/');
-       
-            String dbUserName = "root";
-            String dbPassword = "";
-            String[] restoreCmd = new String[]{"C:/xampp/mysql/bin/mysqldump.exe ", "--user=" + dbUserName, "--password=" + dbPassword, "-e", "source " + path};
-            Process runtimProcess;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
-            runtimProcess = Runtime.getRuntime().exec(restoreCmd);
-            int proceCom = runtimProcess.waitFor();
-            
-            if (proceCom==0) {
-                JOptionPane.showMessageDialog(null, "Restored Succuss");
+        String user = "root";
+        String pass = "";
+        String[] restoreCmd = new String[]{"C:/xampp/mysql/bin/mysql.exe ", "--user=" + user,"--password=" + pass, "-e","SOURCE "+path};
+        
+        Process process;
+        try {
+            process = Runtime.getRuntime().exec(restoreCmd);
+            int procCom = process.waitFor();
+            if(procCom==0){
+                JOptionPane.showMessageDialog(null, "Restored");
             }else{
-                JOptionPane.showMessageDialog(null, "Can't Restored");
+                JOptionPane.showMessageDialog(null, "Error!"+procCom);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 

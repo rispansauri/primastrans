@@ -9,6 +9,7 @@ package primastrans;
  *
  * @author R
  */
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -21,7 +22,10 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
@@ -291,6 +295,37 @@ public class frmPenghasilan extends javax.swing.JFrame {
             jTable1.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF );
+
+        for (int column = 0; column < jTable1.getColumnCount(); column++){
+            TableColumn tableColumn = jTable1.getColumnModel().getColumn(column);
+            int preferredWidth = tableColumn.getMinWidth();
+            int maxWidth = 0;
+            TableCellRenderer rend = jTable1.getTableHeader().getDefaultRenderer();
+            TableCellRenderer rendCol = tableColumn.getHeaderRenderer();
+            if (rendCol == null) rendCol = rend;
+            Component header = rendCol.getTableCellRendererComponent(jTable1, tableColumn.getHeaderValue(), false, false, 0, column);
+            maxWidth = header.getPreferredSize().width;
+            System.out.println("maxWidth :"+maxWidth);
+
+            for (int row = 0; row < jTable1.getRowCount(); row++){
+                TableCellRenderer cellRenderer = jTable1.getCellRenderer(row, column);
+                Component c = jTable1.prepareRenderer(cellRenderer, row, column);
+                int width = c.getPreferredSize().width + jTable1.getIntercellSpacing().width;
+                preferredWidth = Math.max(preferredWidth, width);
+                System.out.println("preferredWidth :"+preferredWidth);
+                System.out.println("Width :"+width);
+
+                //  We've exceeded the maximum width, no need to check other rows
+
+                if (preferredWidth <= maxWidth){
+                    preferredWidth = maxWidth;
+                    break;
+                }
+            }
+            tableColumn.setPreferredWidth(preferredWidth);
         }
     }
     

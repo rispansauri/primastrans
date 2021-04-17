@@ -116,7 +116,7 @@
 		<field name="susut_tonase" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
-		<field name="note" class="java.lang.String">
+		<field name="note" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<variable name="tonmuat" class="java.lang.Long" calculation="Sum">
@@ -146,8 +146,11 @@
 		<variable name="cashinprimas" class="java.lang.Long" calculation="Sum">
 			<variableExpression><![CDATA[$F{cashin_primas}]]></variableExpression>
 		</variable>
-		<variable name="susuttonase" class="java.lang.String" calculation="Sum">
+		<variable name="susuttonase" class="java.lang.Long" calculation="Sum">
 			<variableExpression><![CDATA[$F{susut_tonase}]]></variableExpression>
+		</variable>
+		<variable name="note" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{note}]]></variableExpression>
 		</variable>
 	</subDataset>
 	<parameter name="dari1" class="java.util.Date">
@@ -222,7 +225,7 @@
 	<field name="susut_tonase" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="note" class="java.lang.String">
+	<field name="note" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -726,7 +729,15 @@
 								<text><![CDATA[NOTE]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="table" height="30" rowSpan="1"/>
+						<jr:columnFooter style="table" height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="db52a5c9-5000-4ccd-8d40-e5118d7d9875" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{note}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
 						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
 							<textField>
 								<reportElement uuid="3c9bf876-66e9-4414-a711-36019c60c67b" x="0" y="0" width="90" height="20"/>

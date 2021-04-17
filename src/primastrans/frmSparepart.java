@@ -361,6 +361,8 @@ public class frmSparepart extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        btnHapusBarang = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtKd = new javax.swing.JTextField();
@@ -613,6 +615,38 @@ public class frmSparepart extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, -1, 20));
+
+        jPanel10.setBackground(new java.awt.Color(229, 152, 60));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 246, 233)));
+        jPanel10.setToolTipText("");
+
+        btnHapusBarang.setBackground(new java.awt.Color(204, 204, 204));
+        btnHapusBarang.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnHapusBarang.setForeground(new java.awt.Color(248, 246, 233));
+        btnHapusBarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnHapusBarang.setText("Hapus Barang");
+        btnHapusBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHapusBarangMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnHapusBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnHapusBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(248, 246, 233));
         jPanel2.setForeground(new java.awt.Color(242, 233, 242));
@@ -1301,6 +1335,26 @@ public class frmSparepart extends javax.swing.JFrame {
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel1MouseDragged
 
+    private void btnHapusBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusBarangMouseClicked
+        int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
+        if (opsi == JOptionPane.YES_OPTION){
+            try {
+                String sql ="DELETE FROM tb_sparepart_detail where no_detail='"+lblHidden1.getText()+"'";
+                java.sql.Connection conn=(Connection)Config.configDB();
+                java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+            load_table();
+            load_table2();
+            kosong();
+        }else{
+            JOptionPane.showMessageDialog(null, "Data batal dihapus.");
+        }
+    }//GEN-LAST:event_btnHapusBarangMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1342,6 +1396,7 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JLabel btnBatalbarang;
     private javax.swing.JLabel btnCetak;
     private javax.swing.JLabel btnHapus;
+    private javax.swing.JLabel btnHapusBarang;
     private javax.swing.JLabel btnSimpan;
     private javax.swing.JLabel btnSimpanbarang;
     private javax.swing.JLabel btnTambahBarang;
@@ -1369,6 +1424,7 @@ public class frmSparepart extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

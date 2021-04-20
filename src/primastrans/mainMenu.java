@@ -819,9 +819,11 @@ public class mainMenu extends javax.swing.JFrame {
     String filename;
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         JFileChooser path = new JFileChooser();
-        path.showOpenDialog(this);
         Process p = null;
-        try{
+        
+        int result = path.showSaveDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            try{
             File f =path.getSelectedFile();
             location = f.getAbsolutePath();
             location = location.replace('\\', '/');
@@ -834,18 +836,27 @@ public class mainMenu extends javax.swing.JFrame {
             if(exitVal == 0){
                 JOptionPane.showMessageDialog(null, "Data Dibackup!");
             }else{
-                JOptionPane.showMessageDialog(null, "Error!");
+                JOptionPane.showMessageDialog(null, "Error!" + exitVal);
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            
+        } else if (result == JFileChooser.CANCEL_OPTION) {
+            
         }
+        
+        
     }//GEN-LAST:event_jLabel4MouseClicked
     
     String path = null;
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         JFileChooser fc = new JFileChooser();
-        fc.showOpenDialog(this);
-        try{
+        
+        int result = fc.showSaveDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            
+            try{
             File f = fc.getSelectedFile();
             path = f.getAbsolutePath();
             path = path.replace('\\', '/');
@@ -869,6 +880,12 @@ public class mainMenu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+            
+        } else if (result == JFileChooser.CANCEL_OPTION) {
+            
+        }
+        
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

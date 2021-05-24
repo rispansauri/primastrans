@@ -168,6 +168,7 @@ public class frmOli extends javax.swing.JFrame {
         jSeparator6.setVisible(false);
         txtRit.setEnabled(false);
         boxReset.setEnabled(false);
+        boxReset.setSelected(false);
     }
     
     private void kosong(){
@@ -224,8 +225,8 @@ public class frmOli extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         txtRit = new javax.swing.JTextField();
         lblhidden = new javax.swing.JLabel();
-        boxReset = new java.awt.Checkbox();
         txtNote = new javax.swing.JTextField();
+        boxReset = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -596,19 +597,21 @@ public class frmOli extends javax.swing.JFrame {
         lblhidden.setText("0");
         jPanel2.add(lblhidden, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
-        boxReset.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        boxReset.setLabel("Ganti Oli?");
+        txtNote.setBackground(new java.awt.Color(248, 246, 233));
+        txtNote.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtNote.setBorder(null);
+        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 210, 30));
+
+        boxReset.setBackground(new java.awt.Color(248, 246, 233));
+        boxReset.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        boxReset.setForeground(new java.awt.Color(102, 102, 102));
+        boxReset.setText("Ganti Oli?");
         boxReset.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 boxResetItemStateChanged(evt);
             }
         });
-        jPanel2.add(boxReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 90, -1));
-
-        txtNote.setBackground(new java.awt.Color(248, 246, 233));
-        txtNote.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txtNote.setBorder(null);
-        jPanel2.add(txtNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 210, 30));
+        jPanel2.add(boxReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -749,8 +752,7 @@ public class frmOli extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRitFocusLost
 
     private void txtRitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitKeyReleased
-        boolean checked = boxReset.getState();
-        if(checked) {
+        if(boxReset.isSelected()) {
             long a = Long.parseLong(txtRit.getText());
             long c = a * 300;
             txtJarak.setText(Long.toString(c));
@@ -761,19 +763,6 @@ public class frmOli extends javax.swing.JFrame {
             txtJarak.setText(Long.toString(c));
         }
     }//GEN-LAST:event_txtRitKeyReleased
-
-    private void boxResetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxResetItemStateChanged
-        boolean checked = boxReset.getState();
-        if(checked) {
-            txtNote.setVisible(true);
-            jLabel6.setVisible(true);
-            jSeparator6.setVisible(true);
-        }else{
-            txtNote.setVisible(false);
-            jLabel6.setVisible(false);
-            jSeparator6.setVisible(false);
-        }
-    }//GEN-LAST:event_boxResetItemStateChanged
     
     int xy, xx;
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
@@ -786,6 +775,18 @@ public class frmOli extends javax.swing.JFrame {
         xx = evt.getX();
         xy = evt.getY();
     }//GEN-LAST:event_jPanel1MousePressed
+
+    private void boxResetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxResetItemStateChanged
+        if(boxReset.isSelected()) {
+            txtNote.setVisible(true);
+            jLabel6.setVisible(true);
+            jSeparator6.setVisible(true);
+        }else{
+            txtNote.setVisible(false);
+            jLabel6.setVisible(false);
+            jSeparator6.setVisible(false);
+        }
+    }//GEN-LAST:event_boxResetItemStateChanged
 
     
     
@@ -825,7 +826,7 @@ public class frmOli extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox boxReset;
+    private javax.swing.JCheckBox boxReset;
     private javax.swing.JLabel btnBaru;
     private javax.swing.JLabel btnBatal;
     private javax.swing.JLabel btnCetak;

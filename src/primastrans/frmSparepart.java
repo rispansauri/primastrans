@@ -1058,17 +1058,16 @@ public class frmSparepart extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBaruMouseClicked
 
     private void btnCetakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetakMouseClicked
-                    HashMap param = new HashMap();
-                    param.put("mobil",cmbMobil.getSelectedItem());
-                    param.put("dari",cmbDari.getDate());
-                    param.put("sampai",cmbSampai.getDate());
-                try {
-                        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSparepart.jasper"), param, Config.configDB());
-                        JasperViewer.viewReport(jp, false);
-                        
-                    } catch(Exception e) {
-                        JOptionPane.showMessageDialog(rootPane, e);
-                    }
+        HashMap param = new HashMap();
+        param.put("mobil",cmbMobil.getSelectedItem());
+        param.put("dari",cmbDari.getDate());
+        param.put("sampai",cmbSampai.getDate());
+        try {
+            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptSparepart.jasper"), param, Config.configDB());
+            JasperViewer.viewReport(jp, false);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
     }//GEN-LAST:event_btnCetakMouseClicked
 
     private void btnHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusMouseClicked
@@ -1343,6 +1342,11 @@ public class frmSparepart extends javax.swing.JFrame {
                 java.sql.Connection conn=(Connection)Config.configDB();
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();
+                
+                String sql1 ="UPDATE tb_sparepart SET total = '"+txtTotal.getText()+"' WHERE kd_belanja = '"+txtKd.getText()+"'";
+                java.sql.PreparedStatement pst1=conn.prepareStatement(sql1);
+                pst1.execute();
+                
                 JOptionPane.showMessageDialog(this, "Data berhasil dihapus.");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());

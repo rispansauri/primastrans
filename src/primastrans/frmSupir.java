@@ -250,6 +250,9 @@ public class frmSupir extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNIKFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNIKFocusLost(evt);
+            }
         });
         jPanel2.add(txtNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 210, 30));
 
@@ -261,6 +264,9 @@ public class frmSupir extends javax.swing.JFrame {
         txtNama.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNamaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNamaFocusLost(evt);
             }
         });
         jPanel2.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 210, 30));
@@ -459,13 +465,15 @@ public class frmSupir extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalMouseClicked
 
     private void txtNIKFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNIKFocusGained
-        // TODO add your handling code here:
-        txtNIK.setText("");
+        if (txtNIK.getText().equals("NIK")){
+            txtNIK.setText("");
+        }
     }//GEN-LAST:event_txtNIKFocusGained
 
     private void txtNamaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaFocusGained
-        // TODO add your handling code here:
-        txtNama.setText("");
+        if (txtNama.getText().equals("Nama")){
+            txtNama.setText("");
+        }
     }//GEN-LAST:event_txtNamaFocusGained
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -483,6 +491,18 @@ public class frmSupir extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void txtNIKFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNIKFocusLost
+        if (txtNIK.getText().equals("")){
+            txtNIK.setText("NIK");
+        }
+    }//GEN-LAST:event_txtNIKFocusLost
+
+    private void txtNamaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaFocusLost
+        if (txtNama.getText().equals("")){
+            txtNama.setText("Nama");
+        }
+    }//GEN-LAST:event_txtNamaFocusLost
     
     
     

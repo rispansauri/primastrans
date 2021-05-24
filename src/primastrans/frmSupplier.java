@@ -614,7 +614,7 @@ public class frmSupplier extends javax.swing.JFrame {
         int opsi = JOptionPane.showConfirmDialog(null, "Benarkah anda ingin menghapus data ini?", "Penghapusan Data", JOptionPane.YES_NO_OPTION);
         if (opsi == JOptionPane.YES_OPTION){
             try {
-                String sql ="delete from tb_supplier_supir where id_supplier='"+txtIDSupp.getText()+"'";
+                String sql ="delete from tb_supplier where id_supplier='"+txtIDSupp.getText()+"'";
                 java.sql.Connection conn=(Connection)Config.configDB();
                 java.sql.PreparedStatement pst=conn.prepareStatement(sql);
                 pst.execute();

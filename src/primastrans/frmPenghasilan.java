@@ -1201,10 +1201,6 @@ public class frmPenghasilan extends javax.swing.JFrame {
         jSeparator11.setVisible(false);
         jSeparator12.setVisible(false);
         jSeparator13.setVisible(false);
-        txtSplit.setText("0");
-        txtBeskos.setText("0");
-        txtRitBeskos.setText("0");
-        txtLoading.setText("0");
         }
     }//GEN-LAST:event_cbxPenghasilanTambahanStateChanged
 

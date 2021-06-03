@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1560" pageHeight="900" orientation="Landscape" columnWidth="1520" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa3cad10-87b9-4e86-99b6-40f0018563bb">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="390"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -64,7 +64,7 @@
 		</box>
 	</style>
 	<subDataset name="transport_mobil" uuid="12fddea5-3852-4285-b3a0-05ccf254b4c3">
-		<parameter name="mobil2" class="java.lang.String"/>
+		<parameter name="supir2" class="java.lang.String"/>
 		<parameter name="dari2" class="java.util.Date">
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
@@ -72,7 +72,7 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[select * from tb_transport where kd_mobil=$P{mobil2} and tgl_muat between $P{dari2} and $P{sampai2} order by tgl_muat]]>
+			<![CDATA[select * from tb_transport where nm_supir=$P{supir2} and tgl_muat between $P{dari2} and $P{sampai2} order by tgl_muat]]>
 		</queryString>
 		<field name="kd_transport" class="java.lang.String">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -137,7 +137,7 @@
 		<field name="susut_tonase" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
-		<field name="note" class="java.lang.String">
+		<field name="note" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<variable name="tonmuat" class="java.lang.Long" calculation="Sum">
@@ -174,7 +174,9 @@
 			<groupExpression><![CDATA[$F{nopol}]]></groupExpression>
 		</group>
 	</subDataset>
-	<parameter name="mobil1" class="java.lang.String"/>
+	<parameter name="supir1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<parameter name="dari1" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -263,7 +265,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BATUBARA\nTANGGAL " + (new SimpleDateFormat("dd MMMM yyyy").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1})) + "\n" +$P{mobil1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["BATUBARA\nTANGGAL " + (new SimpleDateFormat("dd MMMM yyyy").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1})) + "\n" +$P{supir1}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -276,8 +278,8 @@
 				<reportElement uuid="3c02561f-d5ed-4531-be58-785fda769c7f" key="table 2" style="table 2" x="0" y="0" width="1520" height="227"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="transport_mobil" uuid="103d4e8a-61b4-4f7b-b01d-abadc7e3b39c">
-						<datasetParameter name="mobil2">
-							<datasetParameterExpression><![CDATA[$P{mobil1}]]></datasetParameterExpression>
+						<datasetParameter name="supir2">
+							<datasetParameterExpression><![CDATA[$P{supir1}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="dari2">
 							<datasetParameterExpression><![CDATA[$P{dari1}]]></datasetParameterExpression>
@@ -782,23 +784,23 @@
 		</band>
 	</columnHeader>
 	<pageFooter>
-		<band height="139" splitType="Stretch">
+		<band height="136" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="1357" y="37" width="149" height="23"/>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="1354" y="37" width="149" height="23"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Yang Melaporkan,]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="1357" y="17" width="149" height="20"/>
+				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="1354" y="17" width="149" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="1357" y="101" width="149" height="23"/>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="1354" y="101" width="149" height="23"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>

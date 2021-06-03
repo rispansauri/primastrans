@@ -25,7 +25,7 @@
 	<field name="jarak" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="note" class="java.lang.Integer">
+	<field name="note" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<variable name="variable1" class="java.lang.String" resetType="Column">

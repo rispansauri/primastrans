@@ -44,6 +44,7 @@ public class frmTransport extends javax.swing.JFrame {
         cmbNopol();
         cmbSupp();
         cmbKdDO();
+        cmbSpr();
                 
         
         cmbID.addActionListener(new ActionListener(){
@@ -1191,6 +1192,21 @@ public class frmTransport extends javax.swing.JFrame {
         
     }
       
+     private void cmbSpr() {
+        try { 
+            String sql = "SELECT DISTINCT nm_supir FROM tb_transport";
+            java.sql.Connection conn=Config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            java.sql.ResultSet res=stm.executeQuery(sql);
+            while(res.next()){
+                cmbSopir.addItem(res.getString("nm_supir"));
+            }
+        }catch (Exception e) {
+            
+        }
+        
+    }
+      
     private void cmbKdDO() {
         try { 
             String sql = "select * from tb_supplier";
@@ -1763,9 +1779,9 @@ public class frmTransport extends javax.swing.JFrame {
     private void btnCetak3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCetak3MouseClicked
         // TODO add your handling code here:
         HashMap param = new HashMap();
-                    param.put("supir",cmbSopir.getSelectedItem());
-                    param.put("dari",cmbDari.getDate());
-                    param.put("sampai",cmbSampai.getDate());
+                    param.put("supir1",cmbSopir.getSelectedItem());
+                    param.put("dari1",cmbDari.getDate());
+                    param.put("sampai1",cmbSampai.getDate());
                 try {
                         JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("rptTransportSupir.jasper"), param, Config.configDB());
                         JasperViewer.viewReport(jp, false);

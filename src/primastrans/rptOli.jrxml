@@ -63,21 +63,21 @@
 	<pageFooter>
 		<band height="134" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="640" y="31" width="149" height="23"/>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="624" y="34" width="149" height="23"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Yang Melaporkan,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="640" y="95" width="149" height="23"/>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="624" y="98" width="149" height="23"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[..............................]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="640" y="11" width="149" height="20"/>
+				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="624" y="14" width="149" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>

@@ -93,7 +93,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<textFieldExpression><![CDATA["UPAH SUPIR BATUBARA\nPER " + (new SimpleDateFormat("dd MMMM").format($P{dari})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA["UPAH SUPIR BATUBARA PT PRIMASTRANS\nPER " + (new SimpleDateFormat("dd MMMM").format($P{dari})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai}))]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

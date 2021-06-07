@@ -273,9 +273,9 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="122" splitType="Stretch">
+		<band height="126" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="c67d46d7-2b0d-4c1a-9e2e-8bbbda45a868" key="table 4" style="table 4" x="0" y="0" width="960" height="122"/>
+				<reportElement uuid="c67d46d7-2b0d-4c1a-9e2e-8bbbda45a868" key="table 4" style="table 4" x="0" y="0" width="960" height="126"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DS penghasilan" uuid="a76f7608-7e36-4caf-8587-0fe039cf7f20">
 						<datasetParameter name="bulan1">
@@ -599,26 +599,26 @@
 	</detail>
 	<pageFooter>
 		<band height="130" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="798" y="33" width="149" height="23"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Yang Melaporkan,]]></text>
-			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="798" y="13" width="149" height="20"/>
+				<reportElement uuid="0543b18e-bb59-4610-b364-98d7e2c8aa9c" x="793" y="14" width="149" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="798" y="97" width="149" height="23"/>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="793" y="98" width="149" height="23"/>
 				<textElement textAlignment="Center">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[..............................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66217d33-a0ac-4bfa-9662-319b494147e0" x="793" y="34" width="149" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Yang Melaporkan,]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

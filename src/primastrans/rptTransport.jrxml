@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1580" pageHeight="900" orientation="Landscape" columnWidth="1540" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="193d4db2-4900-4230-a7fd-7c97e1f8e281">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="410"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -238,7 +238,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
-				<textFieldExpression><![CDATA["BATUBARA\nTANGGAL " + (new SimpleDateFormat("dd MMMM yyyy").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA["LAPORAN TRANSPORT BATUBARA PT PRIMASTRANS\nTANGGAL " + (new SimpleDateFormat("dd MMMM yyyy").format($P{dari1})) + " - " + (new SimpleDateFormat("dd MMMM yyyy").format($P{sampai1}))]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
